@@ -1,5 +1,6 @@
 package com.smartbrain.giovanny.smartbrain;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -8,7 +9,7 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 
 
-public class SplashActivity extends ActionBarActivity {
+public class SplashActivity extends Activity {
 
     private Thread mSplashThread;
 
