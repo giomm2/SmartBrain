@@ -6,13 +6,29 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.abcsoft.smarttbrain.services.ConnectionService;
+
+import java.sql.SQLException;
+import java.sql.Statement;
+
 
 public class MainActivity extends Activity {
+
+    ConnectionService service = ConnectionService.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        try {
+            service.insertUser();
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
