@@ -10,10 +10,11 @@ import java.sql.Statement;
 
 /**
  * Created by Mayron  Corrales on 07/06/2015.
+ * Servicio que me permite establecer la conexion y cerrarla.
  */
 public class ConnectionService {
 
-    private static Connection con = null;
+    static Connection con = null;
     private final static String user = "root";
     private final static String password="LPBpyc67673";
     private final static String url="jdbc:mysql://162.219.247.33:3306/AbcSoftDB";
@@ -53,41 +54,14 @@ public class ConnectionService {
     // cierro la conexion
     public void closeConnection() throws SQLException {
         try {
-            if(con != null)
+            if(con != null){
                 con.close();
+                System.out.println("Cerre la DB");
+            }
+
         } catch (SQLException exception) {
             exception.printStackTrace();
         }
     }
-
-    public boolean insertUser() throws SQLException, ClassNotFoundException {
-        boolean flag = false;
-        String insert="insert into AbcSoftDB.mail(iduser, mail) values(4,'celeste@correo.com');";
-        this.getConnection();
-        try {
-            PreparedStatement smt = con.prepareStatement(insert);
-            smt.executeUpdate();
-            flag = true;
-
-        }catch (Exception ex){
-            ex.printStackTrace();
-        }finally {
-            this.closeConnection();
-        }
-        return flag;
-    }
-
-    //try
-    //{
-      //  Class.forName("com.mysql.jdbc.Driver");
-        //Connection conn = null;
-        //conn = DriverManager.getConnection("jdbc:mysql://162.219.247.33:3306/AbcSoftDB", "root", "LPBpyc67673");
-        //System.out.print("Database is connected !");
-        //conn.close();
-    //} catch (Exception e) {
-      //  System.out.print("Do not connect to DB - Error:"+e);
-    //}
-
-
 
 }
