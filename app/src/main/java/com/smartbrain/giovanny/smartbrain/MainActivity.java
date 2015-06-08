@@ -14,21 +14,14 @@ import java.sql.Statement;
 
 public class MainActivity extends Activity {
 
-    ConnectionService service = ConnectionService.getInstance();
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        try {
-            service.insertUser();
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
     }
 
     @Override
