@@ -5,14 +5,23 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.abcsoft.smarttbrain.services.ConnectionService;
+import com.abcsoft.smarttbrain.services.User;
+import com.abcsoft.smarttbrain.services.UserService;
 
 import java.sql.SQLException;
-import java.sql.Statement;
+
 
 
 public class MainActivity extends Activity {
+
+    private Button playButton;
+    private EditText username;
+    UserService service = new UserService();
 
 
 
@@ -21,6 +30,26 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        playButton= (Button)findViewById(R.id.btn_play);
+        username = (EditText)findViewById(R.id.txt_name);
+
+        playButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                User user = new User(username.getText().toString(),0,2);
+                try {
+                    service.insertUser(user);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
 
     }
 

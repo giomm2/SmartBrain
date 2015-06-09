@@ -30,4 +30,59 @@ public class UserService extends ConnectionService {
         }
         return flag;
     }
+
+    public boolean deleteUser(User user) throws ClassNotFoundException, SQLException{
+        boolean flag= false;
+        String delete="delete from AbcSoftDB.user where (name= ? and points =?); ";
+        getConnection();
+        try {
+            PreparedStatement stm = con.prepareStatement(delete);
+            stm.setString(1, user.getName());
+            stm.setDouble(2, user.getPoints());
+            stm.executeUpdate();
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            closeConnection();
+        }
+
+        return flag;
+    }
+
+    public boolean updateUsername(User user) throws ClassNotFoundException, SQLException{
+        boolean flag = false;
+        String update= "update AbcSoftDB.user set name = ? where mail_iduser = ?;  ";
+        getConnection();
+        try {
+            PreparedStatement stm = con.prepareStatement(update);
+            stm.setString(1, user.getName());
+            stm.setInt(2,user.getIdMail());
+            stm.executeUpdate();
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            closeConnection();
+        }
+        return flag;
+    }
+    public boolean updateUserPoints(User user) throws ClassNotFoundException, SQLException{
+        boolean flag = false;
+        String update= "update AbcSoftDB.user set points = points + ? where (name = ? and mail_iduser = ?);  ";
+        getConnection();
+        try {
+            PreparedStatement stm = con.prepareStatement(update);
+            stm.setDouble(1, user.getPoints());
+            stm.setString(2, user.getName());
+            stm.setInt(3, user.getIdMail());
+            stm.executeUpdate();
+            stm.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally{
+            closeConnection();
+        }
+        return flag;
+    }
 }
