@@ -39,7 +39,7 @@ public class SplashActivity extends Activity {
 
 
 
-                        wait(5000);
+                        wait(8000);
 
                     }
 
