@@ -22,5 +22,5 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     compile 'com.android.support:appcompat-v7:22.1.1'
-    compile files('src/Libraries/mysql-connector-java-5.1.35-bin.jar')
+    compile files('src/libs/android-async-http-1.4.4.jar')
 }
