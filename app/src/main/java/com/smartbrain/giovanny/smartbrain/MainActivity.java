@@ -6,8 +6,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -23,11 +26,12 @@ public class MainActivity extends Activity {
     private Button playButton;
     private EditText username;
     ProgressDialog prgDialog;
-
-
-
-
-
+    private ImageView imgg1;
+    private ImageView imgg2;
+    private ImageView imgg3;
+    private ImageView imgg4;
+    private ImageView nube1;
+    private ImageView nube2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,13 @@ public class MainActivity extends Activity {
 
         playButton= (Button)findViewById(R.id.btn_play);
         username = (EditText)findViewById(R.id.txt_name);
+        imgg1=(ImageView)findViewById(R.id.imageg1);
+        imgg2=(ImageView)findViewById(R.id.imageg2);
+        imgg3=(ImageView)findViewById(R.id.imageg3);
+        imgg4=(ImageView)findViewById(R.id.imageg4);
+        nube1=(ImageView)findViewById(R.id.nub1);
+        nube2=(ImageView)findViewById(R.id.nub2);
+
         prgDialog = new ProgressDialog(this);
         // Set Progress Dialog Text
         prgDialog.setMessage("Please wait...");
@@ -124,6 +135,46 @@ public class MainActivity extends Activity {
                 }
             }
         });
+    }
+
+
+    @Override
+
+    protected void onStart() {
+
+        super.onStart();
+        int cont=0;
+        Animation mov;
+        mov = AnimationUtils.loadAnimation(this, R.anim.upanim);
+        mov.reset();
+        imgg1.startAnimation(mov);
+        imgg2.startAnimation(mov);
+        imgg3.startAnimation(mov);
+        imgg4.startAnimation(mov);
+
+    }
+
+
+    @Override
+
+    protected void onResume() {
+
+        super.onResume();
+
+        Animation mov;
+        Animation movn;
+        mov = AnimationUtils.loadAnimation(this, R.anim.upanim);
+        mov.reset();
+        imgg1.startAnimation(mov);
+        imgg2.startAnimation(mov);
+        imgg3.startAnimation(mov);
+        imgg4.startAnimation(mov);
+
+
+        movn = AnimationUtils.loadAnimation(this, R.anim.rightanim);
+        movn.reset();
+        nube1.startAnimation(movn);
+        nube2.startAnimation(movn);
     }
 
     @Override
