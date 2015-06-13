@@ -8,17 +8,16 @@
     android:background="@drawable/f">
 
     <Button
-        android:layout_width="120dp"
+        android:layout_width="150dp"
         android:layout_height="40dp"
         android:text="Play"
         android:id="@+id/btn_play"
         android:background="#ffa1daff"
         android:textStyle="italic"
-        android:layout_alignTop="@+id/txt_name"
-        android:layout_toRightOf="@+id/txt_name"
-        android:layout_toEndOf="@+id/txt_name"
         android:typeface="monospace"
-        />
+        android:layout_alignTop="@+id/txt_name"
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2" />
 
     <EditText
         android:layout_width="200dp"
@@ -30,34 +29,32 @@
         android:singleLine="false"
         android:autoText="false"
         android:textColor="#ff7f82ff"
-        android:layout_marginLeft="118dp"
-        android:layout_marginStart="118dp"
         android:layout_centerVertical="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toLeftOf="@+id/btn_play"
+        android:layout_toStartOf="@+id/btn_play" />
 
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/imageg1"
         android:background="@drawable/globo"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/btn_play"
-        android:layout_alignStart="@+id/btn_play" />
+        android:layout_alignTop="@+id/imageg2"
+        android:layout_toRightOf="@+id/imageView2"
+        android:layout_toEndOf="@+id/imageView2" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/imageg2"
         android:background="@drawable/globo2"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/txt_name"
-        android:layout_alignStart="@+id/txt_name" />
+        android:layout_toLeftOf="@+id/btn_play"
+        android:layout_toStartOf="@+id/btn_play" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/imageg3"
         android:background="@drawable/globo"
         android:layout_below="@+id/txt_name"
@@ -65,8 +62,8 @@
         android:layout_toStartOf="@+id/imageg2" />
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/imageg4"
         android:background="@drawable/globo2"
         android:layout_alignTop="@+id/btn_play"
@@ -74,16 +71,16 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:layout_width="1000dp"
-        android:layout_height="1000dp"
+        android:layout_width="1500dp"
+        android:layout_height="1500dp"
         android:id="@+id/imageView"
         android:background="@drawable/arcoiris"
         android:layout_above="@+id/imageg3"
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:id="@+id/nub1"
         android:background="@drawable/nube"
         android:layout_alignBottom="@+id/btn_play"
@@ -91,23 +88,30 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
         android:id="@+id/nub2"
         android:background="@drawable/nube"
-        android:layout_below="@+id/nub1"
-        android:layout_alignLeft="@+id/imageView"
-        android:layout_alignStart="@+id/imageView"
-        android:layout_marginLeft="47dp"
-        android:layout_marginStart="47dp" />
+        android:layout_below="@+id/btn_play"
+        android:layout_alignRight="@+id/imageg4"
+        android:layout_alignEnd="@+id/imageg4" />
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:id="@+id/imageView2"
         android:background="@drawable/smart"
         android:layout_above="@+id/nub2"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Button"
+        android:id="@+id/button3"
+        android:layout_below="@+id/imageg4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

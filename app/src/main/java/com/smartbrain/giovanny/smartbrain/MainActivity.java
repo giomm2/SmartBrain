@@ -2,6 +2,7 @@ package com.smartbrain.giovanny.smartbrain;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
 
     private Button playButton;
     private EditText username;
@@ -32,6 +33,8 @@ public class MainActivity extends Activity {
     private ImageView imgg4;
     private ImageView nube1;
     private ImageView nube2;
+
+    private Button bnext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +48,11 @@ public class MainActivity extends Activity {
         imgg4=(ImageView)findViewById(R.id.imageg4);
         nube1=(ImageView)findViewById(R.id.nub1);
         nube2=(ImageView)findViewById(R.id.nub2);
+
+
+        bnext=(Button)findViewById(R.id.button);
+        bnext.setOnClickListener(this);
+
 
         prgDialog = new ProgressDialog(this);
         // Set Progress Dialog Text
@@ -143,14 +151,9 @@ public class MainActivity extends Activity {
     protected void onStart() {
 
         super.onStart();
-        int cont=0;
-        Animation mov;
-        mov = AnimationUtils.loadAnimation(this, R.anim.upanim);
-        mov.reset();
-        imgg1.startAnimation(mov);
-        imgg2.startAnimation(mov);
-        imgg3.startAnimation(mov);
-        imgg4.startAnimation(mov);
+        upBallons();
+        rightCloud();
+        leftCloud();
 
     }
 
@@ -161,8 +164,32 @@ public class MainActivity extends Activity {
 
         super.onResume();
 
-        Animation mov;
+        upBallons();
+        rightCloud();
+        leftCloud();
+
+    }
+
+   private void rightCloud(){
+       Animation movn;
+       movn = AnimationUtils.loadAnimation(this, R.anim.rightanim);
+       movn.reset();
+       nube1.startAnimation(movn);
+
+   }
+
+    private void leftCloud(){
+
         Animation movn;
+        movn = AnimationUtils.loadAnimation(this, R.anim.leftanim);
+        movn.reset();
+        nube2.startAnimation(movn);
+
+    }
+
+    private void upBallons(){
+
+        Animation mov;
         mov = AnimationUtils.loadAnimation(this, R.anim.upanim);
         mov.reset();
         imgg1.startAnimation(mov);
@@ -170,32 +197,21 @@ public class MainActivity extends Activity {
         imgg3.startAnimation(mov);
         imgg4.startAnimation(mov);
 
-
-        movn = AnimationUtils.loadAnimation(this, R.anim.rightanim);
-        movn.reset();
-        nube1.startAnimation(movn);
-        nube2.startAnimation(movn);
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+    public void onClick(View v) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (v.getId()){
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            case R.id.button:{
+
+                Intent intent= new Intent(this,MenuEasyActivity.class);
+                startActivity(intent);
+
+
+            }
+
         }
-
-        return super.onOptionsItemSelected(item);
     }
 }

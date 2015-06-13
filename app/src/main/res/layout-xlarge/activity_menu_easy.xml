@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.smartbrain.giovanny.smartbrain.MenuEasyActivity"
+    android:background="@drawable/fmar">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:id="@+id/imgblue"
+        android:background="@drawable/pazul"
+        android:layout_below="@+id/imageView7"
+        android:layout_alignLeft="@+id/imgorange"
+        android:layout_alignStart="@+id/imgorange" />
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:id="@+id/imgorange"
+        android:background="@drawable/pez"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="450dp"
+        android:layout_height="450dp"
+        android:id="@+id/imgbubble"
+        android:background="@drawable/burbujas"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView7"
+
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:id="@+id/btnfamily"
+        android:background="@drawable/bfamily"
+        android:layout_alignTop="@+id/btnbody"
+        android:layout_toLeftOf="@+id/btnbody"
+        android:layout_toStartOf="@+id/btnbody" />
+
+    <ImageButton
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:id="@+id/btnbody"
+        android:background="@drawable/bbody"
+        android:layout_alignTop="@+id/btnvowel"
+        android:layout_toLeftOf="@+id/btnvowel"
+        android:layout_toStartOf="@+id/btnvowel" />
+
+    <ImageButton
+        android:layout_width="260dp"
+        android:layout_height="260dp"
+        android:id="@+id/btnvowel"
+        android:background="@drawable/bvowel"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>
