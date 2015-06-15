@@ -72,7 +72,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 } else {
                     params.put("name", name);
                     params.put("points", points);
-                    params.put("idmail", idMail);
+                    params.put("iddevice", idMail);
                     // Invoke RESTful Web Service with Http parameters
                     prgDialog.show();
                     // Make RESTful webservice call using AsyncHttpClient object
