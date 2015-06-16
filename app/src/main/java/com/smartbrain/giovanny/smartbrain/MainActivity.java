@@ -22,7 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends Activity  {
 
     private Button playButton;
     private EditText username;
@@ -52,7 +52,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
 
         bnext=(Button)findViewById(R.id.button);
-        bnext.setOnClickListener(this);
+
 
 
         prgDialog = new ProgressDialog(this);
@@ -199,19 +199,5 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     }
 
-    @Override
-    public void onClick(View v) {
 
-        switch (v.getId()){
-
-            case R.id.button:{
-
-                Intent intent= new Intent(this,MenuEasyActivity.class);
-                startActivity(intent);
-
-
-            }
-
-        }
-    }
 }
