@@ -25,28 +25,15 @@ import javax.xml.parsers.SAXParserFactory;
 public class SplashActivity extends Activity {
 
     private Thread mSplashThread;
-    private RequestParams params;
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
-    private int id = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        String uniqueDevice = "";
-        params = new RequestParams();
-        uniqueDevice = getUniqueDevice();
-        params.put("uniquedevice",uniqueDevice);
-        invokeWebService();
-        invokeSelect();
+
 
 
 
@@ -68,6 +55,7 @@ public class SplashActivity extends Activity {
             }
         };
         mSplashThread.start();
+
     }
 
     @Override
@@ -79,73 +67,4 @@ public class SplashActivity extends Activity {
         }
         return true;
     }
-
-    public String getUniqueDevice(){
-        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        String idDevice = telephonyManager.getDeviceId().toString();
-        return idDevice;
-    }
-
-
-
-    public void invokeWebService(){
-        final AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://162.219.247.87/device/dodeviceregister", params, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(String response) {
-            }
-
-            @Override
-            public void onFailure(int statusCode, Throwable error, String content) {
-            }
-        });
-    }
-
-    public void invokeSelect(){
-
-        final AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://162.219.247.87/device/getiddevice", params, new AsyncHttpResponseHandler(){
-            @Override
-            public void onSuccess(String response) {
-                try {
-                    // JSON Object
-                    JSONObject obj = new JSONObject(response);
-                    // When the JSON response has status boolean value assigned with true
-                    if (obj.getBoolean("status")) {
-                        // Set Default Values for Edit View controls
-                        setId(obj.getInt("id"));
-                        // Display successfully registered message using Toast
-                        Toast.makeText(getApplicationContext(), "You are successfully registered!", Toast.LENGTH_LONG).show();
-                    }
-                    // Else display error message
-                    else {
-
-                        Toast.makeText(getApplicationContext(), obj.getString("error_msg"), Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    Toast.makeText(getApplicationContext(), "Error Occured [Server's JSON response might be invalid]!", Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
-
-                }
-            }
-
-            @Override
-            public void onFailure(int statusCode, Throwable error,String content) {
-                System.out.print("no lo hice");
-                if (statusCode == 404) {
-                    Toast.makeText(getApplicationContext(), "Requested resource not found", Toast.LENGTH_LONG).show();
-                }
-                // When Http response code is '500'
-                else if (statusCode == 500) {
-                    Toast.makeText(getApplicationContext(), "Something went wrong at server end", Toast.LENGTH_LONG).show();
-                }
-                // When Http response code other than 404, 500
-                else {
-                    Toast.makeText(getApplicationContext(), "Unexpected Error occcured! [Most common Error: Device might not be connected to Internet or remote server is not up and running]", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
-    }
-
 }

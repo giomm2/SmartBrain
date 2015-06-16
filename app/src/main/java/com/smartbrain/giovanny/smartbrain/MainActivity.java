@@ -2,8 +2,10 @@ package com.smartbrain.giovanny.smartbrain;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,7 +37,23 @@ public class MainActivity extends Activity  {
     private ImageView nube2;
     SplashActivity act = new SplashActivity();
 
+
     private Button bnext;
+
+
+    private RequestParams parameters;
+    private RequestParams parametersForSelect;
+    String uniqueDevice = "";
+    private String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,20 +78,28 @@ public class MainActivity extends Activity  {
         prgDialog.setMessage("Please wait...");
         // Set Cancelable as False
         prgDialog.setCancelable(false);
+        parameters = new RequestParams();
+        uniqueDevice = getUniqueDevice();
+        parameters.put("iddevice",uniqueDevice);
+        parameters.put("uniquedevice", uniqueDevice);
+        invokeWebServiceForInsert();
+
+
+        invokeSelect();
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = username.getText().toString();
                 String points = "0";
-                String iddevice = ""+act.getId() ;
+                String idDevice = getId();
                 RequestParams params = new RequestParams();
                 if (username.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, "Can´t leave name in blank", Toast.LENGTH_SHORT).show();
                 } else {
                     params.put("name", name);
                     params.put("points", points);
-                    params.put("iddevice",iddevice);
+                    params.put("iddevice",idDevice);
                     // Invoke RESTful Web Service with Http parameters
                     prgDialog.show();
                     // Make RESTful webservice call using AsyncHttpClient object
@@ -197,6 +223,58 @@ public class MainActivity extends Activity  {
         imgg3.startAnimation(mov);
         imgg4.startAnimation(mov);
 
+    }
+
+    public String getUniqueDevice(){
+        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+        String idDevice = telephonyManager.getDeviceId().toString();
+        return idDevice;
+    }
+
+    public void invokeWebServiceForInsert(){
+        final AsyncHttpClient client = new AsyncHttpClient();
+        client.get("http://162.219.247.87/device/dodeviceregister", parameters, new AsyncHttpResponseHandler() {
+            @Override
+            public void onSuccess(String response) {
+            }
+
+            @Override
+            public void onFailure(int statusCode, Throwable error, String content) {
+            }
+        });
+    }
+
+    public void invokeSelect(){
+
+        final AsyncHttpClient client = new AsyncHttpClient();
+        client.get("http://162.219.247.87/device/getiddevice?uniquedevice="+uniqueDevice, parametersForSelect, new AsyncHttpResponseHandler(){
+            @Override
+            public void onSuccess(String response) {
+                try {
+                    // JSON Object
+                    JSONObject obj = new JSONObject(response);
+                    // When the JSON response has status boolean value assigned with true
+                    if (obj.getBoolean("status")) {
+                        // Set Default Values for Edit View controls
+                        setId(obj.getString("id"));
+                    }
+                    // Else display error message
+                    else {
+                        Toast.makeText(getApplicationContext(), obj.getString("error_msg"), Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    Toast.makeText(getApplicationContext(), "Error Occured [Server's JSON response might be invalid]!", Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Throwable error,String content) {
+
+            }
+        });
     }
 
 
