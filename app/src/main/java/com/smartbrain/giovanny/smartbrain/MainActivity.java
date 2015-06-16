@@ -33,6 +33,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private ImageView imgg4;
     private ImageView nube1;
     private ImageView nube2;
+    SplashActivity act = new SplashActivity();
 
     private Button bnext;
     @Override
@@ -65,14 +66,14 @@ public class MainActivity extends Activity implements View.OnClickListener {
             public void onClick(View v) {
                 String name = username.getText().toString();
                 String points = "0";
-                String idMail = "1";
+                String iddevice = ""+act.getId() ;
                 RequestParams params = new RequestParams();
                 if (username.getText().toString().equals("")) {
                     Toast.makeText(MainActivity.this, "Can´t leave name in blank", Toast.LENGTH_SHORT).show();
                 } else {
                     params.put("name", name);
                     params.put("points", points);
-                    params.put("iddevice", idMail);
+                    params.put("iddevice",iddevice);
                     // Invoke RESTful Web Service with Http parameters
                     prgDialog.show();
                     // Make RESTful webservice call using AsyncHttpClient object
@@ -125,8 +126,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
             // When the response returned by REST has Http response code other than '200'
             @Override
-            public void onFailure(int statusCode, Throwable error,
-                                  String content) {
+            public void onFailure(int statusCode, Throwable error,String content) {
                 // Hide Progress Dialog
                 prgDialog.hide();
                 // When Http response code is '404'
