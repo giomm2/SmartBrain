@@ -42,26 +42,26 @@
         android:layout_centerHorizontal="true" />
 
     <ImageButton
-        android:layout_width="260dp"
-        android:layout_height="260dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:id="@+id/btnfamily"
         android:background="@drawable/bfamily"
-        android:layout_alignTop="@+id/btnbody"
-        android:layout_toLeftOf="@+id/btnbody"
-        android:layout_toStartOf="@+id/btnbody" />
+        android:layout_below="@+id/imgblue"
+        android:layout_toRightOf="@+id/imgbubble"
+        android:layout_toEndOf="@+id/imgbubble" />
 
     <ImageButton
-        android:layout_width="260dp"
-        android:layout_height="260dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:id="@+id/btnbody"
         android:background="@drawable/bbody"
-        android:layout_alignTop="@+id/btnvowel"
-        android:layout_toLeftOf="@+id/btnvowel"
-        android:layout_toStartOf="@+id/btnvowel" />
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/imageView7"
+        android:layout_toEndOf="@+id/imageView7" />
 
     <ImageButton
-        android:layout_width="260dp"
-        android:layout_height="260dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:id="@+id/btnvowel"
         android:background="@drawable/bvowel"
         android:layout_centerVertical="true"

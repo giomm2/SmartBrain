@@ -69,7 +69,7 @@ public class MainActivity extends Activity  {
         nube2=(ImageView)findViewById(R.id.nub2);
 
 
-        bnext=(Button)findViewById(R.id.button);
+
 
 
 
@@ -136,6 +136,8 @@ public class MainActivity extends Activity  {
 
                         // Display successfully registered message using Toast
                         Toast.makeText(getApplicationContext(), "You are successfully registered!", Toast.LENGTH_LONG).show();
+                        Intent intent= new Intent(MainActivity.this,MenuEasyActivity.class);
+                        startActivity(intent);
                     }
                     // Else display error message
                     else {

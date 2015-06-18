@@ -42,30 +42,30 @@
         android:layout_centerHorizontal="true" />
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:id="@+id/btnfamily"
         android:background="@drawable/bfamily"
-        android:layout_above="@+id/imgorange"
+        android:layout_above="@+id/imgbubble"
         android:layout_toRightOf="@+id/imageView7"
         android:layout_toEndOf="@+id/imageView7" />
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:id="@+id/btnbody"
         android:background="@drawable/bbody"
-        android:layout_above="@+id/imgorange"
-        android:layout_toLeftOf="@+id/imgblue"
-        android:layout_toStartOf="@+id/imgblue" />
+        android:layout_alignTop="@+id/imgbubble"
+        android:layout_toLeftOf="@+id/imgorange"
+        android:layout_toStartOf="@+id/imgorange" />
 
     <ImageButton
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:id="@+id/btnvowel"
         android:background="@drawable/bvowel"
-        android:layout_alignTop="@+id/btnfamily"
-        android:layout_toRightOf="@+id/imgbubble"
-        android:layout_toEndOf="@+id/imgbubble" />
+        android:layout_above="@+id/imgorange"
+        android:layout_toLeftOf="@+id/btnfamily"
+        android:layout_toStartOf="@+id/btnfamily" />
 
 </RelativeLayout>

@@ -39,7 +39,7 @@
         android:layout_height="200dp"
         android:id="@+id/imageView6"
 
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/imageView7"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
@@ -51,29 +51,29 @@
         android:layout_centerHorizontal="true" />
 
     <ImageButton
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/btnfamily"
         android:background="@drawable/bfamily"
-        android:layout_alignTop="@+id/imgbubble"
-        android:layout_toRightOf="@+id/imgbubble"
-        android:layout_toEndOf="@+id/imgbubble" />
+        android:layout_alignBottom="@+id/imageView6"
+        android:layout_toLeftOf="@+id/btnbody"
+        android:layout_toStartOf="@+id/btnbody" />
 
     <ImageButton
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/btnbody"
         android:background="@drawable/bbody"
-        android:layout_alignTop="@+id/btnfamily"
-        android:layout_toRightOf="@+id/btnfamily"
-        android:layout_toEndOf="@+id/btnfamily" />
+        android:layout_below="@+id/imageView6"
+        android:layout_toLeftOf="@+id/imageView6"
+        android:layout_toStartOf="@+id/imageView6" />
 
     <ImageButton
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:id="@+id/btnvowel"
         android:background="@drawable/bvowel"
-        android:layout_alignTop="@+id/btnfamily"
+        android:layout_above="@+id/btnbody"
         android:layout_alignLeft="@+id/imageView6"
         android:layout_alignStart="@+id/imageView6" />
 
