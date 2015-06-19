@@ -1,6 +1,10 @@
 package com.smartbrain.giovanny.smartbrain;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,15 +14,31 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+
+import java.io.InputStream;
+
 
 public class MenuEasyActivity extends Activity {
 
     private ImageView fishblue;
     private ImageView fishorange;
-    private ImageView bubble;
-    private ImageButton bfamily;
-    private ImageButton bvowel;
-    private ImageButton bbody;
+    private ImageView bubble1;
+    private ImageView bfamily;
+    private ImageView bvowel;
+    private ImageView bbody;
+    //todos los url
+    private String  url =  "http://abcsoft.esy.es/grupoBurbujas.png";
+    private String  url2="http://abcsoft.esy.es/pezAzul.png";
+    private String  url3="http://abcsoft.esy.es/pez.png";
+    private String  url4="http://abcsoft.esy.es/burbujaFamily.png";
+    private String  url5="http://abcsoft.esy.es/bubbleVowel.png";
+    private String  url6="http://abcsoft.esy.es/bubbleBody.png";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +47,161 @@ public class MenuEasyActivity extends Activity {
 
         fishblue=(ImageView)findViewById(R.id.imgblue);
         fishorange=(ImageView)findViewById(R.id.imgorange);
-        bubble=(ImageView)findViewById(R.id.imgbubble);
-        bfamily=(ImageButton)findViewById(R.id.btnfamily);
-        bvowel=(ImageButton)findViewById(R.id.btnvowel);
-        bbody=(ImageButton)findViewById(R.id.btnbody);
+        bubble1=(ImageView)findViewById(R.id.imgbubble);
+        bfamily=(ImageView)findViewById(R.id.btnfamily);
+        bvowel=(ImageView)findViewById(R.id.btnvowel);
+        bbody=(ImageView)findViewById(R.id.btnbody);
+
+//En cada   ImageDownloader()   descargamos una  imagen
+        new ImageDownloader().execute(url);
+        new ImageDownloader1().execute(url2);
+        new ImageDownloader2().execute(url3);
+        new ImageDownloader3().execute(url4);
+        new ImageDownloader4().execute(url5);
+        new ImageDownloader5().execute(url6);
+
     }
 
-    @Override
+    private class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
+
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            return downloadBitmap(params[0]);
+        }
+
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            bubble1.setImageBitmap(result);
+
+        }
+    }
+
+    private class ImageDownloader1 extends AsyncTask<String, Void, Bitmap> {
+
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            //Llamamos  el  metodo  downloadBitmap  que es  el  que se  encarga  de  descargar   la  imagen
+            return downloadBitmap(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            fishblue.setImageBitmap(result);
+
+        }
+
+    }
+    private class ImageDownloader2 extends AsyncTask<String, Void, Bitmap> {
+
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            return downloadBitmap(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            fishorange.setImageBitmap(result);
+
+
+        }
+
+    }
+    private class ImageDownloader3 extends AsyncTask<String, Void, Bitmap> {
+
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+
+            return downloadBitmap(params[0]);
+        }
+
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+
+            bfamily.setImageBitmap(result);
+
+
+        }
+
+    }
+    private class ImageDownloader4 extends AsyncTask<String, Void, Bitmap> {
+
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+            return downloadBitmap(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            bvowel.setImageBitmap(result);
+        }
+
+    }
+
+    private class ImageDownloader5 extends AsyncTask<String, Void, Bitmap> {
+
+
+        @Override
+        protected Bitmap doInBackground(String... params) {
+
+            return downloadBitmap(params[0]);
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap result) {
+            bbody.setImageBitmap(result);
+
+        }
+
+    }
+    //Este  metodo  es  el  que se  encarga  de  descargar   la  imagen
+    public Bitmap downloadBitmap(String url) {
+        final DefaultHttpClient client = new DefaultHttpClient();
+        final HttpGet getRequest = new HttpGet(url);
+        try {
+            HttpResponse response = client.execute(getRequest);
+            final int statusCode = response.getStatusLine().getStatusCode();
+            if (statusCode != HttpStatus.SC_OK) {
+                return null;
+            }
+            final HttpEntity entity = response.getEntity();
+            if (entity != null) {
+                InputStream inputStream = entity.getContent();
+
+                try {
+
+
+                    final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+
+                    return bitmap;
+
+
+                } finally {
+                    if (inputStream != null) {
+
+                        inputStream.close();
+                    }
+
+                    entity.consumeContent();
+                }
+            }
+
+        } catch (Exception e) {
+
+            getRequest.abort();
+        }
+
+        return null;
+    }
+
+
+  /*  @Override
 
     public void onStart(){
 
@@ -42,7 +210,9 @@ public class MenuEasyActivity extends Activity {
         upBubble();
         bubble();
 
-    }
+    }*/
+    //Documente  este    metodo  para    que se  den  cuenta   pues    da  error   porque  apenas   se
+    //inicia la  actividad  no   esta   las imagenes cargadas    en   su  totalidad.
 
     @Override
 
@@ -70,7 +240,7 @@ public class MenuEasyActivity extends Activity {
         Animation movn;
         movn = AnimationUtils.loadAnimation(this, R.anim.upanim);
         movn.reset();
-        bubble.startAnimation(movn);
+        bubble1.startAnimation(movn);
 
 
     }
@@ -87,3 +257,4 @@ public class MenuEasyActivity extends Activity {
 
 
 }
+

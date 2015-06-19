@@ -37,6 +37,10 @@ public class MainActivity extends Activity  {
     private ImageView nube2;
     SplashActivity act = new SplashActivity();
 
+    private String url="http://abcsoft.esy.es/arcoiris-021.png";
+    private String url2="http://abcsoft.esy.es/globo.png";
+    private String url3="http://abcsoft.esy.es/globo2.png";
+    private String url4="http://abcsoft.esy.es/nube.png";
 
     private Button bnext;
 
@@ -53,6 +57,8 @@ public class MainActivity extends Activity  {
     public void setId(String id) {
         this.id = id;
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +117,7 @@ public class MainActivity extends Activity  {
             }
 
         });
+
 
 
 

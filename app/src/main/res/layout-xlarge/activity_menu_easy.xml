@@ -11,7 +11,6 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:id="@+id/imgblue"
-        android:background="@drawable/pazul"
         android:layout_below="@+id/imageView7"
         android:layout_alignLeft="@+id/imgorange"
         android:layout_alignStart="@+id/imgorange" />
@@ -20,7 +19,6 @@
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:id="@+id/imgorange"
-        android:background="@drawable/pez"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
@@ -29,7 +27,6 @@
         android:layout_width="450dp"
         android:layout_height="450dp"
         android:id="@+id/imgbubble"
-        android:background="@drawable/burbujas"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -41,29 +38,26 @@
 
         android:layout_centerHorizontal="true" />
 
-    <ImageButton
+    <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:id="@+id/btnfamily"
-        android:background="@drawable/bfamily"
         android:layout_below="@+id/imgblue"
         android:layout_toRightOf="@+id/imgbubble"
         android:layout_toEndOf="@+id/imgbubble" />
 
-    <ImageButton
+    <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:id="@+id/btnbody"
-        android:background="@drawable/bbody"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/imageView7"
         android:layout_toEndOf="@+id/imageView7" />
 
-    <ImageButton
+    <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:id="@+id/btnvowel"
-        android:background="@drawable/bvowel"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
