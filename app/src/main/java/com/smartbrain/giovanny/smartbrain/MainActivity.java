@@ -6,8 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -15,11 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -35,11 +31,10 @@ public class MainActivity extends Activity  {
     private ImageView imgg4;
     private ImageView nube1;
     private ImageView nube2;
-    private Button bnext;
 
 
     private RequestParams parameters;
-    private RequestParams parametersForSelect;
+    private RequestParams parametersForSelect; // no quitar la variable porque se necesita para el el llamado del web service que selecciona.
     String uniqueDevice = "";
     private String id;
 
