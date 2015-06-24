@@ -87,7 +87,7 @@ public class MainActivity extends Activity  {
                 String idDevice = getId();
                 RequestParams params = new RequestParams();
                 if (username.getText().toString().equals("")) {
-                    Toast.makeText(MainActivity.this, "Can´t leave name in blank", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Cant leave name in blank", Toast.LENGTH_SHORT).show();
                 } else {
                     params.put("name", name);
                     params.put("points", points);
@@ -107,6 +107,7 @@ public class MainActivity extends Activity  {
 
 
     }
+
 
     public void invokeWS(RequestParams params) {
         // Show Progress Dialog

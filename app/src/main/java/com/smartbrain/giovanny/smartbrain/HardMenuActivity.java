@@ -2,10 +2,10 @@ package com.smartbrain.giovanny.smartbrain;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -24,12 +24,18 @@ public class HardMenuActivity extends Activity {
     private ImageView firework;
     private ImageView firework2;
     private RelativeLayout layout;
+    MediaPlayer player;
+    MediaPlayer rocketPlayer;
+    MediaPlayer selectSound;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hard_menu);
+
+
 
         baloom = (ImageView) findViewById(R.id.baloom);
         baloom2 = (ImageView) findViewById(R.id.baloom2);
@@ -41,18 +47,66 @@ public class HardMenuActivity extends Activity {
         firework2 = (ImageView) findViewById(R.id.firework2);
         layout = (RelativeLayout) findViewById(R.id.layout);
 
+        //Musica de fondo
+        player = MediaPlayer.create(HardMenuActivity.this, R.raw.fireflies);
+        player.setLooping(true); // Set looping
+        player.setVolume(100, 100);
+        player.start();
+
+        //sonido de escoger las opciones
+        selectSound = MediaPlayer.create(HardMenuActivity.this, R.raw.pop);
+        selectSound.setVolume(100,100);
+
+
+
+
+
+
+
         layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
+                startActivity(intent);
+                overridePendingTransition(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                player.stop();
+            }
+        });
 
+        baloom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectSound.start();
+                Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
+                startActivity(intent);
+                player.stop();
+            }
+        });
+
+        baloom2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectSound.start();
+                Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
+                startActivity(intent);
+                player.stop();
+            }
+        });
+
+        baloom3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                selectSound.start();
+                Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
+                startActivity(intent);
+                player.stop();
             }
         });
 
 
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,9 +144,19 @@ public class HardMenuActivity extends Activity {
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        player.stop();
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         leftZeppelin();
+        player = MediaPlayer.create(HardMenuActivity.this, R.raw.fireflies);
+        player.setLooping(true); // Set looping
+        player.setVolume(100, 100);
+        player.start();
         topBaloomMovement();
         leftBaloomMovement();
         rightBallomMovement();
@@ -132,8 +196,11 @@ public class HardMenuActivity extends Activity {
         Animation movement;
         movement= AnimationUtils.loadAnimation(this, R.anim.rocket_animation);
         movement.reset();
+        rocketPlayer= MediaPlayer.create(this, R.raw.rocketlaunch);
+        rocketPlayer.start();
         rocket.startAnimation(movement);
         rocket2.startAnimation(movement);
+
     }
 
     private void fireworkEffect(){

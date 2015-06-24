@@ -3,6 +3,7 @@ package com.smartbrain.giovanny.smartbrain;
 import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.animation.Animation;
@@ -26,6 +27,7 @@ public class MenuEasyActivity extends Activity {
     private ImageView bfamily;
     private ImageView bvowel;
     private ImageView bbody;
+    MediaPlayer player;
     //todos los url
     private String  url =  "http://abcsoft.esy.es/grupoBurbujas.png";
     private String  url2="http://abcsoft.esy.es/pezAzul.png";
@@ -54,6 +56,11 @@ public class MenuEasyActivity extends Activity {
         new ImageDownloader3().execute(url4);
         new ImageDownloader4().execute(url5);
         new ImageDownloader5().execute(url6);
+
+        player = MediaPlayer.create(MenuEasyActivity.this, R.raw.underwater);
+        player.setLooping(true); // Set looping
+        player.setVolume(100, 100);
+        player.start();
 
     }
 
@@ -89,6 +96,13 @@ public class MenuEasyActivity extends Activity {
         }
 
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        player.stop();
+    }
+
     private class ImageDownloader2 extends AsyncTask<String, Void, Bitmap> {
 
 
@@ -214,6 +228,10 @@ public class MenuEasyActivity extends Activity {
     public void onResume(){
 
         super.onResume();
+        player = MediaPlayer.create(MenuEasyActivity.this, R.raw.underwater);
+        player.setLooping(true); // Set looping
+        player.setVolume(100, 100);
+        player.start();
         leftFish();
         upBubble();
         bubble();
