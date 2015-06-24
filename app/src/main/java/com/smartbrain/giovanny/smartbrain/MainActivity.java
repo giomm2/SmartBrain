@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -31,6 +32,8 @@ public class MainActivity extends Activity  {
     private ImageView imgg4;
     private ImageView nube1;
     private ImageView nube2;
+    private MediaPlayer player;
+    private MediaPlayer dropSound;
 
 
     private RequestParams parameters;
@@ -59,6 +62,11 @@ public class MainActivity extends Activity  {
         imgg4=(ImageView)findViewById(R.id.imageg4);
         nube1=(ImageView)findViewById(R.id.nub1);
         nube2=(ImageView)findViewById(R.id.nub2);
+
+        // set back sound
+        player = MediaPlayer.create(MainActivity.this, R.raw.vanilla);
+        player.setLooping(true);
+        player.start();
 
 
 
@@ -100,6 +108,10 @@ public class MainActivity extends Activity  {
 
                 }
 
+                // set button sound
+                dropSound = MediaPlayer.create(MainActivity.this,R.raw.drop);
+                dropSound.start();
+
             }
 
         });
@@ -131,6 +143,7 @@ public class MainActivity extends Activity  {
                         Toast.makeText(getApplicationContext(), "You are successfully registered!", Toast.LENGTH_LONG).show();
                         Intent intent= new Intent(MainActivity.this,MenuEasyActivity.class);
                         startActivity(intent);
+                        player.stop();
                     }
                     // Else display error message
                     else {
@@ -168,6 +181,12 @@ public class MainActivity extends Activity  {
 
 
     @Override
+    protected void onPause() {
+        super.onPause();
+        player.stop();
+    }
+
+    @Override
 
     protected void onStart() {
 
@@ -185,11 +204,23 @@ public class MainActivity extends Activity  {
 
         super.onResume();
 
+        player = MediaPlayer.create(MainActivity.this, R.raw.vanilla);
+        player.setLooping(true); // Set looping
+        player.setVolume(100, 100);
+        player.start();
         upBallons();
         rightCloud();
         leftCloud();
 
     }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        player.stop();
+    }
+
+
 
    private void rightCloud(){
        Animation movn;

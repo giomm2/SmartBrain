@@ -1,11 +1,13 @@
 package com.smartbrain.giovanny.smartbrain;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -27,7 +29,8 @@ public class MenuEasyActivity extends Activity {
     private ImageView bfamily;
     private ImageView bvowel;
     private ImageView bbody;
-    MediaPlayer player;
+    private MediaPlayer player;
+    private MediaPlayer bubblePop;
     //todos los url
     private String  url =  "http://abcsoft.esy.es/grupoBurbujas.png";
     private String  url2="http://abcsoft.esy.es/pezAzul.png";
@@ -57,10 +60,43 @@ public class MenuEasyActivity extends Activity {
         new ImageDownloader4().execute(url5);
         new ImageDownloader5().execute(url6);
 
-        player = MediaPlayer.create(MenuEasyActivity.this, R.raw.underwater);
+        //set back sound
+        player = MediaPlayer.create(MenuEasyActivity.this, R.raw.blurry);
         player.setLooping(true); // Set looping
         player.setVolume(100, 100);
         player.start();
+
+        // set bubblepop sound
+        bubblePop = MediaPlayer.create(MenuEasyActivity.this, R.raw.bubblepop);
+        bubblePop.setVolume(100, 100);
+
+        bfamily.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player.stop();
+                bubblePop.start();
+                Intent intent = new Intent(MenuEasyActivity.this, HardMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+        bbody.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player.stop();
+                bubblePop.start();
+                Intent intent = new Intent(MenuEasyActivity.this, HardMenuActivity.class);
+                startActivity(intent);
+            }
+        });
+        bvowel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                player.stop();
+                bubblePop.start();
+                Intent intent = new Intent(MenuEasyActivity.this, HardMenuActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
@@ -97,11 +133,6 @@ public class MenuEasyActivity extends Activity {
 
     }
 
-    @Override
-    protected void onStop() {
-        super.onStop();
-        player.stop();
-    }
 
     private class ImageDownloader2 extends AsyncTask<String, Void, Bitmap> {
 
@@ -209,6 +240,18 @@ public class MenuEasyActivity extends Activity {
         return null;
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.stop();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        player.stop();
+    }
+
 
   /*  @Override
 
@@ -228,7 +271,7 @@ public class MenuEasyActivity extends Activity {
     public void onResume(){
 
         super.onResume();
-        player = MediaPlayer.create(MenuEasyActivity.this, R.raw.underwater);
+        player = MediaPlayer.create(MenuEasyActivity.this, R.raw.blurry);
         player.setLooping(true); // Set looping
         player.setVolume(100, 100);
         player.start();

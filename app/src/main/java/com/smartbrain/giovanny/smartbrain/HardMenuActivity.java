@@ -24,9 +24,9 @@ public class HardMenuActivity extends Activity {
     private ImageView firework;
     private ImageView firework2;
     private RelativeLayout layout;
-    MediaPlayer player;
-    MediaPlayer rocketPlayer;
-    MediaPlayer selectSound;
+    private MediaPlayer player;
+    private MediaPlayer rocketPlayer;
+    private MediaPlayer selectSound;
 
 
 
@@ -131,6 +131,11 @@ public class HardMenuActivity extends Activity {
     }
 
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.stop();
+    }
 
     @Override
     protected void onStart() {
