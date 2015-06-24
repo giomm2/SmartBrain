@@ -14,7 +14,8 @@
         android:id="@+id/imgblue"
         android:layout_above="@+id/btnvowel"
         android:layout_alignLeft="@+id/imgorange"
-        android:layout_alignStart="@+id/imgorange" />
+        android:layout_alignStart="@+id/imgorange"
+        android:background="@drawable/pezblue" />
 
     <ImageView
         android:layout_width="130dp"
@@ -22,7 +23,8 @@
         android:id="@+id/imgorange"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/pez" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -30,7 +32,8 @@
         android:id="@+id/imgbubble"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/bubble" />
 
     <ImageView
         android:layout_width="200dp"
@@ -54,7 +57,8 @@
         android:id="@+id/btnfamily"
         android:layout_alignBottom="@+id/imageView6"
         android:layout_toLeftOf="@+id/btnbody"
-        android:layout_toStartOf="@+id/btnbody" />
+        android:layout_toStartOf="@+id/btnbody"
+        android:background="@drawable/family" />
 
     <ImageView
         android:layout_width="150dp"
@@ -62,7 +66,8 @@
         android:id="@+id/btnbody"
         android:layout_below="@+id/imageView6"
         android:layout_toLeftOf="@+id/imageView6"
-        android:layout_toStartOf="@+id/imageView6" />
+        android:layout_toStartOf="@+id/imageView6"
+        android:background="@drawable/body" />
 
     <ImageView
         android:layout_width="150dp"
@@ -70,6 +75,7 @@
         android:id="@+id/btnvowel"
         android:layout_above="@+id/btnbody"
         android:layout_alignLeft="@+id/imageView6"
-        android:layout_alignStart="@+id/imageView6" />
+        android:layout_alignStart="@+id/imageView6"
+        android:background="@drawable/vowel" />
 
 </RelativeLayout>

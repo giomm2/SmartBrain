@@ -52,13 +52,7 @@ public class MenuEasyActivity extends Activity {
         bvowel=(ImageView)findViewById(R.id.btnvowel);
         bbody=(ImageView)findViewById(R.id.btnbody);
 
-//En cada   ImageDownloader()   descargamos una  imagen
-        new ImageDownloader().execute(url);
-        new ImageDownloader1().execute(url2);
-        new ImageDownloader2().execute(url3);
-        new ImageDownloader3().execute(url4);
-        new ImageDownloader4().execute(url5);
-        new ImageDownloader5().execute(url6);
+
 
         //set back sound
         player = MediaPlayer.create(MenuEasyActivity.this, R.raw.blurry);
@@ -100,146 +94,6 @@ public class MenuEasyActivity extends Activity {
 
     }
 
-    private class ImageDownloader extends AsyncTask<String, Void, Bitmap> {
-
-
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            return downloadBitmap(params[0]);
-        }
-
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            bubble1.setImageBitmap(result);
-
-        }
-    }
-
-    private class ImageDownloader1 extends AsyncTask<String, Void, Bitmap> {
-
-
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            //Llamamos  el  metodo  downloadBitmap  que es  el  que se  encarga  de  descargar   la  imagen
-            return downloadBitmap(params[0]);
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            fishblue.setImageBitmap(result);
-
-        }
-
-    }
-
-
-    private class ImageDownloader2 extends AsyncTask<String, Void, Bitmap> {
-
-
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            return downloadBitmap(params[0]);
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            fishorange.setImageBitmap(result);
-
-
-        }
-
-    }
-    private class ImageDownloader3 extends AsyncTask<String, Void, Bitmap> {
-
-
-        @Override
-        protected Bitmap doInBackground(String... params) {
-
-            return downloadBitmap(params[0]);
-        }
-
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-
-            bfamily.setImageBitmap(result);
-
-
-        }
-
-    }
-    private class ImageDownloader4 extends AsyncTask<String, Void, Bitmap> {
-
-
-        @Override
-        protected Bitmap doInBackground(String... params) {
-            return downloadBitmap(params[0]);
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            bvowel.setImageBitmap(result);
-        }
-
-    }
-
-    private class ImageDownloader5 extends AsyncTask<String, Void, Bitmap> {
-
-
-        @Override
-        protected Bitmap doInBackground(String... params) {
-
-            return downloadBitmap(params[0]);
-        }
-
-        @Override
-        protected void onPostExecute(Bitmap result) {
-            bbody.setImageBitmap(result);
-
-        }
-
-    }
-    //Este  metodo  es  el  que se  encarga  de  descargar   la  imagen
-    public Bitmap downloadBitmap(String url) {
-        final DefaultHttpClient client = new DefaultHttpClient();
-        final HttpGet getRequest = new HttpGet(url);
-        try {
-            HttpResponse response = client.execute(getRequest);
-            final int statusCode = response.getStatusLine().getStatusCode();
-            if (statusCode != HttpStatus.SC_OK) {
-                return null;
-            }
-            final HttpEntity entity = response.getEntity();
-            if (entity != null) {
-                InputStream inputStream = entity.getContent();
-
-                try {
-
-
-                    final Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
-
-                    return bitmap;
-
-
-                } finally {
-                    if (inputStream != null) {
-
-                        inputStream.close();
-                    }
-
-                    entity.consumeContent();
-                }
-            }
-
-        } catch (Exception e) {
-
-            getRequest.abort();
-        }
-
-        return null;
-    }
-
     @Override
     protected void onPause() {
         super.onPause();
@@ -253,7 +107,7 @@ public class MenuEasyActivity extends Activity {
     }
 
 
-  /*  @Override
+    @Override
 
     public void onStart(){
 
@@ -262,9 +116,7 @@ public class MenuEasyActivity extends Activity {
         upBubble();
         bubble();
 
-    }*/
-    //Documente  este    metodo  para    que se  den  cuenta   pues    da  error   porque  apenas   se
-    //inicia la  actividad  no   esta   las imagenes cargadas    en   su  totalidad.
+    }
 
     @Override
 
