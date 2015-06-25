@@ -6,12 +6,12 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@drawable/nightsky"
+    android:background="@drawable/bignight"
     tools:context="com.smartbrain.giovanny.smartbrain.HardMenuActivity">
 
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="80dp"
+        android:layout_width="100dp"
+        android:layout_height="110dp"
         android:id="@+id/baloom"
         android:background="@drawable/hotair3"
         android:clickable="true"
@@ -22,8 +22,8 @@
         android:layout_marginEnd="39dp" />
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="90dp"
+        android:layout_width="90dp"
+        android:layout_height="120dp"
         android:id="@+id/baloom2"
         android:background="@drawable/hotair"
         android:baselineAlignBottom="false"
@@ -33,8 +33,8 @@
         android:layout_toStartOf="@+id/zeppelin" />
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:id="@+id/baloom3"
         android:background="@drawable/hotair2"
         android:clickable="true"
@@ -43,8 +43,8 @@
         android:layout_alignEnd="@+id/firework" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="40dp"
+        android:layout_width="80dp"
+        android:layout_height="70dp"
         android:id="@+id/zeppelin"
         android:background="@drawable/zeppelin"
         android:layout_above="@+id/rocket2"
