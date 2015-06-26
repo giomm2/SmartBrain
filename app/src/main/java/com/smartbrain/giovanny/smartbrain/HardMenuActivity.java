@@ -25,7 +25,6 @@ public class HardMenuActivity extends Activity {
     private ImageView firework2;
     private RelativeLayout layout;
     private MediaPlayer player;
-    private MediaPlayer rocketPlayer;
     private MediaPlayer selectSound;
 
 
@@ -201,8 +200,6 @@ public class HardMenuActivity extends Activity {
         Animation movement;
         movement= AnimationUtils.loadAnimation(this, R.anim.rocket_animation);
         movement.reset();
-        rocketPlayer= MediaPlayer.create(this, R.raw.rocketlaunch);
-        rocketPlayer.start();
         rocket.startAnimation(movement);
         rocket2.startAnimation(movement);
 
