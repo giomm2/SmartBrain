@@ -14,7 +14,7 @@
         android:layout_height="40dp"
         android:text="Play"
         android:id="@+id/btn_play"
-        android:background="@android:color/transparent"
+        android:background="#ff6f79ff"
         android:textStyle="italic"
         android:typeface="monospace"
         android:layout_alignBottom="@+id/imageView"
