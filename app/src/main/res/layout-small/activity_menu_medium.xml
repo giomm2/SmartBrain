@@ -5,7 +5,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@drawable/nature"
+    android:background="@drawable/naturelitlle"
     tools:context="com.smartbrain.giovanny.smartbrain.MenuMediumActivity"
     >
 
@@ -20,36 +20,18 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:layout_width="70dp"
-        android:layout_height="65dp"
-        android:id="@+id/cloud1"
-        android:background="@drawable/cloud1"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:layout_width="90dp"
-        android:layout_height="65dp"
-        android:id="@+id/cloud2"
-        android:background="@drawable/cloud2"
-        android:layout_below="@+id/cloud1"
-        android:layout_toLeftOf="@+id/cloud"
-        android:layout_toStartOf="@+id/cloud"
-        android:layout_marginTop="39dp" />
-
-    <ImageView
-        android:layout_width="50"
-        android:layout_height="90"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
         android:id="@+id/flower1"
         android:background="@drawable/flower1"
-        android:layout_below="@+id/cloud2"
-        android:layout_toRightOf="@+id/cloud2"
-        android:layout_toEndOf="@+id/cloud2"
-        android:layout_marginTop="99dp" />
+        android:layout_alignTop="@+id/flower3"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_toLeftOf="@+id/cloud" />
 
     <ImageView
-        android:layout_width="50"
-        android:layout_height="90"
+        android:layout_width="30dp"
+        android:layout_height="50dp"
         android:id="@+id/flower2"
         android:background="@drawable/flower2"
         android:layout_marginLeft="42dp"
@@ -59,21 +41,25 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="50"
-        android:layout_height="90"
+        android:layout_width="30dp"
+        android:layout_height="50dp"
         android:id="@+id/flower3"
         android:background="@drawable/flower3"
         android:layout_above="@+id/flower2"
         android:layout_toRightOf="@+id/flower2"
-        android:layout_toEndOf="@+id/flower2" />
+        android:layout_toEndOf="@+id/flower2"
+        android:layout_marginLeft="37dp"
+        android:layout_marginStart="37dp" />
 
     <ImageView
-        android:layout_width="60"
-        android:layout_height="60"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/smoke"
         android:background="@drawable/smoke"
-        android:layout_above="@+id/flower1"
-        android:layout_toLeftOf="@+id/cloud1"
-        android:layout_toStartOf="@+id/cloud1" />
+        android:layout_marginRight="19dp"
+        android:layout_marginEnd="19dp"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/cloud"
+        android:layout_toStartOf="@+id/cloud" />
 
 </RelativeLayout>
