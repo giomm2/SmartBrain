@@ -10,6 +10,15 @@
     tools:context="com.smartbrain.giovanny.smartbrain.HardMenuActivity">
 
     <ImageView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:id="@+id/zeppelin"
+        android:background="@drawable/zeppelin"
+        android:layout_above="@+id/rocket2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
         android:layout_width="70dp"
         android:layout_height="80dp"
         android:id="@+id/baloom"
@@ -42,14 +51,6 @@
         android:layout_alignRight="@+id/firework"
         android:layout_alignEnd="@+id/firework" />
 
-    <ImageView
-        android:layout_width="50dp"
-        android:layout_height="40dp"
-        android:id="@+id/zeppelin"
-        android:background="@drawable/zeppelin"
-        android:layout_above="@+id/rocket2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
 
     <ImageView
         android:layout_width="15dp"
@@ -83,6 +84,8 @@
         android:background="@drawable/firework2"
         android:layout_above="@+id/rocket2"
         android:layout_centerHorizontal="true" />
+
+
 
 
 
