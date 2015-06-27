@@ -13,7 +13,7 @@
         android:layout_height="40dp"
         android:text="Play"
         android:id="@+id/btn_play"
-        android:background="#ffa1daff"
+        android:background="#ff6f79ff"
         android:textStyle="italic"
         android:typeface="monospace"
         android:layout_alignTop="@+id/txt_name"
@@ -24,15 +24,18 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:id="@+id/txt_name"
-        android:background="#fff6fff4"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:inputType="textPersonName"
         android:textSize="30dp"
-        android:text="Name"
-        android:singleLine="false"
+        android:hint="Name"
+        android:singleLine="true"
         android:autoText="false"
         android:textColor="#ff7f82ff"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/nub1"
-        android:layout_toEndOf="@+id/nub1" />
+        android:layout_alignRight="@+id/imageView2"
+        android:layout_alignEnd="@+id/imageView2" />
+
 
 
     <ImageView
@@ -104,6 +107,8 @@
         android:background="@drawable/smart"
         android:layout_above="@+id/nub2"
         android:layout_centerHorizontal="true" />
+
+
 
 
 </RelativeLayout>
