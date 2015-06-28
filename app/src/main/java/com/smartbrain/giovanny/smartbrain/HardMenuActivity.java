@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
 import android.view.DragEvent;
+import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -27,6 +30,7 @@ public class HardMenuActivity extends Activity {
     private RelativeLayout layout;
     private MediaPlayer player;
     private MediaPlayer selectSound;
+    private GestureDetectorCompat gestureDetectorCompat;
 
 
 
@@ -46,6 +50,8 @@ public class HardMenuActivity extends Activity {
         firework = (ImageView) findViewById(R.id.firework);
         firework2 = (ImageView) findViewById(R.id.firework2);
         layout = (RelativeLayout) findViewById(R.id.layout);
+
+        gestureDetectorCompat = new GestureDetectorCompat(this, new MyGestureListener());
 
         //Musica de fondo
         player = MediaPlayer.create(HardMenuActivity.this, R.raw.fireflies);
@@ -96,6 +102,12 @@ public class HardMenuActivity extends Activity {
         });
 
 
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureDetectorCompat.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
 
@@ -205,6 +217,28 @@ public class HardMenuActivity extends Activity {
         firework.startAnimation(movement);
         firework2.startAnimation(movement);
     }
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        //handle 'swipe left' action only
 
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+
+            if(event2.getX() < event1.getX()){
+                //switch another activity
+                Intent intent = new Intent(
+                        HardMenuActivity.this, MenuEasyActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+            }else if(event2.getX() > event1.getX()){
+                Intent intent = new Intent(
+                        HardMenuActivity.this, MenuMediumActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+            }
+
+            return true;
+        }
+    }
 
 }

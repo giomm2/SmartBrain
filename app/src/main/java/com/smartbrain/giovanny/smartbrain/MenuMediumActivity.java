@@ -1,8 +1,12 @@
 package com.smartbrain.giovanny.smartbrain;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -21,6 +25,7 @@ public class MenuMediumActivity extends Activity {
     private ImageView smoke;
     private MediaPlayer wind;
     private MediaPlayer river;
+    private GestureDetectorCompat gestureDetectorCompat;
 
     protected void onCreate(Bundle savedInstanceState){
 
@@ -31,6 +36,8 @@ public class MenuMediumActivity extends Activity {
         flower1 = (ImageView)findViewById(R.id.flower2);
         flower2 = (ImageView)findViewById(R.id.flower3);
         smoke = (ImageView) findViewById(R.id.smoke);
+
+        gestureDetectorCompat= new GestureDetectorCompat(this, new MyGestureListener());
 
         //Backround sound of wind
 
@@ -44,6 +51,12 @@ public class MenuMediumActivity extends Activity {
         wind.setLooping(true);
         river.setVolume(100, 100);
         river.start();
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureDetectorCompat.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
     @Override
@@ -87,5 +100,29 @@ public class MenuMediumActivity extends Activity {
         movement.reset();
         smoke.startAnimation(movement);
 
+    }
+
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        //handle 'swipe left' action only
+
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+
+            if(event2.getX() < event1.getX()){
+                //switch another activity
+                Intent intent = new Intent(
+                        MenuMediumActivity.this, HardMenuActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+            }else if(event2.getX() > event1.getX()){
+                Intent intent = new Intent(
+                        MenuMediumActivity.this, MenuEasyActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+            }
+
+            return true;
+        }
     }
 }
