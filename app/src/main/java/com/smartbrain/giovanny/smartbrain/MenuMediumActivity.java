@@ -63,12 +63,14 @@ public class MenuMediumActivity extends Activity {
     protected void onStart() {
         super.onStart();
         flowerMovement();
+        smokeAnimation();
     }
 
     @Override
     protected void onResume() {
         super.onResume();
         flowerMovement();
+        smokeAnimation();
     }
 
     @Override
@@ -96,7 +98,7 @@ public class MenuMediumActivity extends Activity {
 
     public void smokeAnimation(){
         Animation movement;
-        movement= AnimationUtils.loadAnimation(this, R.anim.smoke_animation);
+        movement= AnimationUtils.loadAnimation(this, R.anim.bubble);
         movement.reset();
         smoke.startAnimation(movement);
 
