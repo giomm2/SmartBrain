@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -17,8 +18,6 @@ import android.widget.ImageView;
 public class MenuMediumActivity extends Activity {
 
     private ImageView cloud;
-    private ImageView cloud1;
-    private ImageView cloud2;
     private ImageView flower;
     private ImageView flower1;
     private ImageView flower2;
@@ -26,6 +25,7 @@ public class MenuMediumActivity extends Activity {
     private MediaPlayer wind;
     private MediaPlayer river;
     private GestureDetectorCompat gestureDetectorCompat;
+    private MediaPlayer music;
 
     protected void onCreate(Bundle savedInstanceState){
 
@@ -39,6 +39,10 @@ public class MenuMediumActivity extends Activity {
 
         gestureDetectorCompat= new GestureDetectorCompat(this, new MyGestureListener());
 
+        music= MediaPlayer.create(this,R.raw.fireflies);
+        music.setLooping(true);
+        music.start();
+
         //Backround sound of wind
 
         wind = MediaPlayer.create(MenuMediumActivity.this, R.raw.wind);
@@ -51,11 +55,37 @@ public class MenuMediumActivity extends Activity {
         wind.setLooping(true);
         river.setVolume(100, 100);
         river.start();
+
+        flower.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                river.stop();
+                wind.stop();
+                music.stop();
+            }
+        });
+        flower1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                river.stop();
+                wind.stop();
+                music.stop();
+            }
+        });
+        flower2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                river.stop();
+                wind.stop();
+                music.stop();
+            }
+        });
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureDetectorCompat.onTouchEvent(event);
+        music.stop();
         return super.onTouchEvent(event);
     }
 
@@ -69,6 +99,9 @@ public class MenuMediumActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
+        music= MediaPlayer.create(this,R.raw.fireflies);
+        music.setLooping(true);
+        music.start();
         flowerMovement();
         smokeAnimation();
     }
@@ -78,6 +111,7 @@ public class MenuMediumActivity extends Activity {
         super.onStop();
         wind.stop();
         river.stop();
+
     }
 
     @Override

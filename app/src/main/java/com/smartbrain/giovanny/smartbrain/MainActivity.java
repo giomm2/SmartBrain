@@ -63,9 +63,9 @@ public class MainActivity extends Activity  {
         imgg4=(ImageView)findViewById(R.id.imageg4);
         nube1=(ImageView)findViewById(R.id.nub1);
         nube2=(ImageView)findViewById(R.id.nub2);
-        pasar= (Button)findViewById(R.id.btn_pasar);
+
         // set back sound
-        player = MediaPlayer.create(MainActivity.this, R.raw.vanilla);
+        player = MediaPlayer.create(MainActivity.this, R.raw.fireflies);
         player.setLooping(true);
         player.start();
 
@@ -216,7 +216,7 @@ public class MainActivity extends Activity  {
 
         super.onResume();
 
-        player = MediaPlayer.create(MainActivity.this, R.raw.vanilla);
+        player = MediaPlayer.create(MainActivity.this, R.raw.fireflies);
         player.setLooping(true); // Set looping
         player.setVolume(100, 100);
         player.start();

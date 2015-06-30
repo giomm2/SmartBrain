@@ -5,8 +5,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/f"
     tools:context="com.smartbrain.giovanny.smartbrain.MainActivity"
-    android:background="@drawable/f">
+    >
 
     <Button
         android:layout_width="100dp"
@@ -19,17 +20,6 @@
         android:layout_alignTop="@+id/txt_name"
         android:layout_toLeftOf="@+id/imageg4"
         android:layout_toStartOf="@+id/imageg4" />
-    <Button
-        android:layout_width="100dp"
-        android:layout_height="40dp"
-        android:text="Pasar"
-        android:id="@+id/btn_pasar"
-        android:background="#ffa1daff"
-        android:textStyle="italic"
-        android:typeface="monospace"
-        android:layout_alignBottom="@+id/imageg3"
-        android:layout_centerHorizontal="true" />
-
 
     <EditText
         android:layout_width="150dp"
@@ -118,8 +108,6 @@
         android:background="@drawable/smart"
         android:layout_above="@+id/nub2"
         android:layout_centerHorizontal="true" />
-
-
 
 
 </RelativeLayout>

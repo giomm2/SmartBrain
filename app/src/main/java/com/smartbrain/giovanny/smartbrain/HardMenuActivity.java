@@ -27,19 +27,14 @@ public class HardMenuActivity extends Activity {
     private ImageView rocket2;
     private ImageView firework;
     private ImageView firework2;
-    private RelativeLayout layout;
-    private MediaPlayer player;
     private MediaPlayer selectSound;
     private GestureDetectorCompat gestureDetectorCompat;
-
-
+    private MediaPlayer music;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hard_menu);
-
-
 
         baloom = (ImageView) findViewById(R.id.baloom);
         baloom2 = (ImageView) findViewById(R.id.baloom2);
@@ -49,27 +44,14 @@ public class HardMenuActivity extends Activity {
         rocket2 = (ImageView) findViewById(R.id.rocket2);
         firework = (ImageView) findViewById(R.id.firework);
         firework2 = (ImageView) findViewById(R.id.firework2);
-        layout = (RelativeLayout) findViewById(R.id.layout);
-
         gestureDetectorCompat = new GestureDetectorCompat(this, new MyGestureListener());
-
-        //Musica de fondo
-        player = MediaPlayer.create(HardMenuActivity.this, R.raw.fireflies);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
-
         //sonido de escoger las opciones
         selectSound = MediaPlayer.create(HardMenuActivity.this, R.raw.pop);
         selectSound.setVolume(100,100);
 
-
-
-
-
-
-
-
+        music= MediaPlayer.create(this,R.raw.fireflies);
+        music.setLooping(true);
+        music.start();
 
         baloom.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +59,7 @@ public class HardMenuActivity extends Activity {
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
                 startActivity(intent);
-                player.stop();
+                music.stop();
             }
         });
 
@@ -87,7 +69,7 @@ public class HardMenuActivity extends Activity {
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
                 startActivity(intent);
-                player.stop();
+                music.stop();
             }
         });
 
@@ -97,7 +79,7 @@ public class HardMenuActivity extends Activity {
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
                 startActivity(intent);
-                player.stop();
+                music.stop();
             }
         });
 
@@ -107,38 +89,8 @@ public class HardMenuActivity extends Activity {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureDetectorCompat.onTouchEvent(event);
+        music.stop();
         return super.onTouchEvent(event);
-    }
-
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_hard_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        player.stop();
     }
 
     @Override
@@ -153,19 +105,12 @@ public class HardMenuActivity extends Activity {
     }
 
     @Override
-    protected void onStop() {
-        super.onStop();
-        player.stop();
-    }
-
-    @Override
     protected void onResume() {
         super.onResume();
         leftZeppelin();
-        player = MediaPlayer.create(HardMenuActivity.this, R.raw.fireflies);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
+        music= MediaPlayer.create(this,R.raw.fireflies);
+        music.setLooping(true);
+        music.start();
         topBaloomMovement();
         leftBaloomMovement();
         rightBallomMovement();

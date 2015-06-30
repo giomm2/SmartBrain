@@ -22,9 +22,10 @@ public class MenuEasyActivity extends Activity {
     private ImageView bfamily;
     private ImageView bvowel;
     private ImageView bbody;
-    private MediaPlayer player;
     private MediaPlayer bubblePop;
+    private MediaPlayer music;
     private GestureDetectorCompat gestureDetectorCompat;
+
 
 
 
@@ -45,13 +46,11 @@ public class MenuEasyActivity extends Activity {
         bvowel=(ImageView)findViewById(R.id.btnvowel);
         bbody=(ImageView)findViewById(R.id.btnbody);
 
+        //set background sound
+        music= MediaPlayer.create(this,R.raw.fireflies);
+        music.setLooping(true);
+        music.start();
 
-
-        //set back sound
-        player = MediaPlayer.create(MenuEasyActivity.this, R.raw.blurry);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
 
         // set bubblepop sound
         bubblePop = MediaPlayer.create(MenuEasyActivity.this, R.raw.bubblepop);
@@ -60,7 +59,7 @@ public class MenuEasyActivity extends Activity {
         bfamily.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                player.stop();
+                music.stop();
                 bubblePop.start();
                 Intent intent = new Intent(MenuEasyActivity.this, FamilyActivity.class);
                 startActivity(intent);
@@ -69,7 +68,7 @@ public class MenuEasyActivity extends Activity {
         bbody.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                player.stop();
+                music.stop();
                 bubblePop.start();
                 Intent intent = new Intent(MenuEasyActivity.this, HardMenuActivity.class);
                 startActivity(intent);
@@ -78,7 +77,7 @@ public class MenuEasyActivity extends Activity {
         bvowel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                player.stop();
+                music.stop();
                 bubblePop.start();
                 Intent intent = new Intent(MenuEasyActivity.this, VowelLearnActivity.class);
                 startActivity(intent);
@@ -92,21 +91,9 @@ public class MenuEasyActivity extends Activity {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         this.gestureDetectorCompat.onTouchEvent(event);
+        music.stop();
         return super.onTouchEvent(event);
     }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        player.stop();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        player.stop();
-    }
-
 
     @Override
 
@@ -124,10 +111,9 @@ public class MenuEasyActivity extends Activity {
     public void onResume(){
 
         super.onResume();
-        player = MediaPlayer.create(MenuEasyActivity.this, R.raw.blurry);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
+        music= MediaPlayer.create(this,R.raw.fireflies);
+        music.setLooping(true);
+        music.start();
         leftFish();
         upBubble();
         bubble();
