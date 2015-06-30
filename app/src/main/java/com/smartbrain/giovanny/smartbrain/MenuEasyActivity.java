@@ -2,23 +2,16 @@ package com.smartbrain.giovanny.smartbrain;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.view.GestureDetectorCompat;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
-import java.io.InputStream;
+import android.widget.Toast;
 
 
 public class MenuEasyActivity extends Activity {
@@ -31,19 +24,19 @@ public class MenuEasyActivity extends Activity {
     private ImageView bbody;
     private MediaPlayer player;
     private MediaPlayer bubblePop;
-    //todos los url
-    private String  url =  "http://abcsoft.esy.es/grupoBurbujas.png";
-    private String  url2="http://abcsoft.esy.es/pezAzul.png";
-    private String  url3="http://abcsoft.esy.es/pez.png";
-    private String  url4="http://abcsoft.esy.es/burbujaFamily.png";
-    private String  url5="http://abcsoft.esy.es/bubbleVowel.png";
-    private String  url6="http://abcsoft.esy.es/bubbleBody.png";
+    private GestureDetectorCompat gestureDetectorCompat;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_easy);
+
+        // aqui es donde inicializo la variable de deteccion de gestos.
+        gestureDetectorCompat = new GestureDetectorCompat(this, new MyGestureListener());
+
+
 
         fishblue=(ImageView)findViewById(R.id.imgblue);
         fishorange=(ImageView)findViewById(R.id.imgorange);
@@ -69,7 +62,7 @@ public class MenuEasyActivity extends Activity {
             public void onClick(View v) {
                 player.stop();
                 bubblePop.start();
-                Intent intent = new Intent(MenuEasyActivity.this, HardMenuActivity.class);
+                Intent intent = new Intent(MenuEasyActivity.this, FamilyActivity.class);
                 startActivity(intent);
             }
         });
@@ -92,6 +85,14 @@ public class MenuEasyActivity extends Activity {
             }
         });
 
+
+
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        this.gestureDetectorCompat.onTouchEvent(event);
+        return super.onTouchEvent(event);
     }
 
     @Override
@@ -163,6 +164,31 @@ public class MenuEasyActivity extends Activity {
         bfamily.startAnimation(movn);
     }
 
+    class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
+        //handle 'swipe left' action only
 
+        @Override
+        public boolean onFling(MotionEvent event1, MotionEvent event2,
+                               float velocityX, float velocityY) {
+
+            if(event2.getX() < event1.getX()){
+                //switch another activity
+                Intent intent = new Intent(
+                        MenuEasyActivity.this, MenuMediumActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+            }else if(event2.getX() > event1.getX()){
+                Intent intent = new Intent(
+                        MenuEasyActivity.this, HardMenuActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+            }
+
+            return true;
+        }
+    }
 }
+
+
+
 

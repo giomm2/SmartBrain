@@ -19,6 +19,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".MainActivity"
@@ -33,11 +34,9 @@
         <activity
             android:name=".HardMenuActivity"
             android:label="@string/title_activity_hard_menu"
-            android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".VowelLearnActivity"
-            android:label="@string/title_activity_vowel_learn" >
+            android:screenOrientation="landscape">
+
+
         </activity>
     </application>
 
