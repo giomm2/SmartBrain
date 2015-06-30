@@ -18,6 +18,17 @@
         android:layout_alignTop="@+id/txt_name"
         android:layout_toLeftOf="@+id/imageg4"
         android:layout_toStartOf="@+id/imageg4" />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="Pasar"
+        android:id="@+id/btn_pasar"
+        android:background="#ffa1daff"
+        android:textStyle="italic"
+        android:typeface="monospace"
+        android:layout_alignBottom="@+id/imageg3"
+        android:layout_centerHorizontal="true" />
+
 
     <EditText
         android:layout_width="150dp"

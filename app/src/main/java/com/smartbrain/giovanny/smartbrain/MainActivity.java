@@ -34,6 +34,7 @@ public class MainActivity extends Activity  {
     private ImageView nube2;
     private MediaPlayer player;
     private MediaPlayer dropSound;
+    private Button pasar;
 
 
     private RequestParams parameters;
@@ -62,7 +63,7 @@ public class MainActivity extends Activity  {
         imgg4=(ImageView)findViewById(R.id.imageg4);
         nube1=(ImageView)findViewById(R.id.nub1);
         nube2=(ImageView)findViewById(R.id.nub2);
-
+        pasar= (Button)findViewById(R.id.btn_pasar);
         // set back sound
         player = MediaPlayer.create(MainActivity.this, R.raw.vanilla);
         player.setLooping(true);
@@ -70,7 +71,19 @@ public class MainActivity extends Activity  {
 
 
 
+        pasar.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MenuEasyActivity.class);
+
+                startActivity(intent);
+
+                invokeSelect();
+            }
+
+
+        });
 
 
         prgDialog = new ProgressDialog(this);
@@ -80,12 +93,11 @@ public class MainActivity extends Activity  {
         prgDialog.setCancelable(false);
         parameters = new RequestParams();
         uniqueDevice = getUniqueDevice();
-        parameters.put("iddevice",uniqueDevice);
+        parameters.put("iddevice", uniqueDevice);
         parameters.put("uniquedevice", uniqueDevice);
         invokeWebServiceForInsert();
 
 
-        invokeSelect();
 
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override

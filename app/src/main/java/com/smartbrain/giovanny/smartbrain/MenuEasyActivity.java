@@ -87,7 +87,7 @@ public class MenuEasyActivity extends Activity {
             public void onClick(View v) {
                 player.stop();
                 bubblePop.start();
-                Intent intent = new Intent(MenuEasyActivity.this, HardMenuActivity.class);
+                Intent intent = new Intent(MenuEasyActivity.this, VowelLearnActivity.class);
                 startActivity(intent);
             }
         });
