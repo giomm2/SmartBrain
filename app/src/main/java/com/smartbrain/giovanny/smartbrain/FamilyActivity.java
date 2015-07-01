@@ -14,11 +14,16 @@ import java.util.Locale;
 
 public class FamilyActivity extends Activity implements TextToSpeech.OnInitListener {
 
-    private int [] imageArray ={R.drawable.nube, R.drawable.pez,R.drawable.pezblue,R.drawable.globo,R.drawable.globo2,R.drawable.firework,R.drawable.firework2};
-    private String [] familyWords= {"dad","mom","brother","sister","me","grandpa","gramdma"};
+    //arrays que me jalan las imagenes y lo que debe decir TTS
+    private int [] imageArray ={R.drawable.familytree, R.drawable.dad,R.drawable.mom,R.drawable.brother,
+            R.drawable.sister,R.drawable.grandpa,R.drawable.grandma};
+    private String [] familyWords= {"Lets learn about the family members","first this is dad","and mom","you may have a brother",
+            "or a sister","and this is the grandpa","and the gramdma"};
+    //views
     private ImageView imageViewer;
     private Button btnNext;
     private Button playBtn;
+    // declaracion de TTS y contador para los arrays
     private TextToSpeech tts;
     private int i =0;
 
@@ -27,6 +32,7 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family);
 
+        // declaro TTS con un contexto nuevo que es en el q esta.
         tts= new TextToSpeech(this, this);
         imageViewer = (ImageView)findViewById(R.id.viewer);
         btnNext= (Button)findViewById(R.id.nextBtn);
@@ -34,6 +40,7 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         playBtn.setEnabled(false);
         imageViewer.setBackgroundResource(imageArray[i]);
 
+        // cada vez que le doy a next aumento el contador que me recorre los arrays y cambio de frases y de imagenes
 
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,6 +67,8 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         });
     }
 
+    // necesario para poner a "hablar" al TTS y llamar a un metodo llamado speakOut solo si hay datos que hablar
+    //y si se soporta el lenguaje seteado
     @Override
     public void onInit(int status) {
         if (status == TextToSpeech.SUCCESS) {
@@ -78,6 +87,7 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         }
     }
 
+    // le dice que hablar, son todas las variables que estan en el array
     private void speakOut(){
         tts.speak(familyWords[i], TextToSpeech.QUEUE_FLUSH, null);
     }

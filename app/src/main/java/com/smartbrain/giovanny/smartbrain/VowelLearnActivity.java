@@ -57,7 +57,7 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         PutImages(num);
 
         //set back sound
-        player = MediaPlayer.create(VowelLearnActivity.this, R.raw.music);
+        player = MediaPlayer.create(VowelLearnActivity.this, R.raw.pop);
         player.setLooping(true); // Set looping
         player.setVolume(100, 100);
         player.start();
