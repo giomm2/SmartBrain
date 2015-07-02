@@ -1,4 +1,4 @@
-package com.smartbrain.giovanny.smartbrain;
+package com.smartbrain.giovanny.smartbrain.family;
 
 import android.app.Activity;
 import android.content.ClipData;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
+
+import com.smartbrain.giovanny.smartbrain.R;
 
 
 public class FamilyActivityGame extends Activity {

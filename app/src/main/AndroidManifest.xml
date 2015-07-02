@@ -35,7 +35,7 @@
             android:label="@string/title_activity_hard_menu"
             android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".FamilyActivity"
+        <activity android:name=".family.FamilyActivity"
             android:screenOrientation="landscape">
 
         </activity>
@@ -43,7 +43,7 @@
             android:name=".VowelLearnActivity"
             android:label="@string/title_activity_vowel_learn" >
         </activity>
-        <activity android:name=".FamilyActivityGame"
+        <activity android:name=".family.FamilyActivityGame"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

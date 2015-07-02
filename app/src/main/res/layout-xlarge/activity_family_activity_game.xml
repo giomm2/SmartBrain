@@ -6,7 +6,7 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:columnCount="1"
     android:rowCount="2"
-    tools:context="com.smartbrain.giovanny.smartbrain.FamilyActivityGame"
+    tools:context="com.smartbrain.giovanny.smartbrain.family.FamilyActivityGame"
     android:background="@drawable/familybeach">
 
     <RelativeLayout
