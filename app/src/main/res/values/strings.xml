@@ -6,6 +6,7 @@
 
     <string name="hello_world" >Hey keep smiling</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_medium_menu">MediumMenuActivity</string>
     <string name="title_activity_menu_easy">MenuEasyActivity</string>
     <string name="title_activity_hard_menu">HardMenuActivity</string>
     <string name="title_activity_vowel_learn">VowelLearnActivity</string>
