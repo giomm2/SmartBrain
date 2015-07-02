@@ -2,11 +2,11 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android">
 
     <translate
-        android:fromXDelta="0%"
-        android:toXDelta="5%"
+        android:fromXDelta="-10%"
+        android:toXDelta="40%"
         android:fromYDelta="0%"
-        android:toYDelta="5%"
-        android:duration="900"
+        android:toYDelta="10%"
+        android:duration="3000"
         android:repeatCount="infinite"
         android:repeatMode="reverse">
 
