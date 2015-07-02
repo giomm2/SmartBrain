@@ -30,20 +30,39 @@
             android:label="@string/title_activity_hard_menu"
             android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".FamilyActivity"
-            android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity
+            android:name=".FamilyActivity"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".VowelLearnActivity"
             android:label="@string/title_activity_vowel_learn" >
         </activity>
-        <activity android:name=".FamilyActivityGame"
-            android:screenOrientation="landscape">
+        <activity
+            android:name=".FamilyActivityGame"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".body.BodyTeachActivity1"
+            android:label="@string/title_activity_body_teach_activity1" >
+        </activity>
+        <activity
+            android:name=".body.BodyGameActivity1"
+            android:label="@string/title_activity_body_game_activity1" >
+
+        </activity>
+        <activity
+            android:name=".body.BodyTechActivity2"
+            android:label="@string/title_activity_body_tech_activity2" >
+        </activity>
+        <activity
+            android:name=".body.BodyGameActivity2"
+            android:label="@string/title_activity_body_game_activity2" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
