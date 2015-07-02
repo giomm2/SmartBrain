@@ -7,170 +7,170 @@
     android:columnCount="1"
     android:rowCount="2"
     tools:context="com.smartbrain.giovanny.smartbrain.FamilyActivityGame"
-    android:background="@drawable/familybeachlittle">
+    android:background="@drawable/familybeach">
 
     <RelativeLayout
         android:id="@+id/topLeftLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="82dp"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
         android:layout_row="0"
         >
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/dad2"
             android:id="@+id/dad"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/dad2"
             android:id="@+id/dad1"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/dad2"
             android:id="@+id/dad2"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/dad2"
             android:id="@+id/dad3"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/dad2"
             android:id="@+id/dad4"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/mom2"
             android:id="@+id/mom"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/brother"
             android:layout_toEndOf="@+id/brother" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/mom2"
             android:id="@+id/mom1"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/brother"
             android:layout_toEndOf="@+id/brother" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/mom2"
             android:id="@+id/mom2"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/brother"
             android:layout_toEndOf="@+id/brother" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/mom2"
             android:id="@+id/mom3"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/brother"
             android:layout_toEndOf="@+id/brother" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/mom2"
             android:id="@+id/mom4"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/brother"
             android:layout_toEndOf="@+id/brother" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/fambrotherlittle"
             android:id="@+id/brother"
             android:layout_alignTop="@+id/sister"
             android:layout_toRightOf="@+id/sister"
             android:layout_toEndOf="@+id/sister" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/fambrotherlittle"
             android:id="@+id/brother1"
             android:layout_alignTop="@+id/sister"
             android:layout_toRightOf="@+id/sister"
             android:layout_toEndOf="@+id/sister" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/fambrotherlittle"
             android:id="@+id/brother2"
             android:layout_alignTop="@+id/sister"
             android:layout_toRightOf="@+id/sister"
             android:layout_toEndOf="@+id/sister" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/fambrotherlittle"
             android:id="@+id/brother3"
             android:layout_alignTop="@+id/sister"
             android:layout_toRightOf="@+id/sister"
             android:layout_toEndOf="@+id/sister" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/fambrotherlittle"
             android:id="@+id/brother4"
             android:layout_alignTop="@+id/sister"
             android:layout_toRightOf="@+id/sister"
             android:layout_toEndOf="@+id/sister" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/sis"
             android:id="@+id/sister"
             android:layout_alignTop="@+id/grandpa"
             android:layout_toRightOf="@+id/grandpa"
             android:layout_toEndOf="@+id/grandpa" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/sis"
             android:id="@+id/sister1"
             android:layout_alignTop="@+id/grandpa"
             android:layout_toRightOf="@+id/grandpa"
             android:layout_toEndOf="@+id/grandpa" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/sis"
             android:id="@+id/sister2"
             android:layout_alignTop="@+id/grandpa"
             android:layout_toRightOf="@+id/grandpa"
             android:layout_toEndOf="@+id/grandpa" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/sis"
             android:id="@+id/sister3"
             android:layout_alignTop="@+id/grandpa"
             android:layout_toRightOf="@+id/grandpa"
             android:layout_toEndOf="@+id/grandpa" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/sis"
             android:id="@+id/sister4"
             android:layout_alignTop="@+id/grandpa"
@@ -178,160 +178,160 @@
             android:layout_toEndOf="@+id/grandpa" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandpa2"
             android:id="@+id/grandpa"
             android:layout_alignTop="@+id/grandma"
             android:layout_toRightOf="@+id/grandma"
             android:layout_toEndOf="@+id/grandma" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandpa2"
             android:id="@+id/grandpa1"
             android:layout_alignTop="@+id/grandma"
             android:layout_toRightOf="@+id/grandma"
             android:layout_toEndOf="@+id/grandma" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandpa2"
             android:id="@+id/grandpa2"
             android:layout_alignTop="@+id/grandma"
             android:layout_toRightOf="@+id/grandma"
             android:layout_toEndOf="@+id/grandma" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandpa2"
             android:id="@+id/grandpa3"
             android:layout_alignTop="@+id/grandma"
             android:layout_toRightOf="@+id/grandma"
             android:layout_toEndOf="@+id/grandma" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandpa2"
             android:id="@+id/grandpa4"
             android:layout_alignTop="@+id/grandma"
             android:layout_toRightOf="@+id/grandma"
             android:layout_toEndOf="@+id/grandma" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandma2"
             android:id="@+id/grandma"
             android:layout_alignTop="@+id/dad"
             android:layout_toRightOf="@+id/dad"
             android:layout_toEndOf="@+id/dad" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandma2"
             android:id="@+id/grandma1"
             android:layout_alignTop="@+id/dad"
             android:layout_toRightOf="@+id/dad"
             android:layout_toEndOf="@+id/dad" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandma2"
             android:id="@+id/grandma2"
             android:layout_alignTop="@+id/dad"
             android:layout_toRightOf="@+id/dad"
             android:layout_toEndOf="@+id/dad" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandma2"
             android:id="@+id/grandma3"
             android:layout_alignTop="@+id/dad"
             android:layout_toRightOf="@+id/dad"
             android:layout_toEndOf="@+id/dad" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/grandma2"
             android:id="@+id/grandma4"
             android:layout_alignTop="@+id/dad"
             android:layout_toRightOf="@+id/dad"
             android:layout_toEndOf="@+id/dad" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/gato"
             android:id="@+id/cat"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/dog"
             android:layout_toEndOf="@+id/dog" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/gato"
             android:id="@+id/cat1"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/dog"
             android:layout_toEndOf="@+id/dog" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/gato"
             android:id="@+id/cat2"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/dog"
             android:layout_toEndOf="@+id/dog" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/gato"
             android:id="@+id/cat3"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/dog"
             android:layout_toEndOf="@+id/dog" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/gato"
             android:id="@+id/cat4"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/dog"
             android:layout_toEndOf="@+id/dog" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/perro"
             android:id="@+id/dog"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/mom"
             android:layout_toEndOf="@+id/mom" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/perro"
             android:id="@+id/dog1"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/mom"
             android:layout_toEndOf="@+id/mom" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/perro"
             android:id="@+id/dog2"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/mom"
             android:layout_toEndOf="@+id/mom" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/perro"
             android:id="@+id/dog3"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/mom"
             android:layout_toEndOf="@+id/mom" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:src="@drawable/perro"
             android:id="@+id/dog4"
             android:layout_alignParentTop="true"
@@ -339,8 +339,8 @@
             android:layout_toEndOf="@+id/mom" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/uncle"
             android:src="@drawable/uncle"
             android:layout_alignParentTop="true"
@@ -349,8 +349,8 @@
             android:layout_marginLeft="11dp"
             android:layout_marginStart="11dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/uncle1"
             android:src="@drawable/uncle"
             android:layout_alignParentTop="true"
@@ -359,8 +359,8 @@
             android:layout_marginLeft="11dp"
             android:layout_marginStart="11dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/uncle2"
             android:src="@drawable/uncle"
             android:layout_alignParentTop="true"
@@ -369,8 +369,8 @@
             android:layout_marginLeft="11dp"
             android:layout_marginStart="11dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/uncle3"
             android:src="@drawable/uncle"
             android:layout_alignParentTop="true"
@@ -379,8 +379,8 @@
             android:layout_marginLeft="11dp"
             android:layout_marginStart="11dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/uncle4"
             android:src="@drawable/uncle"
             android:layout_alignParentTop="true"
@@ -390,8 +390,8 @@
             android:layout_marginStart="11dp" />
 
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/aunt"
             android:src="@drawable/famaunt"
             android:layout_alignParentTop="true"
@@ -400,8 +400,8 @@
             android:layout_marginLeft="13dp"
             android:layout_marginStart="13dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/aunt1"
             android:src="@drawable/famaunt"
             android:layout_alignParentTop="true"
@@ -410,8 +410,8 @@
             android:layout_marginLeft="13dp"
             android:layout_marginStart="13dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/aunt2"
             android:src="@drawable/famaunt"
             android:layout_alignParentTop="true"
@@ -420,8 +420,8 @@
             android:layout_marginLeft="13dp"
             android:layout_marginStart="13dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/aunt3"
             android:src="@drawable/famaunt"
             android:layout_alignParentTop="true"
@@ -430,8 +430,8 @@
             android:layout_marginLeft="13dp"
             android:layout_marginStart="13dp" />
         <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:id="@+id/aunt4"
             android:src="@drawable/famaunt"
             android:layout_alignParentTop="true"
@@ -443,21 +443,21 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="280dp"
+        android:layout_width="380dp"
         android:id="@+id/familyLayout"
-        android:layout_height="80dp"
+        android:layout_height="100dp"
         android:layout_row="2"
         android:layout_below="@+id/topLeftLayout"
         android:layout_alignParentLeft="true"
-        android:layout_alignBottom="@+id/howFamLayout"
-        android:background="@drawable/familybeach">
+        android:background="@drawable/familybeach"
+        android:layout_above="@+id/howFamLayout2">
 
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="280dp"
+        android:layout_width="380dp"
         android:id="@+id/familyLayout2"
-        android:layout_height="80dp"
+        android:layout_height="130dp"
         android:layout_row="2"
         android:layout_above="@+id/relativeLayout"
         android:layout_alignParentLeft="true"
@@ -467,7 +467,7 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="280dp"
+        android:layout_width="380dp"
         android:id="@+id/howFamLayout"
         android:layout_height="80dp"
         android:layout_row="2"
@@ -491,9 +491,9 @@
     </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
-        android:layout_width="280dp"
+        android:layout_width="380dp"
         android:id="@+id/howFamLayout3"
-        android:layout_height="80dp"
+        android:layout_height="130dp"
         android:layout_row="2"
         android:layout_below="@+id/howFamLayout"
         android:layout_alignRight="@+id/relativeLayout"
@@ -512,12 +512,12 @@
         android:id="@+id/relativeLayout">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             android:text="@string/family"
             android:textColor="@android:color/holo_blue_light"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="100dp"
             android:text="@string/how_family"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"

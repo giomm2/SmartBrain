@@ -11,5 +11,7 @@
     <string name="title_activity_vowel_learn">VowelLearnActivity</string>
     <string name="next_button">next</string>
     <string name="play_button">play</string>
+    <string name="family">How is your family?</string>
+    <string name="how_family">How would you like your family to be?</string>
 
 </resources>
