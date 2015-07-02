@@ -156,6 +156,7 @@ public class MainActivity extends Activity  {
                         Intent intent= new Intent(MainActivity.this,MenuEasyActivity.class);
                         startActivity(intent);
                         player.stop();
+                        System.exit(0);
                     }
                     // Else display error message
                     else {

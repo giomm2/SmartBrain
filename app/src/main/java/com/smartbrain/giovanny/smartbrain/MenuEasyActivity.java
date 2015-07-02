@@ -13,6 +13,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.smartbrain.giovanny.smartbrain.body.BodyTeachActivity1;
+
 
 public class MenuEasyActivity extends Activity {
 
@@ -70,7 +72,7 @@ public class MenuEasyActivity extends Activity {
             public void onClick(View v) {
                 music.stop();
                 bubblePop.start();
-                Intent intent = new Intent(MenuEasyActivity.this, HardMenuActivity.class);
+                Intent intent = new Intent(MenuEasyActivity.this, BodyTeachActivity1.class);
                 startActivity(intent);
             }
         });
