@@ -24,6 +24,11 @@
             android:name=".MenuEasyActivity"
             android:label="@string/title_activity_menu_easy"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".HardMenuActivity"
@@ -32,11 +37,7 @@
         </activity>
         <activity android:name=".FamilyActivity"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".VowelLearnActivity"
@@ -44,6 +45,32 @@
         </activity>
         <activity android:name=".FamilyActivityGame"
             android:screenOrientation="landscape">
+        </activity>
+
+        <activity android:name=".MenuMediumActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_medium_menu"
+            >
+        </activity>
+        <activity android:name=".body.BodyTeachActivity1"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_body_teach_activity1"
+            >
+        </activity>
+        <activity android:name=".body.BodyGameActivity1"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_body_game_activity1"
+            >
+        </activity>
+        <activity android:name=".body.BodyTechActivity2"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_body_tech_activity2"
+            >
+        </activity>
+        <activity android:name=".body.BodyGameActivity2"
+            android:screenOrientation="landscape"
+            android:label="@string/title_activity_body_game_activity2"
+            >
         </activity>
     </application>
 
