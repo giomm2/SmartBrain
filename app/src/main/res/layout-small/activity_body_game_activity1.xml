@@ -100,5 +100,4 @@
         android:layout_alignTop="@+id/btn_repeat"
         android:layout_toRightOf="@+id/image2"
         android:layout_toEndOf="@+id/image2" />
-
 </RelativeLayout>
