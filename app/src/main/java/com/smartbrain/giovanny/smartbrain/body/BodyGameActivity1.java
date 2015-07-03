@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -151,7 +152,6 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
                     btnnext.setVisibility(View.INVISIBLE);
                     btnrepeat.setVisibility(View.VISIBLE);
-                    contNumber.cancel();
                     contNumber.start();
                 }
 
@@ -203,6 +203,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
                 break;
             }
 
+
         }
 
 
@@ -213,12 +214,12 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
             pos=0;
             Intent intent=new Intent(BodyGameActivity1.this,BodyTechActivity2.class);
             startActivity(intent);
-            System.exit(0);
+            BodyGameActivity1.this.finish();
+        }else {
+            String play = voice[pos];
+            ConvertTextToSpeech(play);
+            pos++;
         }
-        String play=voice[pos];
-        ConvertTextToSpeech(play);
-        pos++;
-
     }
 
     private void VoiceRepeat(){
@@ -241,6 +242,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
             img2.setEnabled(false);
             img3.setEnabled(false);
             img4.setEnabled(false);
+            contNumber.cancel();
             posId++;
 
         }else{
