@@ -99,4 +99,5 @@
         android:textColor="#ff50ff05"
         android:textSize="80dp"
         android:singleLine="false" />
+
 </RelativeLayout>
