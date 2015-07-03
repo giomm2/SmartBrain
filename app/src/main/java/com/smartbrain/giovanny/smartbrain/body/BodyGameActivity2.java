@@ -174,6 +174,7 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
 
                     btnnext.setVisibility(View.INVISIBLE);
                     btnrepeat.setVisibility(View.VISIBLE);
+                    contNumber.cancel();
                     contNumber.start();
                 }
 
@@ -253,12 +254,12 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
             pos=0;
             Intent intent=new Intent(BodyGameActivity2.this,MenuEasyActivity.class);
             startActivity(intent);
-            BodyGameActivity2.this.finish();
-        }else {
-            String play = voice[pos];
-            ConvertTextToSpeech(play);
-            pos++;
+            System.exit(0);
         }
+        String play=voice[pos];
+        ConvertTextToSpeech(play);
+        pos++;
+
 
     }
 
@@ -284,7 +285,6 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
             img4.setEnabled(false);
             img5.setEnabled(false);
             img6.setEnabled(false);
-            contNumber.cancel();
             posId++;
 
         }else{
