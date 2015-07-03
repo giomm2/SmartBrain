@@ -100,7 +100,7 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
 
                 Intent intent = new Intent(BodyTeachActivity1.this,BodyGameActivity1.class);
                 startActivity(intent);
-                System.exit(0);
+                BodyTeachActivity1.this.finish();
                 break;
 
             }
