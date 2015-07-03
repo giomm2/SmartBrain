@@ -97,6 +97,7 @@ public class FamilyActivityGame extends Activity {
         layoutRight2=(LinearLayout)findViewById(R.id.howFamLayout2);
         endGame= (Button) findViewById(R.id.endGame);
 
+        //boton que termina la actividad cuando sea que el usuario lo desee.
         endGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
