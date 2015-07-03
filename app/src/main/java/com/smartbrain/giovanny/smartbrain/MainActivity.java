@@ -71,19 +71,6 @@ public class MainActivity extends Activity  {
 
 
 
-        pasar.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, MenuEasyActivity.class);
-
-                startActivity(intent);
-
-                invokeSelect();
-            }
-
-
-        });
 
 
         prgDialog = new ProgressDialog(this);
