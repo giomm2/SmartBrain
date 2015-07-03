@@ -2,14 +2,17 @@ package com.smartbrain.giovanny.smartbrain.family;
 
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 
@@ -20,6 +23,7 @@ public class FamilyActivityGame extends Activity {
     LinearLayout layoutLeft2;
     LinearLayout layoutRight;
     LinearLayout layoutRight2;
+    Button endGame;
 
     protected void viewSetter(){
         // seteo el touch listener para cada imagen en el layout y llamo a la clase MyTouchListener
@@ -91,6 +95,16 @@ public class FamilyActivityGame extends Activity {
         layoutLeft2= (LinearLayout)findViewById(R.id.familyLayout2);
         layoutRight=(LinearLayout)findViewById(R.id.howFamLayout);
         layoutRight2=(LinearLayout)findViewById(R.id.howFamLayout2);
+        endGame= (Button) findViewById(R.id.endGame);
+
+        endGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(FamilyActivityGame.this, MenuEasyActivity.class);
+                startActivity(intent);
+                System.exit(0);
+            }
+        });
 
     }
 
