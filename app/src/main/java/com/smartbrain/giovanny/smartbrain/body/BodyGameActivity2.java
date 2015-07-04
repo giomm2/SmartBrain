@@ -147,7 +147,11 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
         text=voice1;
         //text = et.getText().toString();
         if (text == null || "".equals(text)) {
-            text = voice[pos-1];
+            if(pos>0){
+                text = voice[pos-1];}
+            else{
+                text=voice[pos];
+            }
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         } else
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
@@ -174,7 +178,6 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
 
                     btnnext.setVisibility(View.INVISIBLE);
                     btnrepeat.setVisibility(View.VISIBLE);
-                    contNumber.cancel();
                     contNumber.start();
                 }
 
@@ -253,13 +256,14 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
         if(pos==6){
             pos=0;
             Intent intent=new Intent(BodyGameActivity2.this,MenuEasyActivity.class);
+            BodyGameActivity2.this.finish();
             startActivity(intent);
-            System.exit(0);
-        }
-        String play=voice[pos];
-        ConvertTextToSpeech(play);
-        pos++;
 
+        }else {
+            String play = voice[pos];
+            ConvertTextToSpeech(play);
+            pos++;
+        }
 
     }
 
@@ -285,6 +289,7 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
             img4.setEnabled(false);
             img5.setEnabled(false);
             img6.setEnabled(false);
+            contNumber.cancel();
             posId++;
 
         }else{

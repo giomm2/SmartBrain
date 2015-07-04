@@ -102,8 +102,9 @@ public class FamilyActivityGame extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FamilyActivityGame.this, MenuEasyActivity.class);
+                FamilyActivityGame.this.finish();
                 startActivity(intent);
-                System.exit(0);
+
             }
         });
 

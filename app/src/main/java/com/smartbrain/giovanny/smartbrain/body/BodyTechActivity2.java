@@ -105,8 +105,8 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
             case R.id.btn_play:{
 
                 Intent intent = new Intent(BodyTechActivity2.this,BodyGameActivity2.class);
+                BodyTechActivity2.this.finish();
                 startActivity(intent);
-                System.exit(0);
                 break;
 
             }

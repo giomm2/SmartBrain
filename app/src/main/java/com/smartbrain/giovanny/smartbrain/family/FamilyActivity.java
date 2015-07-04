@@ -62,8 +62,9 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FamilyActivity.this, FamilyActivityGame.class);
+                FamilyActivity.this.finish();
                 startActivity(intent);
-                System.exit(0);
+
             }
         });
     }

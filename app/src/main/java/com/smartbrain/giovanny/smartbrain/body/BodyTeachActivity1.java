@@ -99,8 +99,10 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
             case R.id.btn_play:{
 
                 Intent intent = new Intent(BodyTeachActivity1.this,BodyGameActivity1.class);
+                BodyTeachActivity1.this.finish();
                 startActivity(intent);
-                System.exit(0);
+
+
                 break;
 
             }

@@ -141,9 +141,11 @@ public class MainActivity extends Activity  {
                         // Display successfully registered message using Toast
                         Toast.makeText(getApplicationContext(), "You are successfully registered!", Toast.LENGTH_LONG).show();
                         Intent intent= new Intent(MainActivity.this,MenuEasyActivity.class);
-                        startActivity(intent);
+                        MainActivity.this.finish();
                         player.stop();
-                        System.exit(0);
+                        startActivity(intent);
+
+
                     }
                     // Else display error message
                     else {
@@ -254,6 +256,7 @@ public class MainActivity extends Activity  {
     public String getUniqueDevice(){
         TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
         String idDevice = telephonyManager.getDeviceId().toString();
+        setId(idDevice);
         return idDevice;
     }
 

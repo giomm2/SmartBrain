@@ -124,7 +124,11 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
         text=voice1;
         //text = et.getText().toString();
         if (text == null || "".equals(text)) {
-            text = voice[pos-1];
+            if(pos>0){
+            text = voice[pos-1];}
+            else{
+                text=voice[pos];
+            }
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
         } else
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
@@ -151,7 +155,6 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
                     btnnext.setVisibility(View.INVISIBLE);
                     btnrepeat.setVisibility(View.VISIBLE);
-                    contNumber.cancel();
                     contNumber.start();
                 }
 
@@ -212,13 +215,15 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
         if(pos==4){
             pos=0;
             Intent intent=new Intent(BodyGameActivity1.this,BodyTechActivity2.class);
+            BodyGameActivity1.this.finish();
             startActivity(intent);
-            System.exit(0);
-        }
-        String play=voice[pos];
-        ConvertTextToSpeech(play);
-        pos++;
 
+
+        }else {
+            String play = voice[pos];
+            ConvertTextToSpeech(play);
+            pos++;
+        }
     }
 
     private void VoiceRepeat(){
@@ -241,6 +246,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
             img2.setEnabled(false);
             img3.setEnabled(false);
             img4.setEnabled(false);
+            contNumber.cancel();
             posId++;
 
         }else{
@@ -261,6 +267,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
                 Intent intent= new Intent(BodyGameActivity1.this,BodyGameActivity1.class);
                 startActivity(intent);
+
             }
 
         }
