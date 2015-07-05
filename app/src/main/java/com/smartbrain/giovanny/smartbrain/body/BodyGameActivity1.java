@@ -149,24 +149,37 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
                     btnnext.setText("Next");
                     btnnext.setVisibility(View.INVISIBLE);
                     contNumber.start();
+                    //Las imagenes se pueden seleccionar.
+                    img1.setEnabled(true);
+                    img2.setEnabled(true);
+                    img3.setEnabled(true);
+                    img4.setEnabled(true);
+                    //Llama el metodo de las imagenes Random
+                    PutImages();
+                    //Llama el metodo de la voz del juego
+                    VoiceGame();
 
 
-                }else if(btnnext.getText().equals("Next")){
+                }else if(btnnext.getText().equals("Next")&&pos!=4){
 
                     btnnext.setVisibility(View.INVISIBLE);
                     btnrepeat.setVisibility(View.VISIBLE);
                     contNumber.start();
+                    //Las imagenes se pueden seleccionar.
+                    img1.setEnabled(true);
+                    img2.setEnabled(true);
+                    img3.setEnabled(true);
+                    img4.setEnabled(true);
+                    //Llama el metodo de las imagenes Random
+                    PutImages();
+                    //Llama el metodo de la voz del juego
+                    VoiceGame();
+                }else{
+                    Intent intent=new Intent(BodyGameActivity1.this,BodyTechActivity2.class);
+                    BodyGameActivity1.this.finish();
+                    startActivity(intent);
                 }
 
-                //Las imagenes se pueden seleccionar.
-                img1.setEnabled(true);
-                img2.setEnabled(true);
-                img3.setEnabled(true);
-                img4.setEnabled(true);
-                //Llama el metodo de las imagenes Random
-                PutImages();
-                //Llama el metodo de la voz del juego
-                VoiceGame();
                 break;
 
             }
@@ -212,18 +225,10 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
     }
     //Metodo que cambia las voces del juego cuando se da start
     private void VoiceGame (){
-        if(pos==4){
-            pos=0;
-            Intent intent=new Intent(BodyGameActivity1.this,BodyTechActivity2.class);
-            BodyGameActivity1.this.finish();
-            startActivity(intent);
+        String play = voice[pos];
+        ConvertTextToSpeech(play);
+        pos++;
 
-
-        }else {
-            String play = voice[pos];
-            ConvertTextToSpeech(play);
-            pos++;
-        }
     }
 
     private void VoiceRepeat(){
