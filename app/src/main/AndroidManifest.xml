@@ -5,6 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -14,8 +17,6 @@
             android:name=".SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
-
-
         </activity>
         <activity
             android:name=".MainActivity"
@@ -31,52 +32,61 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity
             android:name=".HardMenuActivity"
             android:label="@string/title_activity_hard_menu"
             android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".family.FamilyActivity"
-            android:screenOrientation="landscape">
-
+        <activity
+            android:name=".family.FamilyActivity"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name=".VowelLearnActivity"
+            android:name=".vowels.VowelLearnActivity"
             android:label="@string/title_activity_vowel_learn" >
         </activity>
-        <activity android:name=".family.FamilyActivityGame"
-            android:screenOrientation="landscape">
-
+        <activity
+            android:name=".family.FamilyActivityGame"
+            android:screenOrientation="landscape" >
         </activity>
-
-        <activity android:name=".MenuMediumActivity"
-            android:screenOrientation="landscape"
+        <activity
+            android:name=".MenuMediumActivity"
             android:label="@string/title_activity_medium_menu"
-            >
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".body.BodyTeachActivity1"
-            android:screenOrientation="landscape"
+        <activity
+            android:name=".body.BodyTeachActivity1"
             android:label="@string/title_activity_body_teach_activity1"
-            >
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".body.BodyGameActivity1"
-            android:screenOrientation="landscape"
+        <activity
+            android:name=".body.BodyGameActivity1"
             android:label="@string/title_activity_body_game_activity1"
-            >
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".body.BodyTechActivity2"
-            android:screenOrientation="landscape"
+        <activity
+            android:name=".body.BodyTechActivity2"
             android:label="@string/title_activity_body_tech_activity2"
-            >
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".body.BodyGameActivity2"
-            android:screenOrientation="landscape"
+        <activity
+            android:name=".body.BodyGameActivity2"
             android:label="@string/title_activity_body_game_activity2"
-            >
+            android:screenOrientation="landscape" >
         </activity>
+        <activity
+            android:name=".vowels.PuzzleActivity"
+            android:label="@string/title_activity_puzzle"
+            android:screenOrientation="landscape">
+        </activity>
+        <supports-screens
+            android:anyDensity="true"
+            android:largeScreens="true"
+            android:normalScreens="true"
+            android:smallScreens="false"
+            android:xlargeScreens="true" />
+
     </application>
 
 </manifest>

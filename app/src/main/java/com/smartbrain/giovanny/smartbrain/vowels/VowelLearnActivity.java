@@ -1,22 +1,21 @@
-package com.smartbrain.giovanny.smartbrain;
+package com.smartbrain.giovanny.smartbrain.vowels;
 
-import android.support.v7.app.ActionBarActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
 import android.media.MediaPlayer;
-import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
 
@@ -25,6 +24,8 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
 
     private String[] images={"a","e","i","o","u"};
     private String[] images2={"apple","","ice","orange","umbrella"};
+    private String[] speak={"A like an apple","E like an elephant","I like an ice cream","O like an orange","U like an umbrella"};
+    private int num1;
 
     private Button btnnext;
     private Button btnprevious;
@@ -36,6 +37,8 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
     private MediaPlayer player;
     private TextToSpeech tts;
     private String text;
+    private Button btnPlay;
+    private Button btnpasar;
 
 
     @Override
@@ -46,18 +49,19 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         btnnext=(Button)findViewById(R.id.btn_next);
         image=(ImageView)findViewById(R.id.img_content);
         image2 = (ImageView)findViewById(R.id.imgApple);
-        btnprevious=(Button)findViewById(R.id.btn_previous);
-
+        btnPlay=(Button)findViewById(R.id.btn_play);
+        btnpasar=(Button)findViewById(R.id.btn_previous);
         txtVowel = (TextView)findViewById(R.id.textView);
 
 
         btnnext.setOnClickListener(this);
-        btnprevious.setOnClickListener(this);
+        btnPlay.setOnClickListener(this);
+        btnpasar.setOnClickListener(this);
         num=OrderImage();
         PutImages(num);
 
         //set back sound
-        player = MediaPlayer.create(VowelLearnActivity.this, R.raw.pop);
+        player = MediaPlayer.create(VowelLearnActivity.this, R.raw.music);
         player.setLooping(true); // Set looping
         player.setVolume(100, 100);
         player.start();
@@ -66,7 +70,7 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
 
             @Override
             public void onInit(int status) {
-                // TODO Auto-generated method stub
+                //TODO Auto-generated method stub
                 if (status == TextToSpeech.SUCCESS) {
                     int result = tts.setLanguage(Locale.US);
                     if (result == TextToSpeech.LANG_MISSING_DATA ||
@@ -81,7 +85,15 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         });
     }
 
+    private int OrderImage1() {
+        if (cont != images.length - 1 || cont != -1) {
+            cont--;
+        } else {
+            cont = 0;
+        }
+        return cont;
 
+    }
     private int OrderImage(){
 
         if (cont != images.length-1) {
@@ -140,15 +152,27 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
                 num = OrderImage();
                 PutImages(num);
 
-                voice();
+                Voice();
 
 
                 break;
 
             }
             case R.id.btn_previous:{
-                voice();
+                num1 = OrderImage1();
+                PutImages(num1);
+                VoiceRepeat();
+                break;
             }
+            case R.id.btn_play:{
+
+                Intent intent = new Intent(VowelLearnActivity.this,PuzzleActivity.class);
+                startActivity(intent);
+                VowelLearnActivity.this.finish();
+                break;
+
+            }
+
 
         }
     }
@@ -159,6 +183,7 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
 
         super.onStart();
         letras();
+        btnpasar.setVisibility(View.INVISIBLE);
 
 
     }
@@ -185,27 +210,30 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         player.stop();
     }
 
-    public void voice(){
-
-        if(text.equals("A like an apple")){
-
-            ConvertTextToSpeech("E like an elephant");
-        }else if (text.equals("E like an elephant")){
-
-            ConvertTextToSpeech("I   like an ice cream");
-
-        }else if (text.equals("I   like an ice cream")){
-
-            ConvertTextToSpeech("O   like an orange");
-
-        }else if (text.equals("O   like an orange")){
-
-            ConvertTextToSpeech("U   like an umbrella");
-
-        }else{
-            ConvertTextToSpeech("A like an apple");
+    public void Voice(){
+        if(cont==0){
+            ConvertTextToSpeech(speak[cont]);
+            btnpasar.setVisibility(View.INVISIBLE);
+            btnPlay.setVisibility(View.VISIBLE);
         }
+        else {
+            ConvertTextToSpeech(speak[cont]);
+            btnpasar.setVisibility(View.VISIBLE);
+        }
+
     }
+    public void VoiceRepeat(){
+
+        if(cont==0){
+            ConvertTextToSpeech(speak[cont]);
+            btnpasar.setVisibility(View.INVISIBLE);
+        }
+        else {
+            ConvertTextToSpeech(speak[cont]);
+        }
+
+    }
+
     private void ConvertTextToSpeech(String voice) {
         // TODO Auto-generated method stub
         text=voice;

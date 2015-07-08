@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.body.BodyTeachActivity1;
 import com.smartbrain.giovanny.smartbrain.family.FamilyActivity;
+import com.smartbrain.giovanny.smartbrain.vowels.VowelLearnActivity;
 
 
 public class MenuEasyActivity extends Activity {
