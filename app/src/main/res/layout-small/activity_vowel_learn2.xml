@@ -10,14 +10,14 @@
         android:layout_width="280dp"
         android:layout_height="150dp"
         android:id="@+id/img_content"
-        android:layout_below="@+id/btn_next"
-        android:layout_toLeftOf="@+id/btn_next"
-        android:layout_toStartOf="@+id/btn_next" />
+        android:layout_alignTop="@+id/imgApple"
+        android:layout_toLeftOf="@+id/btn_play"
+        android:layout_toStartOf="@+id/btn_play" />
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:text="Next"
         android:id="@+id/btn_next"
         android:layout_alignParentTop="true"
@@ -28,21 +28,21 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/imgApple"
-        android:layout_alignTop="@+id/img_content"
+        android:layout_above="@+id/btn_play"
         android:layout_toLeftOf="@+id/img_content"
         android:layout_toStartOf="@+id/img_content" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:text="Play"
         android:id="@+id/btn_play"
         android:visibility="invisible"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"/>
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:text="Previous"
         android:id="@+id/btn_previous"
         android:layout_alignTop="@+id/btn_next"

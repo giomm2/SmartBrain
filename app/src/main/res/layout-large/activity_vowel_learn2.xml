@@ -10,14 +10,14 @@
         android:layout_width="280dp"
         android:layout_height="150dp"
         android:id="@+id/img_content"
-        android:layout_below="@+id/btn_next"
-        android:layout_toLeftOf="@+id/btn_next"
-        android:layout_toStartOf="@+id/btn_next" />
+        android:layout_alignTop="@+id/imgApple"
+        android:layout_toRightOf="@+id/imgApple"
+        android:layout_toEndOf="@+id/imgApple" />
 
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="Next"
         android:id="@+id/btn_next"
         android:layout_alignParentTop="true"
@@ -28,9 +28,11 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/imgApple"
-        android:layout_alignTop="@+id/img_content"
-        android:layout_toLeftOf="@+id/img_content"
-        android:layout_toStartOf="@+id/img_content" />
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/btn_previous"
+        android:layout_toEndOf="@+id/btn_previous"
+        android:layout_marginLeft="112dp"
+        android:layout_marginStart="112dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -44,8 +46,8 @@
         android:visibility="invisible" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="Previous"
         android:id="@+id/btn_previous"
         android:layout_alignTop="@+id/btn_next"
@@ -53,13 +55,12 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:text="Play"
         android:id="@+id/btn_play"
         android:visibility="invisible"
-        android:layout_above="@+id/textView"
-        android:layout_toRightOf="@+id/img_content"
-        android:layout_toEndOf="@+id/img_content" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
 
 </RelativeLayout>
