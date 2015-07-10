@@ -16,6 +16,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
+import com.smartbrain.giovanny.smartbrain.Numbers.NumbersTeachActivity;
+
 
 public class HardMenuActivity extends Activity {
 
@@ -57,7 +59,7 @@ public class HardMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 selectSound.start();
-                Intent intent = new Intent(HardMenuActivity.this, MenuEasyActivity.class);
+                Intent intent = new Intent(HardMenuActivity.this, NumbersTeachActivity.class);
                 startActivity(intent);
                 music.stop();
             }

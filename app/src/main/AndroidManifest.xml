@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
@@ -78,8 +77,9 @@
         <activity
             android:name=".vowels.PuzzleActivity"
             android:label="@string/title_activity_puzzle"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
+
         <supports-screens
             android:anyDensity="true"
             android:largeScreens="true"
@@ -87,6 +87,16 @@
             android:smallScreens="false"
             android:xlargeScreens="true" />
 
+        <activity
+            android:name=".Numbers.NumbersTeachActivity"
+            android:label="@string/title_activity_numbers_teach"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".Numbers.NumbersGameActivity"
+            android:label="@string/title_activity_numbers_game"
+            android:screenOrientation="landscape">
+        </activity>
     </application>
 
 </manifest>

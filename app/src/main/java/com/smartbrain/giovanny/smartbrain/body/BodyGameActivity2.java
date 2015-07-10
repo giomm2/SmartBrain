@@ -319,6 +319,7 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
 
                 Intent intent= new Intent(BodyGameActivity2.this,BodyGameActivity2.class);
                 startActivity(intent);
+                BodyGameActivity2.this.finish();
             }
 
         }
@@ -356,6 +357,7 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
 
                 Intent intent = new Intent(BodyGameActivity2.this, BodyGameActivity2.class);
                 startActivity(intent);
+                BodyGameActivity2.this.finish();
             }
         }
     };
