@@ -12,6 +12,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.colors.ColorLearningActivity;
+
 /**
  * Created by Cryven on 25/06/2015.
  */
@@ -78,6 +80,8 @@ public class MenuMediumActivity extends Activity {
                 river.stop();
                 wind.stop();
                 music.stop();
+                Intent intent=new Intent(MenuMediumActivity.this, ColorLearningActivity.class);
+                startActivity(intent);
             }
         });
     }
