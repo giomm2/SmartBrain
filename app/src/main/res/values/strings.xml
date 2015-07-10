@@ -34,6 +34,9 @@
     <string name="toast_not_enabled_expert_mode">Numbers are off. Expert mode will be enabled when the slidePuzzle is scrambled.</string>
     <string name="title_activity_numbers_teach">NumbersTeachActivity</string>
     <string name="title_activity_numbers_game">NumbersGameActivity</string>
+    <string name="title_activity_color_learning">ColorLearningActivity</string>
+    <string name="title_activity_secondary_color_learning">SecondaryColorLearningActivity</string>
+    <string name="title_activity_colors_game">ColorsGameActivity</string>
 
 
 </resources>

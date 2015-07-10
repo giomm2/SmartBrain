@@ -1,0 +1,166 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/coloresfondopequeno"
+    tools:context="com.smartbrain.giovanny.smartbrain.colors.ColorsGameActivity">
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorGreen"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorBlue"
+        android:layout_above="@+id/gameColorYellow"
+        android:layout_toRightOf="@+id/gameColorYellow"
+        android:layout_toEndOf="@+id/gameColorYellow" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorYellow"
+        android:layout_below="@+id/gameColorRed"
+        android:layout_toRightOf="@+id/gameColorRed"
+        android:layout_toEndOf="@+id/gameColorRed" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorRed"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/gameColorOrange"
+        android:layout_toEndOf="@+id/gameColorOrange" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorOrange"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/gameColorGreen"
+        android:layout_toEndOf="@+id/gameColorGreen" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorBrown"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorGrey"
+        android:layout_below="@+id/gameColorOrange"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorViewer"
+        android:layout_alignTop="@+id/gameColorOrange"
+        android:layout_toRightOf="@+id/gameColorOrange"
+        android:layout_toEndOf="@+id/gameColorOrange" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorPurple"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/gameColorBrown"
+        android:layout_toEndOf="@+id/gameColorBrown" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorWine"
+        android:layout_below="@+id/gameColorOrange"
+        android:layout_toRightOf="@+id/gameColorOrange"
+        android:layout_toEndOf="@+id/gameColorOrange" />
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/gameColorOlive"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/gameColorBlue"
+        android:layout_toStartOf="@+id/gameColorBlue" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        android:id="@+id/start"
+        android:layout_alignTop="@+id/gameColorYellow"
+        android:textColor="#ff1518ff"
+        android:layout_alignLeft="@+id/gameColorGrey"
+        android:layout_alignStart="@+id/gameColorGrey" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repeat"
+        android:id="@+id/repeat"
+        android:textColor="#ff1518ff"
+        android:layout_below="@+id/start"
+        android:layout_alignLeft="@+id/gameColorGrey"
+        android:layout_alignStart="@+id/gameColorGrey" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/heart"
+        android:src="@drawable/heart"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/heart2"
+        android:layout_toEndOf="@+id/heart2" />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/heart1"
+        android:src="@drawable/heart"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/gameColorGreen"
+        android:layout_toEndOf="@+id/gameColorGreen" />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:id="@+id/heart2"
+        android:src="@drawable/heart"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/heart1"
+        android:layout_toEndOf="@+id/heart1" />
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:id="@+id/heart3"
+        android:src="@drawable/heart"
+        android:layout_alignTop="@+id/heart5"
+        android:layout_alignLeft="@+id/heart"
+        android:layout_alignStart="@+id/heart"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp" />
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:id="@+id/heart4"
+        android:src="@drawable/heart"
+        android:layout_alignTop="@+id/heart1"
+        android:layout_toLeftOf="@+id/heart2"
+        android:layout_toStartOf="@+id/heart2"
+        android:layout_marginRight="6dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginTop="6dp" />
+    <ImageView
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:id="@+id/heart5"
+        android:src="@drawable/heart"
+        android:layout_alignTop="@+id/heart4"
+        android:layout_toRightOf="@+id/heart1"
+        android:layout_toEndOf="@+id/heart1"
+        android:layout_marginLeft="6dp"
+        android:layout_marginStart="6dp" />
+
+</RelativeLayout>

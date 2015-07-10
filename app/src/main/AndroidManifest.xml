@@ -90,11 +90,26 @@
         <activity
             android:name=".Numbers.NumbersTeachActivity"
             android:label="@string/title_activity_numbers_teach"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".Numbers.NumbersGameActivity"
             android:label="@string/title_activity_numbers_game"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".colors.ColorLearningActivity"
+            android:label="@string/title_activity_color_learning"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".colors.SecondaryColorLearningActivity"
+            android:label="@string/title_activity_secondary_color_learning"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".colors.ColorsGameActivity"
+            android:label="@string/title_activity_colors_game"
             android:screenOrientation="landscape">
         </activity>
     </application>
