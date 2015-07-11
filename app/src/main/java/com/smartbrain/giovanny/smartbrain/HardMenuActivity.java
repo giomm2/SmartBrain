@@ -176,11 +176,13 @@ public class HardMenuActivity extends Activity {
                 Intent intent = new Intent(
                         HardMenuActivity.this, MenuEasyActivity.class);
                 startActivity(intent);
+                HardMenuActivity.this.finish();
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
             }else if(event2.getX() > event1.getX()){
                 Intent intent = new Intent(
                         HardMenuActivity.this, MenuMediumActivity.class);
                 startActivity(intent);
+                HardMenuActivity.this.finish();
                 overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
             }
 
