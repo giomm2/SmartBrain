@@ -187,11 +187,7 @@ public class FamilyActivityGame extends Activity {
                         container.addView(view);
                         view.setVisibility(View.VISIBLE);
                     }
-
-
-
-
-                    break;
+                 break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     //do nothing
                 default:

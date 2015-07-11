@@ -100,17 +100,25 @@
         <activity
             android:name=".colors.ColorLearningActivity"
             android:label="@string/title_activity_color_learning"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".colors.SecondaryColorLearningActivity"
             android:label="@string/title_activity_secondary_color_learning"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".colors.ColorsGameActivity"
             android:label="@string/title_activity_colors_game"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".shapes.ShapesActivityMain"
+            android:label="@string/title_activity_shapes_activity_main" >
+        </activity>
+        <activity
+            android:name=".shapes.ShapesActivity"
+            android:label="@string/title_activity_shapes" >
         </activity>
     </application>
 

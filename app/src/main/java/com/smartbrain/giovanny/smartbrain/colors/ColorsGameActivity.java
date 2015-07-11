@@ -1761,6 +1761,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
         }
     }
 
+
     private void setImagesForCase3(){
         ImageView[] imageViews ={colorYellow,colorRed,colorGreen,colorBrown,colorOrange,colorPurple};
         int [] array ={R.drawable.coloryellow,R.drawable.colorred,R.drawable.colorgreen,R.drawable.brown,R.drawable.colororange,R.drawable.colorpurple};

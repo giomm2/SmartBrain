@@ -28,7 +28,6 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
     private int num1;
 
     private Button btnnext;
-    private Button btnprevious;
     private ImageView image;
     private ImageView image2;
     private int num;
@@ -49,7 +48,6 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         btnnext=(Button)findViewById(R.id.btn_next);
         image=(ImageView)findViewById(R.id.img_content);
         image2 = (ImageView)findViewById(R.id.imgApple);
-        btnPlay=(Button)findViewById(R.id.btn_play);
         btnpasar=(Button)findViewById(R.id.btn_previous);
         txtVowel = (TextView)findViewById(R.id.textView);
 
