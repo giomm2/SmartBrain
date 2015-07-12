@@ -27,26 +27,28 @@
         android:layout_alignTop="@+id/flower3"
         android:layout_toLeftOf="@+id/flower3"
         android:layout_toStartOf="@+id/flower3"
-        android:layout_marginRight="52dp"
-        android:layout_marginEnd="52dp" />
+        android:layout_marginRight="81dp"
+        android:layout_marginEnd="81dp" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="90dp"
         android:id="@+id/flower2"
         android:background="@drawable/flower2"
-        android:layout_below="@+id/smoke"
+        android:layout_marginBottom="76dp"
+        android:layout_marginRight="79dp"
+        android:layout_marginEnd="79dp"
+        android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/cloud"
-        android:layout_toStartOf="@+id/cloud"
-        android:layout_marginTop="92dp" />
+        android:layout_toStartOf="@+id/cloud" />
 
     <ImageView
         android:layout_width="100dp"
         android:layout_height="90dp"
         android:id="@+id/flower3"
         android:background="@drawable/flower3"
-        android:layout_marginRight="50dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginRight="47dp"
+        android:layout_marginEnd="47dp"
         android:layout_alignTop="@+id/flower2"
         android:layout_toLeftOf="@+id/flower2"
         android:layout_toStartOf="@+id/flower2" />
@@ -56,11 +58,9 @@
         android:layout_height="80dp"
         android:id="@+id/smoke"
         android:background="@drawable/smoke"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/flower3"
-        android:layout_alignEnd="@+id/flower3"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp" />
+        android:layout_alignTop="@+id/cloud"
+        android:layout_alignRight="@+id/flower2"
+        android:layout_alignEnd="@+id/flower2" />
 
 
 </RelativeLayout>

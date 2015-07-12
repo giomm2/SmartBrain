@@ -41,6 +41,7 @@
     <string name="title_activity_shapes">ShapesActivity</string>
     <string name="title_activity_animals_learning">AnimalsLearningActivity</string>
     <string name="title_activity_animals_game">AnimalsGameActivity</string>
+    <string name="tittle_activity_community_member">CommunityMember</string>
 
 
 </resources>

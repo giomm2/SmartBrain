@@ -12,8 +12,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.smartbrain.giovanny.smartbrain.colors.ColorLearningActivity;
-
 /**
  * Created by Cryven on 25/06/2015.
  */
@@ -24,8 +22,7 @@ public class MenuMediumActivity extends Activity {
     private ImageView flower1;
     private ImageView flower2;
     private ImageView smoke;
-    private MediaPlayer wind;
-    private MediaPlayer river;
+
     private GestureDetectorCompat gestureDetectorCompat;
     private MediaPlayer music;
 
@@ -41,47 +38,32 @@ public class MenuMediumActivity extends Activity {
 
         gestureDetectorCompat= new GestureDetectorCompat(this, new MyGestureListener());
 
+        //Backround sound
         music= MediaPlayer.create(this,R.raw.fireflies);
         music.setLooping(true);
         music.start();
 
-        //Backround sound of wind
 
-        wind = MediaPlayer.create(MenuMediumActivity.this, R.raw.wind);
-        wind.setLooping(true); // Set looping
-        wind.setVolume(100, 100);
-        wind.start();
-
-        //Backround sound of river
-        river = MediaPlayer.create(MenuMediumActivity.this, R.raw.river);
-        wind.setLooping(true);
-        river.setVolume(100, 100);
-        river.start();
 
         flower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                river.stop();
-                wind.stop();
+
                 music.stop();
             }
         });
         flower1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                river.stop();
-                wind.stop();
+
                 music.stop();
             }
         });
         flower2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                river.stop();
-                wind.stop();
+
                 music.stop();
-                Intent intent=new Intent(MenuMediumActivity.this, ColorLearningActivity.class);
-                startActivity(intent);
             }
         });
     }
@@ -113,16 +95,13 @@ public class MenuMediumActivity extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        wind.stop();
-        river.stop();
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        wind.stop();
-        river.stop();
+
     }
 
     public void flowerMovement(){
