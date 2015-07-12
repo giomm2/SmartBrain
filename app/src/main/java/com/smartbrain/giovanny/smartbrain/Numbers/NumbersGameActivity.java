@@ -31,7 +31,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
     private Button btnstar,btnrepeat;
     private TextToSpeech tts;
     private String text, text2;
-    private int[] guia = {2130837644,2130837639,2130837643,2130837642,2130837637,2130837636,2130837641,2130837640,2130837635,2130837638};
+    private int[] guia = {2130837667,2130837662,2130837666,2130837665,2130837660,2130837659,2130837664,2130837663,2130837658,2130837661};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

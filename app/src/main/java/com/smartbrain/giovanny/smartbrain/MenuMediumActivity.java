@@ -12,10 +12,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.community.CommunityGameActivity;
+
 /**
  * Created by Cryven on 25/06/2015.
  */
-public class MenuMediumActivity extends Activity {
+public class MenuMediumActivity extends Activity  {
 
     private ImageView cloud;
     private ImageView flower;
@@ -50,6 +52,8 @@ public class MenuMediumActivity extends Activity {
             public void onClick(View v) {
 
                 music.stop();
+                Intent intent = new Intent(MenuMediumActivity.this, CommunityGameActivity.class);
+                startActivity(intent);
             }
         });
         flower1.setOnClickListener(new View.OnClickListener() {
@@ -120,6 +124,7 @@ public class MenuMediumActivity extends Activity {
         smoke.startAnimation(movement);
 
     }
+
 
     class MyGestureListener extends GestureDetector.SimpleOnGestureListener {
         //handle 'swipe left' action only

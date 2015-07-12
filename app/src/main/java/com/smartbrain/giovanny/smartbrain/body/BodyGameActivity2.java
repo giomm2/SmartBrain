@@ -24,7 +24,7 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
     private TextView txtcont;
     private String[] images = {"body_face", "body_arm","body_hand","body_finger","body_leg","body_foot"};
     private String[] voice = {"Choose the face", "Choose the arm","Choose the hand","Choose the finger","Choose the leg","Choose the foot"};
-    private int[] guia={2130837572,2130837569,2130837575,2130837573,2130837577,2130837574};
+    private int[] guia={2130837583,2130837580,2130837586,2130837584,2130837588,2130837585};
     private ImageView img1, img2,img3,img4,img5,img6, imgHeart1,imgHeart2,imgHeart3;
     private Button btnnext,btnrepeat;
     private TextToSpeech tts;
