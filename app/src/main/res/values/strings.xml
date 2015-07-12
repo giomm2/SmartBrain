@@ -39,6 +39,7 @@
     <string name="title_activity_colors_game">ColorsGameActivity</string>
     <string name="title_activity_shapes_activity_main">ShapesActivityMain</string>
     <string name="title_activity_shapes">ShapesActivity</string>
+    <string name="title_activity_animals_learning">AnimalsLearningActivity</string>
 
 
 </resources>

@@ -120,6 +120,11 @@
             android:name=".shapes.ShapesActivity"
             android:label="@string/title_activity_shapes" >
         </activity>
+        <activity
+            android:name=".animals.AnimalsLearningActivity"
+            android:label="@string/title_activity_animals_learning"
+            android:screenOrientation="landscape">
+        </activity>
     </application>
 
 </manifest>
