@@ -172,7 +172,7 @@ public class MenuEasyActivity extends Activity {
                         MenuEasyActivity.this, HardMenuActivity.class);
                 startActivity(intent);
                 MenuEasyActivity.this.finish();
-                overridePendingTransition(R.anim.slide_right_in, R.anim.slide_right_out);
+                overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
             }
 
             return true;
