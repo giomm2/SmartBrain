@@ -12,6 +12,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.animals.AnimalsLearningActivity;
+import com.smartbrain.giovanny.smartbrain.colors.ColorLearningActivity;
 import com.smartbrain.giovanny.smartbrain.community.CommunityGameActivity;
 
 /**
@@ -61,12 +63,15 @@ public class MenuMediumActivity extends Activity  {
             public void onClick(View v) {
 
                 music.stop();
+                Intent intent = new Intent(MenuMediumActivity.this, AnimalsLearningActivity.class);
+                startActivity(intent);
             }
         });
         flower2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(MenuMediumActivity.this, ColorLearningActivity.class);
+                startActivity(intent);
                 music.stop();
             }
         });

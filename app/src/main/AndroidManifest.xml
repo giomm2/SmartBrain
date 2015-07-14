@@ -26,6 +26,11 @@
             android:name=".MenuEasyActivity"
             android:label="@string/title_activity_menu_easy"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity
@@ -36,15 +41,12 @@
         <activity
             android:name=".family.FamilyActivity"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".vowels.VowelLearnActivity"
-            android:label="@string/title_activity_vowel_learn" >
+            android:label="@string/title_activity_vowel_learn"
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".family.FamilyActivityGame"
@@ -98,7 +100,7 @@
         <activity
             android:name=".Numbers.NumbersGameActivity"
             android:label="@string/title_activity_numbers_game"
-            android:screenOrientation="landscape" >
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".colors.ColorLearningActivity"
@@ -117,11 +119,14 @@
         </activity>
         <activity
             android:name=".shapes.ShapesActivityMain"
-            android:label="@string/title_activity_shapes_activity_main" >
+            android:label="@string/title_activity_shapes_activity_main"
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name=".shapes.ShapesActivity"
-            android:label="@string/title_activity_shapes" >
+            android:label="@string/title_activity_shapes"
+            android:screenOrientation="landscape"
+            >
         </activity>
         <activity
             android:name=".animals.AnimalsLearningActivity"
@@ -130,7 +135,8 @@
         </activity>
         <activity
             android:name=".animals.AnimalsGameActivity"
-            android:label="@string/title_activity_animals_game" >
+            android:label="@string/title_activity_animals_game"
+            android:screenOrientation="landscape">
         </activity>
         <activity android:name=".community.CommunityGameActivity"
             android:label="@string/tittle_activity_community_member"

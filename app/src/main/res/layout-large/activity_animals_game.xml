@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.smartbrain.giovanny.smartbrain.animals.AnimalsGameActivity"
+    android:background="@drawable/landscapelittle">
+
+    <ImageButton
+        android:id="@+id/btnSpeak"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/speak"
+        android:src="@android:drawable/ic_btn_speak_now"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#ff5988ff" />
+
+    <TextView
+        android:id="@+id/txtText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="75dp"
+        android:layout_alignTop="@+id/img_content"
+        android:layout_toRightOf="@+id/heart3"
+        android:layout_toEndOf="@+id/heart3"
+        android:background="#000000"
+        android:textColor="#ffff150c"
+        android:textSize="25dp"
+        />
+
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/img_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Next"
+        android:id="@+id/btn_next"
+        android:background="#ff5988ff"
+        android:layout_alignTop="@+id/btn_repeat"
+        android:layout_toRightOf="@+id/img_content"
+        android:layout_toEndOf="@+id/img_content"
+        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Repeat"
+        android:id="@+id/btn_repeat"
+        android:layout_marginLeft="68dp"
+        android:layout_marginStart="68dp"
+        android:background="#ff5988ff"
+        android:layout_alignTop="@+id/heart3"
+        android:layout_toRightOf="@+id/btn_next"
+        android:layout_toEndOf="@+id/btn_next" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/heart1"
+        android:background="@drawable/heart"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/heart2"
+        android:background="@drawable/heart"
+        android:layout_alignTop="@+id/heart1"
+        android:layout_toRightOf="@+id/heart1"
+        android:layout_toEndOf="@+id/heart1" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/heart3"
+        android:background="@drawable/heart"
+        android:layout_alignTop="@+id/heart2"
+        android:layout_toRightOf="@+id/heart2"
+        android:layout_toEndOf="@+id/heart2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="60"
+        android:id="@+id/txt_cont"
+        android:textColor="#ff50ff05"
+        android:textSize="50dp"
+        android:singleLine="false"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You say: "
+        android:id="@+id/textView"
+        android:layout_alignBottom="@+id/txtText"
+        android:layout_toLeftOf="@+id/txtText"
+        android:layout_toStartOf="@+id/txtText"
+        android:textColor="#ffff150c"
+        android:textSize="25dp"
+        />
+
+</RelativeLayout>

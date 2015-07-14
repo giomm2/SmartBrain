@@ -1,6 +1,8 @@
 package com.smartbrain.giovanny.smartbrain.animals;
 
 import android.app.Activity;
+import android.content.Intent;
+import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
@@ -9,6 +11,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.R;
 
@@ -19,7 +23,7 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
 
     // array and counter for the array
     private String[] animalArray={"Hi, lets Learn about the animals. Please tab next","Dog","Cat","Rabbit","Cow"
-            ,"Horse","Chicken","Pig","sheep","Lion","Bear"};
+            ,"Horse","Chicken","Pork","sheep","Lion","Bear"};
     private int imageArray[]={0,R.drawable.animalsdog,R.drawable.animalscat,R.drawable.animalsrabbit
             ,R.drawable.animalscow,R.drawable.animalshorse,R.drawable.animalschicken,R.drawable.animalspig
             ,R.drawable.animalssheep,R.drawable.animalslion,R.drawable.animalsbear};
@@ -35,6 +39,9 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
     //animaciones
     private Animation animation;
 
+    private ProgressBar progress;
+    private TextView txtprogress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +53,13 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
         next = (Button)findViewById(R.id.next);
         back = (Button)findViewById(R.id.back);
         animalViewer = (ImageView) findViewById(R.id.animalViewer);
+        progress=(ProgressBar)findViewById(R.id.progress_bar);
+        txtprogress=(TextView)findViewById(R.id.txt_progress);
         repeat.setEnabled(false);
+        txtprogress.setVisibility(View.INVISIBLE);
         //animacion
         animation = AnimationUtils.loadAnimation(AnimalsLearningActivity.this, R.anim.fade_in_animation);
+
 
         // tts
         tts = new TextToSpeech(this, this);
@@ -187,6 +198,16 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
                 speakOut();
             }
         });
+
+        play.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent= new Intent(AnimalsLearningActivity.this,AnimalsGameActivity.class);
+                startActivity(intent);
+                AnimalsLearningActivity.this.finish();
+            }
+        });
     }
 
     // text that will be speak out
@@ -212,10 +233,35 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
         }
     }
 
-    @Override
-    protected void onDestroy() {
-        if(tts != null){
-            tts.stop();
+
+
+    //Contador para progress bar cargar tts.
+    CountDownTimer contNumber= new CountDownTimer(8000,1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+
+            txtprogress.setText("" + millisUntilFinished / 1000);
+            play.setEnabled(false);
+            next.setEnabled(false);
+            back.setEnabled(false);
+            progress.setVisibility(View.VISIBLE);
+
         }
+
+        @Override
+        public void onFinish() {
+
+            play.setEnabled(true);
+            next.setEnabled(true);
+            back.setEnabled(true);
+            progress.setVisibility(View.INVISIBLE);
+        }
+    };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        contNumber.start();
     }
 }

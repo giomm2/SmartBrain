@@ -3,11 +3,14 @@ package com.smartbrain.giovanny.smartbrain.family;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.R;
 
@@ -29,6 +32,8 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
     // declaracion de TTS y contador para los arrays
     private TextToSpeech tts;
     private int i =0;
+    private ProgressBar progressbar;
+    private TextView txtprogress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,9 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         playBtn = (Button)findViewById(R.id.btnPlay);
         imageViewer.setBackgroundResource(imageArray[i]);
         repeat = (Button)findViewById(R.id.repeat);
+        txtprogress=(TextView)findViewById(R.id.txt_progress);
+        progressbar=(ProgressBar)findViewById(R.id.progressBar);
+        contNumber2.start();
 
         // cada vez que le doy a next aumento el contador que me recorre los arrays y cambio de frases y de imagenes
 
@@ -111,4 +119,25 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         }
         super.onDestroy();
     }
+
+    //Contador para progress bar cargar tts.
+    CountDownTimer contNumber2= new CountDownTimer(8000,1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+
+            txtprogress.setText("" + millisUntilFinished / 1000);
+            btnNext.setEnabled(false);
+            repeat.setEnabled(false);
+            progressbar.setVisibility(View.VISIBLE);
+
+        }
+
+        @Override
+        public void onFinish() {
+
+            btnNext.setEnabled(true);
+            repeat.setEnabled(true);
+            progressbar.setVisibility(View.INVISIBLE);
+        }
+    };
 }

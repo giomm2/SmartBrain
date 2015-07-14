@@ -42,6 +42,7 @@
     <string name="title_activity_animals_learning">AnimalsLearningActivity</string>
     <string name="title_activity_animals_game">AnimalsGameActivity</string>
     <string name="tittle_activity_community_member">CommunityMember</string>
+    <string name="speak">Speak Now</string>
 
 
 </resources>

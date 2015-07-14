@@ -2,12 +2,15 @@ package com.smartbrain.giovanny.smartbrain.body;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
@@ -22,6 +25,8 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
     private int cont = -1,num;
     private String text;
     private TextToSpeech tts;
+    private ProgressBar progressbar;
+    private TextView txtprogress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +36,13 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
         image = (ImageView) findViewById(R.id.img_content);
         btnagain=(Button)findViewById(R.id.btn_repeat);
         btnplay=(Button)findViewById(R.id.btn_play);
+        txtprogress=(TextView)findViewById(R.id.txt_progress);
+        progressbar=(ProgressBar)findViewById(R.id.progressBar);
         btnnext.setOnClickListener(this);
         btnagain.setOnClickListener(this);
         btnplay.setOnClickListener(this);
         num = OrderImage();
+        contNumber2.start();
 
         PutImages(num);
 
@@ -161,7 +169,26 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 
+    //Contador para progress bar cargar tts.
+    CountDownTimer contNumber2= new CountDownTimer(8000,1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
 
+            txtprogress.setText("" + millisUntilFinished / 1000);
+            btnnext.setEnabled(false);
+            btnagain.setEnabled(false);
+            progressbar.setVisibility(View.VISIBLE);
+
+        }
+
+        @Override
+        public void onFinish() {
+
+            btnnext.setEnabled(true);
+            btnagain.setEnabled(true);
+            progressbar.setVisibility(View.INVISIBLE);
+        }
+    };
 
 
 }

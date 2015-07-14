@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.R;
@@ -29,6 +30,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
     private TextToSpeech tts;
     private String text,text2;
     private  int pos=0, guiaImg1,guiaImg2, guiaImg3,guiaImg4,posId=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -316,4 +318,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
             }
         }
     };
+
+
+
 }

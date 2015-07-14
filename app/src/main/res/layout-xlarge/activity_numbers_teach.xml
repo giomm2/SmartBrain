@@ -47,4 +47,27 @@
         android:layout_toStartOf="@+id/btn_next"
         android:layout_marginRight="83dp"
         android:layout_marginEnd="83dp" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        android:id="@+id/progressBar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/txt_progress"
+        android:layout_alignBottom="@+id/progressBar"
+        android:layout_toLeftOf="@+id/img_content"
+        android:layout_toStartOf="@+id/img_content"
+        android:layout_marginRight="49dp"
+        android:layout_marginEnd="49dp"
+        android:visibility="invisible" />
+
+
 </RelativeLayout>
