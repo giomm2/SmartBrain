@@ -19,12 +19,13 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
     //arrays que me jalan las imagenes y lo que debe decir TTS
     private int [] imageArray ={R.drawable.familytree, R.drawable.dad,R.drawable.mom,R.drawable.brother,
             R.drawable.sister,R.drawable.grandpa,R.drawable.grandma};
-    private String [] familyWords= {"Lets learn about the family members","first this is dad","and mom","you may have a brother",
+    private String [] familyWords= {"Lets learn about the family members","first, this is dad","and mom","you may have a brother",
             "or a sister","and this is the grandpa","and the gramdma"};
     //views
     private ImageView imageViewer;
     private Button btnNext;
     private Button playBtn;
+    private Button repeat;
     // declaracion de TTS y contador para los arrays
     private TextToSpeech tts;
     private int i =0;
@@ -39,8 +40,8 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         imageViewer = (ImageView)findViewById(R.id.viewer);
         btnNext= (Button)findViewById(R.id.nextBtn);
         playBtn = (Button)findViewById(R.id.btnPlay);
-        playBtn.setEnabled(false);
         imageViewer.setBackgroundResource(imageArray[i]);
+        repeat = (Button)findViewById(R.id.repeat);
 
         // cada vez que le doy a next aumento el contador que me recorre los arrays y cambio de frases y de imagenes
 
@@ -48,8 +49,8 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
             @Override
             public void onClick(View v) {
                 if (i == imageArray.length - 1) {
-                    btnNext.setEnabled(false);
-                    playBtn.setEnabled(true);
+                    playBtn.setVisibility(View.VISIBLE);
+                    i = 0;
                 }else {
                     i++;
                     speakOut();
@@ -67,6 +68,13 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
 
             }
         });
+        repeat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                speakOut();
+            }
+        });
+
     }
 
     // necesario para poner a "hablar" al TTS y llamar a un metodo llamado speakOut solo si hay datos que hablar

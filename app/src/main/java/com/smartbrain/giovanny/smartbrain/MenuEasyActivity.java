@@ -165,14 +165,14 @@ public class MenuEasyActivity extends Activity {
                 Intent intent = new Intent(
                         MenuEasyActivity.this, MenuMediumActivity.class);
                 startActivity(intent);
-                MenuEasyActivity.this.finish();
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+                MenuEasyActivity.this.finish();
             }else if(event2.getX() > event1.getX()){
                 Intent intent = new Intent(
                         MenuEasyActivity.this, HardMenuActivity.class);
                 startActivity(intent);
-                MenuEasyActivity.this.finish();
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
+                MenuEasyActivity.this.finish();
             }
 
             return true;

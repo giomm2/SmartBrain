@@ -3,6 +3,7 @@ package com.smartbrain.giovanny.smartbrain.family;
 import android.app.Activity;
 import android.content.ClipData;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -27,63 +28,18 @@ public class FamilyActivityGame extends Activity {
 
     protected void viewSetter(){
         // seteo el touch listener para cada imagen en el layout y llamo a la clase MyTouchListener
-
-        findViewById(R.id.dad).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dad2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dad3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dad4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dad1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.mom).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.mom1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.mom2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.mom3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.mom4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.sister).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.sister1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.sister2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.sister3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.sister4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.brother).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.brother1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.brother2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.brother3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.brother4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.aunt).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.uncle).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.aunt1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.uncle1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.aunt2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.uncle2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.aunt3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.uncle3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.aunt4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.uncle4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.cat).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dog).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandma).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandpa).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.cat).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dog).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandma1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandpa1).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.cat2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dog2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandma2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandpa2).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.cat3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dog3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandma3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandpa3).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.cat4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.dog4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandma4).setOnTouchListener(new MyTouchListener());
-        findViewById(R.id.grandpa4).setOnTouchListener(new MyTouchListener());
-
+        int imageArray[] = {R.id.dad,R.id.dad1,R.id.dad2,R.id.dad3,R.id.dad4,R.id.mom,R.id.mom1,R.id.mom2,R.id.mom3,R.id.mom4
+                ,R.id.sister,R.id.sister2,R.id.sister3,R.id.sister4,R.id.sister1,R.id.brother,R.id.brother1,R.id.brother2
+                ,R.id.brother3,R.id.brother4,R.id.aunt,R.id.aunt1,R.id.aunt2,R.id.aunt3,R.id.aunt4,R.id.uncle,R.id.uncle1
+                ,R.id.uncle2,R.id.uncle3,R.id.uncle4,R.id.cat,R.id.cat1,R.id.cat2,R.id.cat3,R.id.cat4,R.id.dog,R.id.dog1
+                ,R.id.dog2,R.id.dog3,R.id.dog4,R.id.grandma,R.id.grandma1,R.id.grandma2,R.id.grandma3,R.id.grandma4,R.id.grandpa
+                ,R.id.grandpa1,R.id.grandpa2,R.id.grandpa3,R.id.grandpa4};
+        for(int i=0;i<imageArray.length;i++)
+            findViewById(imageArray[i]).setOnTouchListener(new MyTouchListener());
         // seteo el DragListener que va a llamar a la clase MyDragListener
-        findViewById(R.id.familyLayout).setOnDragListener(new MyDragListener());
-        findViewById(R.id.howFamLayout).setOnDragListener(new MyDragListener());
-        findViewById(R.id.familyLayout2).setOnDragListener(new MyDragListener());
-        findViewById(R.id.howFamLayout2).setOnDragListener(new MyDragListener());
+        int layoutArray[]={R.id.familyLayout,R.id.familyLayout2,R.id.howFamLayout,R.id.howFamLayout2};
+        for(int i=0; i<layoutArray.length; i++)
+            findViewById(layoutArray[i]).setOnDragListener(new MyDragListener());
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +52,11 @@ public class FamilyActivityGame extends Activity {
         layoutRight=(LinearLayout)findViewById(R.id.howFamLayout);
         layoutRight2=(LinearLayout)findViewById(R.id.howFamLayout2);
         endGame= (Button) findViewById(R.id.endGame);
+        Drawable redMarkedArea = getResources().getDrawable(R.drawable.red_marked_area);
+        layoutLeft.setBackgroundDrawable(redMarkedArea);
+        layoutLeft2.setBackgroundDrawable(redMarkedArea);
+        layoutRight.setBackgroundDrawable(redMarkedArea);
+        layoutRight2.setBackgroundDrawable(redMarkedArea);
 
         //boton que termina la actividad cuando sea que el usuario lo desee.
         endGame.setOnClickListener(new View.OnClickListener() {

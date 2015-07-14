@@ -37,8 +37,17 @@
         android:layout_marginBottom="137dp"
         android:layout_alignBottom="@+id/viewer"
         android:layout_alignLeft="@+id/nextBtn"
-        android:layout_alignStart="@+id/nextBtn" />
+        android:layout_alignStart="@+id/nextBtn"
+        android:visibility="invisible" />
 
+    <Button
+        android:layout_width="180dp"
+        android:layout_height="80dp"
+        android:text="Repeat"
+        android:id="@+id/repeat"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/viewer"
+        android:layout_toEndOf="@+id/viewer" />
 
 
 </RelativeLayout>

@@ -36,6 +36,11 @@
         <activity
             android:name=".family.FamilyActivity"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".vowels.VowelLearnActivity"
@@ -44,16 +49,13 @@
         <activity
             android:name=".family.FamilyActivityGame"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".MenuMediumActivity"
             android:label="@string/title_activity_medium_menu"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".body.BodyTeachActivity1"
