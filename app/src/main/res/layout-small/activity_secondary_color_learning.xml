@@ -56,7 +56,8 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/previous" />
+        android:background="@drawable/previous"
+        android:visibility="invisible" />
 
     <ImageView
         android:layout_width="50dp"
@@ -74,6 +75,7 @@
         android:id="@+id/playButton"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:textColor="#ff1518ff" />
+        android:textColor="#ff1518ff"
+        android:visibility="invisible" />
 
 </RelativeLayout>

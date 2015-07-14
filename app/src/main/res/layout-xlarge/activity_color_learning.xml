@@ -64,7 +64,7 @@
         android:text="Secondary colors"
         android:id="@+id/secondaryColors"
         android:gravity="center_horizontal"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:textColor="#ff1518ff"
         android:layout_alignBottom="@+id/yellow"
         android:layout_alignRight="@+id/absoluteLayout"
@@ -77,7 +77,8 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/previous" />
+        android:background="@drawable/previous"
+        android:visibility="invisible" />
 
     <ImageView
         android:layout_width="100dp"

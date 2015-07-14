@@ -74,9 +74,10 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(i ==3)
-                    i=3;
-                else
+                previus.setVisibility(View.VISIBLE);
+                if(i ==3) {
+                    i = 3;
+                }else
                     i++;
                 switch (i){
                     case 1:
@@ -114,6 +115,7 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
                         colorViewer.setVisibility(View.VISIBLE);
                         colorViewer.setBackgroundResource(R.drawable.colororange);
                         colorViewer.startAnimation(colorFadeIn);
+                        secondaryColors.setVisibility(View.VISIBLE);
                         break;
 
                 }
@@ -124,8 +126,8 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
         previus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(i == 0)
-                    i =0;
+                if(i == 1)
+                    i =1;
                 else
                     i--;
                 switch (i){

@@ -65,9 +65,10 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(i ==4)
-                    i=4;
-                else
+                privious.setVisibility(View.VISIBLE);
+                if(i ==4) {
+                    i = 4;
+                }else
                     i++;
                 switch (i){
                     case 1:
@@ -120,6 +121,7 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
                         secondaryColorViewer.setVisibility(View.VISIBLE);
                         secondaryColorViewer.setBackgroundResource(R.drawable.grey);
                         secondaryColorViewer.startAnimation(colorFadeIn);
+                        playButton.setVisibility(View.VISIBLE);
                         break;
                 }
             }
@@ -128,8 +130,8 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
         privious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(i ==0)
-                    i=0;
+                if(i ==1)
+                    i=1;
                 else
                     i--;
                 switch (i){
