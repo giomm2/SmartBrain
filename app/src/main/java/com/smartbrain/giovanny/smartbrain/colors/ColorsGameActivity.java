@@ -22,6 +22,7 @@ import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Locale;
 import java.util.Random;
 
@@ -47,7 +48,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
     private ImageView heart4;
     private ImageView heart5;
 
-    // Botones y views comunes que voya  necesitar
+    // Botones y views comunes que voy a  necesitar
     private Button start;
     private Button repeat;
 
@@ -102,6 +103,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
         heart4 =(ImageView) findViewById(R.id.heart4);
         heart5 =(ImageView) findViewById(R.id.heart5);
 
+        repeat.setEnabled(false);
 
 
         // set animaciones
@@ -117,6 +119,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                repeat.setEnabled(true);
+                start.setEnabled(false);
                 selected = false;
                 selected1 = false;
                 selected2 = false;
@@ -125,14 +129,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                 setImagesToNormalState();
                 setImagesToVisible();
                 colorViewer.setBackgroundResource(0);
-                if(i==9){
-                    speakOut("Congratulations!!! You won the game!");
-                    Intent intent = new Intent(ColorsGameActivity.this, MenuMediumActivity.class);
-                    startActivity(intent);
-                    ColorsGameActivity.this.finish();
-                }
-                number = getListNumber().remove(i);
-                switch (number){
+                switch (getListNumber().remove(i)){
                     case 0:
                         speakOut("touch the three primary colors");
                         setImagesForCase1();
@@ -144,6 +141,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -159,6 +158,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if(selected && selected1 && selected2){
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 }else{
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -174,6 +175,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -417,12 +420,13 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             colorViewer.startAnimation(fadeIn);
                                             speakOut("Well done buddy, Lets continue. Touch start");
                                             setImagesToNormalState();
+                                            repeat.setEnabled(false);
+                                            start.setEnabled(true);
                                         }else if(selected || selected1){
                                             speakOut("you need one more color buddy");
                                         }else if(colorNumber == 1 || colorNumber==2 ||colorNumber==3 || colorNumber==4){
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
-
                                                 ColorsGameActivity.this.recreate();
                                             }else{
                                                 speakOut("Sorry try Again");
@@ -564,6 +568,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             colorViewer.startAnimation(fadeIn);
                                             speakOut("Well done buddy, Lets continue. Touch start");
                                             setImagesToNormalState();
+                                            repeat.setEnabled(false);
+                                            start.setEnabled(true);
                                         } else if (selected || selected1) {
                                             speakOut("you need one more color buddy");
                                         } else if (colorNumber==1 || colorNumber==2|| colorNumber==3 || colorNumber==4) {
@@ -599,6 +605,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -614,6 +622,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -629,6 +639,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -642,7 +654,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -693,7 +704,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                         speakOut("drag to the red marked area the colors that combined form orange");
                         setImagesForCase4();
                         i++;
-                        colorViewer.setBackgroundDrawable(redMarkedArea);
                         colorViewer.setBackgroundDrawable(redMarkedArea);
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -814,12 +824,13 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             colorViewer.startAnimation(fadeIn);
                                             speakOut("Well done buddy, Lets continue. Touch start");
                                             setImagesToNormalState();
+                                            repeat.setEnabled(false);
+                                            start.setEnabled(true);
                                         } else if (selected || selected1) {
                                             speakOut("you need one more color buddy");
                                         } else if (colorNumber==1 || colorNumber==2|| colorNumber==3 || colorNumber==4) {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
-
                                                 ColorsGameActivity.this.recreate();
                                             }else{
                                                 speakOut("Sorry try Again");
@@ -853,7 +864,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -868,7 +878,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -883,7 +892,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -900,6 +908,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -913,7 +923,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -928,7 +937,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -945,6 +953,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -960,6 +970,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -973,7 +985,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -988,7 +999,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -1015,7 +1025,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -1030,7 +1039,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -1045,7 +1053,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -1060,7 +1067,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -1077,6 +1083,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -1091,8 +1099,9 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 selected1 = true;
                                 if (selected && selected1 && selected2) {
                                     speakOut("Well done buddy, lets continue. Touch start");
-
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -1106,7 +1115,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -1121,7 +1129,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
@@ -1138,6 +1145,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2 && selected3) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -1153,6 +1162,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                 if (selected && selected1 && selected2 && selected3) {
                                     speakOut("Well done buddy, lets continue. Touch start");
                                     setImagesToNormalState();
+                                    repeat.setEnabled(false);
+                                    start.setEnabled(true);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -1287,12 +1298,13 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             colorViewer.startAnimation(fadeIn);
                                             speakOut("Well done buddy, Lets continue. Touch start");
                                             setImagesToNormalState();
+                                            repeat.setEnabled(false);
+                                            start.setEnabled(true);
                                         } else if (selected || selected1) {
                                             speakOut("you need one more color buddy");
                                         } else if (colorNumber==1 || colorNumber==2|| colorNumber==3 || colorNumber==4) {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
-
                                                 ColorsGameActivity.this.recreate();
                                             }else{
                                                 speakOut("Sorry try Again");
@@ -1491,6 +1503,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             colorViewer.startAnimation(fadeIn);
                                             speakOut("Well done buddy, Lets continue. Touch start");
                                             setImagesToNormalState();
+                                            repeat.setEnabled(false);
+                                            start.setEnabled(true);
                                         } else {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
@@ -1694,6 +1708,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             colorViewer.startAnimation(fadeIn);
                                             speakOut("Well done buddy, Lets continue. Touch start");
                                             setImagesToNormalState();
+                                            repeat.setEnabled(false);
+                                            start.setEnabled(true);
                                         } else {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
@@ -1715,6 +1731,12 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             }
                         });
                         break;
+                    case 10:
+                        speakOut("Congratulations!!! You won the game!");
+                        Intent intent = new Intent(ColorsGameActivity.this, MenuMediumActivity.class);
+                        startActivity(intent);
+                        ColorsGameActivity.this.finish();
+                        break;
                 }
             }
         });
@@ -1723,12 +1745,11 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
     // metodo que me genera una lista random de numeros que no se repite para que las preguntas nunca sean las mismas
     private ArrayList<Integer> getListNumber() {
         ArrayList<Integer> numbers = new ArrayList<>();
-        while (numbers.size() < 11) {
-            int i = random.nextInt(10);
-            if (!numbers.contains(random)) {
-                numbers.add(i);
-            }
+        for(int i=0; i<10;i++){
+            numbers.add(i);
         }
+        Collections.shuffle(numbers);
+        numbers.add(10);
         return numbers;
     }
     //while (numbers.size() < 10) {
@@ -1748,7 +1769,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
         ImageView[] imageViews = {colorBlue, colorBrown, colorWine, colorOlive, colorYellow, colorOrange, colorRed
                 , colorGreen, colorGrey,colorPurple};
 
-        for (int i = 0; i < imageViews.length-1; i++) {
+        for (int i = 0; i < imageViews.length; i++) {
             imageViews[i].setBackgroundResource(imageArray[i]);
         }
     }

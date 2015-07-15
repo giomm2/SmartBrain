@@ -264,4 +264,14 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
 
         contNumber.start();
     }
+
+    @Override
+    public void onDestroy() {
+        // Don't forget to shutdown tts!
+        if (tts == null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
+    }
 }
