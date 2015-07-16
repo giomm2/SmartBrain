@@ -31,6 +31,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".HardMenuActivity"
@@ -46,6 +47,7 @@
             android:name=".vowels.VowelLearnActivity"
             android:label="@string/title_activity_vowel_learn"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".family.FamilyActivityGame"
@@ -122,11 +124,15 @@
             android:name=".animals.AnimalsLearningActivity"
             android:label="@string/title_activity_animals_learning"
             android:screenOrientation="landscape" >
+
+
+
         </activity>
         <activity
             android:name=".animals.AnimalsGameActivity"
             android:label="@string/title_activity_animals_game"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".community.CommunityGameActivity"

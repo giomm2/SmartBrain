@@ -2,6 +2,7 @@ package com.smartbrain.giovanny.smartbrain.vowels;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
@@ -13,6 +14,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.R;
@@ -39,6 +41,10 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
     private Button btnPlay;
     private Button btnpasar;
 
+    private TextView txtprogress;
+    private ProgressBar progressbar;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,8 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         image2 = (ImageView)findViewById(R.id.imgApple);
         btnpasar=(Button)findViewById(R.id.btn_previous);
         btnPlay=(Button)findViewById(R.id.btn_play);
+        txtprogress=(TextView)findViewById(R.id.txt_progress);
+        progressbar=(ProgressBar)findViewById(R.id.progress_bar);
 
         txtVowel = (TextView)findViewById(R.id.textView);
 
@@ -59,6 +67,7 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         btnPlay.setOnClickListener(this);
         num = OrderImage();
         PutImages(num);
+        contNumber2.start();
         //set back sound
         player = MediaPlayer.create(VowelLearnActivity.this, R.raw.music);
         player.setLooping(true); // Set looping
@@ -246,4 +255,25 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         } else
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
+
+    //Contador para progress bar cargar tts.
+    CountDownTimer contNumber2= new CountDownTimer(8000,1000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+
+            txtprogress.setText("" + millisUntilFinished / 1000);
+            btnnext.setEnabled(false);
+            btnpasar.setEnabled(false);
+            progressbar.setVisibility(View.VISIBLE);
+
+        }
+
+        @Override
+        public void onFinish() {
+
+            btnnext.setEnabled(true);
+            btnpasar.setEnabled(true);
+            progressbar.setVisibility(View.INVISIBLE);
+        }
+    };
 }
