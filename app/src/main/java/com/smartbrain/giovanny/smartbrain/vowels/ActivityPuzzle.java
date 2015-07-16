@@ -1,8 +1,5 @@
 package com.smartbrain.giovanny.smartbrain.vowels;
 
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.CountDownTimer;
 import android.os.Environment;
@@ -21,22 +19,23 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.smartbrain.giovanny.smartbrain.MainActivity;
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.R;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.text.MessageFormat;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 
-import com.smartbrain.giovanny.smartbrain.R;
-
-
-public class PuzzleActivity extends Activity {
+public class ActivityPuzzle extends Activity {
 
     protected static final int MENU_SCRAMBLE = 0;
     protected static final int MENU_SELECT_IMAGE = 1;
@@ -56,8 +55,8 @@ public class PuzzleActivity extends Activity {
 
     protected static final int DEFAULT_SIZE = 3;
 
-    private SlidePuzzleView view;
-    private SlidePuzzle slidePuzzle;
+    private PuzzleView view;
+    private PuzzleSlide slidePuzzle;
     private BitmapFactory.Options bitmapOptions;
     private int puzzleWidth = 1;
     private int puzzleHeight = 1;
@@ -72,20 +71,32 @@ public class PuzzleActivity extends Activity {
     private TextToSpeech tts;
     private String text,text2;
 
+    private MediaPlayer player;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_puzzle);
+        setContentView(R.layout.activity_activity_puzzle);
+
+        //set back sound
+        player = MediaPlayer.create(ActivityPuzzle.this, R.raw.music);
+        player.setLooping(true); // Set looping
+        player.setVolume(100, 100);
+        player.start();
+
+        timer.start();
+        txtcont=(TextView)findViewById(R.id.txtTimer);
+        //////////////////////
+
 
         bitmapOptions = new BitmapFactory.Options();
         bitmapOptions.inScaled = false;
 
-        slidePuzzle = new SlidePuzzle();
+        slidePuzzle = new PuzzleSlide();
 
-        view = new SlidePuzzleView(this, slidePuzzle);
+        view = new PuzzleView(this, slidePuzzle);
         setContentView(view);
-
 
         shuffle();
 
@@ -94,12 +105,12 @@ public class PuzzleActivity extends Activity {
             setPuzzleSize(DEFAULT_SIZE, true);
         }
 //ruta de la imagen para el puzzle
-        Uri path = Uri.parse("android.resource://com.smartbrain.giovanny.smartbrain/" + R.drawable.apple);
+        Uri path = Uri.parse("android.resource://com.smartbrain.giovanny.smartbrain/" + R.drawable.vocales);
 //le seteo la ruta al metodo loadBitmap()
         loadBitmap(path);
 
-//Lo que dira apenas se inicialize la actividad
-        tts = new TextToSpeech(PuzzleActivity.this, new TextToSpeech.OnInitListener() {
+//Lo que dira apenas se inicie la actividad
+        tts = new TextToSpeech(ActivityPuzzle.this, new TextToSpeech.OnInitListener() {
 
             @Override
             public void onInit(int status) {
@@ -110,7 +121,7 @@ public class PuzzleActivity extends Activity {
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, Let's play.");
+                        ConvertTextToSpeech("Hello, Let's play. You have five minutes for complete the puzzle. Go Faster.");
 
                     }
                 } else
@@ -121,6 +132,7 @@ public class PuzzleActivity extends Activity {
         }
         );
     }
+
     private void ConvertTextToSpeech(String voice1) {
         // TODO Auto-generated method stub
         text=voice1;
@@ -130,10 +142,13 @@ public class PuzzleActivity extends Activity {
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_puzzle, menu);
+        getMenuInflater().inflate(R.menu.menu_activity_puzzle, menu);
         return true;
     }
 
@@ -156,13 +171,15 @@ public class PuzzleActivity extends Activity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
+
+        }
+
     //metodo que parte la cualquier imagen y la coloca de manera shuffle osea cualquiera "aleatorio"
     private void shuffle() {
         slidePuzzle.init(puzzleWidth, puzzleHeight);
         slidePuzzle.shuffle();
         view.invalidate();
-        expert = view.getShowNumbers() == SlidePuzzleView.ShowNumbers.NONE;
+        expert = view.getShowNumbers() == PuzzleView.ShowNumbers.NONE;
     }
     //metodo que carga la imagen para el puzzle
     protected void loadBitmap(Uri uri) {
@@ -282,6 +299,7 @@ public class PuzzleActivity extends Activity {
         photoPickerIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(file));
         startActivityForResult(photoPickerIntent, RESULT_TAKE_PHOTO);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent)
     {
@@ -351,7 +369,7 @@ public class PuzzleActivity extends Activity {
 
         return width / height;
     }
-    //el cuadrito el tamaÃ±o del tablero
+    //el cuadrito el tamaño del tablero
     protected void setPuzzleSize(int size, boolean scramble)
     {
         float ratio = getImageAspectRatio();
@@ -384,7 +402,7 @@ public class PuzzleActivity extends Activity {
     }
     protected SharedPreferences getPreferences()
     {
-        return getSharedPreferences(VowelLearnActivity.class.getName(), Activity.MODE_PRIVATE);
+        return getSharedPreferences(MainActivity.class.getName(), Activity.MODE_PRIVATE);
     }
 
     protected boolean loadPreferences()
@@ -443,32 +461,43 @@ public class PuzzleActivity extends Activity {
         }
     }
 
-  /* CountDownTimer contNumber= new CountDownTimer(100000,1000) {
+    @Override
+    protected void onPause() {
+        super.onPause();
+        player.stop();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        player.stop();
+    }
+
+    protected void onFinish() {
+        player.stop();
+    }
+    CountDownTimer timer = new CountDownTimer(300000,1000) {
         @Override
         public void onTick(long millisUntilFinished) {
+            long ms = millisUntilFinished;
+            String text = String.format("%02d\' %02d\"",
+                    TimeUnit.MILLISECONDS.toMinutes(ms) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(ms)),
+                    TimeUnit.MILLISECONDS.toSeconds(ms) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(ms)));
+            txtcont.setText(text);
 
-            txtcont.setText("" + millisUntilFinished / 1000);
         }
 
         @Override
         public void onFinish() {
 
-            if (imgHeart1.getVisibility() == View.VISIBLE) {
-                imgHeart1.setVisibility(View.INVISIBLE);
-                contNumber.start();
+            ConvertTextToSpeech("Sorry time out. Try again later");
+            Intent intent = new Intent(ActivityPuzzle.this, MenuEasyActivity.class);
+            startActivity(intent);
+            ActivityPuzzle.this.finish();
 
-            } else if (imgHeart2.getVisibility() == View.VISIBLE) {
-                imgHeart2.setVisibility(View.INVISIBLE);
-                contNumber.start();
-
-            } else if (imgHeart3.getVisibility() == View.VISIBLE) {
-                imgHeart3.setVisibility(View.INVISIBLE);
-                contNumber.start();
-
-            }
         }
+    };
 
 
-    };*/
 
 }

@@ -2,6 +2,7 @@ package com.smartbrain.giovanny.smartbrain.shapes;
 
 import android.app.Activity;
 import android.content.ClipData;
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.speech.tts.TextToSpeech;
 import android.support.v7.app.ActionBarActivity;
@@ -14,6 +15,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -132,7 +134,7 @@ public class ShapesActivity extends Activity {
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
                 v.startDrag(data, shadowBuilder, v, 0);
                 v.setVisibility(View.INVISIBLE);
-                ConvertTextToSpeech("Square");
+                ConvertTextToSpeech("Rectangle");
                 rectangleCheck = true;
                 return rectangleCheck;
             }
@@ -187,7 +189,10 @@ public class ShapesActivity extends Activity {
                                 heart2.setVisibility(View.INVISIBLE);
                             }
                             else{
-                                ShapesActivity.this.recreate();
+                                ConvertTextToSpeech("Sorry try again later");
+                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                startActivity(intent);
+                                ShapesActivity.this.finish();
                             }
 
                         }
@@ -250,7 +255,10 @@ public class ShapesActivity extends Activity {
                                 heart2.setVisibility(View.INVISIBLE);
 
                             }else{
-                                ShapesActivity.this.recreate();
+                                ConvertTextToSpeech("Sorry try again later");
+                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                startActivity(intent);
+                                ShapesActivity.this.finish();
                             }
 
                         }
@@ -314,7 +322,10 @@ public class ShapesActivity extends Activity {
                                 heart2.setVisibility(View.INVISIBLE);
                             }
                             else{
-                                ShapesActivity.this.recreate();
+                                ConvertTextToSpeech("Sorry try again later");
+                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                startActivity(intent);
+                                ShapesActivity.this.finish();
                             }
                         }
                         break;
@@ -379,7 +390,10 @@ public class ShapesActivity extends Activity {
 
                                 heart2.setVisibility(View.INVISIBLE);
                             }else {
-                                ShapesActivity.this.recreate();
+                                ConvertTextToSpeech("Sorry try again later");
+                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                startActivity(intent);
+                                ShapesActivity.this.finish();
                             }
                         }
                         break;

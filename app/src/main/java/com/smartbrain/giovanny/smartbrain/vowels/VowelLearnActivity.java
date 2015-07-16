@@ -23,7 +23,7 @@ import java.util.Locale;
 public class VowelLearnActivity extends Activity implements  View.OnClickListener {
 
     private String[] images={"a","e","i","o","u"};
-    private String[] images2={"apple","","ice","orange","umbrella"};
+    private String[] images2={"apple","elephant","ice","orange","umbrella"};
     private String[] speak={"A like an apple","E like an elephant","I like an ice cream","O like an orange","U like an umbrella"};
     private int num1;
 
@@ -45,19 +45,20 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vowel_learn2);
 
+
         btnnext=(Button)findViewById(R.id.btn_next);
         image=(ImageView)findViewById(R.id.img_content);
         image2 = (ImageView)findViewById(R.id.imgApple);
         btnpasar=(Button)findViewById(R.id.btn_previous);
+        btnPlay=(Button)findViewById(R.id.btn_play);
+
         txtVowel = (TextView)findViewById(R.id.textView);
 
-
+        btnpasar.setOnClickListener(this);
         btnnext.setOnClickListener(this);
         btnPlay.setOnClickListener(this);
-        btnpasar.setOnClickListener(this);
-        num=OrderImage();
+        num = OrderImage();
         PutImages(num);
-
         //set back sound
         player = MediaPlayer.create(VowelLearnActivity.this, R.raw.music);
         player.setLooping(true); // Set looping
@@ -68,7 +69,7 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
 
             @Override
             public void onInit(int status) {
-                //TODO Auto-generated method stub
+                // TODO Auto-generated method stub
                 if (status == TextToSpeech.SUCCESS) {
                     int result = tts.setLanguage(Locale.US);
                     if (result == TextToSpeech.LANG_MISSING_DATA ||
@@ -81,6 +82,9 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
                     Log.e("error", "Initilization Failed!");
             }
         });
+
+
+
     }
 
     private int OrderImage1() {
@@ -164,7 +168,7 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
             }
             case R.id.btn_play:{
 
-                Intent intent = new Intent(VowelLearnActivity.this,PuzzleActivity.class);
+                Intent intent = new Intent(VowelLearnActivity.this,ActivityPuzzle.class);
                 startActivity(intent);
                 VowelLearnActivity.this.finish();
                 break;

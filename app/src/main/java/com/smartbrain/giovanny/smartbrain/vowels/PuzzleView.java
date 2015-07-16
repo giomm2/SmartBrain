@@ -5,7 +5,6 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Paint.Style;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Typeface;
@@ -21,16 +20,15 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by ADMIN on 07/07/2015.
+ * Created by ADMIN on 15/07/2015.
  */
-public class SlidePuzzleView extends View {
-
+public class PuzzleView extends View{
 
     //ESTA CLASE ES TODA LA VISTA DEL ROMPECABEZAS.
     private Bitmap bitmap;
     private Rect sourceRect;
     private RectF targetRect;
-    private SlidePuzzle slidePuzzle = new SlidePuzzle();
+    private PuzzleSlide slidePuzzle = new PuzzleSlide();
     private int targetWidth;
     private int targetHeight;
     private int targetOffsetX;
@@ -72,7 +70,7 @@ public class SlidePuzzleView extends View {
     private static final int COLOR_ACTIVE = 0xff303030;
 
     //constructor
-    public SlidePuzzleView(Context context, SlidePuzzle slidePuzzle) {
+    public PuzzleView(Context context, PuzzleSlide slidePuzzle) {
         super(context);
 
         sourceRect = new Rect();
@@ -95,7 +93,7 @@ public class SlidePuzzleView extends View {
         //este paint es el de toda la pantalla
         framePaint = new Paint();
         framePaint.setARGB(0xff, 0x80, 0x80, 0x80);
-        framePaint.setStyle(Style.STROKE);
+        framePaint.setStyle(Paint.Style.STROKE);
 //caracteristicas de este paint que es el que establezco las letras Vowels
         text1 = new Paint();
         text1.setTextSize(40);
@@ -103,15 +101,17 @@ public class SlidePuzzleView extends View {
 
 
         imagePaint = new Paint();
+
+
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         puzzleWidth = puzzleHeight = 0;
     }
-    //metodo para cuando el tamaÃ±o del dispositivo cambie y la pieza se necesita reconstruir
+    //metodo para cuando el tamaño del dispositivo cambie y la pieza se necesita reconstruir
     private void refreshDimensions() {
-        //tamaÃ±o del canvas
+        //tamaño del canvas
         targetWidth = canvasWidth;
         targetHeight = canvasHeight;
 //de las imagenes
@@ -147,7 +147,6 @@ public class SlidePuzzleView extends View {
         sourceColumnWidth = sourceWidth / puzzleWidth;
         sourceRowHeight = sourceHeight / puzzleHeight;
     }
-
     //el canvas es lo que sostiene el puzzle no esta "pegado" en un layout
     @Override
     protected void onDraw(Canvas canvas) {
@@ -166,7 +165,7 @@ public class SlidePuzzleView extends View {
         boolean solved = slidePuzzle.isSolved();
 
         //establecer el fondo
-       Bitmap background = BitmapFactory.decodeResource(getResources(),R.drawable.body_marbody);
+       Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.body_marteach);
         Rect dest =  new  Rect ( 0 ,  0 , getWidth (), getHeight ());
         canvas . drawBitmap(background, null, dest, null);
 
@@ -198,7 +197,7 @@ public class SlidePuzzleView extends View {
 
             if(dragInTarget && dragging.contains(i))
             {
-                tiles[i - SlidePuzzle.DIRECTION_X[dragDirection] - puzzleWidth *  SlidePuzzle.DIRECTION_Y[dragDirection]] = originalTiles[i];
+                tiles[i - PuzzleSlide.DIRECTION_X[dragDirection] - puzzleWidth *  PuzzleSlide.DIRECTION_Y[dragDirection]] = originalTiles[i];
             }
             else
             {
@@ -206,7 +205,7 @@ public class SlidePuzzleView extends View {
             }
         }
 
-        int delta = !dragInTarget ? 0 : (SlidePuzzle.DIRECTION_X[dragDirection] + puzzleWidth *  SlidePuzzle.DIRECTION_Y[dragDirection]) * dragging.size();
+        int delta = !dragInTarget ? 0 : (PuzzleSlide.DIRECTION_X[dragDirection] + puzzleWidth *  PuzzleSlide.DIRECTION_Y[dragDirection]) * dragging.size();
         int shownHandleLocation = slidePuzzle.getHandleLocation() + delta;
         tiles[shownHandleLocation] = tiles.length - 1;
 
@@ -246,7 +245,7 @@ public class SlidePuzzleView extends View {
 
             if(dragInTarget && dragging.contains(i))
             {
-                di = di - SlidePuzzle.DIRECTION_X[dragDirection] - puzzleWidth *  SlidePuzzle.DIRECTION_Y[dragDirection];
+                di = di - PuzzleSlide.DIRECTION_X[dragDirection] - puzzleWidth *  PuzzleSlide.DIRECTION_Y[dragDirection];
             }
 
             if(di == tiles[di])
@@ -322,6 +321,8 @@ public class SlidePuzzleView extends View {
             }
         }
     }
+
+
     //////////////////////////////////////////////////////////////////////
     private void vibrate(long d) {
         Vibrator v = (Vibrator) getContext().getSystemService(Context.VIBRATOR_SERVICE);
@@ -333,6 +334,8 @@ public class SlidePuzzleView extends View {
     }
 
     ////////////////////////////////////////////////////////
+
+
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
@@ -363,8 +366,6 @@ public class SlidePuzzleView extends View {
             return false;
         }
     }
-
-
     //cuando termina un movimiento
     private boolean finishDrag(MotionEvent event) {
         if(dragging == null)
@@ -389,7 +390,6 @@ public class SlidePuzzleView extends View {
 
         return true;
     }
-
     //cuando se hace un movimiento
     private void doMove(int dragDirection, int count) {
 
@@ -435,8 +435,8 @@ public class SlidePuzzleView extends View {
                 dragOffsetY = 0;
                 dragDirection = direction;
 
-                x -= SlidePuzzle.DIRECTION_X[direction];
-                y -= SlidePuzzle.DIRECTION_Y[direction];
+                x -= PuzzleSlide.DIRECTION_X[direction];
+                y -= PuzzleSlide.DIRECTION_Y[direction];
             }
         }
 
@@ -452,8 +452,8 @@ public class SlidePuzzleView extends View {
             return false;
         }
 
-        int directionX = SlidePuzzle.DIRECTION_X[dragDirection] * -1;
-        int directionY = SlidePuzzle.DIRECTION_Y[dragDirection] * -1;
+        int directionX = PuzzleSlide.DIRECTION_X[dragDirection] * -1;
+        int directionY = PuzzleSlide.DIRECTION_Y[dragDirection] * -1;
 
         if(directionX != 0)
         {
@@ -519,8 +519,8 @@ public class SlidePuzzleView extends View {
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
-        int canvasWidth = MeasureSpec.getSize(widthMeasureSpec);
-        int canvasHeight = MeasureSpec.getSize(heightMeasureSpec);
+        int canvasWidth = View.MeasureSpec.getSize(widthMeasureSpec);
+        int canvasHeight = View.MeasureSpec.getSize(heightMeasureSpec);
 
         if(this.canvasWidth != canvasWidth || this.canvasHeight != canvasHeight)
         {
@@ -533,7 +533,4 @@ public class SlidePuzzleView extends View {
 
     ////////////////////tiempo////////////////////////
 
-
-
 }
-

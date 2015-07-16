@@ -3,10 +3,11 @@ package com.smartbrain.giovanny.smartbrain.vowels;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 /**
- * Created by ADMIN on 07/07/2015.
+ * Created by ADMIN on 15/07/2015.
  */
-public class SlidePuzzle {
+public class PuzzleSlide {
 
     //direcciones de las 4 posibles direcciones de las piezas del rompecabezas
     public static final int DIRECTION_LEFT = 0;

@@ -26,12 +26,6 @@
             android:name=".MenuEasyActivity"
             android:label="@string/title_activity_menu_easy"
             android:screenOrientation="landscape" >
-
-        </activity>
-        <activity
-            android:name=".HardMenuActivity"
-            android:label="@string/title_activity_hard_menu"
-            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -39,25 +33,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".family.FamilyActivity"
+            android:name=".HardMenuActivity"
+            android:label="@string/title_activity_hard_menu"
             android:screenOrientation="landscape" >
 
+        </activity>
+        <activity
+            android:name=".family.FamilyActivity"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".vowels.VowelLearnActivity"
             android:label="@string/title_activity_vowel_learn"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".family.FamilyActivityGame"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".MenuMediumActivity"
             android:label="@string/title_activity_medium_menu"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".body.BodyTeachActivity1"
@@ -79,12 +76,6 @@
             android:label="@string/title_activity_body_game_activity2"
             android:screenOrientation="landscape" >
         </activity>
-        <activity
-            android:name=".vowels.PuzzleActivity"
-            android:label="@string/title_activity_puzzle"
-            android:screenOrientation="landscape" >
-        </activity>
-
         <supports-screens
             android:anyDensity="true"
             android:largeScreens="true"
@@ -100,13 +91,12 @@
         <activity
             android:name=".Numbers.NumbersGameActivity"
             android:label="@string/title_activity_numbers_game"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".colors.ColorLearningActivity"
             android:label="@string/title_activity_color_learning"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".colors.SecondaryColorLearningActivity"
@@ -121,13 +111,12 @@
         <activity
             android:name=".shapes.ShapesActivityMain"
             android:label="@string/title_activity_shapes_activity_main"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".shapes.ShapesActivity"
             android:label="@string/title_activity_shapes"
-            android:screenOrientation="landscape"
-            >
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".animals.AnimalsLearningActivity"
@@ -137,12 +126,17 @@
         <activity
             android:name=".animals.AnimalsGameActivity"
             android:label="@string/title_activity_animals_game"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
-        <activity android:name=".community.CommunityGameActivity"
+        <activity
+            android:name=".community.CommunityGameActivity"
             android:label="@string/tittle_activity_community_member"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".vowels.ActivityPuzzle"
+            android:label="@string/title_activity_activity_puzzle"
             android:screenOrientation="landscape">
-
         </activity>
     </application>
 
