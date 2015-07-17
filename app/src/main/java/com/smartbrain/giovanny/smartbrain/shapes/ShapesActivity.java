@@ -39,6 +39,11 @@ public class ShapesActivity extends Activity {
     private boolean rectangleCheck;
     private boolean triangleCheck;
 
+    private boolean check;
+    private boolean check1;
+    private boolean check2;
+    private boolean check3;
+
 
     private TextToSpeech tts;
     private String text;
@@ -161,6 +166,11 @@ public class ShapesActivity extends Activity {
                             ConvertTextToSpeech("Goog Job!");
                             v.setVisibility(View.VISIBLE);
                             circleCheck = false;
+                            check=true;
+                            if(check==true&&check1==true&&check2==true&&check3==true){
+                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                startActivity(intent);
+                            }
                         } else {
                             if(heart.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -170,6 +180,8 @@ public class ShapesActivity extends Activity {
                                 squareCheck = false;
                                 rectangleCheck=false;
                                 heart.setVisibility(View.INVISIBLE);
+
+                                check=false;
                             }
                             else if(heart1.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -179,6 +191,7 @@ public class ShapesActivity extends Activity {
                                 squareCheck = false;
                                 rectangleCheck=false;
                                 heart1.setVisibility(View.INVISIBLE);
+                                check=false;
                             }else if(heart2.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -186,6 +199,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck = false;
                                 squareCheck = false;
                                 rectangleCheck=false;
+                                check=false;
                                 heart2.setVisibility(View.INVISIBLE);
                             }
                             else{
@@ -228,6 +242,12 @@ public class ShapesActivity extends Activity {
                             ConvertTextToSpeech("Good job!");
                             v.setVisibility(View.VISIBLE);
                             squareCheck=false;
+                            check1=true;
+                            if(check==true&&check1==true&&check2==true&&check3==true){
+                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                startActivity(intent);
+                            }
+
                         } else {
                             if (heart.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -237,6 +257,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck=false;
                                 rectangleCheck= false;
                                 heart.setVisibility(View.INVISIBLE);
+                                check1=false;
                             }else if(heart1.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -245,6 +266,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck=false;
                                 rectangleCheck= false;
                                 heart1.setVisibility(View.INVISIBLE);
+                                check1=false;
                             }else if (heart2.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -253,6 +275,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck=false;
                                 rectangleCheck= false;
                                 heart2.setVisibility(View.INVISIBLE);
+                                check1=false;
 
                             }else{
                                 ConvertTextToSpeech("Sorry try again later");
@@ -295,6 +318,11 @@ public class ShapesActivity extends Activity {
                             ConvertTextToSpeech("Good Job!");
                             v.setVisibility(View.VISIBLE);
                             triangleCheck=false;
+                            check2=true;
+                            if(check==true&&check1==true&&check2==true&&check3==true){
+                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                startActivity(intent);
+                            }
                         } else {
                             if(heart.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -303,6 +331,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck=false;
                                 squareCheck=false;
                                 rectangleCheck=false;
+                                check2=false;
                                 heart.setVisibility(View.INVISIBLE);
                             }else if (heart1.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -311,6 +340,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck=false;
                                 squareCheck=false;
                                 rectangleCheck=false;
+                                check2=false;
                                 heart1.setVisibility(View.INVISIBLE);
                             }else if(heart2.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -320,6 +350,7 @@ public class ShapesActivity extends Activity {
                                 squareCheck=false;
                                 rectangleCheck=false;
                                 heart2.setVisibility(View.INVISIBLE);
+                                check2=false;
                             }
                             else{
                                 ConvertTextToSpeech("Sorry try again later");
@@ -360,6 +391,11 @@ public class ShapesActivity extends Activity {
                             ConvertTextToSpeech("Good Job!");
                             v.setVisibility(View.VISIBLE);
                             rectangleCheck=false;
+                            check3=true;
+                            if(check==true&&check1==true&&check2==true&&check3==true){
+                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                startActivity(intent);
+                            }
                         } else {
                             if(heart.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -368,6 +404,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck=false;
                                 squareCheck=false;
                                 rectangleCheck=false;
+                                check3=false;
 
                                 heart.setVisibility(View.INVISIBLE);
 
@@ -378,6 +415,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck=false;
                                 squareCheck=false;
                                 rectangleCheck=false;
+                                check3=false;
 
                                 heart1.setVisibility(View.INVISIBLE);
                             }else if(heart2.getVisibility()==View.VISIBLE){
@@ -387,6 +425,7 @@ public class ShapesActivity extends Activity {
                                 triangleCheck=false;
                                 squareCheck=false;
                                 rectangleCheck=false;
+                                check3=false;
 
                                 heart2.setVisibility(View.INVISIBLE);
                             }else {
