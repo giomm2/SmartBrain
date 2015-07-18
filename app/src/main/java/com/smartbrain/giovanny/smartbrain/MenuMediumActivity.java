@@ -14,7 +14,7 @@ import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.animals.AnimalsLearningActivity;
 import com.smartbrain.giovanny.smartbrain.colors.ColorLearningActivity;
-import com.smartbrain.giovanny.smartbrain.community.CommunityGameActivity;
+import com.smartbrain.giovanny.smartbrain.conmunity.ConmunityActivity;
 
 /**
  * Created by Cryven on 25/06/2015.
@@ -54,7 +54,7 @@ public class MenuMediumActivity extends Activity  {
             public void onClick(View v) {
 
                 music.stop();
-                Intent intent = new Intent(MenuMediumActivity.this, CommunityGameActivity.class);
+                Intent intent = new Intent(MenuMediumActivity.this, ConmunityActivity.class);
                 startActivity(intent);
             }
         });

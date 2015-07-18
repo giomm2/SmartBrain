@@ -28,17 +28,13 @@
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity
             android:name=".HardMenuActivity"
             android:label="@string/title_activity_hard_menu"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".family.FamilyActivity"
@@ -48,7 +44,6 @@
             android:name=".vowels.VowelLearnActivity"
             android:label="@string/title_activity_vowel_learn"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".family.FamilyActivityGame"
@@ -79,6 +74,7 @@
             android:label="@string/title_activity_body_game_activity2"
             android:screenOrientation="landscape" >
         </activity>
+
         <supports-screens
             android:anyDensity="true"
             android:largeScreens="true"
@@ -125,25 +121,21 @@
             android:name=".animals.AnimalsLearningActivity"
             android:label="@string/title_activity_animals_learning"
             android:screenOrientation="landscape" >
-
-
-
         </activity>
         <activity
             android:name=".animals.AnimalsGameActivity"
             android:label="@string/title_activity_animals_game"
             android:screenOrientation="landscape" >
-
-        </activity>
-        <activity
-            android:name=".community.CommunityGameActivity"
-            android:label="@string/tittle_activity_community_member"
-            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".vowels.ActivityPuzzle"
             android:label="@string/title_activity_activity_puzzle"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".conmunity.ConmunityActivity"
+            android:label="@string/title_activity_conmunity" >
+
         </activity>
     </application>
 

@@ -369,7 +369,7 @@ public class ActivityPuzzle extends Activity {
 
         return width / height;
     }
-    //el cuadrito el tamaño del tablero
+    //el cuadrito el tamanno del tablero
     protected void setPuzzleSize(int size, boolean scramble)
     {
         float ratio = getImageAspectRatio();

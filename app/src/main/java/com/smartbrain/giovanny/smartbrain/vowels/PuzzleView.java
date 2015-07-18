@@ -109,7 +109,7 @@ public class PuzzleView extends View{
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         puzzleWidth = puzzleHeight = 0;
     }
-    //metodo para cuando el tamaño del dispositivo cambie y la pieza se necesita reconstruir
+    //metodo para cuando el tamanno del dispositivo cambie y la pieza se necesita reconstruir
     private void refreshDimensions() {
         //tamaño del canvas
         targetWidth = canvasWidth;
