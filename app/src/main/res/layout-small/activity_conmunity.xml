@@ -1,0 +1,165 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/open_road"
+    tools:context="com.smartbrain.giovanny.smartbrain.neighborhood.ConmunityActivity">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:id="@+id/fireStation"
+        android:background="@drawable/firestation"
+        android:layout_above="@+id/hospital"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:background="@drawable/school1"
+        android:id="@+id/school"
+        android:layout_alignRight="@+id/policestation"
+        android:layout_alignEnd="@+id/policestation"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/layoutLeft"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:id="@+id/hospital"
+        android:background="@drawable/hospital"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/layoutRight2"
+        android:clickable="true" />
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        android:id="@+id/policestation"
+        android:background="@drawable/police_station"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/policeman"
+        android:id="@+id/policeman"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/policewoman"
+        android:background="@drawable/police_woman"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/policeman"
+        android:layout_toEndOf="@+id/policeman" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/firewoman"
+        android:background="@drawable/fire_woman"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/fireman"
+        android:layout_toEndOf="@+id/fireman" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/fireman"
+        android:id="@+id/fireman"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/policewoman"
+        android:layout_toEndOf="@+id/policewoman" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/doctorm"
+        android:id="@+id/doctorM"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/layoutRight"
+        android:layout_alignEnd="@+id/layoutRight" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/doctorF"
+        android:background="@drawable/doctorf"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/teacherM"
+        android:layout_toStartOf="@+id/teacherM" />
+
+    <ImageView
+        android:layout_width="40sp"
+        android:layout_height="40dp"
+        android:background="@drawable/teacherf"
+        android:id="@+id/teacherF"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/doctorM"
+        android:layout_toStartOf="@+id/doctorM" />
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:id="@+id/teacherM"
+        android:background="@drawable/teacherm"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:id="@+id/layoutLeft"
+        android:layout_alignTop="@+id/policestation"
+        android:layout_toRightOf="@+id/school"
+        android:layout_alignBottom="@+id/policestation"
+        android:visibility="visible"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:id="@+id/layoutRight"
+        android:layout_centerVertical="true"
+        android:visibility="visible"
+        android:layout_toLeftOf="@+id/fireStation"
+        android:layout_alignLeft="@+id/layoutRight2"
+        android:layout_alignStart="@+id/layoutRight2" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:id="@+id/layoutLeft2"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/school"
+        android:visibility="visible"
+        android:layout_alignTop="@+id/layoutRight2"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:id="@+id/layoutRight2"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/fireStation"
+        android:visibility="visible"/>
+
+</RelativeLayout>

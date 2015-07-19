@@ -77,17 +77,14 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
                 switch (animalCount){
                     case 1:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 2:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 3:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 4:
@@ -96,32 +93,26 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
                         break;
                     case 5:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 6:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 7:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 8:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 9:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 10:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                 }
@@ -140,52 +131,42 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
                 switch (animalCount){
                     case 1:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 2:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 3:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 4:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 5:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 6:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 7:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 8:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 9:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                     case 10:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
-                       animalViewer.startAnimation(animation);
                         speakOut();
                         break;
                 }
