@@ -9,122 +9,120 @@
 
     <AbsoluteLayout
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:id="@+id/absoluteLayout">
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/policeman"
             android:id="@+id/policeman"
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_x="7dp"
-            android:layout_y="2dp" />
+            android:layout_x="-5dp"
+            android:layout_y="-3dp" />
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:id="@+id/policewoman"
             android:background="@drawable/police_woman"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/policeman"
             android:layout_toEndOf="@+id/policeman"
-            android:layout_x="56dp"
-            android:layout_y="8dp" />
+            android:layout_x="109dp"
+            android:layout_y="4dp" />
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:id="@+id/firewoman"
             android:background="@drawable/fire_woman"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/fireman"
             android:layout_toEndOf="@+id/fireman"
-            android:layout_x="101dp"
+            android:layout_x="199dp"
             android:layout_y="0dp" />
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/fireman"
             android:id="@+id/fireman"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/policewoman"
             android:layout_toEndOf="@+id/policewoman"
-            android:layout_x="149dp"
+            android:layout_x="315dp"
             android:layout_y="2dp" />
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:background="@drawable/doctorm"
             android:id="@+id/doctorM"
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/layoutRight"
             android:layout_alignEnd="@+id/layoutRight"
-            android:layout_x="421dp"
-            android:layout_y="9dp" />
+            android:layout_x="944dp"
+            android:layout_y="8dp" />
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:id="@+id/doctorF"
             android:background="@drawable/doctorf"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/teacherM"
             android:layout_toStartOf="@+id/teacherM"
-            android:layout_x="470dp"
-            android:layout_y="7dp" />
+            android:layout_x="1054dp"
+            android:layout_y="8dp" />
 
         <ImageView
-            android:layout_width="40sp"
-            android:layout_height="40dp"
+            android:layout_width="100sp"
+            android:layout_height="100dp"
             android:background="@drawable/teacherf"
             android:id="@+id/teacherF"
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/doctorM"
             android:layout_toStartOf="@+id/doctorM"
-            android:layout_x="345dp"
-            android:layout_y="9dp" />
+            android:layout_x="744dp"
+            android:layout_y="-9dp" />
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:id="@+id/teacherM"
             android:background="@drawable/teacherm"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_x="389dp"
-            android:layout_y="6dp" />
+            android:layout_x="867dp"
+            android:layout_y="-5dp" />
 
     </AbsoluteLayout>
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
         android:id="@+id/fireStation"
         android:background="@drawable/firestation"
-        android:layout_above="@+id/hospital"
+        android:clickable="true"
+        android:layout_alignTop="@+id/layoutRight"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:clickable="true" />
+         />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
         android:background="@drawable/school1"
         android:id="@+id/school"
-        android:layout_alignRight="@+id/policestation"
-        android:layout_alignEnd="@+id/policestation"
         android:layout_alignParentBottom="true"
-        android:layout_below="@+id/layoutLeft"
         android:clickable="true" />
 
     <ImageView
-        android:layout_width="80dp"
-        android:layout_height="60dp"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
         android:id="@+id/hospital"
         android:background="@drawable/hospital"
         android:layout_alignParentRight="true"
@@ -135,8 +133,8 @@
 
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="180dp"
+        android:layout_height="120dp"
         android:id="@+id/policestation"
         android:background="@drawable/police_station"
         android:layout_centerVertical="true"
@@ -146,88 +144,90 @@
 
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/next"
         android:background="@drawable/next"
-        android:layout_alignTop="@+id/fireStation"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignBottom="@+id/layoutLeft"
+        android:layout_alignLeft="@+id/repeat"
+        android:layout_alignStart="@+id/repeat" />
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/repeat"
         android:background="@drawable/sound"
-        android:layout_below="@+id/layoutRight"
-        android:layout_alignLeft="@+id/next"
-        android:layout_alignStart="@+id/next"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:layout_alignTop="@+id/layoutLeft2"
+        android:layout_centerHorizontal="true" />
 
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
         android:id="@+id/layoutLeft"
+        android:visibility="visible"
         android:layout_alignTop="@+id/policestation"
-        android:layout_toRightOf="@+id/school"
-        android:layout_alignBottom="@+id/policestation"
-        android:visibility="visible"/>
+        android:layout_alignLeft="@+id/layoutLeft2"
+        android:layout_alignStart="@+id/layoutLeft2" />
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
         android:id="@+id/layoutRight"
-        android:layout_centerVertical="true"
         android:visibility="visible"
+        android:layout_alignTop="@+id/next"
         android:layout_toLeftOf="@+id/fireStation"
-        android:layout_alignLeft="@+id/layoutRight2"
-        android:layout_alignStart="@+id/layoutRight2" />
+        android:layout_toStartOf="@+id/fireStation" />
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
         android:id="@+id/layoutLeft2"
+        android:visibility="visible"
         android:layout_alignParentBottom="true"
         android:layout_toRightOf="@+id/school"
-        android:visibility="visible"
-        android:layout_alignTop="@+id/layoutRight2"/>
+        android:layout_toEndOf="@+id/school"
+        android:layout_marginLeft="57dp"
+        android:layout_marginStart="57dp" />
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="100dp"
-        android:layout_height="80dp"
+        android:layout_width="170dp"
+        android:layout_height="120dp"
         android:id="@+id/layoutRight2"
+        android:visibility="visible"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/fireStation"
-        android:visibility="visible"/>
+        android:layout_alignRight="@+id/layoutRight"
+        android:layout_alignEnd="@+id/layoutRight" />
 
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/heart"
         android:background="@drawable/heart"
-        android:layout_below="@+id/absoluteLayout"
-        android:layout_toRightOf="@+id/heart1"
-        android:layout_toEndOf="@+id/heart1" />
+        android:layout_alignTop="@+id/heart1"
+        android:layout_toRightOf="@+id/next"
+        android:layout_toEndOf="@+id/next" />
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/heart1"
         android:background="@drawable/heart"
-        android:layout_below="@+id/absoluteLayout"
-        android:layout_toRightOf="@+id/heart2"
-        android:layout_toEndOf="@+id/heart2" />
+        android:layout_alignTop="@+id/heart2"
+        android:layout_centerHorizontal="true" />
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/heart2"
         android:background="@drawable/heart"
         android:layout_below="@+id/absoluteLayout"
-        android:layout_toRightOf="@+id/layoutLeft"
-        android:layout_toEndOf="@+id/layoutLeft" />
+        android:layout_toLeftOf="@+id/next"
+        android:layout_toStartOf="@+id/next"
+        android:layout_marginTop="48dp" />
 
 
 </RelativeLayout>

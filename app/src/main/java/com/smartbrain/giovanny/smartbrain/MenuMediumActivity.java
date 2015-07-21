@@ -14,11 +14,8 @@ import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.animals.AnimalsLearningActivity;
 import com.smartbrain.giovanny.smartbrain.colors.ColorLearningActivity;
-import com.smartbrain.giovanny.smartbrain.conmunity.ConmunityActivity;
+import com.smartbrain.giovanny.smartbrain.neighborhood.NeighborhoodLearnActivity;
 
-/**
- * Created by Cryven on 25/06/2015.
- */
 public class MenuMediumActivity extends Activity  {
 
     private ImageView cloud;
@@ -54,7 +51,7 @@ public class MenuMediumActivity extends Activity  {
             public void onClick(View v) {
 
                 music.stop();
-                Intent intent = new Intent(MenuMediumActivity.this, ConmunityActivity.class);
+                Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLearnActivity.class);
                 startActivity(intent);
             }
         });
