@@ -45,11 +45,7 @@
         <activity
             android:name=".family.FamilyActivityGame"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MenuMediumActivity"
@@ -98,6 +94,11 @@
             android:name=".colors.ColorLearningActivity"
             android:label="@string/title_activity_color_learning"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".colors.SecondaryColorLearningActivity"

@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -28,7 +27,7 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
     private ImageView colorViewer;
     private ImageView next;
     private ImageView previus;
-    private Button secondaryColors;
+    private ImageView secondaryColors;
     // animaciones necesarias
     private Animation movement;
     private Animation movement2;
@@ -42,7 +41,7 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
     // arreglo con palabras para el TTS
     private String[] colorWords = {"Now we are going to learn about the colors, first we have the primary, and secondary colors. Please touch next to continue"
             ,"first, we have blue and red combining to create purple.","now we combine yellow and blue to make green"
-            ,"and finally we use red and yellow to make orange"};
+            ,"and finally we use red and yellow to make orange, touch the purple color to continue"};
 
 
 
@@ -61,7 +60,7 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
         colorViewer = (ImageView)findViewById(R.id.colorViewer);
         next= (ImageView)findViewById(R.id.next);
         previus= (ImageView)findViewById(R.id.previus);
-        secondaryColors = (Button) findViewById(R.id.secondaryColors);
+        secondaryColors = (ImageView) findViewById(R.id.secondaryColors);
         txtprogress=(TextView)findViewById(R.id.txt_progress);
         progressbar=(ProgressBar)findViewById(R.id.progressBar);
         // tts para que hable la vvara

@@ -58,17 +58,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Secondary colors"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/colorpurple"
         android:id="@+id/secondaryColors"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:gravity="center_horizontal"
-        android:visibility="invisible"
-        android:textColor="#ff1518ff"
-        android:layout_alignBottom="@+id/yellow"
-        android:layout_alignRight="@+id/absoluteLayout"
-        android:layout_alignEnd="@+id/absoluteLayout" />
+        android:visibility="invisible" />
 
     <ImageView
         android:layout_width="100dp"

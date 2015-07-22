@@ -32,6 +32,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
     private RelativeLayout bigFamily;
     private  RelativeLayout bigHowFamily;
     private ImageView endGame;
+    private ImageView refresh;
     // tts
     private TextToSpeech tts;
 
@@ -69,6 +70,14 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
         Drawable redMarkedArea = getResources().getDrawable(R.drawable.red_marked_area);
         bigFamily.setBackgroundDrawable(redMarkedArea);
         bigHowFamily.setBackgroundDrawable(redMarkedArea);
+        refresh= (ImageView)findViewById(R.id.refresh);
+        // boton que reinicia la actividad
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FamilyActivityGame.this.recreate();
+            }
+        });
 
         //boton que termina la actividad cuando sea que el usuario lo desee.
         endGame.setOnClickListener(new View.OnClickListener() {

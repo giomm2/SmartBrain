@@ -87,29 +87,27 @@
         android:layout_toLeftOf="@+id/gameColorBlue"
         android:layout_toStartOf="@+id/gameColorBlue" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start"
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/start"
-        android:textColor="#ff1518ff"
+        android:background="@drawable/start"
         android:layout_alignTop="@+id/gameColorYellow"
         android:layout_alignLeft="@+id/gameColorGrey"
         android:layout_alignStart="@+id/gameColorGrey" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Repeat"
-        android:textColor="#ff1518ff"
+    <ImageView
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/repeat"
+        android:background="@drawable/sound"
         android:layout_below="@+id/start"
         android:layout_alignLeft="@+id/gameColorGrey"
         android:layout_alignStart="@+id/gameColorGrey" />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/heart"
         android:src="@drawable/heart"
         android:layout_alignParentTop="true"

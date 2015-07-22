@@ -68,15 +68,13 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play With Colors"
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/playButton"
-        android:textColor="#ff1518ff"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/secondaryAbsoluteLayout"
-        android:layout_alignEnd="@+id/secondaryAbsoluteLayout"
-        android:visibility="invisible" />
+        android:background="@drawable/playbtn"
+        android:visibility="invisible"
+        android:layout_above="@+id/secondaryAbsoluteLayout"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

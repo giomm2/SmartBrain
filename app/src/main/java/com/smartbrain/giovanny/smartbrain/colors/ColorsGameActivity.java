@@ -5,17 +5,13 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
@@ -49,8 +45,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
     private ImageView heart5;
 
     // Botones y views comunes que voy a  necesitar
-    private Button start;
-    private Button repeat;
+    private ImageView start;
+    private ImageView repeat;
 
     // animaciones
     private Animation fadeOutAnimation;
@@ -94,8 +90,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
         colorWine = (ImageView)findViewById(R.id.gameColorWine);
         colorPurple= (ImageView) findViewById(R.id.gameColorPurple);
         colorViewer =(ImageView) findViewById(R.id.gameColorViewer);
-        start = (Button) findViewById(R.id.start);
-        repeat = (Button) findViewById(R.id.repeat);
+        start = (ImageView) findViewById(R.id.start);
+        repeat = (ImageView) findViewById(R.id.repeat);
         heart =(ImageView) findViewById(R.id.heart);
         heart1= (ImageView) findViewById(R.id.heart1);
         heart2 =(ImageView) findViewById(R.id.heart2);

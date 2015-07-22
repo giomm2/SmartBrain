@@ -3,15 +3,11 @@ package com.smartbrain.giovanny.smartbrain.colors;
 import android.app.Activity;
 import android.content.Intent;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.R;
@@ -27,13 +23,13 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
     private ImageView next;
     private ImageView privious;
     private ImageView secondaryColorViewer;
-    private Button playButton;
+    private ImageView playButton;
     // TTS
     private TextToSpeech tts;
     // arreglo con palabras para el tts
     private String[] array ={"You can take the secondary colors, and combine them to from tertiary colors. Please touch next to continue"
             ,"purple plus orange make brown","purple and green form wine","green and orange make olive"
-            ,"and when combine all together, we make grey"};
+            ,"and when combine all together, we make grey, touch the play controller button to play with all the colors"};
     // int que me recorre el arreglo
     int i=0;
     //animaciones necesarias
@@ -55,7 +51,7 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
         secondaryColorViewer = (ImageView)findViewById(R.id.secondaryColorViewer);
         next = (ImageView) findViewById(R.id.next);
         privious =(ImageView) findViewById(R.id.previus);
-        playButton = (Button) findViewById(R.id.playButton);
+        playButton = (ImageView) findViewById(R.id.playButton);
         // tts para que hable la vvara
         tts= new TextToSpeech(this, this);
         //animacion de el color recien formado
