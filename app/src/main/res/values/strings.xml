@@ -16,8 +16,8 @@
     <string name="title_activity_body_game_activity1">BodyGameActivity1</string>
     <string name="title_activity_body_tech_activity2">BodyTechActivity2</string>
     <string name="title_activity_body_game_activity2">BodyGameActivity2</string>
-    <string name="how_family">How is your family like?</string>
-    <string name="family">How you would like your family be?</string>
+    <string name="how_family">How would you like your family to be?</string>
+    <string name="family">How does your family look like?</string>
     <string name="title_activity_puzzle">PuzzleActivity</string>
     <string name="puzzle_size_x_y">{0} x {1}</string>
     <string name="label_ok">OK</string>

@@ -5,26 +5,36 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
+import java.util.Locale;
 
-public class FamilyActivityGame extends Activity {
+
+public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitListener {
 
 
-    LinearLayout layoutLeft;
-    LinearLayout layoutLeft2;
-    LinearLayout layoutRight;
-    LinearLayout layoutRight2;
-    Button endGame;
+    private LinearLayout layoutLeft;
+    private LinearLayout layoutLeft2;
+    private LinearLayout layoutRight;
+    private LinearLayout layoutRight2;
+    private RelativeLayout bigFamily;
+    private  RelativeLayout bigHowFamily;
+    private ImageView endGame;
+    // tts
+    private TextToSpeech tts;
+
 
     protected void viewSetter(){
         // seteo el touch listener para cada imagen en el layout y llamo a la clase MyTouchListener
@@ -46,17 +56,19 @@ public class FamilyActivityGame extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family_activity_game);
 
+        tts = new TextToSpeech(this,this);
+
         viewSetter();
         layoutLeft =(LinearLayout)findViewById(R.id.familyLayout);
         layoutLeft2= (LinearLayout)findViewById(R.id.familyLayout2);
         layoutRight=(LinearLayout)findViewById(R.id.howFamLayout);
         layoutRight2=(LinearLayout)findViewById(R.id.howFamLayout2);
-        endGame= (Button) findViewById(R.id.endGame);
+        bigHowFamily= (RelativeLayout)findViewById(R.id.bigHowFamily);
+        bigFamily=(RelativeLayout)findViewById(R.id.bigFamilyLayout);
+        endGame= (ImageView) findViewById(R.id.endGame);
         Drawable redMarkedArea = getResources().getDrawable(R.drawable.red_marked_area);
-        layoutLeft.setBackgroundDrawable(redMarkedArea);
-        layoutLeft2.setBackgroundDrawable(redMarkedArea);
-        layoutRight.setBackgroundDrawable(redMarkedArea);
-        layoutRight2.setBackgroundDrawable(redMarkedArea);
+        bigFamily.setBackgroundDrawable(redMarkedArea);
+        bigHowFamily.setBackgroundDrawable(redMarkedArea);
 
         //boton que termina la actividad cuando sea que el usuario lo desee.
         endGame.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +81,51 @@ public class FamilyActivityGame extends Activity {
             }
         });
 
+        bigFamily.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                int action = event.getAction();
+                switch (event.getAction()) {
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        speakOut("you can drag your family members here");
+                        break;
+                }
+                return true;
+            }
+        });
+        bigHowFamily.setOnDragListener(new View.OnDragListener() {
+            @Override
+            public boolean onDrag(View v, DragEvent event) {
+                int action = event.getAction();
+                switch (event.getAction()) {
+                    case DragEvent.ACTION_DRAG_ENTERED:
+                        speakOut("drag the members that you would like to have in your family here");
+                        break;
+                }
+                return true;
+            }
+        });
+    }
+
+    private void speakOut(String words){
+        tts.speak(words,TextToSpeech.QUEUE_FLUSH,null);
+    }
+    @Override
+    public void onInit(int status) {
+        if (status == TextToSpeech.SUCCESS) {
+
+            int result = tts.setLanguage(Locale.US);
+
+            if (result == TextToSpeech.LANG_MISSING_DATA
+                    || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Log.e("TTS", "This Language is not supported");
+            } else {
+                speakOut("Hi lets play with the family members");
+            }
+
+        } else {
+            Log.e("TTS", "Initilization Failed!");
+        }
     }
 
     // Esta clase se encarga de buscar la accion construir una sombra de lo que hacemos drag y darle un movimiento mediante
@@ -100,7 +157,7 @@ public class FamilyActivityGame extends Activity {
                     //do nothing
                     break;
                 case DragEvent.ACTION_DRAG_ENTERED:
-                    //do nothing
+
                     break;
                 case DragEvent.ACTION_DRAG_EXITED:
                     //do nothing
@@ -156,5 +213,14 @@ public class FamilyActivityGame extends Activity {
             }
             return true;
         }
+    }
+    @Override
+    public void onDestroy() {
+        // Don't forget to shutdown tts!
+        if (tts != null) {
+            tts.stop();
+            tts.shutdown();
+        }
+        super.onDestroy();
     }
 }

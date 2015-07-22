@@ -441,89 +441,111 @@
             android:layout_marginStart="13dp" />
     </RelativeLayout>
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="500dp"
-        android:id="@+id/familyLayout"
-        android:layout_height="150dp"
-        android:layout_row="2"
-        android:layout_above="@+id/relativeLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="38dp">
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="500dp"
-        android:id="@+id/familyLayout2"
-        android:layout_height="150dp"
-        android:layout_row="2"
-        android:layout_alignTop="@+id/howFamLayout"
+    <RelativeLayout
+        android:layout_width="430dp"
+        android:layout_height="240dp"
+        android:id="@+id/bigFamilyLayout"
+        android:layout_below="@+id/textView4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true">
 
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="500dp"
-        android:id="@+id/howFamLayout"
-        android:layout_height="150dp"
-        android:layout_row="2"
-        android:layout_above="@+id/howFamLayout2"
-        android:layout_alignLeft="@+id/howFamLayout2"
-        android:layout_alignStart="@+id/howFamLayout2"
-        android:layout_marginBottom="65dp">
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:id="@+id/familyLayout"
+            android:layout_height="120dp"
+            android:layout_row="2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
 
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="500dp"
-        android:id="@+id/howFamLayout2"
-        android:layout_height="150dp"
-        android:layout_row="2"
-        android:layout_alignTop="@+id/familyLayout"
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:id="@+id/familyLayout2"
+            android:layout_height="120dp"
+            android:layout_row="2"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+        </LinearLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="430dp"
+        android:layout_height="240dp"
+        android:id="@+id/bigHowFamily"
+        android:layout_alignTop="@+id/bigFamilyLayout"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true">
 
-    </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:id="@+id/howFamLayout"
+            android:layout_height="120dp"
+            android:layout_row="2"
+            >
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="70dp"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentLeft="false"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/relativeLayout">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="@string/family"
-            android:textColor="@android:color/holo_blue_light"
-            android:id="@+id/textView2"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:text="@string/how_family"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textColor="@android:color/holo_blue_light"
-            android:textAppearance="?android:attr/textAppearanceLarge"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Back To Menu"
-            android:id="@+id/endGame"
-            android:textColor="@android:color/holo_blue_light"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true" />
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:id="@+id/howFamLayout2"
+            android:layout_height="120dp"
+            android:layout_row="2"
+
+            android:layout_below="@+id/howFamLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+        </LinearLayout>
 
 
     </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/family"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView4"
+        android:layout_below="@+id/topLeftLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="128dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/how_family"
+        android:textColor="@android:color/black"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignBaseline="@+id/textView4"
+        android:layout_alignBottom="@+id/textView4"
+        android:layout_alignRight="@+id/bigHowFamily"
+        android:layout_alignEnd="@+id/bigHowFamily" />
+
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relativeLayout">
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/endGame"
+        android:background="@drawable/door"
+        android:layout_alignBottom="@+id/relativeLayout"
+        android:layout_alignRight="@+id/relativeLayout"
+        android:layout_alignEnd="@+id/relativeLayout" />
 
 
 </RelativeLayout>

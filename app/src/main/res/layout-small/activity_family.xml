@@ -18,33 +18,32 @@
         android:layout_marginLeft="92dp"
         android:layout_marginStart="92dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/nextBtn"
-        android:text="@string/next_button"
-        android:layout_marginTop="46dp"
-        android:layout_alignTop="@+id/viewer"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="89dp"
-        android:layout_marginEnd="89dp" />
+        android:background="@drawable/next"
+        android:layout_above="@+id/repeat"
+        android:layout_toRightOf="@+id/repeat"
+        android:layout_toEndOf="@+id/repeat"
+        android:layout_marginLeft="67dp"
+        android:layout_marginStart="67dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/btnPlay"
-        android:text="@string/play_button"
+        android:background="@drawable/playbtn"
         android:layout_marginBottom="65dp"
         android:layout_alignParentBottom="true"
         android:layout_alignLeft="@+id/nextBtn"
         android:layout_alignStart="@+id/nextBtn"
         android:visibility="invisible" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Repeat"
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/sound"
         android:id="@+id/repeat"
         android:visibility="visible"
         android:layout_centerVertical="true"

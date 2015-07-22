@@ -26,9 +26,9 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
             "or a sister","and this is the grandpa","and the gramdma"};
     //views
     private ImageView imageViewer;
-    private Button btnNext;
-    private Button playBtn;
-    private Button repeat;
+    private ImageView btnNext;
+    private ImageView playBtn;
+    private ImageView repeat;
     // declaracion de TTS y contador para los arrays
     private TextToSpeech tts;
     private int i =0;
@@ -43,10 +43,10 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         // declaro TTS con un contexto nuevo que es en el q esta.
         tts= new TextToSpeech(this, this);
         imageViewer = (ImageView)findViewById(R.id.viewer);
-        btnNext= (Button)findViewById(R.id.nextBtn);
-        playBtn = (Button)findViewById(R.id.btnPlay);
+        btnNext= (ImageView)findViewById(R.id.nextBtn);
+        playBtn = (ImageView)findViewById(R.id.btnPlay);
         imageViewer.setBackgroundResource(imageArray[i]);
-        repeat = (Button)findViewById(R.id.repeat);
+        repeat = (ImageView)findViewById(R.id.repeat);
         txtprogress=(TextView)findViewById(R.id.txt_progress);
         progressbar=(ProgressBar)findViewById(R.id.progressBar);
         contNumber2.start();

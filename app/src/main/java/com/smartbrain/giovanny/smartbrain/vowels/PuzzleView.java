@@ -111,7 +111,7 @@ public class PuzzleView extends View{
     }
     //metodo para cuando el tamanno del dispositivo cambie y la pieza se necesita reconstruir
     private void refreshDimensions() {
-        //tamaño del canvas
+        //tamano del canvas
         targetWidth = canvasWidth;
         targetHeight = canvasHeight;
 //de las imagenes

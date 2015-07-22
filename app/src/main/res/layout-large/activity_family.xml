@@ -17,34 +17,34 @@
         android:layout_marginLeft="92dp"
         android:layout_marginStart="92dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/nextBtn"
-        android:text="@string/next_button"
-        android:layout_marginTop="68dp"
-        android:layout_marginRight="152dp"
-        android:layout_marginEnd="152dp"
-        android:layout_alignTop="@+id/viewer"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:background="@drawable/next"
+        android:layout_marginLeft="91dp"
+        android:layout_marginStart="91dp"
+        android:layout_alignBottom="@+id/repeat"
+        android:layout_toRightOf="@+id/repeat"
+        android:layout_toEndOf="@+id/repeat"
+        android:layout_marginBottom="46dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/btnPlay"
-        android:text="@string/play_button"
-        android:layout_marginBottom="78dp"
-        android:layout_alignParentBottom="true"
+        android:background="@drawable/playbtn"
+        android:visibility="invisible"
+        android:layout_below="@+id/repeat"
         android:layout_alignLeft="@+id/nextBtn"
-        android:layout_alignStart="@+id/nextBtn"
-        android:visibility="invisible" />
+        android:layout_alignStart="@+id/nextBtn" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="repeat"
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/sound"
         android:id="@+id/repeat"
+        android:visibility="visible"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/viewer"
         android:layout_toEndOf="@+id/viewer" />
