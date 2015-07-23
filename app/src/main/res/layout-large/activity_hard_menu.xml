@@ -10,18 +10,18 @@
     tools:context="com.smartbrain.giovanny.smartbrain.HardMenuActivity">
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:id="@+id/baloom"
         android:background="@drawable/number"
         android:clickable="true"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/rocket"
-        android:layout_toEndOf="@+id/rocket" />
+        android:layout_alignTop="@+id/zeppelin"
+        android:layout_toRightOf="@+id/firework"
+        android:layout_toEndOf="@+id/firework" />
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:id="@+id/baloom2"
         android:background="@drawable/feedback"
         android:baselineAlignBottom="false"
@@ -31,8 +31,8 @@
         android:layout_toStartOf="@+id/zeppelin" />
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
         android:id="@+id/baloom3"
         android:background="@drawable/shapes"
         android:clickable="true"
@@ -40,8 +40,8 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/zeppelin"
         android:background="@drawable/zeppelin"
         android:layout_above="@+id/rocket2"

@@ -31,7 +31,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
     private Button btnstar,btnrepeat;
     private TextToSpeech tts;
     private String text, text2;
-    private int[] guia = {2130837667,2130837662,2130837666,2130837665,2130837660,2130837659,2130837664,2130837663,2130837658,2130837661};
+    private int[] guia = {2130837666,2130837661,2130837665,2130837664,2130837659,2130837658,2130837663,2130837662,2130837657,2130837660};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,7 +219,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
 
             case R.id.btn_start: {
 
-                if (btnstar.getText().equals("Start") && pos != 10){
+                if (pos<10){
                     PutImages();
                 downImg0.setVisibility(View.INVISIBLE);
                 downImg1.setVisibility(View.INVISIBLE);
@@ -402,8 +402,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
                 contNumber.start();
             }else{
 
-                Intent intent = new Intent(NumbersGameActivity.this, NumbersGameActivity.class);
-                startActivity(intent);
+               contNumber.cancel();
                 NumbersGameActivity.this.finish();
             }
         }
@@ -489,8 +488,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
 
             }else{
 
-                Intent intent = new Intent(NumbersGameActivity.this, NumbersGameActivity.class);
-                startActivity(intent);
+                contNumber.cancel();
                 NumbersGameActivity.this.finish();
 
             }
@@ -498,4 +496,10 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
 
 
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
+    }
 }

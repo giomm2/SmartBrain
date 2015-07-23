@@ -24,7 +24,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
     private TextView txtcont;
     private String[] images = {"body_ear", "body_eyes","body_nose","body_mouth"};
     private String[] voice = {"Choose the Ear", "Choose the Eyes","Choose the Nose","Choose the Mouth"};
-    private int[] guia={2130837581,2130837582,2130837592,2130837591};
+    private int[] guia={2130837581,2130837582,2130837590,2130837589};
     private ImageView img1, img2,img3,img4, imgHeart1,imgHeart2,imgHeart3;
     private Button btnnext,btnrepeat;
     private TextToSpeech tts;
@@ -68,7 +68,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, Let's play. Please touch start.");
+                        ConvertTextToSpeech("Hello, Let's play. Please touch next.");
 
                     }
                 } else
@@ -145,25 +145,9 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
             case R.id.btn_next:{
 
                 //Se cambia el nombre del boton y se pone invisible para iniciar
-                if (btnnext.getText().equals("Start")){
+                if (pos<4){
 
                     btnrepeat.setEnabled(true);
-                    btnnext.setText("Next");
-                    btnnext.setVisibility(View.INVISIBLE);
-                    contNumber.start();
-                    //Las imagenes se pueden seleccionar.
-                    img1.setEnabled(true);
-                    img2.setEnabled(true);
-                    img3.setEnabled(true);
-                    img4.setEnabled(true);
-                    //Llama el metodo de las imagenes Random
-                    PutImages();
-                    //Llama el metodo de la voz del juego
-                    VoiceGame();
-
-
-                }else if(btnnext.getText().equals("Next")&&pos!=4){
-
                     btnnext.setVisibility(View.INVISIBLE);
                     btnrepeat.setVisibility(View.VISIBLE);
                     contNumber.start();
@@ -176,6 +160,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
                     PutImages();
                     //Llama el metodo de la voz del juego
                     VoiceGame();
+
                 }else{
                     Intent intent=new Intent(BodyGameActivity1.this,BodyTechActivity2.class);
                     BodyGameActivity1.this.finish();
@@ -271,10 +256,8 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
                 imgHeart3.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech("Last chance");
             }else {
-
-                Intent intent= new Intent(BodyGameActivity1.this,BodyGameActivity1.class);
-                startActivity(intent);
-                BodyGameActivity1.this.finish();
+                contNumber.cancel();
+                BodyGameActivity1.this.recreate();
 
             }
 
@@ -312,13 +295,16 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
             } else {
 
-                Intent intent = new Intent(BodyGameActivity1.this, BodyGameActivity1.class);
-                startActivity(intent);
-                BodyGameActivity1.this.finish();
+                contNumber.cancel();
+                BodyGameActivity1.this.recreate();
             }
         }
     };
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
 
-
+    }
 }

@@ -155,7 +155,7 @@
         android:id="@+id/img_cont1"
         android:clickable="false"
         android:visibility="invisible"
-        android:layout_centerVertical="true"
+        android:layout_alignTop="@+id/img_cont2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -235,27 +235,25 @@
         android:layout_toEndOf="@+id/img_cont9" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/btn_start"
         android:longClickable="false"
-        android:background="#ff9eff63"
+        android:background="@drawable/next"
         android:layout_alignBottom="@+id/btn_repeat"
         android:layout_toRightOf="@+id/img_cont7"
         android:layout_toEndOf="@+id/img_cont7" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="Repeat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/btn_repeat"
         android:longClickable="false"
-        android:background="#ff9eff63"
         android:singleLine="false"
+        android:background="@drawable/sound"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/btn_start"
-        android:layout_toEndOf="@+id/btn_start" />
+        android:layout_toRightOf="@+id/img_cont9"
+        android:layout_toEndOf="@+id/img_cont9" />
 
 
 </RelativeLayout>

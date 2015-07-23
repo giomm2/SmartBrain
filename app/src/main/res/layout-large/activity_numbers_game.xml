@@ -235,27 +235,25 @@
         android:layout_toEndOf="@+id/img_cont9" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Start"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/btn_start"
         android:longClickable="false"
-        android:background="#ff9eff63"
-        android:layout_alignBottom="@+id/img_heart3"
+        android:background="@drawable/next"
+        android:layout_alignBottom="@+id/txt_temp"
         android:layout_toRightOf="@+id/img_four"
         android:layout_toEndOf="@+id/img_four" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Repeat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/btn_repeat"
         android:longClickable="false"
-        android:background="#ff9eff63"
+        android:singleLine="false"
+        android:background="@drawable/sound"
         android:layout_alignTop="@+id/btn_start"
-        android:layout_toLeftOf="@+id/img_eight"
-        android:layout_toStartOf="@+id/img_eight"
-        android:singleLine="false" />
+        android:layout_toRightOf="@+id/img_six"
+        android:layout_toEndOf="@+id/img_six" />
 
 
 </RelativeLayout>

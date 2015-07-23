@@ -16,45 +16,41 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/back"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="#ff1518ff" />
+        android:background="@drawable/previous" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/next"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:textColor="#ff1518ff" />
+        android:background="@drawable/next" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Repeat"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/repeat"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textColor="#ff1518ff" />
+        android:background="@drawable/sound" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Play"
-        android:textColor="#ff1518ff"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/play"
         android:layout_alignTop="@+id/repeat"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:background="@drawable/playbtn" />
 
     <ProgressBar
 

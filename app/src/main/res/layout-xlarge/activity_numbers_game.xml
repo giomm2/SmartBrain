@@ -236,22 +236,20 @@
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Start"
+        android:layout_height="100dp"
         android:id="@+id/btn_start"
         android:longClickable="false"
-        android:background="#ff9eff63"
-        android:layout_alignBottom="@+id/img_heart3"
-        android:layout_toRightOf="@+id/img_four"
-        android:layout_toEndOf="@+id/img_four" />
+        android:background="@drawable/next"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/img_six"
+        android:layout_toStartOf="@+id/img_six" />
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="50dp"
-        android:text="Repeat"
+        android:layout_height="100dp"
         android:id="@+id/btn_repeat"
         android:longClickable="false"
-        android:background="#ff9eff63"
+        android:background="@drawable/sound"
         android:layout_alignTop="@+id/btn_start"
         android:layout_toLeftOf="@+id/img_eight"
         android:layout_toStartOf="@+id/img_eight"

@@ -23,8 +23,8 @@
         android:layout_alignParentStart="true" />
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/flower1"
         android:background="@drawable/flower1"
         android:layout_alignTop="@+id/flower3"
@@ -32,8 +32,8 @@
         android:layout_toStartOf="@+id/flower3" />
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/flower2"
         android:background="@drawable/flower2"
         android:layout_marginLeft="30dp"
@@ -43,8 +43,8 @@
         android:layout_toEndOf="@+id/flower3" />
 
     <ImageView
-        android:layout_width="60dp"
-        android:layout_height="80dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:id="@+id/flower3"
         android:background="@drawable/flower3"
         android:layout_marginLeft="42dp"
@@ -55,14 +55,12 @@
         android:layout_marginBottom="31dp" />
 
     <ImageView
-        android:layout_width="60dp"
+        android:layout_width="20dp"
         android:layout_height="60dp"
         android:id="@+id/smoke"
         android:background="@drawable/smoke"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/flower2"
-        android:layout_alignStart="@+id/flower2"
-        android:layout_marginLeft="28dp"
-        android:layout_marginStart="28dp" />
+        android:layout_alignRight="@+id/flower2"
+        android:layout_alignEnd="@+id/flower2" />
 
 </RelativeLayout>

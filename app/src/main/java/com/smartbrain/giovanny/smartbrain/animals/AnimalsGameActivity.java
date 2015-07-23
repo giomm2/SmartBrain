@@ -58,8 +58,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
         txtcont=(TextView)findViewById(R.id.txt_cont);
         btnnext.setOnClickListener(this);
         btnrepeat.setOnClickListener(this);
-
-        btnrepeat.setEnabled(false);
+        btnrepeat.setVisibility(View.INVISIBLE);
         btnSpeak.setEnabled(false);
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
@@ -144,8 +143,8 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
                     ConvertTextToSpeech(voice[pos]);
                     contNumber.start();
                     pos++;
-                    btnnext.setEnabled(false);
-                    btnrepeat.setEnabled(true);
+                    btnnext.setVisibility(View.INVISIBLE);
+                    btnrepeat.setVisibility(View.VISIBLE);
                     btnSpeak.setEnabled(true);
 
                 }
@@ -167,8 +166,8 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
 
             ConvertTextToSpeech("Great, please touch next");
             contNumber.cancel();
-            btnnext.setEnabled(true);
-            btnrepeat.setEnabled(false);
+            btnnext.setVisibility(View.VISIBLE);
+            btnrepeat.setVisibility(View.INVISIBLE);
             btnSpeak.setEnabled(false);
 
         }else{
@@ -234,11 +233,16 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
                 contNumber.start();
 
             } else {
-
+                contNumber.cancel();
                 AnimalsGameActivity.this.recreate();
 
             }
         }
     };
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
+    }
 }

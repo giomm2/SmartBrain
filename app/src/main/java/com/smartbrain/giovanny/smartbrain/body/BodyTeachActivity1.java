@@ -190,5 +190,12 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
         }
     };
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
+
+    }
+
 
 }

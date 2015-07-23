@@ -1740,13 +1740,43 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
 
     // metodo que me genera una lista random de numeros que no se repite para que las preguntas nunca sean las mismas
     private int[] getListNumber() {
-        int [] numbers = new int[11];
-        for(int i=0; i<=10 ;i++){
-            numbers[i]=i;
-        }
-        numbers[11] =10;
-        return numbers;
-    }
+        int [] numbers = new int[10];
+        Random rand = new Random();
+        int random;
+        int cont=0;
+        int j=0;
+        boolean flag=true;
+        boolean flag0=true;
+        for(int i=-1; i<=8 ;i++){
+            random=rand.nextInt(10);
+            cont=0;
+            j=0;
+            flag=true;
+            if(random!=0){
+                while(numbers[j]!=random && flag==true ){
+                    j++;
+                    cont++;
+                    if(j==9){
+                        flag=false;
+                    }
+                }
+                if( cont==9){
+                    numbers[i+1]=random;
+                }else{
+
+                    i=i-1;
+                }
+            }else{
+                if(flag0==true){
+                    numbers[i+1]=0;
+                    flag0=false;
+                }
+                else{
+                    i=i-1;
+                }
+            }}
+        return numbers;}
+
 
     // seteo de imagenes
     private void setImagesForCase1() {

@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.smartbrain.giovanny.smartbrain.body.BodyGameActivity2"
-    android:background="@drawable/body_marbody">
+    android:background="@drawable/familybeach">
 
     <ImageView
         android:layout_width="200dp"
@@ -56,14 +56,13 @@
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="75dp"
-        android:text="Start"
+        android:layout_height="100dp"
         android:id="@+id/btn_next"
         android:longClickable="false"
-        android:background="#ffff191b"
-        android:layout_alignTop="@+id/btn_repeat"
-        android:layout_alignLeft="@+id/image5"
-        android:layout_alignStart="@+id/image5" />
+        android:background="@drawable/next"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/image5"
+        android:layout_toStartOf="@+id/image5" />
 
     <ImageView
         android:layout_width="100dp"
@@ -94,14 +93,13 @@
 
     <Button
         android:layout_width="100dp"
-        android:layout_height="75dp"
-        android:text="Repeat"
+        android:layout_height="100dp"
         android:id="@+id/btn_repeat"
         android:longClickable="false"
-        android:background="#ffff191b"
         android:layout_alignBottom="@+id/heart3"
         android:layout_toRightOf="@+id/image5"
-        android:layout_toEndOf="@+id/image5" />
+        android:layout_toEndOf="@+id/image5"
+        android:background="@drawable/sound" />
 
     <TextView
         android:layout_width="wrap_content"

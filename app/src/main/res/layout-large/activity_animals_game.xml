@@ -41,25 +41,23 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Next"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/btn_next"
-        android:background="#ff5988ff"
         android:layout_alignTop="@+id/btn_repeat"
         android:layout_toRightOf="@+id/img_content"
         android:layout_toEndOf="@+id/img_content"
         android:layout_marginLeft="65dp"
-        android:layout_marginStart="65dp" />
+        android:layout_marginStart="65dp"
+        android:background="@drawable/next" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Repeat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/btn_repeat"
         android:layout_marginLeft="68dp"
         android:layout_marginStart="68dp"
-        android:background="#ff5988ff"
+        android:background="@drawable/sound"
         android:layout_alignTop="@+id/heart3"
         android:layout_toRightOf="@+id/btn_next"
         android:layout_toEndOf="@+id/btn_next" />

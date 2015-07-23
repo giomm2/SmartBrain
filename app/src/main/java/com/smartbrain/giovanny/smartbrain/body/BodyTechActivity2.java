@@ -181,4 +181,10 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
+
+    }
 }

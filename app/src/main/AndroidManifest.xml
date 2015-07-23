@@ -27,6 +27,7 @@
             android:label="@string/title_activity_menu_easy"
             android:screenOrientation="landscape" >
 
+
         </activity>
         <activity
             android:name=".HardMenuActivity"
@@ -51,6 +52,11 @@
             android:name=".MenuMediumActivity"
             android:label="@string/title_activity_medium_menu"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".body.BodyTeachActivity1"
@@ -89,6 +95,7 @@
             android:name=".Numbers.NumbersGameActivity"
             android:label="@string/title_activity_numbers_game"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".colors.ColorLearningActivity"
@@ -104,11 +111,7 @@
             android:name=".colors.ColorsGameActivity"
             android:label="@string/title_activity_colors_game"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".shapes.ShapesActivityMain"
