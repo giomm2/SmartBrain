@@ -103,7 +103,7 @@
 
     <ImageView
         android:layout_width="180dp"
-        android:layout_height="120dp"
+        android:layout_height="150dp"
         android:id="@+id/fireStation"
         android:background="@drawable/firestation"
         android:clickable="true"
@@ -122,7 +122,7 @@
 
     <ImageView
         android:layout_width="180dp"
-        android:layout_height="120dp"
+        android:layout_height="160dp"
         android:id="@+id/hospital"
         android:background="@drawable/hospital"
         android:layout_alignParentRight="true"
@@ -134,7 +134,7 @@
 
     <ImageView
         android:layout_width="180dp"
-        android:layout_height="120dp"
+        android:layout_height="150dp"
         android:id="@+id/policestation"
         android:background="@drawable/police_station"
         android:layout_centerVertical="true"
@@ -164,7 +164,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="170dp"
-        android:layout_height="120dp"
+        android:layout_height="160dp"
         android:id="@+id/layoutLeft"
         android:visibility="visible"
         android:layout_alignTop="@+id/policestation"
@@ -174,17 +174,17 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="170dp"
-        android:layout_height="120dp"
+        android:layout_height="160dp"
         android:id="@+id/layoutRight"
         android:visibility="visible"
-        android:layout_alignTop="@+id/next"
+        android:layout_centerVertical="true"
         android:layout_toLeftOf="@+id/fireStation"
         android:layout_toStartOf="@+id/fireStation" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="170dp"
-        android:layout_height="120dp"
+        android:layout_height="160dp"
         android:id="@+id/layoutLeft2"
         android:visibility="visible"
         android:layout_alignParentBottom="true"
@@ -196,7 +196,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="170dp"
-        android:layout_height="120dp"
+        android:layout_height="160dp"
         android:id="@+id/layoutRight2"
         android:visibility="visible"
         android:layout_alignParentBottom="true"

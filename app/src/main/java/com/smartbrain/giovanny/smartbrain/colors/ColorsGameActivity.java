@@ -99,6 +99,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
         heart5 =(ImageView) findViewById(R.id.heart5);
 
         repeat.setEnabled(false);
+        repeat.setVisibility(View.INVISIBLE);
 
 
         // set animaciones
@@ -115,11 +116,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
             @Override
             public void onClick(View v) {
                 repeat.setEnabled(true);
+                repeat.setVisibility(View.VISIBLE);
+                start.setVisibility(View.INVISIBLE);
                 start.setEnabled(false);
-                selected = false;
-                selected1 = false;
-                selected2 = false;
-                selected3= false;
+                setFalse();
                 colorNumber=0;
                 setImagesToNormalState();
                 setImagesToVisible();
@@ -139,6 +139,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -156,6 +158,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 }else{
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -173,6 +177,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -193,7 +199,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorGrey.setOnTouchListener(new View.OnTouchListener() {
@@ -208,7 +214,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorOlive.setOnTouchListener(new View.OnTouchListener() {
@@ -223,7 +229,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorOrange.setOnTouchListener(new View.OnTouchListener() {
@@ -238,7 +244,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorPurple.setOnTouchListener(new View.OnTouchListener() {
@@ -253,7 +259,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorWine.setOnTouchListener(new View.OnTouchListener() {
@@ -268,7 +274,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorBrown.setOnTouchListener(new View.OnTouchListener() {
@@ -283,7 +289,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         repeat.setOnClickListener(new View.OnClickListener() {
@@ -418,8 +424,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
-                                        }else if(selected || selected1){
-                                            speakOut("you need one more color buddy");
+                                            repeat.setVisibility(View.INVISIBLE);
+                                            start.setVisibility(View.VISIBLE);
                                         }else if(colorNumber == 1 || colorNumber==2 ||colorNumber==3 || colorNumber==4){
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
@@ -428,7 +434,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                colorNumber =0;
                                             }
+                                        }else if(selected || selected1) {
+                                            speakOut("you need one more color buddy");
                                         }
                                         break;
                                     case DragEvent.ACTION_DRAG_ENDED:
@@ -566,19 +575,23 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
-                                        } else if (selected || selected1) {
-                                            speakOut("you need one more color buddy");
+                                            repeat.setVisibility(View.INVISIBLE);
+                                            start.setVisibility(View.VISIBLE);
                                         } else if (colorNumber==1 || colorNumber==2|| colorNumber==3 || colorNumber==4) {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
                                                 ColorsGameActivity.this.recreate();
+                                                colorNumber=0;
                                             }else{
                                                 speakOut("Sorry try Again");
-
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                colorNumber=0;
                                             }
+                                        }else if (selected || selected1) {
+                                            speakOut("you need one more color buddy");
                                         }
+
                                         break;
                                     case DragEvent.ACTION_DRAG_ENDED:
                                         //do nothing
@@ -603,6 +616,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -620,6 +635,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -637,6 +654,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -656,7 +675,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorRed.setOnTouchListener(new View.OnTouchListener() {
@@ -670,7 +689,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorYellow.setOnTouchListener(new View.OnTouchListener() {
@@ -685,7 +704,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         repeat.setOnClickListener(new View.OnClickListener() {
@@ -822,17 +841,21 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
-                                        } else if (selected || selected1) {
-                                            speakOut("you need one more color buddy");
-                                        } else if (colorNumber==1 || colorNumber==2|| colorNumber==3 || colorNumber==4) {
+                                            repeat.setVisibility(View.INVISIBLE);
+                                            start.setVisibility(View.VISIBLE);
+                                        }else if (colorNumber==1 || colorNumber==2|| colorNumber==3 || colorNumber==4) {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
                                                 ColorsGameActivity.this.recreate();
+                                                colorNumber=0;
                                             }else{
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                colorNumber=0;
                                             }
+                                        } else if (selected || selected1) {
+                                            speakOut("you need one more color buddy");
                                         }
                                         break;
                                     case DragEvent.ACTION_DRAG_ENDED:
@@ -866,7 +889,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorRed.setOnTouchListener(new View.OnTouchListener() {
@@ -880,7 +903,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorYellow.setOnTouchListener(new View.OnTouchListener() {
@@ -894,7 +917,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorGreen.setOnTouchListener(new View.OnTouchListener() {
@@ -906,6 +929,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -925,7 +950,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorOlive.setOnTouchListener(new View.OnTouchListener() {
@@ -939,7 +964,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorOrange.setOnTouchListener(new View.OnTouchListener() {
@@ -951,6 +976,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -968,6 +995,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -987,7 +1016,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorBrown.setOnTouchListener(new View.OnTouchListener() {
@@ -1001,7 +1030,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         break;
@@ -1027,7 +1056,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorRed.setOnTouchListener(new View.OnTouchListener() {
@@ -1041,7 +1070,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorYellow.setOnTouchListener(new View.OnTouchListener() {
@@ -1055,7 +1084,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorGreen.setOnTouchListener(new View.OnTouchListener() {
@@ -1069,7 +1098,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorGrey.setOnTouchListener(new View.OnTouchListener() {
@@ -1081,6 +1110,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -1098,6 +1129,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -1117,7 +1150,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorPurple.setOnTouchListener(new View.OnTouchListener() {
@@ -1131,7 +1164,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
                                 }
-                                return true;
+                                return false;
                             }
                         });
                         colorWine.setOnTouchListener(new View.OnTouchListener() {
@@ -1143,6 +1176,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -1160,6 +1195,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
+                                    repeat.setVisibility(View.INVISIBLE);
+                                    start.setVisibility(View.VISIBLE);
                                 } else {
                                     speakOut("Nice");
                                     v.startAnimation(fadeOutAnimation);
@@ -1296,17 +1333,22 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
-                                        } else if (selected || selected1) {
-                                            speakOut("you need one more color buddy");
+                                            repeat.setVisibility(View.INVISIBLE);
+                                            start.setVisibility(View.VISIBLE);
+                                            colorNumber=0;
                                         } else if (colorNumber==1 || colorNumber==2|| colorNumber==3 || colorNumber==4) {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
                                                 ColorsGameActivity.this.recreate();
+                                                colorNumber=0;
                                             }else{
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                colorNumber=0;
                                             }
+                                        }else if (selected || selected1) {
+                                            speakOut("you need one more color buddy");
                                         }
                                         break;
                                     case DragEvent.ACTION_DRAG_ENDED:
@@ -1501,6 +1543,9 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
+                                            repeat.setVisibility(View.INVISIBLE);
+                                            start.setVisibility(View.VISIBLE);
+                                            colorNumber=0;
                                         } else {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
@@ -1706,6 +1751,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
+                                            repeat.setVisibility(View.INVISIBLE);
+                                            start.setVisibility(View.VISIBLE);
                                         } else {
                                             if(lives == 5){
                                                 speakOut("Sorry buddy, lets start again");
@@ -1775,6 +1822,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     i=i-1;
                 }
             }}
+        numbers[10]=10;
         return numbers;}
 
 
@@ -1787,6 +1835,12 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
         for (int i = 0; i < imageViews.length; i++) {
             imageViews[i].setBackgroundResource(imageArray[i]);
         }
+    }
+    private void setFalse(){
+        selected = false;
+        selected1 = false;
+        selected2 = false;
+        selected3 = false;
     }
 
     private void setImagesForCase2(){
