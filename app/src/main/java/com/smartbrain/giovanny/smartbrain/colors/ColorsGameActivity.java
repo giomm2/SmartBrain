@@ -60,8 +60,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
     private int imageArray[]={R.drawable.colorblue,R.drawable.brown,R.drawable.wine,R.drawable.olive
             ,R.drawable.coloryellow,R.drawable.colororange,R.drawable.colorred,R.drawable.colorgreen
             ,R.drawable.grey,R.drawable.colorpurple};
-    private int number;
-    private int i =0;
+    private int i = -1;
     private int colorNumber=0;
     private int lives = 0;
 
@@ -125,7 +124,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                 setImagesToNormalState();
                 setImagesToVisible();
                 colorViewer.setBackgroundResource(0);
-                switch (getListNumber().remove(i)){
+                i++;
+                switch (getListNumber()[i]){
                     case 0:
                         speakOut("touch the three primary colors");
                         setImagesForCase1();
@@ -1739,25 +1739,14 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
     }
 
     // metodo que me genera una lista random de numeros que no se repite para que las preguntas nunca sean las mismas
-    private ArrayList<Integer> getListNumber() {
-        ArrayList<Integer> numbers = new ArrayList<>();
-        for(int i=0; i<10;i++){
-            numbers.add(i);
+    private int[] getListNumber() {
+        int [] numbers = new int[11];
+        for(int i=0; i<=10 ;i++){
+            numbers[i]=i;
         }
-        Collections.shuffle(numbers);
-        numbers.add(10);
+        numbers[11] =10;
         return numbers;
     }
-    //while (numbers.size() < 10) {
-    //  int i = random.nextInt(10);
-    //for(int j=0;j<numbers.size()-1;j++) {
-    //  if (numbers.contains(i)) {
-    //    i=random.nextInt(10);
-    //}
-    //}
-    //numbers.add(i);
-    //}
-    //return numbers;
 
     // seteo de imagenes
     private void setImagesForCase1() {
