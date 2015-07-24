@@ -72,6 +72,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
     private boolean selected1;
     private boolean selected2;
     private boolean selected3;
+    private int [] list = new int [11];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +112,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
 
         // tts to speak
         tts = new TextToSpeech(this,this);
+        list = getListNumber();
 
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -125,11 +127,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                 setImagesToVisible();
                 colorViewer.setBackgroundResource(0);
                 i++;
-                switch (getListNumber()[i]){
+                switch (list[i]){
                     case 0:
                         speakOut("touch the three primary colors");
                         setImagesForCase1();
-                        i++;
                         colorBlue.setOnTouchListener(new View.OnTouchListener() {
                             @Override
                             public boolean onTouch(View v, MotionEvent event) {
@@ -302,7 +303,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 1:
                         speakOut("drag to the red marked area the colors that combined form green");
                         setImagesForCase2();
-                        i++;
                         colorViewer.setBackgroundDrawable(redMarkedArea);
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -453,7 +453,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 2:
                         speakOut("drag to the red marked area the colors that combined form purple");
                         setImagesForCase2();
-                        i++;
                         colorViewer.setBackgroundDrawable(redMarkedArea);
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -606,7 +605,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 3:
                         speakOut("touch the colors that combined make grey");
                         setImagesForCase3();
-                        i++;
                         colorPurple.setOnTouchListener(new View.OnTouchListener() {
                             @Override
                             public boolean onTouch(View v, MotionEvent event) {
@@ -718,7 +716,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 4:
                         speakOut("drag to the red marked area the colors that combined form orange");
                         setImagesForCase4();
-                        i++;
                         colorViewer.setBackgroundDrawable(redMarkedArea);
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -871,7 +868,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 5:
                         speakOut("touch all the secondary colors");
                         setImagesForCase1();
-                        i++;
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -1037,7 +1033,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 6:
                         speakOut("Touch all the colors that are form by combining the secondary colors");
                         setImagesForCase1();
-                        i++;
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
@@ -1209,7 +1204,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 7:
                         speakOut("drag to the red marked area the colors that combined form olive");
                         setImagesForCase5();
-                        i++;
                         colorViewer.setBackgroundDrawable(redMarkedArea);
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -1363,7 +1357,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 8:
                         speakOut("drag to the red marked area one of the primary colors");
                         setImagesForCase1();
-                        i++;
                         colorViewer.setBackgroundDrawable(redMarkedArea);
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -1570,7 +1563,6 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     case 9:
                         speakOut("drag to the red marked area one of the secondary colors");
                         setImagesForCase1();
-                        i++;
                         colorViewer.setBackgroundDrawable(redMarkedArea);
                         repeat.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -1787,7 +1779,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
 
     // metodo que me genera una lista random de numeros que no se repite para que las preguntas nunca sean las mismas
     private int[] getListNumber() {
-        int [] numbers = new int[10];
+        int [] numbers = new int[11];
         Random rand = new Random();
         int random;
         int cont=0;
@@ -1823,7 +1815,8 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                 }
             }}
         numbers[10]=10;
-        return numbers;}
+        return numbers;
+    }
 
 
     // seteo de imagenes
