@@ -4,25 +4,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.smartbrain.giovanny.smartbrain.practice.PracticeActivity">
+    tools:context="com.smartbrain.giovanny.smartbrain.practice.PracticeActivity"
+    android:background="@drawable/wnocheestrellada">
 
     <TextView
-        android:layout_width="70dp"
-        android:layout_height="50dp"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:id="@+id/txtTimer"
         android:textColor="#ff50ff05"
-        android:textSize="50dp"
+        android:textSize="60dp"
         android:singleLine="false"
-        android:layout_above="@+id/img_content"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/img_content" />
 
 
     <ImageButton
         android:id="@+id/btnSpeak"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:contentDescription="try to speak"
         android:src="@android:drawable/ic_btn_speak_now"
         android:layout_alignParentBottom="true"
@@ -38,20 +39,20 @@
         android:layout_marginTop="75dp"
         android:layout_alignTop="@+id/img_content"
         android:textColor="#ffff150c"
-        android:textSize="25dp"
+        android:textSize="35dp"
         />
 
 
     <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:id="@+id/img_content"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
         android:text="Start"
         android:id="@+id/btn_start"
         android:background="#00FF00"
@@ -59,11 +60,12 @@
         android:layout_marginStart="49dp"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/img_content"
-        android:layout_toEndOf="@+id/img_content" />
+        android:layout_toEndOf="@+id/img_content"
+        android:textSize="40dp"/>
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
         android:text="Repeat"
         android:id="@+id/btn_repeat"
         android:layout_marginLeft="14dp"
@@ -72,7 +74,8 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/btn_start"
         android:layout_alignRight="@+id/btnSpeak"
-        android:layout_alignEnd="@+id/btnSpeak" />
+        android:layout_alignEnd="@+id/btnSpeak"
+        android:textSize="40dp"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -83,12 +86,12 @@
         android:layout_toLeftOf="@+id/txtText"
         android:layout_toStartOf="@+id/txtText"
         android:textColor="#ffff150c"
-        android:textSize="12dp"
+        android:textSize="20dp"
         />
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/heart"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -96,8 +99,8 @@
         android:background="@drawable/heart"/>
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/heart1"
         android:layout_above="@+id/textView"
         android:layout_toRightOf="@+id/heart"
@@ -107,8 +110,8 @@
         android:background="@drawable/heart"/>
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/heart2"
         android:layout_above="@+id/textView"
         android:layout_toRightOf="@+id/heart1"

@@ -1,0 +1,119 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.smartbrain.giovanny.smartbrain.practice.PracticeActivity"
+    android:background="@drawable/wnocheestrellada">
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:id="@+id/txtTimer"
+        android:textColor="#ff50ff05"
+        android:textSize="50dp"
+        android:singleLine="false"
+        android:layout_above="@+id/img_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true" />
+
+
+    <ImageButton
+        android:id="@+id/btnSpeak"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="try to speak"
+        android:src="@android:drawable/ic_btn_speak_now"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#00FF00" />
+
+    <TextView
+        android:id="@+id/txtText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginTop="75dp"
+        android:layout_alignTop="@+id/img_content"
+        android:textColor="#ffff150c"
+        android:textSize="25dp"
+        />
+
+
+    <ImageView
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:id="@+id/img_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="85dp"
+        android:layout_height="40dp"
+        android:text="Start"
+        android:id="@+id/btn_start"
+        android:background="#00FF00"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/img_content"
+        android:layout_toRightOf="@+id/img_content" />
+
+    <Button
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="Repeat"
+        android:id="@+id/btn_repeat"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp"
+        android:background="#00FF00"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/btn_start"
+        android:layout_alignRight="@+id/btnSpeak"
+        android:layout_alignEnd="@+id/btnSpeak" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="You say: "
+        android:id="@+id/textView"
+        android:layout_alignBottom="@+id/txtText"
+        android:layout_toLeftOf="@+id/txtText"
+        android:layout_toStartOf="@+id/txtText"
+        android:textColor="#ffff150c"
+        android:textSize="12dp"
+        />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/heart"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/heart"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/heart1"
+        android:layout_above="@+id/textView"
+        android:layout_toRightOf="@+id/heart"
+        android:layout_toEndOf="@+id/heart"
+        android:layout_alignBottom="@+id/heart"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/heart"/>
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/heart2"
+        android:layout_above="@+id/textView"
+        android:layout_toRightOf="@+id/heart1"
+        android:layout_toEndOf="@+id/heart1"
+        android:layout_alignBottom="@+id/heart1"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/heart"/>
+
+</RelativeLayout>
