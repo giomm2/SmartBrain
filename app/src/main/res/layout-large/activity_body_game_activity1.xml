@@ -40,8 +40,8 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/btn_next"
         android:longClickable="false"
         android:background="@drawable/next"
@@ -81,7 +81,7 @@
         android:layout_height="60dp"
         android:id="@+id/btn_repeat"
         android:longClickable="false"
-        android:background="@drawable/sound"
+        android:background="@drawable/refresh"
         android:layout_alignBottom="@+id/heart3"
         android:layout_alignRight="@+id/image6"
         android:layout_alignEnd="@+id/image6" />

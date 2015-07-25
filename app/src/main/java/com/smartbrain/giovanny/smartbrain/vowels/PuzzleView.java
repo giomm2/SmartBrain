@@ -165,7 +165,7 @@ public class PuzzleView extends View{
         boolean solved = slidePuzzle.isSolved();
 
         //establecer el fondo
-       Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.familybeach);
+       Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.familybeachlittle);
         Rect dest =  new  Rect ( 0 ,  0 , getWidth (), getHeight ());
         canvas . drawBitmap(background, null, dest, null);
 

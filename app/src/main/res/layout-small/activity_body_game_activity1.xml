@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.smartbrain.giovanny.smartbrain.body.BodyGameActivity1"
-    android:background="@drawable/familybeach">
+    android:background="@drawable/familybeachlittle">
 
     <ImageView
         android:layout_width="120dp"
@@ -40,8 +40,8 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/btn_next"
         android:longClickable="false"
         android:background="@drawable/next"
@@ -81,7 +81,7 @@
         android:layout_height="40dp"
         android:id="@+id/btn_repeat"
         android:longClickable="false"
-        android:background="@drawable/sound"
+        android:background="@drawable/refresh"
         android:layout_above="@+id/image6"
         android:layout_alignRight="@+id/image6"
         android:layout_alignEnd="@+id/image6" />

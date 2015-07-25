@@ -16,8 +16,8 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/back"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -25,8 +25,8 @@
         android:background="@drawable/previous" />
 
     <Button
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
         android:id="@+id/next"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -40,7 +40,7 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="@drawable/sound" />
+        android:background="@drawable/refresh" />
 
     <Button
         android:layout_width="100dp"

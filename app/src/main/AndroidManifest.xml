@@ -27,8 +27,6 @@
             android:name=".MenuEasyActivity"
             android:label="@string/title_activity_menu_easy"
             android:screenOrientation="landscape" >
-
-
         </activity>
         <activity
             android:name=".HardMenuActivity"
@@ -36,9 +34,9 @@
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".family.FamilyActivity"
@@ -63,21 +61,25 @@
             android:name=".body.BodyTeachActivity1"
             android:label="@string/title_activity_body_teach_activity1"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".body.BodyGameActivity1"
             android:label="@string/title_activity_body_game_activity1"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".body.BodyTechActivity2"
             android:label="@string/title_activity_body_tech_activity2"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".body.BodyGameActivity2"
             android:label="@string/title_activity_body_game_activity2"
             android:screenOrientation="landscape" >
+
         </activity>
 
         <supports-screens
@@ -91,6 +93,7 @@
             android:name=".Numbers.NumbersTeachActivity"
             android:label="@string/title_activity_numbers_teach"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".Numbers.NumbersGameActivity"
@@ -102,6 +105,7 @@
             android:name=".colors.ColorLearningActivity"
             android:label="@string/title_activity_color_learning"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".colors.SecondaryColorLearningActivity"
@@ -140,20 +144,21 @@
         </activity>
         <activity
             android:name=".neighborhood.NeighborhoodLearnActivity"
-            android:label="@string/title_activity_neighborhood_learn" >
+            android:label="@string/title_activity_neighborhood_learn"
+            android:screenOrientation="landscape"
+            >
         </activity>
         <activity
             android:name=".neighborhood.ConmunityActivity"
-            android:label="@string/title_activity_conmunity" >
+            android:label="@string/title_activity_conmunity"
+            android:screenOrientation="landscape">
         </activity>
-
         <activity
             android:name=".practice.PracticeActivity"
             android:label="@string/title_activity_practice"
-            android:screenOrientation="landscape" >
-
-
+            android:screenOrientation="landscape">
         </activity>
+
     </application>
 
 </manifest>

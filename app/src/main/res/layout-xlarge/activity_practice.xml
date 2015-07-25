@@ -51,14 +51,14 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:id="@+id/btn_start"
-        android:background="@drawable/playbtn"
+        android:background="@drawable/next"
         android:textSize="40dp"
         android:layout_alignTop="@+id/txtTimer"
-        android:layout_toLeftOf="@+id/btn_repeat"
-        android:layout_toStartOf="@+id/btn_repeat" />
+        android:layout_toRightOf="@+id/img_content"
+        android:layout_toEndOf="@+id/img_content" />
 
     <Button
         android:layout_width="100dp"

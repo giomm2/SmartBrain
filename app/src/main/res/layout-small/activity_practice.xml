@@ -50,13 +50,13 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/btn_start"
-        android:background="@drawable/playbtn"
-        android:layout_alignTop="@+id/btn_repeat"
-        android:layout_toLeftOf="@+id/btn_repeat"
-        android:layout_toStartOf="@+id/btn_repeat" />
+        android:background="@drawable/next"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/img_content"
+        android:layout_toEndOf="@+id/img_content" />
 
     <Button
         android:layout_width="40dp"

@@ -8,8 +8,8 @@
     android:background="@drawable/wnocheestrellada">
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:id="@+id/btn_next"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/btn_play"
@@ -32,7 +32,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/btn_repeat"
-        android:background="@drawable/sound"
+        android:background="@drawable/refresh"
         android:layout_alignTop="@+id/btn_play"
         android:layout_toLeftOf="@+id/img_content"
         android:layout_toStartOf="@+id/img_content" />

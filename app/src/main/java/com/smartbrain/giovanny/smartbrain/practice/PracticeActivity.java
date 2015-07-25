@@ -82,6 +82,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
         random();
         txtcont=(TextView)findViewById(R.id.txtTimer);
+        btnRepeat.setVisibility(View.INVISIBLE);
 
 
         btn_speak.setOnClickListener(new View.OnClickListener() {
@@ -172,9 +173,11 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                     int resId = getResources().getIdentifier(image[numbers[cont]], "drawable", getPackageName());
                     container.setImageResource(resId);
                     ConvertTextToSpeech(voice[numbers[cont]]);
+                    btnStart.setVisibility(View.INVISIBLE);
                     btnStart.setEnabled(false);
                     btn_speak.setEnabled(true);
                     btnRepeat.setEnabled(true);
+                    btnRepeat.setVisibility(View.VISIBLE);
                     txtVoice.setText("");
 
                     cont++;
@@ -206,6 +209,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
             ConvertTextToSpeech("Well done, please touch start");
             btnStart.setEnabled(true);
             btn_speak.setEnabled(false);
+            btnStart.setVisibility(View.VISIBLE);
             btnRepeat.setVisibility(View.INVISIBLE);
             timer.cancel();
 

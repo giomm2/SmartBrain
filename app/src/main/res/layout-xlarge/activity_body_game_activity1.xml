@@ -40,14 +40,14 @@
         android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:id="@+id/btn_next"
         android:longClickable="false"
         android:background="@drawable/next"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/image5"
-        android:layout_alignStart="@+id/image5" />
+        android:layout_toLeftOf="@+id/image6"
+        android:layout_toStartOf="@+id/image6" />
 
     <ImageView
         android:layout_width="100dp"
@@ -81,10 +81,10 @@
         android:layout_height="100dp"
         android:id="@+id/btn_repeat"
         android:longClickable="false"
-        android:layout_alignBottom="@+id/heart3"
-        android:layout_toRightOf="@+id/image5"
-        android:layout_toEndOf="@+id/image5"
-        android:background="@drawable/sound" />
+        android:background="@drawable/refresh"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/image6"
+        android:layout_alignEnd="@+id/image6" />
 
     <TextView
         android:layout_width="100dp"

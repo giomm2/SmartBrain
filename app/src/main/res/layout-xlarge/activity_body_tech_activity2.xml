@@ -25,11 +25,11 @@
         android:layout_toStartOf="@+id/img_content"
         android:layout_marginRight="106dp"
         android:layout_marginEnd="106dp"
-        android:background="@drawable/sound" />
+        android:background="@drawable/refresh" />
 
     <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:textSize="50dp"
         android:id="@+id/btn_next"
         android:layout_alignTop="@+id/img_content"

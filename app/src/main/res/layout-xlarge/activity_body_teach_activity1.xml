@@ -19,14 +19,14 @@
         android:layout_height="100dp"
         android:id="@+id/btn_repeat"
         android:textSize="50dp"
-        android:background="@drawable/sound"
+        android:background="@drawable/refresh"
         android:layout_alignTop="@+id/img_content"
         android:layout_toLeftOf="@+id/txt_progress"
         android:layout_toStartOf="@+id/txt_progress" />
 
     <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:id="@+id/btn_next"
         android:textSize="50dp"
         android:layout_alignTop="@+id/img_content"
