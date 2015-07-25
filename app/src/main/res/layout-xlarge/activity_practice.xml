@@ -29,7 +29,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#00FF00" />
+        android:background="#ff5988ff" />
 
     <TextView
         android:id="@+id/txtText"
