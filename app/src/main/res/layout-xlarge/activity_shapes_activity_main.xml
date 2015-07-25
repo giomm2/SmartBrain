@@ -16,28 +16,28 @@
     <Button
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:text="Play"
         android:id="@+id/btn_play"
         android:visibility="invisible"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        android:background="@drawable/playbtn"/>
     <Button
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:text="Previous"
         android:id="@+id/btn_previous"
         android:layout_alignTop="@+id/btn_next"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="@drawable/previous"/>
 
     <Button
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:text="Next"
         android:id="@+id/btn_next"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/next"/>
 
     <ProgressBar
         android:layout_width="wrap_content"

@@ -21,11 +21,7 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".MenuEasyActivity"
@@ -38,6 +34,11 @@
             android:name=".HardMenuActivity"
             android:label="@string/title_activity_hard_menu"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".family.FamilyActivity"
@@ -144,6 +145,14 @@
         <activity
             android:name=".neighborhood.ConmunityActivity"
             android:label="@string/title_activity_conmunity" >
+        </activity>
+
+        <activity
+            android:name=".practice.PracticeActivity"
+            android:label="@string/title_activity_practice"
+            android:screenOrientation="landscape" >
+
+
         </activity>
     </application>
 

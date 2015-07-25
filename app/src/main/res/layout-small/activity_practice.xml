@@ -24,7 +24,6 @@
         android:id="@+id/btnSpeak"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:contentDescription="try to speak"
         android:src="@android:drawable/ic_btn_speak_now"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
@@ -53,25 +52,18 @@
     <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="Start"
         android:id="@+id/btn_start"
-        android:background="#00FF00"
-        android:layout_marginLeft="49dp"
-        android:layout_marginStart="49dp"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/img_content"
-        android:layout_toEndOf="@+id/img_content" />
+        android:background="@drawable/playbtn"
+        android:layout_alignTop="@+id/btn_repeat"
+        android:layout_toLeftOf="@+id/btn_repeat"
+        android:layout_toStartOf="@+id/btn_repeat" />
 
     <Button
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:text="Repeat"
         android:id="@+id/btn_repeat"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:background="#00FF00"
+        android:background="@drawable/refresh"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/btn_start"
         android:layout_alignRight="@+id/btnSpeak"
         android:layout_alignEnd="@+id/btnSpeak" />
 

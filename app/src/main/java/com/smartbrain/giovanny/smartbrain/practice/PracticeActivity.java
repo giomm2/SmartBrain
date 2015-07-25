@@ -32,7 +32,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
     private ImageButton btn_speak;
     private TextView txtVoice;
 
-    private String[] voice={"A","Bear","Cat","Chicken","Cow","Dog","Horse","Lion","Porke",
+    private String[] voice={"A","Bear","Cat","Chicken","Cow","Dog","Horse","Lion","Pork",
     "Rabbit","Sheep","Arm","Ear","Eyes","Face","Finger","Foot","Hand","Leg","Mouth","Nose",
     "Bother","Brown","Circle","Blue","Green","Orange","Purple","Red","Yellow","Square","Dad","Doctor","Doctor",
     "E","Fireman","Grandmother","Grandfather","grey","I","Mom","8","5","4","9","1","7","6","3","2","0","O",
@@ -48,7 +48,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
     };
 
     private int cont=0;
-    private int [] numbers = new int[10];
+    private int [] numbers = new int[61];
 
     private Button btnStart;
     private Button btnRepeat;
@@ -183,9 +183,6 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                 }
                 break;
             }
-            case R.id.btnSpeak:
-                timer.cancel();
-                break;
 
         }
     }
@@ -209,6 +206,9 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
             ConvertTextToSpeech("Well done, please touch start");
             btnStart.setEnabled(true);
             btn_speak.setEnabled(false);
+            btnRepeat.setVisibility(View.INVISIBLE);
+            timer.cancel();
+
 
         }else{
 
@@ -248,7 +248,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
         boolean flag=true;
         boolean flag0=true;
         for(int i=-1; i<=8; i++){
-            random=rand.nextInt(10);
+            random=rand.nextInt(61);
             con=0;
             j=0;
             flag=true;
@@ -293,12 +293,12 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
             if(life1.getVisibility()==View.VISIBLE){
                 life1.setVisibility(View.INVISIBLE);
                 timer.start();
-                ConvertTextToSpeech("Try again.");
+                ConvertTextToSpeech("Try again." +voice[numbers[cont-1]]);
             }
             else if(life2.getVisibility()==View.VISIBLE){
                 life2.setVisibility(View.INVISIBLE);
                 timer.start();
-                ConvertTextToSpeech("Last chance, try again.");
+                ConvertTextToSpeech("Last chance, try again."+voice[numbers[cont-1]]);
             }
 
             else{
@@ -311,4 +311,10 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
 
     };
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        btnRepeat.setEnabled(false);
+    }
 }

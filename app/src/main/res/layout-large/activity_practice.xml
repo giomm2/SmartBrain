@@ -51,27 +51,22 @@
         android:layout_centerHorizontal="true" />
 
     <Button
-        android:layout_width="85dp"
-        android:layout_height="40dp"
-        android:text="Start"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/btn_start"
-        android:background="#00FF00"
+        android:background="@drawable/playbtn"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/img_content"
-        android:layout_toRightOf="@+id/img_content" />
+        android:layout_toLeftOf="@+id/btn_repeat"
+        android:layout_toStartOf="@+id/btn_repeat" />
 
     <Button
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:text="Repeat"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:id="@+id/btn_repeat"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp"
-        android:background="#00FF00"
-        android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/btn_start"
+        android:background="@drawable/refresh"
         android:layout_alignRight="@+id/btnSpeak"
-        android:layout_alignEnd="@+id/btnSpeak" />
+        android:layout_alignEnd="@+id/btnSpeak"
+        android:layout_alignParentTop="true" />
 
     <TextView
         android:layout_width="wrap_content"

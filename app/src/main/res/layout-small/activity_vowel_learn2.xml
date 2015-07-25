@@ -18,7 +18,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Next"
+        android:background="@drawable/next"
         android:id="@+id/btn_next"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
@@ -35,7 +35,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Play"
+        android:background="@drawable/playbtn"
         android:id="@+id/btn_play"
         android:visibility="invisible"
         android:layout_alignParentBottom="true"
@@ -43,7 +43,7 @@
     <Button
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:text="Previous"
+        android:background="@drawable/previous"
         android:id="@+id/btn_previous"
         android:layout_alignTop="@+id/btn_next"
         android:layout_alignParentLeft="true"
