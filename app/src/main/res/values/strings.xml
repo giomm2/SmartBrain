@@ -46,6 +46,7 @@
     <string name="title_activity_activity_puzzle">ActivityPuzzle</string>
     <string name="title_activity_conmunity">ConmunityActivity</string>
     <string name="title_activity_neighborhood_learn">NeighborhoodLearnActivity</string>
+    <string name="title_activity_practice">PracticeActivity</string>
 
 
 </resources>
