@@ -32,7 +32,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
     private ImageButton btn_speak;
     private TextView txtVoice;
 
-    private String[] voice={"A","Bear","Cat","Chicken","Cow","Dog","Horse","Lion","Pork",
+    private String[] voice={"A","Bear","Cat","Hen","Cow","Dog","Horse","Lion","Snake",
     "Rabbit","Sheep","Arm","Ear","Eyes","Face","Finger","Foot","Hand","Leg","Mouth","Nose",
     "Bother","Brown","Circle","Blue","Green","Orange","Purple","Red","Yellow","Square","Dad","Doctor","Doctor",
     "E","Fireman","Grandmother","Grandfather","grey","I","Mom","8","5","4","9","1","7","6","3","2","0","O",

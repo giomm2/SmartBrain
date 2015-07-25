@@ -31,13 +31,13 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
     private ImageButton btnSpeak;
     private TextView txtText,txtcont;
 
-    private String[] voice={"Dog","Cat","Rabbit","Cow","Horse","Chicken","Pork","Sheep","Lion","Bear"};
+    private String[] voice={"Dog","Cat","Rabbit","Cow","Horse","Hen","Sheep","Lion","Bear","Snake"};
     private int pos=0;
     private ImageView imgcontent,imgHeart1,imgHeart2,imgHeart3;
     private Button btnnext,btnrepeat;
     private TextToSpeech tts;
     private String text2;
-    private String[] images={"animalsdog","animalscat","animalsrabbit","animalscow","animalshorse","animalschicken","animalspig","animalssheep","animalslion","animalsbear"};
+    private String[] images={"animalsdog","animalscat","animalsrabbit","animalscow","animalshorse","animalschicken","animalssheep","animalslion","animalsbear","animalspig"};
 
 
 
@@ -94,7 +94,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, lets play, please touch next");
+                        ConvertTextToSpeech("Hello, lets play, please touch next, then touch record");
 
                     }
                 } else
