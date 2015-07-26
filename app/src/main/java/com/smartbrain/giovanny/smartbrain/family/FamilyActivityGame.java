@@ -173,7 +173,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
                     break;
                 case DragEvent.ACTION_DROP:
                     if (layoutLeft.getChildCount() ==5){
-                        Toast.makeText(FamilyActivityGame.this, "Cant drop anymore family members here ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FamilyActivityGame.this, "", Toast.LENGTH_SHORT).show();
                     }else{
                         View view = (View) event.getLocalState();
                         ViewGroup owner = (ViewGroup) view.getParent();
@@ -183,7 +183,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
                         view.setVisibility(View.VISIBLE);
                     }
                     if(layoutLeft2.getChildCount() ==5){
-                        Toast.makeText(FamilyActivityGame.this, "Cant drop anymore family members here ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FamilyActivityGame.this, "", Toast.LENGTH_SHORT).show();
 
                     }else{
                         View view = (View) event.getLocalState();
@@ -194,7 +194,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
                         view.setVisibility(View.VISIBLE);
                     }
                     if (layoutRight.getChildCount() ==5){
-                        Toast.makeText(FamilyActivityGame.this, "Cant drop anymore family members here ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FamilyActivityGame.this, "", Toast.LENGTH_SHORT).show();
                     }else{
                         View view = (View) event.getLocalState();
                         ViewGroup owner = (ViewGroup) view.getParent();
@@ -204,7 +204,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
                         view.setVisibility(View.VISIBLE);
                     }
                     if(layoutRight2.getChildCount() ==5){
-                        Toast.makeText(FamilyActivityGame.this, "Cant drop anymore family members here ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(FamilyActivityGame.this, "", Toast.LENGTH_SHORT).show();
 
                     }else{
                         View view = (View) event.getLocalState();
