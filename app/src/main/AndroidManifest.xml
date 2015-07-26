@@ -27,6 +27,10 @@
             android:name=".MenuEasyActivity"
             android:label="@string/title_activity_menu_easy"
             android:screenOrientation="landscape" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".HardMenuActivity"
@@ -143,10 +147,6 @@
             android:label="@string/title_activity_neighborhood_learn"
             android:screenOrientation="landscape"
             >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".neighborhood.ConmunityActivity"
