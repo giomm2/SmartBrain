@@ -56,15 +56,36 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (i == imageArray.length - 1) {
-                    playBtn.setVisibility(View.VISIBLE);
-                    i = 0;
-                }else {
                     i++;
-                    speakOut();
-                    imageViewer.setBackgroundResource(imageArray[i]);
+                switch (i) {
+                    case 1:
+                        speakOut();
+                        imageViewer.setBackgroundResource(imageArray[i]);
+                        break;
+                    case 2:
+                        speakOut();
+                        imageViewer.setBackgroundResource(imageArray[i]);
+                        break;
+                    case 3:
+                        speakOut();
+                        imageViewer.setBackgroundResource(imageArray[i]);
+                        break;
+                    case 4:
+                        speakOut();
+                        imageViewer.setBackgroundResource(imageArray[i]);
+                        break;
+                    case 5:
+                        speakOut();
+                        imageViewer.setBackgroundResource(imageArray[i]);
+                        break;
+                    case 6:
+                        speakOut();
+                        imageViewer.setBackgroundResource(imageArray[i]);
+                        i = 0;
+                        playBtn.setVisibility(View.VISIBLE);
+                        break;
                 }
-            }
+                }
         });
 
         playBtn.setOnClickListener(new View.OnClickListener() {
