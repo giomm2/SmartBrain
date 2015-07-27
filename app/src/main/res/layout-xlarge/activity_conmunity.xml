@@ -63,8 +63,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/layoutRight"
             android:layout_alignEnd="@+id/layoutRight"
-            android:layout_x="944dp"
-            android:layout_y="8dp" />
+            android:layout_x="983dp"
+            android:layout_y="12dp" />
 
         <ImageView
             android:layout_width="80dp"
@@ -74,8 +74,8 @@
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/teacherM"
             android:layout_toStartOf="@+id/teacherM"
-            android:layout_x="1054dp"
-            android:layout_y="8dp" />
+            android:layout_x="1078dp"
+            android:layout_y="0dp" />
 
         <ImageView
             android:layout_width="100sp"

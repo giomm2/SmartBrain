@@ -20,8 +20,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_x="7dp"
-            android:layout_y="2dp" />
+            android:layout_x="0dp"
+            android:layout_y="0dp" />
 
         <ImageView
             android:layout_width="60dp"
@@ -31,8 +31,8 @@
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/policeman"
             android:layout_toEndOf="@+id/policeman"
-            android:layout_x="72dp"
-            android:layout_y="9dp" />
+            android:layout_x="69dp"
+            android:layout_y="7dp" />
 
         <ImageView
             android:layout_width="60dp"
@@ -64,8 +64,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/layoutRight"
             android:layout_alignEnd="@+id/layoutRight"
-            android:layout_x="603dp"
-            android:layout_y="4dp" />
+            android:layout_x="637dp"
+            android:layout_y="5dp" />
 
         <ImageView
             android:layout_width="60dp"
@@ -75,7 +75,7 @@
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/teacherM"
             android:layout_toStartOf="@+id/teacherM"
-            android:layout_x="686dp"
+            android:layout_x="708dp"
             android:layout_y="2dp" />
 
         <ImageView

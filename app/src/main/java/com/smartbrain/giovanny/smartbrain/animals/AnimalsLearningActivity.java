@@ -23,7 +23,7 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
 
     // array and counter for the array
     private String[] animalArray={"Hi, lets Learn about the animals. Please tab next","Dog","Cat","Rabbit","Cow"
-            ,"Horse","Hen","sheep","Lion","Bear","Snake"};
+            , "Horse", "Hen", "sheep", "Lion", "Bear", "Snake. To play with them touch the control button"};
     private int imageArray[]={0,R.drawable.animalsdog,R.drawable.animalscat,R.drawable.animalsrabbit
             ,R.drawable.animalscow,R.drawable.animalshorse,R.drawable.animalschicken
             ,R.drawable.animalssheep,R.drawable.animalslion,R.drawable.animalsbear,R.drawable.animalspig};
@@ -72,7 +72,6 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
                     animalCount++;
                 else {
                     animalCount = 10;
-                    play.setVisibility(View.VISIBLE);
                 }
                 switch (animalCount){
                     case 1:
@@ -114,6 +113,7 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
                     case 10:
                         animalViewer.setBackgroundResource(imageArray[animalCount]);
                         speakOut();
+                        play.setVisibility(View.VISIBLE);
                         break;
                 }
             }

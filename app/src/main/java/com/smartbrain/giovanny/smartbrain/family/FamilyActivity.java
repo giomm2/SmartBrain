@@ -22,8 +22,8 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
     //arrays que me jalan las imagenes y lo que debe decir TTS
     private int [] imageArray ={R.drawable.familytree, R.drawable.dad,R.drawable.mom,R.drawable.brother,
             R.drawable.sister,R.drawable.grandpa,R.drawable.grandma};
-    private String [] familyWords= {"Lets learn about the family members","first, this is dad","and mom","you may have a brother",
-            "or a sister","and this is the grandpa","and the gramdma"};
+    private String[] familyWords = {"Lets learn about the family members, please touch the blue arrow", "first, this is dad", "and mom", "you may have a brother",
+            "or a sister", "and this is the grandpa", "and the gramdma. touch the control to play with the family members"};
     //views
     private ImageView imageViewer;
     private ImageView btnNext;
