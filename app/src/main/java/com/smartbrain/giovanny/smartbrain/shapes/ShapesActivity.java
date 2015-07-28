@@ -5,7 +5,6 @@ import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;

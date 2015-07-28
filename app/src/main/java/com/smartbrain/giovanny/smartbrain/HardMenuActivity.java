@@ -5,16 +5,12 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
-import android.view.DragEvent;
 import android.view.GestureDetector;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import com.smartbrain.giovanny.smartbrain.Numbers.NumbersTeachActivity;
 import com.smartbrain.giovanny.smartbrain.practice.PracticeActivity;

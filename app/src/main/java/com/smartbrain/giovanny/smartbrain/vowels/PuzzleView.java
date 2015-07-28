@@ -19,9 +19,6 @@ import com.smartbrain.giovanny.smartbrain.R;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by ADMIN on 15/07/2015.
- */
 public class PuzzleView extends View{
 
     //ESTA CLASE ES TODA LA VISTA DEL ROMPECABEZAS.
