@@ -14,17 +14,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
-
 import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
-
 import java.util.Locale;
 
-
 public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitListener {
-
-
     private LinearLayout layoutLeft;
     private LinearLayout layoutLeft2;
     private LinearLayout layoutRight;
@@ -143,11 +137,11 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
     private final class MyTouchListener implements View.OnTouchListener {
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() == MotionEvent.ACTION_DOWN) {
-                    ClipData data = ClipData.newPlainText("", "");
-                    View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
-                    view.startDrag(data, shadowBuilder, view, 0);
-                    view.setVisibility(View.VISIBLE);
-                    return true;
+                ClipData data = ClipData.newPlainText("", "");
+                View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(view);
+                view.startDrag(data, shadowBuilder, view, 0);
+                view.setVisibility(View.VISIBLE);
+                return true;
             } else {
                 return false;
             }
@@ -215,7 +209,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
                         container.addView(view);
                         view.setVisibility(View.VISIBLE);
                     }
-                 break;
+                    break;
                 case DragEvent.ACTION_DRAG_ENDED:
                     //do nothing
                 default:
