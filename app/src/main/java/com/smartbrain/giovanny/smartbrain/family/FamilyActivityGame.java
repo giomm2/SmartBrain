@@ -222,7 +222,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
     public void onDestroy() {
         // Don't forget to shutdown tts!
         if (tts != null) {
-            tts.stop();
+           tts.stop();
             tts.shutdown();
         }
         super.onDestroy();

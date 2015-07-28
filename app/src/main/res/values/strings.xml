@@ -47,6 +47,15 @@
     <string name="title_activity_conmunity">ConmunityActivity</string>
     <string name="title_activity_neighborhood_learn">NeighborhoodLearnActivity</string>
     <string name="title_activity_practice">PracticeActivity</string>
+    <string name="title_activity_loading">LoadingActivity</string>
+    <string name="title_activity_animals_loading">AnimalsLoadingActivity</string>
+    <string name="title_activity_family_loading">FamilyLoadingActivity</string>
+    <string name="title_activity_neighborhood_loading">NeighborhoodLoadingActivity</string>
+    <string name="title_activity_colors_loading">ColorsLoadingActivity</string>
+    <string name="title_activity_practice_loading">PracticeLoadingActivity</string>
+    <string name="title_activity_numbers_loading">NumbersLoadingActivity</string>
+    <string name="title_activity_shapes_loading">ShapesLoadingActivity</string>
+    <string name="title_activity_vowels_loading">VowelsLoadingActivity</string>
 
 
 </resources>

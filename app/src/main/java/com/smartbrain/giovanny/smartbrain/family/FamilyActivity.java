@@ -31,8 +31,7 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
     // declaracion de TTS y contador para los arrays
     private TextToSpeech tts;
     private int i =0;
-    private ProgressBar progressbar;
-    private TextView txtprogress;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +45,7 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         playBtn = (ImageView)findViewById(R.id.btnPlay);
         imageViewer.setBackgroundResource(imageArray[i]);
         repeat = (ImageView)findViewById(R.id.repeat);
-        txtprogress=(TextView)findViewById(R.id.txt_progress);
-        progressbar=(ProgressBar)findViewById(R.id.progressBar);
-        contNumber2.start();
+
 
         // cada vez que le doy a next aumento el contador que me recorre los arrays y cambio de frases y de imagenes
 
@@ -140,24 +137,4 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         super.onDestroy();
     }
 
-    //Contador para progress bar cargar tts.
-    CountDownTimer contNumber2= new CountDownTimer(8000,1000) {
-        @Override
-        public void onTick(long millisUntilFinished) {
-
-            txtprogress.setText("" + millisUntilFinished / 1000);
-            btnNext.setEnabled(false);
-            repeat.setEnabled(false);
-            progressbar.setVisibility(View.VISIBLE);
-
-        }
-
-        @Override
-        public void onFinish() {
-
-            btnNext.setEnabled(true);
-            repeat.setEnabled(true);
-            progressbar.setVisibility(View.INVISIBLE);
-        }
-    };
 }

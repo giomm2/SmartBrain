@@ -321,4 +321,11 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
         super.onStart();
         btnRepeat.setEnabled(false);
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
+        timer.cancel();
+    }
 }

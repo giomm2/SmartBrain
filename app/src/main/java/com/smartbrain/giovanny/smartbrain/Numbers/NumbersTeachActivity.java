@@ -41,8 +41,7 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
         btnplay=(Button)findViewById(R.id.btn_play);
         btnrepeat=(Button)findViewById(R.id.btn_repeat);
         imgconten=(ImageView)findViewById(R.id.img_content);
-        txtprogress=(TextView)findViewById(R.id.txt_progress);
-        progressbar=(ProgressBar)findViewById(R.id.progressBar);
+
 
         btnnext.setOnClickListener(this);
         btnplay.setOnClickListener(this);
@@ -50,7 +49,7 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
 
         pos=OrderImage();
         PutImages(pos);
-        contNumber2.start();
+
 
         tts = new TextToSpeech(NumbersTeachActivity.this, new TextToSpeech.OnInitListener() {
 
@@ -157,24 +156,5 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
 
         }
     }
-    //Contador para progress bar cargar tts.
-    CountDownTimer contNumber2= new CountDownTimer(8000,1000) {
-        @Override
-        public void onTick(long millisUntilFinished) {
 
-            txtprogress.setText("" + millisUntilFinished / 1000);
-            btnnext.setEnabled(false);
-            btnrepeat.setEnabled(false);
-            progressbar.setVisibility(View.VISIBLE);
-
-        }
-
-        @Override
-        public void onFinish() {
-
-            btnnext.setEnabled(true);
-            btnrepeat.setEnabled(true);
-            progressbar.setVisibility(View.INVISIBLE);
-        }
-    };
 }

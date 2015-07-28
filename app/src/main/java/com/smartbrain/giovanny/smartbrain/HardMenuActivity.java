@@ -12,9 +12,12 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.Numbers.NumbersLoadingActivity;
 import com.smartbrain.giovanny.smartbrain.Numbers.NumbersTeachActivity;
 import com.smartbrain.giovanny.smartbrain.practice.PracticeActivity;
+import com.smartbrain.giovanny.smartbrain.practice.PracticeLoadingActivity;
 import com.smartbrain.giovanny.smartbrain.shapes.ShapesActivityMain;
+import com.smartbrain.giovanny.smartbrain.shapes.ShapesLoadingActivity;
 
 
 public class HardMenuActivity extends Activity {
@@ -57,7 +60,7 @@ public class HardMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 selectSound.start();
-                Intent intent = new Intent(HardMenuActivity.this, NumbersTeachActivity.class);
+                Intent intent = new Intent(HardMenuActivity.this, NumbersLoadingActivity.class);
                 startActivity(intent);
                 music.stop();
             }
@@ -67,7 +70,7 @@ public class HardMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 selectSound.start();
-                Intent intent = new Intent(HardMenuActivity.this, PracticeActivity.class);
+                Intent intent = new Intent(HardMenuActivity.this, PracticeLoadingActivity.class);
                 startActivity(intent);
                 music.stop();
             }
@@ -77,7 +80,7 @@ public class HardMenuActivity extends Activity {
             @Override
             public void onClick(View v) {
                 selectSound.start();
-                Intent intent = new Intent(HardMenuActivity.this, ShapesActivityMain.class);
+                Intent intent = new Intent(HardMenuActivity.this, ShapesLoadingActivity.class);
                 startActivity(intent);
                 music.stop();
             }

@@ -21,7 +21,6 @@
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".MenuEasyActivity"
@@ -29,6 +28,7 @@
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -36,7 +36,6 @@
             android:name=".HardMenuActivity"
             android:label="@string/title_activity_hard_menu"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".family.FamilyActivity"
@@ -50,7 +49,6 @@
         <activity
             android:name=".family.FamilyActivityGame"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".MenuMediumActivity"
@@ -61,25 +59,21 @@
             android:name=".body.BodyTeachActivity1"
             android:label="@string/title_activity_body_teach_activity1"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".body.BodyGameActivity1"
             android:label="@string/title_activity_body_game_activity1"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".body.BodyTechActivity2"
             android:label="@string/title_activity_body_tech_activity2"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".body.BodyGameActivity2"
             android:label="@string/title_activity_body_game_activity2"
             android:screenOrientation="landscape" >
-
         </activity>
 
         <supports-screens
@@ -93,19 +87,16 @@
             android:name=".Numbers.NumbersTeachActivity"
             android:label="@string/title_activity_numbers_teach"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".Numbers.NumbersGameActivity"
             android:label="@string/title_activity_numbers_game"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".colors.ColorLearningActivity"
             android:label="@string/title_activity_color_learning"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".colors.SecondaryColorLearningActivity"
@@ -145,20 +136,63 @@
         <activity
             android:name=".neighborhood.NeighborhoodLearnActivity"
             android:label="@string/title_activity_neighborhood_learn"
-            android:screenOrientation="landscape"
-            >
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".neighborhood.ConmunityActivity"
             android:label="@string/title_activity_conmunity"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".practice.PracticeActivity"
             android:label="@string/title_activity_practice"
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".body.LoadingActivity"
+            android:label="@string/title_activity_loading"
             android:screenOrientation="landscape">
         </activity>
+        <activity
+            android:name=".animals.AnimalsLoadingActivity"
+            android:label="@string/title_activity_animals_loading" >
+        </activity>
+        <activity
+            android:name=".family.FamilyLoadingActivity"
+            android:label="@string/title_activity_family_loading"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".neighborhood.NeighborhoodLoadingActivity"
+            android:label="@string/title_activity_neighborhood_loading"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".colors.ColorsLoadingActivity"
+            android:label="@string/title_activity_colors_loading"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".practice.PracticeLoadingActivity"
+            android:label="@string/title_activity_practice_loading"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".Numbers.NumbersLoadingActivity"
+            android:label="@string/title_activity_numbers_loading"
+            android:screenOrientation="landscape">
+        </activity>
+        <activity
+            android:name=".shapes.ShapesLoadingActivity"
+            android:label="@string/title_activity_shapes_loading"
+            android:screenOrientation="landscape">
 
+        </activity>
+        <activity
+            android:name=".vowels.VowelsLoadingActivity"
+            android:label="@string/title_activity_vowels_loading"
+            android:screenOrientation="landscape">
+        </activity>
     </application>
 
 </manifest>

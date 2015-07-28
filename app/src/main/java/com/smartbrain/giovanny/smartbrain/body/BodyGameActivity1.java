@@ -301,6 +301,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
     protected void onDestroy() {
         super.onDestroy();
         tts.stop();
+        contNumber.cancel();
 
     }
 }

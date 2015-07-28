@@ -13,8 +13,11 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.animals.AnimalsLearningActivity;
+import com.smartbrain.giovanny.smartbrain.animals.AnimalsLoadingActivity;
 import com.smartbrain.giovanny.smartbrain.colors.ColorLearningActivity;
+import com.smartbrain.giovanny.smartbrain.colors.ColorsLoadingActivity;
 import com.smartbrain.giovanny.smartbrain.neighborhood.NeighborhoodLearnActivity;
+import com.smartbrain.giovanny.smartbrain.neighborhood.NeighborhoodLoadingActivity;
 
 public class MenuMediumActivity extends Activity  {
 
@@ -51,7 +54,7 @@ public class MenuMediumActivity extends Activity  {
             public void onClick(View v) {
 
                 music.stop();
-                Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLearnActivity.class);
+                Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLoadingActivity.class);
                 startActivity(intent);
             }
         });
@@ -60,14 +63,14 @@ public class MenuMediumActivity extends Activity  {
             public void onClick(View v) {
 
                 music.stop();
-                Intent intent = new Intent(MenuMediumActivity.this, AnimalsLearningActivity.class);
+                Intent intent = new Intent(MenuMediumActivity.this, AnimalsLoadingActivity.class);
                 startActivity(intent);
             }
         });
         flower2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MenuMediumActivity.this, ColorLearningActivity.class);
+                Intent intent = new Intent(MenuMediumActivity.this, ColorsLoadingActivity.class);
                 startActivity(intent);
                 music.stop();
             }

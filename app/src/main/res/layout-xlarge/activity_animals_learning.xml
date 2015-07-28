@@ -9,10 +9,10 @@
 
 
     <ImageView
-        android:layout_width="550dp"
-        android:layout_height="match_parent"
+        android:layout_width="500dp"
+        android:layout_height="500dp"
         android:id="@+id/animalViewer"
-        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -43,33 +43,13 @@
         android:background="@drawable/refresh" />
 
     <Button
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="130dp"
+        android:layout_height="130dp"
         android:id="@+id/play"
         android:layout_alignTop="@+id/repeat"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:visibility="invisible"
         android:background="@drawable/playbtn" />
-    <ProgressBar
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/progress_bar">
-
-    </ProgressBar>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/txt_progress"
-        android:layout_alignBottom="@+id/animalViewer"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

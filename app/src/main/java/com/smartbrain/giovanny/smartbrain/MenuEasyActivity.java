@@ -12,9 +12,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-import com.smartbrain.giovanny.smartbrain.body.BodyTeachActivity1;
+import com.smartbrain.giovanny.smartbrain.body.LoadingActivity;
 import com.smartbrain.giovanny.smartbrain.family.FamilyActivity;
+import com.smartbrain.giovanny.smartbrain.family.FamilyLoadingActivity;
 import com.smartbrain.giovanny.smartbrain.vowels.VowelLearnActivity;
+import com.smartbrain.giovanny.smartbrain.vowels.VowelsLoadingActivity;
 
 
 public class MenuEasyActivity extends Activity {
@@ -64,7 +66,7 @@ public class MenuEasyActivity extends Activity {
             public void onClick(View v) {
                 music.stop();
                 bubblePop.start();
-                Intent intent = new Intent(MenuEasyActivity.this, FamilyActivity.class);
+                Intent intent = new Intent(MenuEasyActivity.this, FamilyLoadingActivity.class);
                 startActivity(intent);
             }
         });
@@ -73,7 +75,7 @@ public class MenuEasyActivity extends Activity {
             public void onClick(View v) {
                 music.stop();
                 bubblePop.start();
-                Intent intent = new Intent(MenuEasyActivity.this, BodyTeachActivity1.class);
+                Intent intent = new Intent(MenuEasyActivity.this, LoadingActivity.class);
                 startActivity(intent);
             }
         });
@@ -82,7 +84,7 @@ public class MenuEasyActivity extends Activity {
             public void onClick(View v) {
                 music.stop();
                 bubblePop.start();
-                Intent intent = new Intent(MenuEasyActivity.this, VowelLearnActivity.class);
+                Intent intent = new Intent(MenuEasyActivity.this, VowelsLoadingActivity.class);
                 startActivity(intent);
             }
         });

@@ -498,5 +498,6 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
     protected void onDestroy() {
         super.onDestroy();
         tts.stop();
+        contNumber.cancel();
     }
 }

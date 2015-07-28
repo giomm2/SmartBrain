@@ -45,8 +45,7 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
 
 
 
-    private ProgressBar progressbar;
-    private TextView txtprogress;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,14 +60,11 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
         next= (ImageView)findViewById(R.id.next);
         previus= (ImageView)findViewById(R.id.previus);
         secondaryColors = (ImageView) findViewById(R.id.secondaryColors);
-        txtprogress=(TextView)findViewById(R.id.txt_progress);
-        progressbar=(ProgressBar)findViewById(R.id.progressBar);
         // tts para que hable la vvara
         tts= new TextToSpeech(this, this);
         //animacion de el color recien formado
         colorFadeIn= AnimationUtils.loadAnimation(ColorLearningActivity.this, R.anim.color_invisible_tovisible);
 
-        contNumber2.start();
         //boton next que tiene un switch case para ver que hablar y que mostrar con sus respectivas animaciones
         next.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -214,26 +210,4 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
         super.onDestroy();
     }
 
-    //Contador para progress bar cargar tts.
-    CountDownTimer contNumber2= new CountDownTimer(8000,1000) {
-        @Override
-        public void onTick(long millisUntilFinished) {
-
-            txtprogress.setText("" + millisUntilFinished / 1000);
-            next.setEnabled(false);
-            previus.setEnabled(false);
-            secondaryColors.setEnabled(false);
-            progressbar.setVisibility(View.VISIBLE);
-
-        }
-
-        @Override
-        public void onFinish() {
-
-            next.setEnabled(true);
-            previus.setEnabled(true);
-            secondaryColors.setEnabled(true);
-            progressbar.setVisibility(View.INVISIBLE);
-        }
-    };
 }

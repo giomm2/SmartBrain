@@ -21,8 +21,10 @@
         android:textSize="50dp"
         android:background="@drawable/refresh"
         android:layout_alignTop="@+id/img_content"
-        android:layout_toLeftOf="@+id/txt_progress"
-        android:layout_toStartOf="@+id/txt_progress" />
+        android:layout_toLeftOf="@+id/img_content"
+        android:layout_toStartOf="@+id/img_content"
+        android:layout_marginRight="85dp"
+        android:layout_marginEnd="85dp" />
 
     <Button
         android:layout_width="130dp"
@@ -46,28 +48,6 @@
         android:layout_marginLeft="78dp"
         android:layout_marginStart="78dp"
         android:background="@drawable/playbtn" />
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:id="@+id/progressBar"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/txt_progress"
-        android:layout_alignBottom="@+id/progressBar"
-        android:layout_toLeftOf="@+id/img_content"
-        android:layout_toStartOf="@+id/img_content"
-        android:layout_marginRight="49dp"
-        android:layout_marginEnd="49dp"
-        android:visibility="invisible" />
-
-
 
 
 </RelativeLayout>

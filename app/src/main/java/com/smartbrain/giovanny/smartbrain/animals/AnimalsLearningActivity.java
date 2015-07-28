@@ -39,8 +39,7 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
     //animaciones
     private Animation animation;
 
-    private ProgressBar progress;
-    private TextView txtprogress;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +52,8 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
         next = (Button)findViewById(R.id.next);
         back = (Button)findViewById(R.id.back);
         animalViewer = (ImageView) findViewById(R.id.animalViewer);
-        progress=(ProgressBar)findViewById(R.id.progress_bar);
-        txtprogress=(TextView)findViewById(R.id.txt_progress);
         repeat.setEnabled(false);
-        txtprogress.setVisibility(View.INVISIBLE);
+
         //animacion
         animation = AnimationUtils.loadAnimation(AnimalsLearningActivity.this, R.anim.fade_in_animation);
 
@@ -214,37 +211,6 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
         }
     }
 
-
-
-    //Contador para progress bar cargar tts.
-    CountDownTimer contNumber= new CountDownTimer(8000,1000) {
-        @Override
-        public void onTick(long millisUntilFinished) {
-
-            txtprogress.setText("" + millisUntilFinished / 1000);
-            play.setEnabled(false);
-            next.setEnabled(false);
-            back.setEnabled(false);
-            progress.setVisibility(View.VISIBLE);
-
-        }
-
-        @Override
-        public void onFinish() {
-
-            play.setEnabled(true);
-            next.setEnabled(true);
-            back.setEnabled(true);
-            progress.setVisibility(View.INVISIBLE);
-        }
-    };
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        contNumber.start();
-    }
 
     @Override
     public void onDestroy() {

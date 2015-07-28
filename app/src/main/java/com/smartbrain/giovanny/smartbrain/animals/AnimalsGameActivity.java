@@ -242,5 +242,6 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
     protected void onDestroy() {
         super.onDestroy();
         tts.stop();
+        contNumber.cancel();
     }
 }

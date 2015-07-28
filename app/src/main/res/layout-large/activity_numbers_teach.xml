@@ -35,8 +35,7 @@
         android:id="@+id/btn_repeat"
         android:background="@drawable/refresh"
         android:layout_alignTop="@+id/btn_play"
-        android:layout_alignRight="@+id/txt_progress"
-        android:layout_alignEnd="@+id/txt_progress" />
+        android:layout_toLeftOf="@+id/img_content" />
 
     <ImageView
         android:layout_width="300dp"
@@ -44,26 +43,6 @@
         android:id="@+id/img_content"
         android:layout_alignTop="@+id/btn_next"
         android:layout_centerHorizontal="true" />
-    <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:id="@+id/progressBar"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/txt_progress"
-        android:layout_alignBottom="@+id/progressBar"
-        android:layout_toLeftOf="@+id/img_content"
-        android:layout_toStartOf="@+id/img_content"
-        android:layout_marginRight="49dp"
-        android:layout_marginEnd="49dp"
-        android:visibility="invisible" />
 
 
 </RelativeLayout>
