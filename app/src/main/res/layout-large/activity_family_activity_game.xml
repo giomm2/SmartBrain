@@ -220,6 +220,17 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/grandpa2"
+            android:id="@+id/grandpa1"
+            android:layout_alignTop="@+id/grandma"
+            android:layout_toRightOf="@+id/grandma"
+            android:layout_toEndOf="@+id/grandma"
+            android:layout_x="295dp"
+            android:layout_y="12dp" />
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/grandpa2"
             android:id="@+id/grandpa"
             android:layout_alignTop="@+id/grandma"
             android:layout_toRightOf="@+id/grandma"
@@ -351,6 +362,17 @@
             android:layout_height="70dp"
             android:src="@drawable/perro"
             android:id="@+id/dog4"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/mom"
+            android:layout_toEndOf="@+id/mom"
+            android:layout_x="537dp"
+            android:layout_y="3dp" />
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/perro"
+            android:id="@+id/dog1"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/mom"
             android:layout_toEndOf="@+id/mom"
