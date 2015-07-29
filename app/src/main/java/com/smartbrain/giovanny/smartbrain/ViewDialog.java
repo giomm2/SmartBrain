@@ -7,9 +7,6 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-/**
- * Created by ADMIN on 28/07/2015.
- */
 public class ViewDialog {
 
     public void showDialog(Activity activity, String msg){
