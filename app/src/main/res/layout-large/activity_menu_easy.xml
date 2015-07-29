@@ -8,6 +8,26 @@
     tools:context="com.smartbrain.giovanny.smartbrain.MenuEasyActivity"
     android:background="@drawable/fmar">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_light"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/userName"
+        android:layout_alignTop="@+id/btnfamily"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_light"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/points"
+        android:layout_above="@+id/imgbubble"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"

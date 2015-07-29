@@ -11,11 +11,10 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.body.LoadingActivity;
-import com.smartbrain.giovanny.smartbrain.family.FamilyActivity;
 import com.smartbrain.giovanny.smartbrain.family.FamilyLoadingActivity;
-import com.smartbrain.giovanny.smartbrain.vowels.VowelLearnActivity;
 import com.smartbrain.giovanny.smartbrain.vowels.VowelsLoadingActivity;
 
 
@@ -27,9 +26,13 @@ public class MenuEasyActivity extends Activity {
     private ImageView bfamily;
     private ImageView bvowel;
     private ImageView bbody;
+    private TextView userName;
+    private TextView points;
     private MediaPlayer bubblePop;
     private MediaPlayer music;
     private GestureDetectorCompat gestureDetectorCompat;
+    Bundle bundle = new Bundle();
+    Bundle extras;
 
 
 
@@ -41,16 +44,19 @@ public class MenuEasyActivity extends Activity {
 
         // aqui es donde inicializo la variable de deteccion de gestos.
         gestureDetectorCompat = new GestureDetectorCompat(this, new MyGestureListener());
-
-
-
+        // bundle
+        extras = getIntent().getExtras();
+        userName = (TextView) findViewById(R.id.userName);
+        points = (TextView) findViewById(R.id.points);
+        userName.setText(extras.getString("NAME"));
+        points.setText("Points: " + extras.getInt("POINTS"));
+        // views
         fishblue=(ImageView)findViewById(R.id.imgblue);
         fishorange=(ImageView)findViewById(R.id.imgorange);
         bubble1=(ImageView)findViewById(R.id.imgbubble);
         bfamily=(ImageView)findViewById(R.id.btnfamily);
         bvowel=(ImageView)findViewById(R.id.btnvowel);
         bbody=(ImageView)findViewById(R.id.btnbody);
-
         //set background sound
         music= MediaPlayer.create(this,R.raw.fireflies);
         music.setLooping(true);
@@ -166,12 +172,18 @@ public class MenuEasyActivity extends Activity {
                 //switch another activity
                 Intent intent = new Intent(
                         MenuEasyActivity.this, MenuMediumActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
                 MenuEasyActivity.this.finish();
             }else if(event2.getX() > event1.getX()){
                 Intent intent = new Intent(
                         MenuEasyActivity.this, HardMenuActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
                 MenuEasyActivity.this.finish();

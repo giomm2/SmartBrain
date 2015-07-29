@@ -8,6 +8,23 @@
     tools:context="com.smartbrain.giovanny.smartbrain.MenuEasyActivity"
     android:background="@drawable/fmar">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_light"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/userName" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/background_light"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/points"
+        android:layout_below="@+id/imgblue"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
     <ImageView
         android:layout_width="50dp"
         android:layout_height="50dp"
@@ -67,5 +84,6 @@
         android:layout_toLeftOf="@+id/btnfamily"
         android:layout_toStartOf="@+id/btnfamily"
         android:background="@drawable/vowel" />
+
 
 </RelativeLayout>

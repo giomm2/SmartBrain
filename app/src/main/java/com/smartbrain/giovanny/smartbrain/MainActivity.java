@@ -34,9 +34,8 @@ public class MainActivity extends Activity  {
     private ImageView nube2;
     private MediaPlayer player;
     private MediaPlayer dropSound;
-    private Button pasar;
-
-
+    private String user;
+    private int points;
     private RequestParams parameters;
     private RequestParams parametersForSelect; // no quitar la variable porque se necesita para el el llamado del web service que selecciona.
     String uniqueDevice = "";
@@ -48,6 +47,22 @@ public class MainActivity extends Activity  {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public int getPoints() {
+        return points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
     }
 
     @Override
@@ -97,7 +112,6 @@ public class MainActivity extends Activity  {
                     Toast.makeText(MainActivity.this, "Cant leave name in blank", Toast.LENGTH_SHORT).show();
                 } else {
                     params.put("name", name);
-                    params.put("points", points);
                     params.put("iddevice",idDevice);
                     // Invoke RESTful Web Service with Http parameters
                     prgDialog.show();
@@ -137,12 +151,17 @@ public class MainActivity extends Activity  {
                     // When the JSON response has status boolean value assigned with true
                     if (obj.getBoolean("status")) {
                         // Set Default Values for Edit View controls
-
+                        setUser(obj.getString("user"));
+                        setPoints(obj.getInt("points"));
                         // Display successfully registered message using Toast
-                        Toast.makeText(getApplicationContext(), "You are successfully registered!", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", you can play now!", Toast.LENGTH_LONG).show();
                         Intent intent= new Intent(MainActivity.this,MenuEasyActivity.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("NAME", getUser());
+                        bundle.putInt("POINTS", getPoints());
                         MainActivity.this.finish();
                         player.stop();
+                        intent.putExtras(bundle);
                         startActivity(intent);
 
 

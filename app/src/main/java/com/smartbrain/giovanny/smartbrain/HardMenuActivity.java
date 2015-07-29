@@ -11,12 +11,10 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.Numbers.NumbersLoadingActivity;
-import com.smartbrain.giovanny.smartbrain.Numbers.NumbersTeachActivity;
-import com.smartbrain.giovanny.smartbrain.practice.PracticeActivity;
 import com.smartbrain.giovanny.smartbrain.practice.PracticeLoadingActivity;
-import com.smartbrain.giovanny.smartbrain.shapes.ShapesActivityMain;
 import com.smartbrain.giovanny.smartbrain.shapes.ShapesLoadingActivity;
 
 
@@ -33,6 +31,11 @@ public class HardMenuActivity extends Activity {
     private MediaPlayer selectSound;
     private GestureDetectorCompat gestureDetectorCompat;
     private MediaPlayer music;
+    private TextView userName;
+    private TextView points;
+    Bundle bundle = new Bundle();
+    Bundle extras;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +51,12 @@ public class HardMenuActivity extends Activity {
         firework = (ImageView) findViewById(R.id.firework);
         firework2 = (ImageView) findViewById(R.id.firework2);
         gestureDetectorCompat = new GestureDetectorCompat(this, new MyGestureListener());
+        // bundle
+        extras = getIntent().getExtras();
+        userName = (TextView) findViewById(R.id.userName);
+        points = (TextView) findViewById(R.id.points);
+        userName.setText(extras.getString("NAME"));
+        points.setText("Points: " + extras.getInt("POINTS"));
         //sonido de escoger las opciones
         selectSound = MediaPlayer.create(HardMenuActivity.this, R.raw.pop);
         selectSound.setVolume(100,100);
@@ -176,12 +185,18 @@ public class HardMenuActivity extends Activity {
                 //switch another activity
                 Intent intent = new Intent(
                         HardMenuActivity.this, MenuEasyActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
                 HardMenuActivity.this.finish();
             }else if(event2.getX() > event1.getX()){
                 Intent intent = new Intent(
                         HardMenuActivity.this, MenuMediumActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
                 HardMenuActivity.this.finish();
