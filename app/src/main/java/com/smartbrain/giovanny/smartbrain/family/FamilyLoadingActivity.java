@@ -20,7 +20,7 @@ public class FamilyLoadingActivity extends Activity {
     private String text;
     private TextView txtcont,  txtadvice;
     private ImageView imgcontent;
-    private int[] images={R.drawable.zanimalsone,R.drawable.zanimalstwo,R.drawable.zanimalsthree};
+    private int[] images={R.drawable.zfamilyone,R.drawable.zfamilytwo,R.drawable.zfamilythree};
     private int pos=0;
     private String[] advice={"Drag your family members to the red marked area in the left of the screen.",
             "You can make your own family in the right of the screen.","Refresh your family with the refresh button."};
