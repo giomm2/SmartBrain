@@ -151,7 +151,7 @@
         <activity
             android:name=".body.LoadingActivity"
             android:label="@string/title_activity_loading"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".animals.AnimalsLoadingActivity"
@@ -160,38 +160,41 @@
         <activity
             android:name=".family.FamilyLoadingActivity"
             android:label="@string/title_activity_family_loading"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".neighborhood.NeighborhoodLoadingActivity"
             android:label="@string/title_activity_neighborhood_loading"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".colors.ColorsLoadingActivity"
             android:label="@string/title_activity_colors_loading"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".practice.PracticeLoadingActivity"
             android:label="@string/title_activity_practice_loading"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".Numbers.NumbersLoadingActivity"
             android:label="@string/title_activity_numbers_loading"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".shapes.ShapesLoadingActivity"
             android:label="@string/title_activity_shapes_loading"
-            android:screenOrientation="landscape">
-
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".vowels.VowelsLoadingActivity"
             android:label="@string/title_activity_vowels_loading"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".WinActivity"
+            android:label="@string/title_activity_win" >
         </activity>
     </application>
 

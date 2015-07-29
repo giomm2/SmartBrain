@@ -56,6 +56,7 @@
     <string name="title_activity_numbers_loading">NumbersLoadingActivity</string>
     <string name="title_activity_shapes_loading">ShapesLoadingActivity</string>
     <string name="title_activity_vowels_loading">VowelsLoadingActivity</string>
+    <string name="title_activity_win">WinActivity</string>
 
 
 </resources>
