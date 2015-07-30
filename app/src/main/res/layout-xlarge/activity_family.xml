@@ -41,7 +41,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:background="@drawable/sound"
+        android:background="@drawable/refresh"
         android:id="@+id/repeat"
         android:visibility="visible"
         android:layout_centerVertical="true"
