@@ -2,15 +2,15 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@android:id/background"
-        android:drawable="@drawable/light"/>
+        android:drawable="@drawable/zlight"/>
     <item android:id="@android:id/secondaryProgress">
         <scale
-            android:drawable="@drawable/secondary_holo"
+            android:drawable="@drawable/zsecondary_holo"
             android:scaleWidth="100%" />
     </item>
     <item android:id="@android:id/progress">
         <scale
-            android:drawable="@drawable/barra"
+            android:drawable="@drawable/zbarra"
             android:scaleWidth="100%" />
     </item>
 </layer-list>

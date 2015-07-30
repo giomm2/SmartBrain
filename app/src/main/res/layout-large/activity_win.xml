@@ -28,8 +28,8 @@
         android:layout_gravity="center"
         android:layout_marginLeft="4dp"
 
-        android:progressDrawable="@drawable/progress2"
-        android:thumb="@drawable/point"/>
+        android:progressDrawable="@drawable/zprogress2"
+        android:thumb="@drawable/zpoint"/>
 
     <Button
         android:layout_width="150dp"
@@ -70,7 +70,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:id="@+id/imageView3"
-        android:background="@drawable/well"
+        android:background="@drawable/zwell"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

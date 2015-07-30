@@ -11,7 +11,7 @@
         android:gravity="center"
         android:background="#DA5F6A"
         android:scaleType="fitCenter"
-        android:src="@drawable/congrats"/>
+        android:src="@drawable/zcongrats"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,7 +33,7 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:id="@+id/btn_dialog"
-        android:background="@drawable/uncheck"
+        android:background="@drawable/zuncheck"
         android:gravity="center_vertical|center_horizontal"
         android:layout_below="@+id/text_dialog"
         android:layout_toLeftOf="@+id/btn_dialog1"
@@ -47,6 +47,6 @@
         android:layout_alignTop="@+id/btn_dialog"
         android:layout_toRightOf="@+id/text_dialog"
         android:layout_toEndOf="@+id/text_dialog"
-        android:background="@drawable/check"/>
+        android:background="@drawable/zcheck"/>
 
 </RelativeLayout>
