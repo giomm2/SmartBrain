@@ -72,7 +72,10 @@ public class MenuEasyActivity extends Activity {
             public void onClick(View v) {
                 music.stop();
                 bubblePop.start();
+                // este bundle me lleva el nombre del usuario a la actividad de la familia aunque no sea visible en ningun lugar
+                bundle.putString("NAME", extras.getString("NAME"));
                 Intent intent = new Intent(MenuEasyActivity.this, FamilyLoadingActivity.class);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

@@ -36,6 +36,10 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
     private Animation orangeMovement;
     private Animation colorFadeIn;
 
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,10 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
         playButton = (ImageView) findViewById(R.id.playButton);
         // tts para que hable la vvara
         tts= new TextToSpeech(this, this);
+
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
         //animacion de el color recien formado
         colorFadeIn= AnimationUtils.loadAnimation(SecondaryColorLearningActivity.this, R.anim.color_invisible_tovisible);
 
@@ -188,6 +196,8 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SecondaryColorLearningActivity.this, ColorsGameActivity.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 SecondaryColorLearningActivity.this.finish();
             }

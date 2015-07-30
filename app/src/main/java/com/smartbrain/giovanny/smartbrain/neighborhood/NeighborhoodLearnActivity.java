@@ -34,11 +34,19 @@ public class NeighborhoodLearnActivity extends Activity implements TextToSpeech.
     // contador
     private int counter=0;
 
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neighborhood_learn);
+
+
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
         // tts initializer
         tts= new TextToSpeech(this,this);
@@ -186,6 +194,8 @@ public class NeighborhoodLearnActivity extends Activity implements TextToSpeech.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NeighborhoodLearnActivity.this, ConmunityActivity.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 NeighborhoodLearnActivity.this.finish();
             }

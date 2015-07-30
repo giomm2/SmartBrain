@@ -2,7 +2,6 @@ package com.smartbrain.giovanny.smartbrain.colors;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,8 +9,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+
 
 import com.smartbrain.giovanny.smartbrain.R;
 
@@ -44,6 +42,9 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
             ,"and finally we use red and yellow to make orange, touch the purple color to continue"};
 
 
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
 
 
     @Override
@@ -62,6 +63,11 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
         secondaryColors = (ImageView) findViewById(R.id.secondaryColors);
         // tts para que hable la vvara
         tts= new TextToSpeech(this, this);
+
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+
         //animacion de el color recien formado
         colorFadeIn= AnimationUtils.loadAnimation(ColorLearningActivity.this, R.anim.color_invisible_tovisible);
 
@@ -172,6 +178,8 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ColorLearningActivity.this, SecondaryColorLearningActivity.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 ColorLearningActivity.this.finish();
             }

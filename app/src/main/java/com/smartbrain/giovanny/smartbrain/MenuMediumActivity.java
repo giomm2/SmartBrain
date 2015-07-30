@@ -61,6 +61,8 @@ public class MenuMediumActivity extends Activity  {
 
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
@@ -77,6 +79,8 @@ public class MenuMediumActivity extends Activity  {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MenuMediumActivity.this, ColorsLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 music.stop();
             }

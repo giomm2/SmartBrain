@@ -38,7 +38,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/repeat"
-        android:background="@drawable/sound"
+        android:background="@drawable/refresh"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/imageViewer"
         android:layout_toEndOf="@+id/imageViewer"

@@ -16,6 +16,8 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.WinActivity;
+
 import java.util.Locale;
 
 public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitListener {
@@ -30,6 +32,13 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
     private String message;
     // tts
     private TextToSpeech tts;
+    // points
+    int points = 0;
+
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
 
 
     protected void viewSetter(){
@@ -66,6 +75,11 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
         bigFamily.setBackgroundDrawable(redMarkedArea);
         bigHowFamily.setBackgroundDrawable(redMarkedArea);
         refresh= (ImageView)findViewById(R.id.refresh);
+
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+
         // boton que reinicia la actividad
         refresh.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,10 +92,12 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
         endGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(FamilyActivityGame.this, MenuEasyActivity.class);
-                FamilyActivityGame.this.finish();
+                Intent intent = new Intent(FamilyActivityGame.this, WinActivity.class);
+                bundle.putString("NAME", name);
+                bundle.putInt("POINTS", points);
+                intent.putExtras(bundle);
                 startActivity(intent);
-
+                FamilyActivityGame.this.finish();
             }
         });
 
@@ -167,6 +183,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
                     //do nothing
                     break;
                 case DragEvent.ACTION_DROP:
+                    points = points + 5;
                     if (layoutLeft.getChildCount() ==5){
                         message = "";
                     }else{

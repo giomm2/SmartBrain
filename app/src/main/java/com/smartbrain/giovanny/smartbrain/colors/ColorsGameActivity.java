@@ -13,6 +13,8 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import com.smartbrain.giovanny.smartbrain.ColorsWinActivity;
 import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
@@ -70,6 +72,12 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
     private boolean selected3;
     private int [] list = new int [11];
 
+    //puntos
+    private int points = 500;
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,6 +105,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
 
         repeat.setEnabled(false);
         repeat.setVisibility(View.INVISIBLE);
+
+        //bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
 
         // set animaciones
@@ -189,12 +201,15 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 if(lives == 5){
                                     speakOut("Sorry buddy, lets start again");
-
                                     ColorsGameActivity.this.recreate();
                                 }else{
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -210,6 +225,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -225,6 +244,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -240,6 +263,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -255,6 +282,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -270,6 +301,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -285,6 +320,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -430,6 +469,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 colorNumber =0;
                                             }
                                         }else if(selected || selected1) {
@@ -581,6 +624,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 colorNumber=0;
                                             }
                                         }else if (selected || selected1) {
@@ -668,6 +715,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -682,6 +733,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -697,6 +752,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -845,6 +904,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 colorNumber=0;
                                             }
                                         } else if (selected || selected1) {
@@ -880,6 +943,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -894,6 +961,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -908,6 +979,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -941,6 +1016,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -955,6 +1034,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -1021,6 +1104,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -1046,6 +1133,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -1060,6 +1151,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -1074,6 +1169,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -1088,6 +1187,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -1140,6 +1243,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -1154,6 +1261,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                     speakOut("Sorry try Again");
                                     badAnswers()[lives].setVisibility(View.INVISIBLE);
                                     lives++;
+                                    if (points == 0)
+                                        points = 0;
+                                    else
+                                        points = points - 100;
                                 }
                                 return false;
                             }
@@ -1335,6 +1446,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 colorNumber=0;
                                             }
                                         }else if (selected || selected1) {
@@ -1544,6 +1659,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                             }
                                         }
                                         break;
@@ -1750,6 +1869,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                                 speakOut("Sorry try Again");
                                                 badAnswers()[lives].setVisibility(View.INVISIBLE);
                                                 lives++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                             }
                                         }
                                         break;
@@ -1764,7 +1887,10 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                         break;
                     case 10:
                         speakOut("Congratulations!!! You won the game!");
-                        Intent intent = new Intent(ColorsGameActivity.this, MenuMediumActivity.class);
+                        Intent intent = new Intent(ColorsGameActivity.this, ColorsWinActivity.class);
+                        bundle.putString("NAME", name);
+                        bundle.putInt("POINTS", points);
+                        intent.putExtras(bundle);
                         startActivity(intent);
                         ColorsGameActivity.this.finish();
                         break;

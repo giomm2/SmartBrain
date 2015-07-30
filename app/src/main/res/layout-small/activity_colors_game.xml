@@ -100,7 +100,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/repeat"
-        android:background="@drawable/sound"
+        android:background="@drawable/refresh"
         android:layout_below="@+id/start"
         android:layout_alignLeft="@+id/gameColorGrey"
         android:layout_alignStart="@+id/gameColorGrey" />

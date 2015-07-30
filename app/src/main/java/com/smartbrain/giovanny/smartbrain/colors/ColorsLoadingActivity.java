@@ -23,6 +23,10 @@ public class ColorsLoadingActivity extends Activity {
     private int[] images={R.drawable.zcolorsone,R.drawable.zcolorstwo,R.drawable.zcolorsthree};
     private int pos=0;
     private String[] advice={"You have six opportunities.","You have to answer ten times to win.","You can touch or drag the colors."};
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +36,9 @@ public class ColorsLoadingActivity extends Activity {
         txtadvice=(TextView)findViewById(R.id.txt_advice);
         imgcontent=(ImageView)findViewById(R.id.img_cont);
 
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
 
 
@@ -101,6 +108,8 @@ public class ColorsLoadingActivity extends Activity {
         public void onFinish() {
 
             Intent intent= new Intent(ColorsLoadingActivity.this, ColorLearningActivity.class);
+            bundle.putString("NAME", name);
+            intent.putExtras(bundle);
             startActivity(intent);
             ColorsLoadingActivity.this.finish();
         }

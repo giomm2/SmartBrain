@@ -24,6 +24,10 @@ public class FamilyLoadingActivity extends Activity {
     private int pos=0;
     private String[] advice={"Drag your family members to the red marked area in the left of the screen.",
             "You can make your own family in the right of the screen.","Refresh your family with the refresh button."};
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +38,9 @@ public class FamilyLoadingActivity extends Activity {
         imgcontent=(ImageView)findViewById(R.id.img_cont);
 
         contNumber.start();
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
 
         tts = new TextToSpeech(FamilyLoadingActivity.this, new TextToSpeech.OnInitListener() {
@@ -100,8 +107,10 @@ public class FamilyLoadingActivity extends Activity {
         public void onFinish() {
 
             Intent intent= new Intent(FamilyLoadingActivity.this, FamilyActivity.class);
+            // le asigno al nuevo bundle name que es nombre del usuario
+            bundle.putString("NAME", name);
+            intent.putExtras(bundle);
             startActivity(intent);
-
             FamilyLoadingActivity.this.finish();
         }
     };

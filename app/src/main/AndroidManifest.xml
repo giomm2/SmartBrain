@@ -196,6 +196,14 @@
         <activity
             android:name=".WinActivity"
             android:label="@string/title_activity_win"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".ComnunityWinActivity"
+            android:label="@string/title_activity_comnunity_win"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".ColorsWinActivity"
+            android:label="@string/title_activity_colors_win"
             android:screenOrientation="landscape">
         </activity>
     </application>

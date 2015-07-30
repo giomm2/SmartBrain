@@ -156,7 +156,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:id="@+id/repeat"
-        android:background="@drawable/sound"
+        android:background="@drawable/refresh"
         android:layout_below="@+id/layoutRight"
         android:layout_alignLeft="@+id/next"
         android:layout_alignStart="@+id/next"

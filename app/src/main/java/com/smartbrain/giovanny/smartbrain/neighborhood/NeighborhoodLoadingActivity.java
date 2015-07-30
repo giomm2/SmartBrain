@@ -25,6 +25,10 @@ public class NeighborhoodLoadingActivity extends Activity {
     private int[] images={R.drawable.zcomunidadone,R.drawable.zcomunidadtwo,R.drawable.zcomunidadthree};
     private int pos=0;
     private String[] advice={"Pay close attention to the instructions.","Touch the character and then drag it.","If you lose all of yours hearts, you lose the game."};
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,8 @@ public class NeighborhoodLoadingActivity extends Activity {
         imgcontent=(ImageView)findViewById(R.id.img_cont);
 
         contNumber.start();
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
 
         tts = new TextToSpeech(NeighborhoodLoadingActivity.this, new TextToSpeech.OnInitListener() {
@@ -101,6 +107,8 @@ public class NeighborhoodLoadingActivity extends Activity {
         public void onFinish() {
 
             Intent intent= new Intent(NeighborhoodLoadingActivity.this, NeighborhoodLearnActivity.class);
+            bundle.putString("NAME", name);
+            intent.putExtras(bundle);
             startActivity(intent);
             NeighborhoodLoadingActivity.this.finish();
         }

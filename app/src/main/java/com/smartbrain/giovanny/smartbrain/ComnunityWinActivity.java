@@ -3,8 +3,11 @@ package com.smartbrain.giovanny.smartbrain;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -22,10 +25,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
+public class ComnunityWinActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
+
     private SeekBar sb;
-    private ImageView image3,image4,image5,image6,image7,image8;
-    private Button button,button1,button2,button3,image9;
+    private ImageView image3, image4, image5, image6, image7, image8;
+    private Button button, button1, button2, button3, image9;
     private TextView username;
     // variable que necesito para el id
     private String id;
@@ -67,17 +71,17 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
         setContentView(R.layout.activity_win);
 
         sb = (SeekBar) findViewById(R.id.seekBar);
-        button= (Button) findViewById(R.id.imageView);
-        button1= (Button) findViewById(R.id.imageButton);
-        button2= (Button) findViewById(R.id.imageView2);
-        button3= (Button) findViewById(R.id.imageView1);
+        button = (Button) findViewById(R.id.imageView);
+        button1 = (Button) findViewById(R.id.imageButton);
+        button2 = (Button) findViewById(R.id.imageView2);
+        button3 = (Button) findViewById(R.id.imageView1);
         image3 = (ImageView) findViewById(R.id.imageView3);
         image4 = (ImageView) findViewById(R.id.imageView4);
         image5 = (ImageView) findViewById(R.id.imageView5);
         image6 = (ImageView) findViewById(R.id.imageView6);
         image7 = (ImageView) findViewById(R.id.imageView7);
         image8 = (ImageView) findViewById(R.id.imageView8);
-        image9= (Button) findViewById(R.id.imageView9);
+        image9 = (Button) findViewById(R.id.imageView9);
         username = (TextView) findViewById(R.id.userName);
         sb.setMax(2600);
         sb.setOnSeekBarChangeListener(this);
@@ -98,21 +102,18 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
         invokeWS(params);
 
 
-
-
-
         image9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //ViewDialog alert = new ViewDialog();
-                //alert.showDialog(WinActivity.this, "Are you sure to exit?");
-
-                Intent intent = new Intent(WinActivity.this, MenuEasyActivity.class);
+                //alert.showDialog(ComnunityWinActivity.this, "Are you sure to exit?");
+                Intent intent = new Intent(ComnunityWinActivity.this, MenuMediumActivity.class);
                 bundle.putString("NAME", getUser());
                 bundle.putInt("POINTS", pointsForWS);
                 intent.putExtras(bundle);
                 startActivity(intent);
+
             }
         });
     }
@@ -141,7 +142,8 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
         ballons();
         firework();
     }
-    private void ballons(){
+
+    private void ballons() {
 
         Animation mov;
         mov = AnimationUtils.loadAnimation(this, R.anim.upanim);
@@ -151,10 +153,9 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
         image6.startAnimation(mov);
     }
 
-    private void firework()
-    {
-        Animation  mov;
-        mov  = AnimationUtils.loadAnimation(this,R.anim.explosive_animation);
+    private void firework() {
+        Animation mov;
+        mov = AnimationUtils.loadAnimation(this, R.anim.explosive_animation);
         mov.reset();
         image7.startAnimation(mov);
         image8.startAnimation(mov);
@@ -219,6 +220,4 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
             }
         });
     }
-
-
 }

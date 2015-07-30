@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 
+import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
@@ -53,6 +54,12 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
     // contadores de voz y vidas
     private int i =0;
     private int liveCounter =0;
+    // points
+    private int points = 300;
+    // bundle
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
 
 
     @Override
@@ -60,6 +67,9 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conmunity);
 
+        //bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
         // drawable resource
         Drawable redMarkedArea = getResources().getDrawable(R.drawable.red_marked_area);
         // tts
@@ -127,6 +137,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         } else if (policewomanFlag) {
@@ -162,6 +176,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -183,6 +201,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -204,6 +226,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -237,6 +263,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         } else if (firemanFlag) {
@@ -272,6 +302,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -293,6 +327,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -314,6 +352,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -347,6 +389,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         } else if (doctorfFlag) {
@@ -382,6 +428,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -403,6 +453,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -424,6 +478,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -457,6 +515,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter ++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         } else if (teacherFlag) {
@@ -492,6 +554,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -513,6 +579,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -534,6 +604,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -567,6 +641,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter ++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         } else if (doctorFlag) {
@@ -603,6 +681,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -624,6 +706,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -645,6 +731,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -678,6 +768,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter ++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         } else if (professorFlag) {
@@ -713,6 +807,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -734,6 +832,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -755,6 +857,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -788,6 +894,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter ++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         } else if (firewomanFlag) {
@@ -823,6 +933,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -844,6 +958,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -865,6 +983,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -898,6 +1020,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter ++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         } else if (policeFlag) {
@@ -933,6 +1059,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -954,6 +1084,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -975,6 +1109,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                                 tts.speak("sorry try again", TextToSpeech.QUEUE_FLUSH, null);
                                                 setLives()[liveCounter].setVisibility(View.INVISIBLE);
                                                 liveCounter++;
+                                                if (points == 0)
+                                                    points = 0;
+                                                else
+                                                    points = points - 100;
                                                 setFalse();
                                             }
                                         }
@@ -985,7 +1123,10 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                         });
                         break;
                     case 9:
-                        Intent intent = new Intent(ConmunityActivity.this, MenuMediumActivity.class);
+                        Intent intent = new Intent(ConmunityActivity.this, ComnunityWinActivity.class);
+                        bundle.putString("NAME", name);
+                        bundle.putInt("POINTS", points);
+                        intent.putExtras(bundle);
                         startActivity(intent);
                         ConmunityActivity.this.finish();
                         break;

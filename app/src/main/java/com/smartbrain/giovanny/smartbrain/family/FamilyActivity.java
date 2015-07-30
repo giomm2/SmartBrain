@@ -32,6 +32,11 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
     private TextToSpeech tts;
     private int i =0;
 
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,9 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
         imageViewer.setBackgroundResource(imageArray[i]);
         repeat = (ImageView)findViewById(R.id.repeat);
 
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
         // cada vez que le doy a next aumento el contador que me recorre los arrays y cambio de frases y de imagenes
 
@@ -88,8 +96,10 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FamilyActivity.this, FamilyActivityGame.class);
-                FamilyActivity.this.finish();
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 startActivity(intent);
+                FamilyActivity.this.finish();
 
             }
         });
