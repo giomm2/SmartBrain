@@ -16,16 +16,16 @@
             android:name=".SplashActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape" >
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".MenuEasyActivity"
@@ -196,11 +196,15 @@
         <activity
             android:name=".WinActivity"
             android:label="@string/title_activity_win"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape">
+
+        </activity>
         <activity
             android:name=".ComnunityWinActivity"
             android:label="@string/title_activity_comnunity_win"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape">
+
+        </activity>
         <activity
             android:name=".ColorsWinActivity"
             android:label="@string/title_activity_colors_win"
