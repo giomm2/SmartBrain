@@ -63,8 +63,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignRight="@+id/layoutRight"
             android:layout_alignEnd="@+id/layoutRight"
-            android:layout_x="983dp"
-            android:layout_y="12dp" />
+            android:layout_x="775dp"
+            android:layout_y="4dp" />
 
         <ImageView
             android:layout_width="80dp"
@@ -74,8 +74,8 @@
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/teacherM"
             android:layout_toStartOf="@+id/teacherM"
-            android:layout_x="1078dp"
-            android:layout_y="0dp" />
+            android:layout_x="859dp"
+            android:layout_y="6dp" />
 
         <ImageView
             android:layout_width="100sp"
@@ -85,8 +85,8 @@
             android:layout_alignParentTop="true"
             android:layout_toLeftOf="@+id/doctorM"
             android:layout_toStartOf="@+id/doctorM"
-            android:layout_x="744dp"
-            android:layout_y="-9dp" />
+            android:layout_x="553dp"
+            android:layout_y="0dp" />
 
         <ImageView
             android:layout_width="100dp"
@@ -96,8 +96,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            android:layout_x="867dp"
-            android:layout_y="-5dp" />
+            android:layout_x="657dp"
+            android:layout_y="0dp" />
 
     </AbsoluteLayout>
 

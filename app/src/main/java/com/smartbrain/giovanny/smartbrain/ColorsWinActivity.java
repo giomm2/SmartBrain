@@ -112,6 +112,7 @@ public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChan
                 bundle.putInt("POINTS", pointsForWS);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                ColorsWinActivity.this.finish();
             }
         });
     }

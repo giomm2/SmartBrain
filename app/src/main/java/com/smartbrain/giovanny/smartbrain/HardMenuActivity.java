@@ -59,7 +59,7 @@ public class HardMenuActivity extends Activity {
         points.setText("Points: " + extras.getInt("POINTS"));
         //sonido de escoger las opciones
         selectSound = MediaPlayer.create(HardMenuActivity.this, R.raw.pop);
-        selectSound.setVolume(100,100);
+        //selectSound.setVolume(100,100);
 
         music= MediaPlayer.create(this,R.raw.fireflies);
         music.setLooping(true);

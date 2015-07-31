@@ -113,6 +113,7 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
                 bundle.putInt("POINTS", pointsForWS);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                WinActivity.this.finish();
             }
         });
     }

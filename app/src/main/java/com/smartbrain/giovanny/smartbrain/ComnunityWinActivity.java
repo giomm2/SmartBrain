@@ -113,6 +113,7 @@ public class ComnunityWinActivity extends Activity implements SeekBar.OnSeekBarC
                 bundle.putInt("POINTS", pointsForWS);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                ComnunityWinActivity.this.finish();
 
             }
         });

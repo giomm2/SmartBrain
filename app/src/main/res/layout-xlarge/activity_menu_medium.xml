@@ -39,8 +39,8 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:layout_width="210dp"
-        android:layout_height="210dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/flower1"
         android:background="@drawable/flower1"
         android:layout_alignTop="@+id/flower3"
@@ -50,20 +50,18 @@
         android:layout_marginEnd="90dp" />
 
     <ImageView
-        android:layout_width="210dp"
-        android:layout_height="210dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/flower2"
         android:background="@drawable/flower2"
-        android:layout_marginRight="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginBottom="170dp"
+        android:layout_marginBottom="121dp"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/cloud"
         android:layout_toStartOf="@+id/cloud" />
 
     <ImageView
-        android:layout_width="210dp"
-        android:layout_height="210dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:id="@+id/flower3"
         android:background="@drawable/flower3"
         android:layout_marginRight="87dp"
@@ -77,10 +75,9 @@
         android:layout_height="100dp"
         android:id="@+id/smoke"
         android:background="@drawable/smoke"
-        android:layout_alignTop="@+id/cloud"
-        android:layout_alignRight="@+id/flower2"
-        android:layout_alignEnd="@+id/flower2"
-        android:layout_marginTop="49dp" />
+        android:layout_below="@+id/userName"
+        android:layout_toLeftOf="@+id/cloud"
+        android:layout_toStartOf="@+id/cloud" />
 
 
 
