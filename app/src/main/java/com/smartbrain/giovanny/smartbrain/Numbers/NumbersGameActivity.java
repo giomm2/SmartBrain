@@ -437,13 +437,13 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
         }
     }
 
-    CountDownTimer contNumber = new CountDownTimer(21000, 1000) {
+    CountDownTimer contNumber = new CountDownTimer(11000, 1000) {
         @Override
         public void onTick(long millisUntilFinished) {
 
             txtcont.setText("" + millisUntilFinished / 1000);
 
-            if(txtcont.getText().equals("20")){
+            if(txtcont.getText().equals("10")){
                 downImg0.setVisibility(View.INVISIBLE);
                 downImg1.setVisibility(View.INVISIBLE);
                 downImg2.setVisibility(View.INVISIBLE);
@@ -456,39 +456,39 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
                 downImg9.setVisibility(View.INVISIBLE);
 
                 downImg0.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("18")){
+            }else if(txtcont.getText().equals("9")){
 
                 downImg0.setVisibility(View.INVISIBLE);
                 downImg1.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("16")){
+            }else if(txtcont.getText().equals("8")){
 
                 downImg1.setVisibility(View.INVISIBLE);
                 downImg2.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("14")){
+            }else if(txtcont.getText().equals("7")){
 
                 downImg2.setVisibility(View.INVISIBLE);
                 downImg3.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("12")){
+            }else if(txtcont.getText().equals("6")){
 
                 downImg3.setVisibility(View.INVISIBLE);
                 downImg4.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("10")){
+            }else if(txtcont.getText().equals("5")){
 
                 downImg4.setVisibility(View.INVISIBLE);
                 downImg5.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("8")){
+            }else if(txtcont.getText().equals("4")){
 
                 downImg5.setVisibility(View.INVISIBLE);
                 downImg6.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("6")){
+            }else if(txtcont.getText().equals("3")){
 
                 downImg6.setVisibility(View.INVISIBLE);
                 downImg7.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("4")){
+            }else if(txtcont.getText().equals("2")){
 
                 downImg7.setVisibility(View.INVISIBLE);
                 downImg8.setVisibility(View.VISIBLE);
-            }else if(txtcont.getText().equals("2")){
+            }else if(txtcont.getText().equals("1")){
 
                 downImg8.setVisibility(View.INVISIBLE);
                 downImg9.setVisibility(View.VISIBLE);
