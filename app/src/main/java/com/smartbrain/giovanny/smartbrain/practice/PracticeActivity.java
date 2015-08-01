@@ -346,9 +346,11 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                 }
             }
             else {
-                Intent intent=new Intent(PracticeActivity.this,HardMenuActivity.class);
-                PracticeActivity.this.finish();
+                Intent intent= new Intent(PracticeActivity.this, WinActivity.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 startActivity(intent);
+                PracticeActivity.this.finish();
             }
         }
 

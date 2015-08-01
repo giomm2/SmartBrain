@@ -108,6 +108,8 @@ public class ShapesLoadingActivity extends Activity {
         public void onFinish() {
 
             Intent intent= new Intent(ShapesLoadingActivity.this, ShapesActivityMain.class);
+            bundle.putString("NAME", name);
+            intent.putExtras(bundle);
             startActivity(intent);
             ShapesLoadingActivity.this.finish();
         }
