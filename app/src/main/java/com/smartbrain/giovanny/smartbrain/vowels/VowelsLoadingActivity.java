@@ -23,6 +23,12 @@ public class VowelsLoadingActivity extends Activity {
     private int[] images={R.drawable.zvowelone,R.drawable.zvoweltwo,R.drawable.zvowelthree};
     private int pos=0;
     private String[] advice={"Use the images guide.","You have five minutes to complete.","Pay attention to each image."};
+
+    //trae el nombre del usuario
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +39,11 @@ public class VowelsLoadingActivity extends Activity {
         imgcontent=(ImageView)findViewById(R.id.img_cont);
 
         contNumber.start();
+
+        //seteo en name el nombre que viene en extras que es un bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+
 
 
         tts = new TextToSpeech(VowelsLoadingActivity.this, new TextToSpeech.OnInitListener() {

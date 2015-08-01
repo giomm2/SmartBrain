@@ -23,6 +23,11 @@ public class PracticeLoadingActivity extends Activity {
     private int[] images={R.drawable.zpracticeone,R.drawable.zpracticetwo,R.drawable.zpracticethree};
     private int pos=0;
     private String[] advice={"You have sixty seconds to record yourself hurry.","Touch the blue button when you are ready to talk.","Check your pronunciation before."};
+    //trae el nombre del usuario
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,11 @@ public class PracticeLoadingActivity extends Activity {
         imgcontent=(ImageView)findViewById(R.id.img_cont);
 
         contNumber.start();
+
+        //seteo en name el nombre que viene en extras que es un bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+
 
 
         tts = new TextToSpeech(PracticeLoadingActivity.this, new TextToSpeech.OnInitListener() {

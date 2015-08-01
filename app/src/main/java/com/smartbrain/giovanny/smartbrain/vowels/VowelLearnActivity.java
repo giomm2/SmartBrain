@@ -39,8 +39,10 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
     private Button btnPlay;
     private Button btnpasar;
 
-
-
+    //trae el nombre del usuario
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
 
 
     @Override
@@ -63,6 +65,11 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         btnPlay.setOnClickListener(this);
         num = OrderImage();
         PutImages(num);
+
+        //seteo en name el nombre que viene en extras que es un bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+
 
         //set back sound
         player = MediaPlayer.create(VowelLearnActivity.this, R.raw.music);

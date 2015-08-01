@@ -220,6 +220,10 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
             }
         });
     }
-
+//public  void pasar(){
+    //Intent intent = new Intent(WinActivity.this,MenuEasyActivity.class);
+    //startActivity(intent);
+    //WinActivity.this.finish();
+//}
 
 }

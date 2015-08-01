@@ -23,6 +23,11 @@ public class ShapesLoadingActivity extends Activity {
     private int[] images={R.drawable.zshapesone,R.drawable.zshapestwo,R.drawable.zshapesthree};
     private int pos=0;
     private String[] advice={"If you push the shape in the wrong way you lost one life","Don't lose your hearts.","Listen very well."};
+    //trae el nombre del usuario
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +38,10 @@ public class ShapesLoadingActivity extends Activity {
         imgcontent=(ImageView)findViewById(R.id.img_cont);
 
         contNumber.start();
+        //seteo en name el nombre que viene en extras que es un bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+
 
 
         tts = new TextToSpeech(ShapesLoadingActivity.this, new TextToSpeech.OnInitListener() {

@@ -29,6 +29,10 @@ public class ShapesActivityMain extends Activity implements  View.OnClickListene
     private Button btnPrevious;
     private Button btnPlay;
 
+    //trae el nombre del usuario
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,11 @@ public class ShapesActivityMain extends Activity implements  View.OnClickListene
 
         num=OrderImage();
         PutImages(num);
+
+        //seteo en name el nombre que viene en extras que es un bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+
 
         tts = new TextToSpeech(ShapesActivityMain.this, new TextToSpeech.OnInitListener() {
 
