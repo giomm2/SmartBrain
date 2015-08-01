@@ -11,10 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
+import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.WinActivity;
-
 import java.util.Locale;
 
 public class NumbersGameActivity extends Activity implements View.OnClickListener {
@@ -257,7 +255,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
             }
                 else{
 
-                    Intent intent=new Intent(NumbersGameActivity.this,WinActivity.class);
+                    Intent intent = new Intent(NumbersGameActivity.this, ComnunityWinActivity.class);
                     bundle.putString("NAME", name);
                     bundle.putInt("POINTS", points);
                     intent.putExtras(bundle);

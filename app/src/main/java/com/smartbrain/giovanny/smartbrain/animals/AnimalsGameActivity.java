@@ -16,11 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
-import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
+import com.smartbrain.giovanny.smartbrain.ColorsWinActivity;
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.WinActivity;
-
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -141,7 +138,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
 
                 if(pos==10){
 
-                  Intent intent= new Intent(AnimalsGameActivity.this, ComnunityWinActivity.class);
+                    Intent intent = new Intent(AnimalsGameActivity.this, ColorsWinActivity.class);
                     bundle.putString("NAME", name);
                     bundle.putInt("POINTS", points);
                     intent.putExtras(bundle);
