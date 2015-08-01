@@ -97,6 +97,8 @@ public class MenuEasyActivity extends Activity {
                 music.stop();
                 bubblePop.start();
                 Intent intent = new Intent(MenuEasyActivity.this, VowelsLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

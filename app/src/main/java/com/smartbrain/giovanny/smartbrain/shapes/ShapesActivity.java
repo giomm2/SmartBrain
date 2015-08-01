@@ -16,7 +16,7 @@ import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.WinActivity;
+import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 
 import java.util.Locale;
 
@@ -178,7 +178,7 @@ public class ShapesActivity extends Activity {
                             check=true;
                             gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent=new Intent(ShapesActivity.this,WinActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, ComnunityWinActivity.class);
                                 bundle.putString("NAME", name);
                                 bundle.putInt("POINTS", gamePoints);
                                 intent.putExtras(bundle);
@@ -278,7 +278,7 @@ public class ShapesActivity extends Activity {
                             check1=true;
                             gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent=new Intent(ShapesActivity.this,WinActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, ComnunityWinActivity.class);
                                 bundle.putString("NAME", name);
                                 bundle.putInt("POINTS", gamePoints);
                                 intent.putExtras(bundle);
@@ -377,7 +377,7 @@ public class ShapesActivity extends Activity {
                             check2=true;
                             gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent=new Intent(ShapesActivity.this,WinActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, ComnunityWinActivity.class);
                                 bundle.putString("NAME", name);
                                 bundle.putInt("POINTS", gamePoints);
                                 intent.putExtras(bundle);
@@ -473,7 +473,7 @@ public class ShapesActivity extends Activity {
                             check3=true;
                             gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent=new Intent(ShapesActivity.this,WinActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, ComnunityWinActivity.class);
                                 bundle.putString("NAME", name);
                                 bundle.putInt("POINTS", gamePoints);
                                 intent.putExtras(bundle);

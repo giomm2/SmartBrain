@@ -181,6 +181,8 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
             case R.id.btn_play:{
 
                 Intent intent = new Intent(VowelLearnActivity.this,ActivityPuzzle.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 VowelLearnActivity.this.finish();
                 break;

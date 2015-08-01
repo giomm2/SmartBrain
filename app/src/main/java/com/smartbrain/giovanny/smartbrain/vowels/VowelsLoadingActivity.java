@@ -110,6 +110,9 @@ public class VowelsLoadingActivity extends Activity {
         public void onFinish() {
 
             Intent intent= new Intent(VowelsLoadingActivity.this, VowelLearnActivity.class);
+            bundle.putString("NAME", name);
+            intent.putExtras(bundle);
+            startActivity(intent);
             startActivity(intent);
             VowelsLoadingActivity.this.finish();
         }
