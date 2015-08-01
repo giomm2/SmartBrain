@@ -1900,14 +1900,14 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
 
     // metodo que me genera una lista random de numeros que no se repite para que las preguntas nunca sean las mismas
     private int[] getListNumber() {
-        int [] numbers = new int[11];
+        int [] numbers = new int[6];
         Random rand = new Random();
         int random;
         int cont=0;
         int j=0;
         boolean flag=true;
         boolean flag0=true;
-        for(int i=-1; i<=8 ;i++){
+        for(int i=-1; i<=4 ;i++){
             random=rand.nextInt(10);
             cont=0;
             j=0;
@@ -1916,11 +1916,11 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                 while(numbers[j]!=random && flag==true ){
                     j++;
                     cont++;
-                    if(j==9){
+                    if(j==5){
                         flag=false;
                     }
                 }
-                if( cont==9){
+                if( cont==5){
                     numbers[i+1]=random;
                 }else{
 
@@ -1935,7 +1935,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                     i=i-1;
                 }
             }}
-        numbers[10]=10;
+        numbers[5]=10;
         return numbers;
     }
 
