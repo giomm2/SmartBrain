@@ -158,9 +158,10 @@ public class ShapesActivityMain extends Activity implements  View.OnClickListene
             }
             case R.id.btn_play:{
                 Intent intent = new Intent(ShapesActivityMain.this,ShapesActivity.class);
-                startActivity(intent);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 ShapesActivityMain.this.finish();
-                break;
+                startActivity(intent);
             }
         }
 
@@ -194,6 +195,13 @@ public class ShapesActivityMain extends Activity implements  View.OnClickListene
         super.onStart();
         btnPrevious.setVisibility(View.INVISIBLE);
 
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
 
     }
 

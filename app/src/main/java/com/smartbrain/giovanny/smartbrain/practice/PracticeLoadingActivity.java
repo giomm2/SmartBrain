@@ -109,6 +109,8 @@ public class PracticeLoadingActivity extends Activity {
         public void onFinish() {
 
             Intent intent= new Intent(PracticeLoadingActivity.this, PracticeActivity.class);
+            bundle.putString("NAME", name);
+            intent.putExtras(bundle);
             startActivity(intent);
             PracticeLoadingActivity.this.finish();
         }
