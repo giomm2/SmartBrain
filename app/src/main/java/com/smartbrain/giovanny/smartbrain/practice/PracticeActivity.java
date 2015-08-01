@@ -35,7 +35,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
     private String[] voice={"A","Bear","Cat","Hen","Cow","Dog","Horse","Lion","Snake",
     "Rabbit","Sheep","Arm","Ear","Eyes","Face","Finger","Foot","Hand","Leg","Mouth","Nose",
-    "Bother","Brown","Circle","Blue","Green","Orange","Purple","Red","Yellow","Square","Dad","Doctor","Doctor",
+    "Brother","Brown","Circle","Blue","Green","Orange","Purple","Red","Yellow","Square","Dad","Doctor","Doctor",
     "E","Fireman","Grandmother","Grandfather","grey","I","Mom","8","5","4","9","1","7","6","3","2","0","O",
     "Olive","Policeman","Rectangle","Sister","Teacher","Triangle","U","Uncle","Wine"};
     private String[] image={"a","animalsbear","animalscat","animalschicken","animalscow","animalsdog",
@@ -69,6 +69,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
     int gamePoints=0;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,6 +88,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
         txtVoice = (TextView) findViewById(R.id.txtText);
 
+
         random();
         txtcont=(TextView)findViewById(R.id.txtTimer);
         btnRepeat.setVisibility(View.INVISIBLE);
@@ -95,6 +97,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
         extras = getIntent().getExtras();
         name = extras.getString("NAME");
 
+        btn_speak.setEnabled(false);
 
         btn_speak.setOnClickListener(new View.OnClickListener() {
 
