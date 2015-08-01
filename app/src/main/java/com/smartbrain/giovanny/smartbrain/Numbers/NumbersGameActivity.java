@@ -404,7 +404,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
 
                     points=0;
                 }else {
-                    points = points - 50;
+                    points = points - 25;
                 }
                 ConvertTextToSpeech("Sorry, try again");
 
@@ -418,7 +418,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
 
                     points=0;
                 }else {
-                    points = points - 50;
+                    points = points - 25;
                 }
             } else if (imageHeart3.getVisibility() == View.VISIBLE) {
                 imageHeart3.setVisibility(View.INVISIBLE);
@@ -429,7 +429,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
 
                     points=0;
                 }else {
-                    points = points - 30;
+                    points = points - 25;
                 }
             }else{
 
@@ -503,18 +503,31 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
             if (imageHeart1.getVisibility() == View.VISIBLE) {
                 imageHeart1.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech(text2);
+
+                if(points!=0){
+                    points=points-25;
+
+                }
                 contNumber.start();
 
 
             } else if (imageHeart2.getVisibility() == View.VISIBLE) {
                 imageHeart2.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech(text2);
+                if(points!=0){
+                    points=points-25;
+
+                }
                 contNumber.start();
 
 
             } else if (imageHeart3.getVisibility() == View.VISIBLE) {
                 imageHeart3.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech("Last chance");
+                if(points!=0){
+                    points=points-25;
+
+                }
                 contNumber.start();
 
             }else{
