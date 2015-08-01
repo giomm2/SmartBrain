@@ -73,6 +73,13 @@ public class ActivityPuzzle extends Activity {
 
     private MediaPlayer player;
 
+    //trae el nombre del usuario
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+    private int gamePoints=0;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -490,7 +497,12 @@ public class ActivityPuzzle extends Activity {
 
         @Override
         public void onFinish() {
+
+            gamePoints=300;
             Intent intent=new Intent(ActivityPuzzle.this,WinActivity.class);
+            bundle.putString("NAME", name);
+            bundle.putInt("POINTS", gamePoints);
+            intent.putExtras(bundle);
             ActivityPuzzle.this.finish();
             startActivity(intent);
 
@@ -505,5 +517,14 @@ public class ActivityPuzzle extends Activity {
         tts.stop();
         tts.shutdown();
         player.stop();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //seteo en name el nombre que viene en extras que es un bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+        ConvertTextToSpeech("Hi" + name);
     }
 }
