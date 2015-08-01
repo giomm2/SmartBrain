@@ -12,7 +12,9 @@
         android:id="@+id/imageRectangle"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/imageTriangle"
-        android:background="@drawable/rec" />
+        android:background="@drawable/rec"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
@@ -74,48 +76,51 @@
     <TextView
         android:textSize="25dp"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Square"
         android:id="@+id/txt_square"
-        android:textColor="#0000FF"
-        android:layout_above="@+id/heart3"
+        android:textColor="#FFFFFF"
+        android:layout_alignTop="@+id/txt_rectangle"
         android:layout_alignLeft="@+id/shapeContainer"
         android:layout_alignStart="@+id/shapeContainer" />
     <TextView
         android:textSize="25dp"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Rectangle"
         android:id="@+id/txt_rectangle"
-        android:textColor="#0000FF"
-        android:layout_above="@+id/heart3"
-        android:layout_toRightOf="@+id/shapeContainer"
+        android:textColor="#FFFFFF"
+        android:layout_above="@+id/heart2"
+        android:layout_alignLeft="@+id/shapeContainer3"
+        android:layout_alignStart="@+id/shapeContainer3"
         android:layout_alignRight="@+id/shapeContainer3"
         android:layout_alignEnd="@+id/shapeContainer3" />
     <TextView
         android:textSize="25dp"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Circle"
         android:id="@+id/txt_circle"
-        android:textColor="#0000FF"
+        android:textColor="#FFFFFF"
         android:layout_alignTop="@+id/txt_triangle"
         android:layout_toRightOf="@+id/shapeContainer2"
         android:layout_toEndOf="@+id/shapeContainer2" />
     <TextView
         android:textSize="25dp"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Triangle"
         android:id="@+id/txt_triangle"
-        android:textColor="#0000FF"
+        android:textColor="#FFFFFF"
         android:layout_alignTop="@+id/txt_rectangle"
         android:layout_alignLeft="@+id/shapeContainer2"
-        android:layout_alignStart="@+id/shapeContainer2" />
+        android:layout_alignStart="@+id/shapeContainer2"
+        android:layout_toLeftOf="@+id/shapeContainer1"
+        android:layout_toStartOf="@+id/shapeContainer1" />
 
     <ImageView
         android:layout_width="80dp"

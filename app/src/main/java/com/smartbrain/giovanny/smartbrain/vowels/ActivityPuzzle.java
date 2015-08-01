@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.smartbrain.giovanny.smartbrain.MainActivity;
 import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.WinActivity;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -474,6 +475,7 @@ public class ActivityPuzzle extends Activity {
 
     protected void onFinish() {
         player.stop();
+        tts.stop();
     }
     CountDownTimer timer = new CountDownTimer(300000,1000) {
         @Override
@@ -488,15 +490,20 @@ public class ActivityPuzzle extends Activity {
 
         @Override
         public void onFinish() {
-
-            ConvertTextToSpeech("Sorry time out. Try again later");
-            Intent intent = new Intent(ActivityPuzzle.this, MenuEasyActivity.class);
-            startActivity(intent);
+            Intent intent=new Intent(ActivityPuzzle.this,WinActivity.class);
             ActivityPuzzle.this.finish();
+            startActivity(intent);
 
         }
     };
 
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
+        tts.shutdown();
+        player.stop();
+    }
 }

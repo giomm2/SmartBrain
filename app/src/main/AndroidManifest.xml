@@ -49,6 +49,7 @@
         <activity
             android:name=".family.FamilyActivityGame"
             android:screenOrientation="landscape" >
+
         </activity>
         <activity
             android:name=".MenuMediumActivity"

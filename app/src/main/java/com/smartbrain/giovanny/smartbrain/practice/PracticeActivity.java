@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.WinActivity;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -61,6 +62,12 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
     private ImageView life2;
     private ImageView life3;
 
+    // trae el usuario
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+    int gamePoints=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +90,10 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
         random();
         txtcont=(TextView)findViewById(R.id.txtTimer);
         btnRepeat.setVisibility(View.INVISIBLE);
+
+        //seteo en name el nombre que viene en extras que es un bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
 
         btn_speak.setOnClickListener(new View.OnClickListener() {
@@ -165,9 +176,12 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
                 if(cont==9){
 
-                    Intent intent = new Intent(PracticeActivity.this,HardMenuActivity.class);
-                    startActivity(intent);
+                    Intent intent=new Intent(PracticeActivity.this,WinActivity.class);
+                    bundle.putString("NAME", name);
+                    bundle.putInt("POINTS", gamePoints);
+                    intent.putExtras(bundle);
                     PracticeActivity.this.finish();
+                    startActivity(intent);
                 }else {
                     timer.start();
                     int resId = getResources().getIdentifier(image[numbers[cont]], "drawable", getPackageName());
@@ -212,7 +226,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
             btnStart.setVisibility(View.VISIBLE);
             btnRepeat.setVisibility(View.INVISIBLE);
             timer.cancel();
-
+            gamePoints=gamePoints+110;
 
         }else{
 
@@ -298,18 +312,43 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                 life1.setVisibility(View.INVISIBLE);
                 timer.start();
                 ConvertTextToSpeech("Try again." +voice[numbers[cont-1]]);
+                if(gamePoints==0){
+                    gamePoints=0;
+
+                }
+                else{
+                    gamePoints=gamePoints+60;
+                }
             }
             else if(life2.getVisibility()==View.VISIBLE){
                 life2.setVisibility(View.INVISIBLE);
                 timer.start();
-                ConvertTextToSpeech("Last chance, try again."+voice[numbers[cont-1]]);
+                ConvertTextToSpeech("Try again."+voice[numbers[cont-1]]);
+                if(gamePoints==0){
+                    gamePoints=0;
+
+                }
+                else{
+                    gamePoints=gamePoints-60;
+                }
             }
 
-            else{
+            else if (life3.getVisibility()==View.VISIBLE){
                 life3.setVisibility(View.INVISIBLE);
-                Intent intent = new Intent(PracticeActivity.this,HardMenuActivity.class);
-                startActivity(intent);
+                timer.start();
+                ConvertTextToSpeech("Last chance, try again." + voice[numbers[cont - 1]]);
+                if(gamePoints==0){
+                    gamePoints=0;
+
+                }
+                else{
+                    gamePoints=gamePoints-60;
+                }
+            }
+            else {
+                Intent intent=new Intent(PracticeActivity.this,HardMenuActivity.class);
                 PracticeActivity.this.finish();
+                startActivity(intent);
             }
         }
 

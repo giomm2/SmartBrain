@@ -16,6 +16,7 @@ import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.WinActivity;
 
 import java.util.Locale;
 
@@ -46,6 +47,12 @@ public class ShapesActivity extends Activity {
 
     private TextToSpeech tts;
     private String text;
+//trae el nombre del usuario
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+    private int gamePoints=0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +71,9 @@ public class ShapesActivity extends Activity {
         container1 = (ImageView) findViewById(R.id.shapeContainer1);
         container2= (ImageView) findViewById(R.id.shapeContainer2);
         container3 = (ImageView) findViewById(R.id.shapeContainer3);
+//seteo en name el nombre que viene en extras que es un bundle
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
         final Drawable yellow = getResources().getDrawable(R.drawable.yellow_market);
         final Drawable red = getResources().getDrawable(R.drawable.red_market);
@@ -166,8 +176,13 @@ public class ShapesActivity extends Activity {
                             v.setVisibility(View.VISIBLE);
                             circleCheck = false;
                             check=true;
+                            gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                Intent intent=new Intent(ShapesActivity.this,WinActivity.class);
+                                bundle.putString("NAME", name);
+                                bundle.putInt("POINTS", gamePoints);
+                                intent.putExtras(bundle);
+                                ShapesActivity.this.finish();
                                 startActivity(intent);
                             }
                         } else {
@@ -181,6 +196,13 @@ public class ShapesActivity extends Activity {
                                 heart.setVisibility(View.INVISIBLE);
 
                                 check=false;
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
+
                             }
                             else if(heart1.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -191,6 +213,12 @@ public class ShapesActivity extends Activity {
                                 rectangleCheck=false;
                                 heart1.setVisibility(View.INVISIBLE);
                                 check=false;
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }else if(heart2.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -200,6 +228,12 @@ public class ShapesActivity extends Activity {
                                 rectangleCheck=false;
                                 check=false;
                                 heart2.setVisibility(View.INVISIBLE);
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }
                             else{
                                 ConvertTextToSpeech("Sorry try again later");
@@ -242,8 +276,13 @@ public class ShapesActivity extends Activity {
                             v.setVisibility(View.VISIBLE);
                             squareCheck=false;
                             check1=true;
+                            gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                Intent intent=new Intent(ShapesActivity.this,WinActivity.class);
+                                bundle.putString("NAME", name);
+                                bundle.putInt("POINTS", gamePoints);
+                                intent.putExtras(bundle);
+                                ShapesActivity.this.finish();
                                 startActivity(intent);
                             }
 
@@ -257,6 +296,12 @@ public class ShapesActivity extends Activity {
                                 rectangleCheck= false;
                                 heart.setVisibility(View.INVISIBLE);
                                 check1=false;
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }else if(heart1.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -266,6 +311,12 @@ public class ShapesActivity extends Activity {
                                 rectangleCheck= false;
                                 heart1.setVisibility(View.INVISIBLE);
                                 check1=false;
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }else if (heart2.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -275,6 +326,12 @@ public class ShapesActivity extends Activity {
                                 rectangleCheck= false;
                                 heart2.setVisibility(View.INVISIBLE);
                                 check1=false;
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
 
                             }else{
                                 ConvertTextToSpeech("Sorry try again later");
@@ -318,8 +375,13 @@ public class ShapesActivity extends Activity {
                             v.setVisibility(View.VISIBLE);
                             triangleCheck=false;
                             check2=true;
+                            gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                Intent intent=new Intent(ShapesActivity.this,WinActivity.class);
+                                bundle.putString("NAME", name);
+                                bundle.putInt("POINTS", gamePoints);
+                                intent.putExtras(bundle);
+                                ShapesActivity.this.finish();
                                 startActivity(intent);
                             }
                         } else {
@@ -332,6 +394,12 @@ public class ShapesActivity extends Activity {
                                 rectangleCheck=false;
                                 check2=false;
                                 heart.setVisibility(View.INVISIBLE);
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }else if (heart1.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -341,6 +409,12 @@ public class ShapesActivity extends Activity {
                                 rectangleCheck=false;
                                 check2=false;
                                 heart1.setVisibility(View.INVISIBLE);
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }else if(heart2.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -350,6 +424,12 @@ public class ShapesActivity extends Activity {
                                 rectangleCheck=false;
                                 heart2.setVisibility(View.INVISIBLE);
                                 check2=false;
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }
                             else{
                                 ConvertTextToSpeech("Sorry try again later");
@@ -391,8 +471,13 @@ public class ShapesActivity extends Activity {
                             v.setVisibility(View.VISIBLE);
                             rectangleCheck=false;
                             check3=true;
+                            gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                Intent intent=new Intent(ShapesActivity.this,WinActivity.class);
+                                bundle.putString("NAME", name);
+                                bundle.putInt("POINTS", gamePoints);
+                                intent.putExtras(bundle);
+                                ShapesActivity.this.finish();
                                 startActivity(intent);
                             }
                         } else {
@@ -406,6 +491,12 @@ public class ShapesActivity extends Activity {
                                 check3=false;
 
                                 heart.setVisibility(View.INVISIBLE);
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
 
                             }else if(heart1.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
@@ -417,6 +508,12 @@ public class ShapesActivity extends Activity {
                                 check3=false;
 
                                 heart1.setVisibility(View.INVISIBLE);
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }else if(heart2.getVisibility()==View.VISIBLE){
                                 ConvertTextToSpeech("Sorry try again");
                                 putShapes();
@@ -427,6 +524,12 @@ public class ShapesActivity extends Activity {
                                 check3=false;
 
                                 heart2.setVisibility(View.INVISIBLE);
+                                if(gamePoints==0){
+                                    gamePoints=0;
+                                }
+                                else {
+                                    gamePoints=gamePoints-10;
+                                }
                             }else {
                                 ConvertTextToSpeech("Sorry try again later");
                                 Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
@@ -489,4 +592,10 @@ public class ShapesActivity extends Activity {
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        tts.stop();
+        tts.shutdown();
+    }
 }
