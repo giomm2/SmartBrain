@@ -31,8 +31,12 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
     private String[] voice={"This is number zero","This is number one","This is number two","This is number three","This is number four",
             "This is number five", "This is number six", "This is number seven","This is number eight","This is number nine"};
 
-    private TextView txtprogress;
-    private ProgressBar progressbar;
+
+
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,9 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
         pos=OrderImage();
         PutImages(pos);
 
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
         tts = new TextToSpeech(NumbersTeachActivity.this, new TextToSpeech.OnInitListener() {
 
@@ -148,6 +155,8 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
 
             case R.id.btn_play:{
                 Intent intent=new Intent(NumbersTeachActivity.this,NumbersGameActivity.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 NumbersTeachActivity.this.finish();
 

@@ -16,8 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.WinActivity;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -37,7 +39,11 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
     private String text2;
     private String[] images={"animalsdog","animalscat","animalsrabbit","animalscow","animalshorse","animalschicken","animalssheep","animalslion","animalsbear","animalspig"};
 
-
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+    int points=0;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -58,6 +64,10 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
         btnrepeat.setOnClickListener(this);
         btnrepeat.setVisibility(View.INVISIBLE);
         btnSpeak.setEnabled(false);
+
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
         btnSpeak.setOnClickListener(new View.OnClickListener() {
 
@@ -131,7 +141,10 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
 
                 if(pos==10){
 
-                  Intent intent= new Intent(AnimalsGameActivity.this, MenuMediumActivity.class);
+                  Intent intent= new Intent(AnimalsGameActivity.this, ComnunityWinActivity.class);
+                    bundle.putString("NAME", name);
+                    bundle.putInt("POINTS", points);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                     AnimalsGameActivity.this.finish();
                 }else {
@@ -144,6 +157,8 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
                     btnnext.setVisibility(View.INVISIBLE);
                     btnrepeat.setVisibility(View.VISIBLE);
                     btnSpeak.setEnabled(true);
+
+
 
                 }
                 break;
@@ -163,10 +178,16 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
         if(txtText.getText().toString().equalsIgnoreCase(voice[pos-1]) ){
 
             ConvertTextToSpeech("Great, please touch next");
+            points=points+35;
             contNumber.cancel();
             btnnext.setVisibility(View.VISIBLE);
             btnrepeat.setVisibility(View.INVISIBLE);
             btnSpeak.setEnabled(false);
+            int extra=Integer.parseInt(txtcont.getText().toString());
+            if(extra>=50){
+
+                points=points+35;
+            }
 
         }else{
 
@@ -210,6 +231,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
         public void onTick(long millisUntilFinished) {
 
             txtcont.setText("" + millisUntilFinished / 1000);
+
         }
 
         @Override
@@ -218,16 +240,37 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
             if (imgHeart1.getVisibility() == View.VISIBLE) {
                 imgHeart1.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech(voice[pos-1]);
+                if(points==0){
+
+                    points=0;
+                }else{
+
+                    points=points-30;
+                }
                 contNumber.start();
 
             } else if (imgHeart2.getVisibility() == View.VISIBLE) {
                 imgHeart2.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech(voice[pos-1]);
+                if(points==0){
+
+                    points=0;
+                }else{
+
+                    points=points-30;
+                }
                 contNumber.start();
 
             } else if (imgHeart3.getVisibility() == View.VISIBLE) {
                 imgHeart3.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech(voice[pos-1]);
+                if(points==0){
+
+                    points=0;
+                }else{
+
+                    points=points-30;
+                }
                 contNumber.start();
 
             } else {

@@ -15,9 +15,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 
+import com.smartbrain.giovanny.smartbrain.ColorsWinActivity;
 import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.colors.ColorsLoadingActivity;
 
 import java.util.Locale;
 
@@ -1123,7 +1125,7 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                         });
                         break;
                     case 9:
-                        Intent intent = new Intent(ConmunityActivity.this, ComnunityWinActivity.class);
+                        Intent intent = new Intent(ConmunityActivity.this, ColorsWinActivity.class);
                         bundle.putString("NAME", name);
                         bundle.putInt("POINTS", points);
                         intent.putExtras(bundle);

@@ -108,7 +108,7 @@ public class ComnunityWinActivity extends Activity implements SeekBar.OnSeekBarC
 
                 //ViewDialog alert = new ViewDialog();
                 //alert.showDialog(ComnunityWinActivity.this, "Are you sure to exit?");
-                Intent intent = new Intent(ComnunityWinActivity.this, MenuMediumActivity.class);
+                Intent intent = new Intent(ComnunityWinActivity.this, HardMenuActivity.class);
                 bundle.putString("NAME", getUser());
                 bundle.putInt("POINTS", pointsForWS);
                 intent.putExtras(bundle);

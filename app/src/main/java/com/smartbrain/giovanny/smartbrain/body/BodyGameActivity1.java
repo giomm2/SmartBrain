@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.WinActivity;
 
 import java.util.Locale;
 
@@ -27,6 +28,11 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
     private String text,text2;
     private  int pos=0, guiaImg1,guiaImg2, guiaImg3,guiaImg4,posId=0;
 
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+    private int points=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +59,13 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
         img3.setEnabled(false);
         img4.setEnabled(false);
         PutImages();
+
+
+
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+
         tts = new TextToSpeech(BodyGameActivity1.this, new TextToSpeech.OnInitListener() {
 
             @Override
@@ -159,6 +172,9 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
                 }else{
                     Intent intent=new Intent(BodyGameActivity1.this,BodyTechActivity2.class);
+                    bundle.putString("NAME", name);
+                    bundle.putInt("POINTS", points);
+                    intent.putExtras(bundle);
                     BodyGameActivity1.this.finish();
                     startActivity(intent);
                 }
@@ -227,6 +243,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
 
         if (numguia==guia[posId]) {
+            int time;
             ConvertTextToSpeech("Good work!!!!, please touch next");
             btnnext.setVisibility(View.VISIBLE);
             btnrepeat.setVisibility(View.INVISIBLE);
@@ -235,25 +252,50 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
             img3.setEnabled(false);
             img4.setEnabled(false);
             contNumber.cancel();
+            points=points+25;
+            time=Integer.parseInt(txtcont.getText().toString());
+            if(time>=20){
+
+                points=points+15;
+            }
             posId++;
 
         }else{
             if(imgHeart1.getVisibility()==View.VISIBLE){
-
                 imgHeart1.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech("Sorry, try again");
+
+                if(points==0){
+
+                    points=0;
+                }
+
+                else{
+                points=points-25;
+
+                }
 
             }else if(imgHeart2.getVisibility()==View.VISIBLE){
 
                 imgHeart2.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech("Sorry, try again");
+                if(points==0){
+
+                    points=0;
+                }else{
+                points=points-25;}
             }else if(imgHeart3.getVisibility()==View.VISIBLE){
 
                 imgHeart3.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech("Last chance");
+                if(points==0){
+                    points=0;
+                }else{
+                points=points-25;}
             }else {
                 contNumber.cancel();
                 BodyGameActivity1.this.recreate();
+                points=0;
 
             }
 
@@ -269,6 +311,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
         public void onTick(long millisUntilFinished) {
 
             txtcont.setText("" + millisUntilFinished / 1000);
+
         }
 
         @Override
@@ -277,16 +320,19 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
             if (imgHeart1.getVisibility() == View.VISIBLE) {
                 imgHeart1.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech(text2);
+                points=points-25;
                 contNumber.start();
 
             } else if (imgHeart2.getVisibility() == View.VISIBLE) {
                 imgHeart2.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech(text2);
+                points=points-25;
                 contNumber.start();
 
             } else if (imgHeart3.getVisibility() == View.VISIBLE) {
                 imgHeart3.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech(text2);
+                points=points-25;
                 contNumber.start();
 
             } else {

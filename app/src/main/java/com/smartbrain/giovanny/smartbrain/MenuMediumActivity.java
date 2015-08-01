@@ -72,6 +72,8 @@ public class MenuMediumActivity extends Activity  {
 
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, AnimalsLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

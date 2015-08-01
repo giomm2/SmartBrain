@@ -14,7 +14,7 @@
         android:textColor="@android:color/background_light"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/userName"
-        android:layout_alignTop="@+id/btnfamily"
+        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -24,7 +24,7 @@
         android:textColor="@android:color/background_light"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/points"
-        android:layout_above="@+id/imgbubble"
+        android:layout_below="@+id/userName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 

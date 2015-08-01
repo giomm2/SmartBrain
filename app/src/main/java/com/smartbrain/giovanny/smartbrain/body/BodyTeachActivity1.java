@@ -25,6 +25,11 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
     private String text;
     private TextToSpeech tts;
 
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +45,9 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
 
 
         PutImages(num);
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
         tts = new TextToSpeech(BodyTeachActivity1.this, new TextToSpeech.OnInitListener() {
 
@@ -102,6 +110,8 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
             case R.id.btn_play:{
 
                 Intent intent = new Intent(BodyTeachActivity1.this,BodyGameActivity1.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 BodyTeachActivity1.this.finish();
                 startActivity(intent);
 

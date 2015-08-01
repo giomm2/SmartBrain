@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.WinActivity;
 
 import java.util.Locale;
 
@@ -30,6 +31,13 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
     private String text, text2;
     private int[] guia = {2130837666,2130837661,2130837665,2130837664,2130837659,2130837658,2130837663,2130837662,2130837657,2130837660};
 
+    // points
+    int points = 0;
+
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +83,10 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
         downImg8.setOnClickListener(this);
         downImg9.setOnClickListener(this);
         txtcont.setVisibility(View.INVISIBLE);
+
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
 
         tts = new TextToSpeech(NumbersGameActivity.this, new TextToSpeech.OnInitListener() {
@@ -245,7 +257,10 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
             }
                 else{
 
-                    Intent intent=new Intent(NumbersGameActivity.this,HardMenuActivity.class);
+                    Intent intent=new Intent(NumbersGameActivity.this,WinActivity.class);
+                    bundle.putString("NAME", name);
+                    bundle.putInt("POINTS", points);
+                    intent.putExtras(bundle);
                     startActivity(intent);
                     NumbersGameActivity.this.finish();
                 }
@@ -333,6 +348,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
             downImg0.setEnabled(false);
             btnrepeat.setEnabled(false);
             contNumber.cancel();
+            points=points+35;
             btnstar.setVisibility(View.VISIBLE);
 
 
@@ -384,6 +400,12 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
                 imageHeart1.setVisibility(View.INVISIBLE);
                 contNumber.cancel();
                 contNumber.start();
+                if (points==0){
+
+                    points=0;
+                }else {
+                    points = points - 50;
+                }
                 ConvertTextToSpeech("Sorry, try again");
 
             } else if (imageHeart2.getVisibility() == View.VISIBLE) {
@@ -392,15 +414,27 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
                 ConvertTextToSpeech("Sorry, try again");
                 contNumber.cancel();
                 contNumber.start();
+                if (points==0){
+
+                    points=0;
+                }else {
+                    points = points - 50;
+                }
             } else if (imageHeart3.getVisibility() == View.VISIBLE) {
                 imageHeart3.setVisibility(View.INVISIBLE);
                 ConvertTextToSpeech("Last chance");
                 contNumber.cancel();
                 contNumber.start();
+                if (points==0){
+
+                    points=0;
+                }else {
+                    points = points - 30;
+                }
             }else{
 
                contNumber.cancel();
-                NumbersGameActivity.this.finish();
+                NumbersGameActivity.this.recreate();
             }
         }
     }

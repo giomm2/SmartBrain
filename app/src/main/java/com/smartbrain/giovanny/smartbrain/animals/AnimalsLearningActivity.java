@@ -39,6 +39,11 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
     //animaciones
     private Animation animation;
 
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+
 
 
     @Override
@@ -57,6 +62,10 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
         //animacion
         animation = AnimationUtils.loadAnimation(AnimalsLearningActivity.this, R.anim.fade_in_animation);
 
+
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
         // tts
         tts = new TextToSpeech(this, this);
@@ -182,6 +191,8 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
             public void onClick(View v) {
 
                 Intent intent= new Intent(AnimalsLearningActivity.this,AnimalsGameActivity.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
                 startActivity(intent);
                 AnimalsLearningActivity.this.finish();
             }

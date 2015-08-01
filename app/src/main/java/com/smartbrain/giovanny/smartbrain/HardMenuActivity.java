@@ -70,6 +70,8 @@ public class HardMenuActivity extends Activity {
             public void onClick(View v) {
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, NumbersLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 music.stop();
             }
@@ -80,6 +82,8 @@ public class HardMenuActivity extends Activity {
             public void onClick(View v) {
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, PracticeLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 music.stop();
             }
@@ -90,6 +94,8 @@ public class HardMenuActivity extends Activity {
             public void onClick(View v) {
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, ShapesLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                intent.putExtras(bundle);
                 startActivity(intent);
                 music.stop();
             }

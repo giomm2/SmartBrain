@@ -25,6 +25,10 @@ public class LoadingActivity extends Activity {
     private int[] images={R.drawable.zbodyone,R.drawable.zbodytwo,R.drawable.zbodythree};
     private int pos=0;
     private String[] advice={"If you select the image quickly you get more points.","If you do not lose your hearts you will have more points.","Pay attention to each image."};
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,10 @@ public class LoadingActivity extends Activity {
         imgcontent=(ImageView)findViewById(R.id.img_cont);
 
         contNumber.start();
+
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
 
 
         tts = new TextToSpeech(LoadingActivity.this, new TextToSpeech.OnInitListener() {
@@ -101,6 +109,9 @@ public class LoadingActivity extends Activity {
         public void onFinish() {
 
             Intent intent= new Intent(LoadingActivity.this, BodyTeachActivity1.class);
+            // le asigno al nuevo bundle name que es nombre del usuario
+            bundle.putString("NAME", name);
+            intent.putExtras(bundle);
             startActivity(intent);
             LoadingActivity.this.finish();
         }

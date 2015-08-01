@@ -22,6 +22,11 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
     private String text;
     private TextToSpeech tts;
 
+    // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
+    Bundle bundle = new Bundle();
+    Bundle extras;
+    private String name;
+    int points;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +44,11 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
 
         num = OrderImage();
         PutImages(num);
+        // agarro el extra y se lo meto a name
+        extras = getIntent().getExtras();
+        name = extras.getString("NAME");
+        points=extras.getInt("POINTS");
+
 
         tts = new TextToSpeech(BodyTechActivity2.this, new TextToSpeech.OnInitListener() {
 
@@ -102,6 +112,9 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
             case R.id.btn_play:{
 
                 Intent intent = new Intent(BodyTechActivity2.this,BodyGameActivity2.class);
+                bundle.putString("NAME", name);
+                bundle.putInt("POINTS",points);
+                intent.putExtras(bundle);
                 BodyTechActivity2.this.finish();
                 startActivity(intent);
                 break;
