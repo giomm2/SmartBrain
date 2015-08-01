@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.WinActivity;
+import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -176,7 +176,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
                 if(cont==9){
 
-                    Intent intent=new Intent(PracticeActivity.this,WinActivity.class);
+                    Intent intent = new Intent(PracticeActivity.this, ComnunityWinActivity.class);
                     bundle.putString("NAME", name);
                     bundle.putInt("POINTS", gamePoints);
                     intent.putExtras(bundle);
@@ -346,7 +346,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                 }
             }
             else {
-                Intent intent= new Intent(PracticeActivity.this, WinActivity.class);
+                Intent intent = new Intent(PracticeActivity.this, ComnunityWinActivity.class);
                 bundle.putString("NAME", name);
                 intent.putExtras(bundle);
                 startActivity(intent);
