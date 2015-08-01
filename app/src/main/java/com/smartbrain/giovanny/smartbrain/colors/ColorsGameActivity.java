@@ -15,7 +15,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 import com.smartbrain.giovanny.smartbrain.ColorsWinActivity;
-import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
 import java.util.Random;

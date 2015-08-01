@@ -8,9 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
-
 import com.smartbrain.giovanny.smartbrain.R;
-
 import java.util.Locale;
 
 public class NeighborhoodLearnActivity extends Activity implements TextToSpeech.OnInitListener {

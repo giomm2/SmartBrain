@@ -10,9 +10,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
-
 import com.smartbrain.giovanny.smartbrain.R;
-
 import java.util.Locale;
 
 public class ColorLearningActivity extends Activity implements TextToSpeech.OnInitListener {

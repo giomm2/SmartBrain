@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;

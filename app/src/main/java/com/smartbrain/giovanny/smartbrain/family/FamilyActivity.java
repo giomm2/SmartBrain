@@ -3,13 +3,11 @@ package com.smartbrain.giovanny.smartbrain.family;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.ProgressBar;
-import android.widget.TextView;
+
 
 import com.smartbrain.giovanny.smartbrain.R;
 

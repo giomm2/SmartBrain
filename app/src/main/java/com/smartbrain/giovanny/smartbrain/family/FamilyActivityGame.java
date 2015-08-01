@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import com.smartbrain.giovanny.smartbrain.WinActivity;
 

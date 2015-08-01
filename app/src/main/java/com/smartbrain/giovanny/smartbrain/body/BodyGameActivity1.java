@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.WinActivity;
+
 
 import java.util.Locale;
 

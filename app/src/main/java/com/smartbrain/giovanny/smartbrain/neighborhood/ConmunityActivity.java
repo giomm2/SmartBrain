@@ -14,12 +14,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-
 import com.smartbrain.giovanny.smartbrain.ColorsWinActivity;
-import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
-import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.colors.ColorsLoadingActivity;
+
 
 import java.util.Locale;
 

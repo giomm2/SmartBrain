@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.R;
-
 import java.util.Locale;
 
 

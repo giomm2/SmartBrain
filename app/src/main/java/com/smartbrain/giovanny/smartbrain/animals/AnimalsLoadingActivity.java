@@ -4,17 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.body.BodyTeachActivity1;
-
 import java.util.Locale;
 
 
