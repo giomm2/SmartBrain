@@ -224,11 +224,6 @@ public class MainActivity extends Activity  {
     protected void onResume() {
 
         super.onResume();
-
-        player = MediaPlayer.create(MainActivity.this, R.raw.fireflies);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
         upBallons();
         rightCloud();
         leftCloud();

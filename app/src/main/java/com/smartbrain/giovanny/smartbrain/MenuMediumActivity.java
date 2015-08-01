@@ -28,6 +28,7 @@ public class MenuMediumActivity extends Activity  {
     private TextView points;
     Bundle bundle = new Bundle();
     Bundle extras;
+    private MediaPlayer selectSound;
 
     private GestureDetectorCompat gestureDetectorCompat;
     private MediaPlayer music;
@@ -52,6 +53,7 @@ public class MenuMediumActivity extends Activity  {
         music= MediaPlayer.create(this,R.raw.fireflies);
         music.setLooping(true);
         music.start();
+        selectSound = MediaPlayer.create(MenuMediumActivity.this, R.raw.pop);
 
 
 
@@ -59,6 +61,7 @@ public class MenuMediumActivity extends Activity  {
             @Override
             public void onClick(View v) {
 
+                selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
@@ -70,6 +73,7 @@ public class MenuMediumActivity extends Activity  {
             @Override
             public void onClick(View v) {
 
+                selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, AnimalsLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
@@ -80,6 +84,7 @@ public class MenuMediumActivity extends Activity  {
         flower2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectSound.start();
                 Intent intent = new Intent(MenuMediumActivity.this, ColorsLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 intent.putExtras(bundle);

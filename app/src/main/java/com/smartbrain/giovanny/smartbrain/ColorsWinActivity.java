@@ -3,6 +3,7 @@ package com.smartbrain.giovanny.smartbrain;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -38,6 +39,7 @@ public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChan
     private String user;
     private int pointsForWS;
     private String deviceID;
+    private MediaPlayer player;
 
 
     // getters y setters
@@ -66,6 +68,11 @@ public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChan
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_win);
+
+        // set back sound
+        player = MediaPlayer.create(ColorsWinActivity.this, R.raw.fireflies);
+        player.setLooping(true);
+        player.start();
 
         sb = (SeekBar) findViewById(R.id.seekBar);
         button = (Button) findViewById(R.id.imageView);
@@ -111,6 +118,7 @@ public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChan
                 bundle.putInt("POINTS", pointsForWS);
                 intent.putExtras(bundle);
                 startActivity(intent);
+                player.stop();
                 ColorsWinActivity.this.finish();
             }
         });
