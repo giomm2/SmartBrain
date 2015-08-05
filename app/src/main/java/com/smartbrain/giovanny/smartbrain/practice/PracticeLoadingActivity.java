@@ -115,4 +115,10 @@ public class PracticeLoadingActivity extends Activity {
             PracticeLoadingActivity.this.finish();
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contNumber.cancel();
+    }
 }

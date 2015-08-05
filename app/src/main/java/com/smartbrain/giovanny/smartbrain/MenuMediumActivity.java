@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,6 +33,10 @@ public class MenuMediumActivity extends Activity  {
 
     private GestureDetectorCompat gestureDetectorCompat;
     private MediaPlayer music;
+    private int pointsC;
+    private Button btnexit;
+    ToastActivity toastActivity=new ToastActivity();
+    ToastExitActivity toastExitActivity= new ToastExitActivity();
 
     protected void onCreate(Bundle savedInstanceState){
 
@@ -46,6 +51,7 @@ public class MenuMediumActivity extends Activity  {
         extras = getIntent().getExtras();
         userName = (TextView) findViewById(R.id.userName);
         points = (TextView) findViewById(R.id.points);
+        btnexit=(Button)findViewById(R.id.btn_exit);
         userName.setText(extras.getString("NAME"));
         points.setText("Points: " + extras.getInt("POINTS"));
         gestureDetectorCompat= new GestureDetectorCompat(this, new MyGestureListener());
@@ -54,42 +60,68 @@ public class MenuMediumActivity extends Activity  {
         music.setLooping(true);
         music.start();
         selectSound = MediaPlayer.create(MenuMediumActivity.this, R.raw.pop);
+        pointsC=extras.getInt("POINTS");
 
 
+        btnexit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                toastExitActivity.showDialog(MenuMediumActivity.this, " Do you want to exit? ");
+
+            }
+        });
 
         flower.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(pointsC>=2000){
                 selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivity(intent);}
+                else{
+
+                    toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 2000 points.");
+                }
             }
         });
         flower1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                if(pointsC>=4000){
                 selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, AnimalsLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivity(intent);}
+                else{
+
+                    toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 4000 points.");
+                }
             }
         });
         flower2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(pointsC>=3000){
+
                 selectSound.start();
                 Intent intent = new Intent(MenuMediumActivity.this, ColorsLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 intent.putExtras(bundle);
                 startActivity(intent);
-                music.stop();
+                music.stop();}
+                    else{
+
+                        toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 3000 points.");
+                    }
+
             }
         });
     }

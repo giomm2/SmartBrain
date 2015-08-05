@@ -117,7 +117,11 @@ public class LoadingActivity extends Activity {
         }
     };
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contNumber.cancel();
+    }
 
 
 }

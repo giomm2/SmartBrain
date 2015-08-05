@@ -30,7 +30,7 @@
         <activity
             android:name=".MenuEasyActivity"
             android:label="@string/title_activity_menu_easy"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".HardMenuActivity"
@@ -49,7 +49,6 @@
         <activity
             android:name=".family.FamilyActivityGame"
             android:screenOrientation="landscape" >
-
         </activity>
         <activity
             android:name=".MenuMediumActivity"
@@ -157,7 +156,7 @@
         <activity
             android:name=".animals.AnimalsLoadingActivity"
             android:label="@string/title_activity_animals_loading"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".family.FamilyLoadingActivity"
@@ -197,19 +196,21 @@
         <activity
             android:name=".WinActivity"
             android:label="@string/title_activity_win"
-            android:screenOrientation="landscape">
-
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".ComnunityWinActivity"
             android:label="@string/title_activity_comnunity_win"
-            android:screenOrientation="landscape">
-
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name=".ColorsWinActivity"
             android:label="@string/title_activity_colors_win"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape" >
+        </activity>
+        <activity
+            android:name=".ToastActivity"
+            android:label="@string/title_activity_toast" >
         </activity>
     </application>
 

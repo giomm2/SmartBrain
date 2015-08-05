@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:id="@+id/a"
+        android:gravity="center"
+        android:background="#ffda0c06"
+        android:scaleType="fitCenter"
+        android:src="@android:drawable/ic_lock_idle_lock"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TEXTO"
+        android:id="@+id/text_dialog"
+        android:layout_below="@+id/a"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginBottom="20dp"
+        android:textSize="21sp"
+        android:textColor="#ff000000"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal" />
+
+
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/btn_dialog1"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@drawable/zcheck"
+        android:layout_alignTop="@+id/btn_no"
+        android:layout_toLeftOf="@+id/btn_no"
+        android:layout_toStartOf="@+id/btn_no" />
+
+    <Button
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:id="@+id/btn_no"
+        android:background="@drawable/zuncheck"
+        android:gravity="center_vertical|center_horizontal"
+        android:visibility="invisible"
+        android:layout_below="@+id/text_dialog"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

@@ -114,4 +114,10 @@ public class ShapesLoadingActivity extends Activity {
             ShapesLoadingActivity.this.finish();
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contNumber.cancel();
+    }
 }

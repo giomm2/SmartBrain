@@ -114,4 +114,9 @@ public class ColorsLoadingActivity extends Activity {
             ColorsLoadingActivity.this.finish();
         }
     };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contNumber.cancel();
+    }
 }

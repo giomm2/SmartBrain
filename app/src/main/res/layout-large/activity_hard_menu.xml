@@ -103,7 +103,15 @@
         android:layout_above="@+id/rocket2"
         android:layout_centerHorizontal="true" />
 
-
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/btn_exit"
+        android:background="@drawable/door"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

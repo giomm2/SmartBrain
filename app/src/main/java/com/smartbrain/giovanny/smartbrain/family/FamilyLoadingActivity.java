@@ -113,4 +113,10 @@ public class FamilyLoadingActivity extends Activity {
             FamilyLoadingActivity.this.finish();
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contNumber.cancel();
+    }
 }

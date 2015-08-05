@@ -112,4 +112,10 @@ public class NumbersLoadingActivity extends Activity {
             NumbersLoadingActivity.this.finish();
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contNumber.cancel();
+    }
 }

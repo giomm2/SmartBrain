@@ -116,4 +116,12 @@ public class VowelsLoadingActivity extends Activity {
             startActivity(intent);
             VowelsLoadingActivity.this.finish();
         }
-    };}
+    };
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contNumber.cancel();
+    }
+
+
+}

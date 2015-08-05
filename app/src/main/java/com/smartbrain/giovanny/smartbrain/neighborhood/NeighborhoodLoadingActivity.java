@@ -111,4 +111,10 @@ public class NeighborhoodLoadingActivity extends Activity {
             NeighborhoodLoadingActivity.this.finish();
         }
     };
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        contNumber.cancel();
+    }
 }

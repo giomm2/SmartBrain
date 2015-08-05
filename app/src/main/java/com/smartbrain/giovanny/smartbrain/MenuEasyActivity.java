@@ -10,8 +10,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.smartbrain.giovanny.smartbrain.body.LoadingActivity;
 import com.smartbrain.giovanny.smartbrain.family.FamilyLoadingActivity;
@@ -19,7 +21,6 @@ import com.smartbrain.giovanny.smartbrain.vowels.VowelsLoadingActivity;
 
 
 public class MenuEasyActivity extends Activity {
-
     private ImageView fishblue;
     private ImageView fishorange;
     private ImageView bubble1;
@@ -33,8 +34,10 @@ public class MenuEasyActivity extends Activity {
     private GestureDetectorCompat gestureDetectorCompat;
     Bundle bundle = new Bundle();
     Bundle extras;
-
-
+    private int pointsC;
+    ToastActivity toastActivity=new ToastActivity();
+    private Button btnexit;
+    ToastExitActivity toastExitActivity= new ToastExitActivity();
 
 
     @Override
@@ -57,15 +60,27 @@ public class MenuEasyActivity extends Activity {
         bfamily=(ImageView)findViewById(R.id.btnfamily);
         bvowel=(ImageView)findViewById(R.id.btnvowel);
         bbody=(ImageView)findViewById(R.id.btnbody);
+        btnexit=(Button)findViewById(R.id.btn_exit);
         //set background sound
         music= MediaPlayer.create(this,R.raw.fireflies);
         music.setLooping(true);
         music.start();
+        pointsC=extras.getInt("POINTS");
 
 
         // set bubblepop sound
         bubblePop = MediaPlayer.create(MenuEasyActivity.this, R.raw.bubblepop);
         bubblePop.setVolume(100, 100);
+
+        btnexit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                toastExitActivity.showDialog(MenuEasyActivity.this, " Do you want to exit? ");
+
+            }
+        });
+
 
         bfamily.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,24 +97,42 @@ public class MenuEasyActivity extends Activity {
         bbody.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                music.stop();
-                bubblePop.start();
                 // este bundle me lleva el nombre del usuario a la actividad de la familia aunque no sea visible en ningun lugar
                 bundle.putString("NAME", extras.getString("NAME"));
-                Intent intent = new Intent(MenuEasyActivity.this, LoadingActivity.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
+
+                if(pointsC>=40){
+                    Intent intent = new Intent(MenuEasyActivity.this, LoadingActivity.class);
+                    intent.putExtras(bundle);
+                    music.stop();
+                    bubblePop.start();
+                    startActivity(intent);
+
+                }
+                else{
+                    toastActivity.showDialog(MenuEasyActivity.this,"Sorry, you need more than 40 points.");
+
+                }
             }
         });
         bvowel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                music.stop();
-                bubblePop.start();
-                Intent intent = new Intent(MenuEasyActivity.this, VowelsLoadingActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
-                intent.putExtras(bundle);
-                startActivity(intent);
+
+                if (pointsC>=1000){
+
+                    Intent intent = new Intent(MenuEasyActivity.this, VowelsLoadingActivity.class);
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    intent.putExtras(bundle);
+                    music.stop();
+                    bubblePop.start();
+                    startActivity(intent);
+
+                }else{
+
+                    toastActivity.showDialog(MenuEasyActivity.this,"Sorry, you need more than 1000 points.");
+                }
+
+
             }
         });
 
@@ -200,6 +233,8 @@ public class MenuEasyActivity extends Activity {
             return true;
         }
     }
+
+
 }
 
 
