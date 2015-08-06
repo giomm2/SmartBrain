@@ -118,5 +118,19 @@ public class FamilyLoadingActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         contNumber.cancel();
+        FamilyLoadingActivity.this.finish();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        contNumber.cancel();
+        FamilyLoadingActivity.this.finish();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        contNumber.cancel();
+        FamilyLoadingActivity.this.finish();
     }
 }

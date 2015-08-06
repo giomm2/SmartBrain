@@ -120,5 +120,19 @@ public class PracticeLoadingActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         contNumber.cancel();
+        PracticeLoadingActivity.this.finish();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        contNumber.cancel();
+        PracticeLoadingActivity.this.finish();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        contNumber.cancel();
+        PracticeLoadingActivity.this.finish();
     }
 }

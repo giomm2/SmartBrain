@@ -92,9 +92,9 @@
         android:layout_height="50dp"
         android:id="@+id/btn_exit"
         android:background="@drawable/door"
-        android:layout_below="@+id/btnbody"
-        android:layout_toRightOf="@+id/points"
-        android:layout_toEndOf="@+id/points" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

@@ -121,6 +121,20 @@ public class LoadingActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         contNumber.cancel();
+        LoadingActivity.this.finish();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        contNumber.cancel();
+        LoadingActivity.this.finish();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        contNumber.cancel();
+        LoadingActivity.this.finish();
     }
 
 

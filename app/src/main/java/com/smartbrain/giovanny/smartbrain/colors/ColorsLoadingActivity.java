@@ -118,5 +118,19 @@ public class ColorsLoadingActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         contNumber.cancel();
+        ColorsLoadingActivity.this.finish();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        contNumber.cancel();
+        ColorsLoadingActivity.this.finish();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        contNumber.cancel();
+        ColorsLoadingActivity.this.finish();
     }
 }

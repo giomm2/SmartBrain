@@ -121,6 +121,20 @@ public class VowelsLoadingActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         contNumber.cancel();
+        VowelsLoadingActivity.this.finish();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        contNumber.cancel();
+        VowelsLoadingActivity.this.finish();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        contNumber.cancel();
+        VowelsLoadingActivity.this.finish();
     }
 
 

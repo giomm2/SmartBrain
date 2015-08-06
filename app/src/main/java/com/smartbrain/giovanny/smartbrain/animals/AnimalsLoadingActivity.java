@@ -118,5 +118,20 @@ public class AnimalsLoadingActivity extends Activity {
     protected void onDestroy() {
         super.onDestroy();
         contNumber.cancel();
+        AnimalsLoadingActivity.this.finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        contNumber.cancel();
+        AnimalsLoadingActivity.this.finish();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        contNumber.cancel();
+        AnimalsLoadingActivity.this.finish();
     }
 }

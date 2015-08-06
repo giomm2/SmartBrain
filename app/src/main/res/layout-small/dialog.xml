@@ -32,21 +32,11 @@
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:id="@+id/btn_dialog"
-        android:background="@drawable/zuncheck"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_below="@+id/text_dialog"
-        android:layout_toLeftOf="@+id/btn_dialog1"
-        android:layout_toStartOf="@+id/btn_dialog1"/>
-
-    <Button
-        android:layout_width="50dp"
-        android:layout_height="50dp"
         android:id="@+id/btn_dialog1"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_alignTop="@+id/btn_dialog"
         android:layout_toRightOf="@+id/text_dialog"
         android:layout_toEndOf="@+id/text_dialog"
-        android:background="@drawable/zcheck"/>
+        android:background="@drawable/zcheck"
+        android:layout_below="@+id/text_dialog" />
 
 </RelativeLayout>

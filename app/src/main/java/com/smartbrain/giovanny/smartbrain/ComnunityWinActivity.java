@@ -124,6 +124,9 @@ public class ComnunityWinActivity extends Activity{
         super.onStart();
         ballons();
         firework();
+        ViewDialog alert = new ViewDialog();
+        alert.showDialog(ComnunityWinActivity.this, "Are you sure to exit?");
+
     }
 
     private void ballons() {
@@ -169,7 +172,7 @@ public class ComnunityWinActivity extends Activity{
                         setPointsForWS(obj.getInt("points"));
                         button2.setText("" + obj.getInt("points"));
                         // Display successfully registered message using Toast
-                        Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", your points have been updated!", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", your points have been updated!", Toast.LENGTH_LONG).show();
                     }
                     // Else display error message
                     else {

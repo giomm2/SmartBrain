@@ -104,8 +104,6 @@ public class ColorsWinActivity extends Activity {
             @Override
             public void onClick(View v) {
 
-                //ViewDialog alert = new ViewDialog();
-                //alert.showDialog(WinActivity.this, "Are you sure to exit?");
 
                 Intent intent = new Intent(ColorsWinActivity.this, MenuMediumActivity.class);
                 bundle.putString("NAME", getUser());
@@ -123,6 +121,9 @@ public class ColorsWinActivity extends Activity {
         super.onStart();
         ballons();
         firework();
+        ViewDialog alert = new ViewDialog();
+        alert.showDialog(ColorsWinActivity.this, "Are you sure to exit?");
+
     }
 
     private void ballons() {
@@ -168,7 +169,7 @@ public class ColorsWinActivity extends Activity {
                         setPointsForWS(obj.getInt("points"));
                         button2.setText("" + obj.getInt("points"));
                         // Display successfully registered message using Toast
-                        Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", your points have been updated!", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", your points have been updated!", Toast.LENGTH_LONG).show();
                     }
                     // Else display error message
                     else {

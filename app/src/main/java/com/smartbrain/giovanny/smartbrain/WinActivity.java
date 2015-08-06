@@ -175,7 +175,7 @@ public class WinActivity extends Activity{
                         setPointsForWS(obj.getInt("points"));
                         button2.setText("" + obj.getInt("points"));
                         // Display successfully registered message using Toast
-                        Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", your points have been updated!", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", your points have been updated!", Toast.LENGTH_LONG).show();
                     }
                     // Else display error message
                     else {
@@ -209,10 +209,5 @@ public class WinActivity extends Activity{
             }
         });
     }
-public  void pasar(){
-    Intent intent = new Intent(WinActivity.this,MenuEasyActivity.class);
-    startActivity(intent);
-    WinActivity.this.finish();
-}
 
 }
