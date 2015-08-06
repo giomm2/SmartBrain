@@ -143,8 +143,6 @@ public class MenuMediumActivity extends Activity  {
     @Override
     protected void onResume() {
         super.onResume();
-        music= MediaPlayer.create(this,R.raw.fireflies);
-        music.setLooping(true);
         music.start();
         flowerMovement();
         smokeAnimation();
@@ -153,12 +151,14 @@ public class MenuMediumActivity extends Activity  {
     @Override
     protected void onStop() {
         super.onStop();
+        music.stop();
 
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+        music.stop();
 
     }
 
@@ -196,6 +196,7 @@ public class MenuMediumActivity extends Activity  {
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+                music.stop();
                 MenuMediumActivity.this.finish();
             }else if(event2.getX() > event1.getX()){
                 Intent intent = new Intent(
@@ -205,10 +206,17 @@ public class MenuMediumActivity extends Activity  {
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
+                music.stop();
                 MenuMediumActivity.this.finish();
             }
 
             return true;
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        music.stop();
     }
 }

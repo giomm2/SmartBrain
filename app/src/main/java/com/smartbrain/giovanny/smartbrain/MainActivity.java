@@ -154,7 +154,7 @@ public class MainActivity extends Activity  {
                         setUser(obj.getString("user"));
                         setPoints(obj.getInt("points"));
                         // Display successfully registered message using Toast
-                        Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", you can play now!", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", you can play now!", Toast.LENGTH_LONG).show();
                         Intent intent= new Intent(MainActivity.this,MenuEasyActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("NAME", getUser());
@@ -200,6 +200,11 @@ public class MainActivity extends Activity  {
         });
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        player.stop();
+    }
 
     @Override
     protected void onPause() {
@@ -227,6 +232,7 @@ public class MainActivity extends Activity  {
         upBallons();
         rightCloud();
         leftCloud();
+        player.start();
 
     }
 

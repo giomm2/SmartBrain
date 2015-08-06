@@ -163,8 +163,6 @@ public class MenuEasyActivity extends Activity {
     public void onResume(){
 
         super.onResume();
-        music= MediaPlayer.create(this,R.raw.fireflies);
-        music.setLooping(true);
         music.start();
         leftFish();
         upBubble();
@@ -218,12 +216,14 @@ public class MenuEasyActivity extends Activity {
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+                music.stop();
                 MenuEasyActivity.this.finish();
             }else if(event2.getX() > event1.getX()){
                 Intent intent = new Intent(
                         MenuEasyActivity.this, HardMenuActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
+                music.stop();
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
@@ -234,6 +234,23 @@ public class MenuEasyActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        music.stop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        music.stop();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        music.stop();
+    }
 
 }
 

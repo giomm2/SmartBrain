@@ -158,8 +158,6 @@ public class HardMenuActivity extends Activity {
     protected void onResume() {
         super.onResume();
         leftZeppelin();
-        music= MediaPlayer.create(this,R.raw.fireflies);
-        music.setLooping(true);
         music.start();
         topBaloomMovement();
         leftBaloomMovement();
@@ -228,6 +226,7 @@ public class HardMenuActivity extends Activity {
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+                music.stop();
                 HardMenuActivity.this.finish();
             }else if(event2.getX() > event1.getX()){
                 Intent intent = new Intent(
@@ -237,6 +236,7 @@ public class HardMenuActivity extends Activity {
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
+                music.stop();
                 HardMenuActivity.this.finish();
             }
 
@@ -244,4 +244,21 @@ public class HardMenuActivity extends Activity {
         }
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        music.stop();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        music.stop();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        music.stop();
+    }
 }
