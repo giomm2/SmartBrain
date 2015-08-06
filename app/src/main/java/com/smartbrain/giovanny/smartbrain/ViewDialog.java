@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 public class ViewDialog {
 
-    WinActivity win = new WinActivity();
-
     public void showDialog(Activity activity, String msg){
         final Dialog dialog = new Dialog(activity);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -32,10 +30,11 @@ public class ViewDialog {
         dialogButton1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                win.pasar();
+
                 dialog.dismiss();
             }
         });
         dialog.show();
     }
+
 }

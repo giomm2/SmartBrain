@@ -11,7 +11,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,8 +22,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeListener{
-    private SeekBar sb;
+public class WinActivity extends Activity{
     private ImageView image3,image4,image5,image6,image7,image8;
     private Button button,button1,button2,button3,image9;
     private TextView username;
@@ -73,7 +71,6 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
         player.setLooping(true);
         player.start();
         // variables
-        sb = (SeekBar) findViewById(R.id.seekBar);
         button= (Button) findViewById(R.id.imageView);
         button1= (Button) findViewById(R.id.imageButton);
         button2= (Button) findViewById(R.id.imageView2);
@@ -86,8 +83,6 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
         image8 = (ImageView) findViewById(R.id.imageView8);
         image9= (Button) findViewById(R.id.imageView9);
         username = (TextView) findViewById(R.id.userName);
-        sb.setMax(2600);
-        sb.setOnSeekBarChangeListener(this);
 
         //bundle viejo
         extras = getIntent().getExtras();
@@ -126,29 +121,15 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
         });
     }
 
-    @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        sb.setEnabled(false);
-
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        sb.setEnabled(false);
-
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        sb.setEnabled(false);
-    }
 
     @Override
     protected void onStart() {
         super.onStart();
-        sb.setProgress(288);
         ballons();
         firework();
+        ViewDialog alert = new ViewDialog();
+        alert.showDialog(WinActivity.this, "Well done you do it!!");
+
     }
     private void ballons(){
 
@@ -228,10 +209,10 @@ public class WinActivity extends Activity implements SeekBar.OnSeekBarChangeList
             }
         });
     }
-//public  void pasar(){
-    //Intent intent = new Intent(WinActivity.this,MenuEasyActivity.class);
-    //startActivity(intent);
-    //WinActivity.this.finish();
-//}
+public  void pasar(){
+    Intent intent = new Intent(WinActivity.this,MenuEasyActivity.class);
+    startActivity(intent);
+    WinActivity.this.finish();
+}
 
 }

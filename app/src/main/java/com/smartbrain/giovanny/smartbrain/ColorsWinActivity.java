@@ -11,7 +11,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 
-public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChangeListener {
+public class ColorsWinActivity extends Activity {
 
-    private SeekBar sb;
     private ImageView image3, image4, image5, image6, image7, image8;
     private Button button, button1, button2, button3, image9;
     private TextView username;
@@ -74,7 +72,6 @@ public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChan
         player.setLooping(true);
         player.start();
 
-        sb = (SeekBar) findViewById(R.id.seekBar);
         button = (Button) findViewById(R.id.imageView);
         button1 = (Button) findViewById(R.id.imageButton);
         button2 = (Button) findViewById(R.id.imageView2);
@@ -87,9 +84,6 @@ public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChan
         image8 = (ImageView) findViewById(R.id.imageView8);
         image9 = (Button) findViewById(R.id.imageView9);
         username = (TextView) findViewById(R.id.userName);
-        sb.setMax(2600);
-        sb.setOnSeekBarChangeListener(this);
-
         //bundle viejo
         extras = getIntent().getExtras();
         username.setText(extras.getString("NAME"));
@@ -125,26 +119,8 @@ public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChan
     }
 
     @Override
-    public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        sb.setEnabled(false);
-
-    }
-
-    @Override
-    public void onStartTrackingTouch(SeekBar seekBar) {
-        sb.setEnabled(false);
-
-    }
-
-    @Override
-    public void onStopTrackingTouch(SeekBar seekBar) {
-        sb.setEnabled(false);
-    }
-
-    @Override
     protected void onStart() {
         super.onStart();
-        sb.setProgress(288);
         ballons();
         firework();
     }
@@ -226,4 +202,6 @@ public class ColorsWinActivity extends Activity implements SeekBar.OnSeekBarChan
             }
         });
     }
+
+
 }

@@ -21,16 +21,6 @@
         android:layout_marginLeft="67dp"
         android:layout_marginStart="67dp" />
 
-    <SeekBar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
-        android:layout_gravity="center"
-        android:layout_marginLeft="4dp"
-
-        android:progressDrawable="@drawable/zprogress2"
-        android:thumb="@drawable/zpoint" />
-
     <Button
         android:layout_width="150dp"
         android:layout_height="150dp"
