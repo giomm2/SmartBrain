@@ -33,6 +33,9 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
     private TextToSpeech tts;
     // points
     int points = 0;
+    // counters
+    int counterFamily = 0;
+    int counterHowFamily = 0;
 
     // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
     Bundle bundle = new Bundle();
@@ -40,16 +43,208 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
     private String name;
 
 
+    protected void setDadSounds() {
+        //set Sounds for al the imageViews
+        int imageArray[] = {R.id.dad, R.id.dad1, R.id.dad2, R.id.dad3, R.id.dad4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("dad");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setMomSounds() {
+        int imageArray[] = {R.id.mom, R.id.mom1, R.id.mom2, R.id.mom3, R.id.mom4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("Mom");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setSisterSounds() {
+        int imageArray[] = {R.id.sister, R.id.sister2, R.id.sister3, R.id.sister4, R.id.sister1};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("sister");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setBortherSounds() {
+        int imageArray[] = {R.id.brother, R.id.brother1, R.id.brother2, R.id.brother3, R.id.brother4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("Brother");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setGrandpaSounds() {
+        int imageArray[] = {R.id.grandpa, R.id.grandpa1, R.id.grandpa2, R.id.grandpa3, R.id.grandpa4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("Grandpa");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setAuntSounds() {
+        int imageArray[] = {R.id.aunt, R.id.aunt1, R.id.aunt2, R.id.aunt3, R.id.aunt4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("aunt");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setUncleSounds() {
+        int imageArray[] = {R.id.uncle, R.id.uncle1, R.id.uncle2, R.id.uncle3, R.id.uncle4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("uncle");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setGrandmaSounds() {
+        int imageArray[] = {R.id.grandma, R.id.grandma1, R.id.grandma2, R.id.grandma3, R.id.grandma4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("Grandma");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setCatSounds() {
+        int imageArray[] = {R.id.cat, R.id.cat1, R.id.cat2, R.id.cat3, R.id.cat4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("cat");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
+    protected void setDogSounds() {
+        int imageArray[] = {R.id.dog, R.id.dog1, R.id.dog2, R.id.dog3, R.id.dog4};
+        for (int i = 0; i < imageArray.length; i++) {
+            findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    speakOut("dog");
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        ClipData data = ClipData.newPlainText("", "");
+                        View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
+                        v.startDrag(data, shadowBuilder, v, 0);
+                        v.setVisibility(View.VISIBLE);
+                        return true;
+                    } else
+                        return false;
+                }
+            });
+        }
+    }
+
     protected void viewSetter(){
-        // seteo el touch listener para cada imagen en el layout y llamo a la clase MyTouchListener
-        int imageArray[] = {R.id.dad,R.id.dad1,R.id.dad2,R.id.dad3,R.id.dad4,R.id.mom,R.id.mom1,R.id.mom2,R.id.mom3,R.id.mom4
-                ,R.id.sister,R.id.sister2,R.id.sister3,R.id.sister4,R.id.sister1,R.id.brother,R.id.brother1,R.id.brother2
-                ,R.id.brother3,R.id.brother4,R.id.aunt,R.id.aunt1,R.id.aunt2,R.id.aunt3,R.id.aunt4,R.id.uncle,R.id.uncle1
-                ,R.id.uncle2,R.id.uncle3,R.id.uncle4,R.id.cat,R.id.cat1,R.id.cat2,R.id.cat3,R.id.cat4,R.id.dog,R.id.dog1
-                ,R.id.dog2,R.id.dog3,R.id.dog4,R.id.grandma,R.id.grandma1,R.id.grandma2,R.id.grandma3,R.id.grandma4,R.id.grandpa
-                ,R.id.grandpa1,R.id.grandpa2,R.id.grandpa3,R.id.grandpa4};
-        for(int i=0;i<imageArray.length;i++)
-            findViewById(imageArray[i]).setOnTouchListener(new MyTouchListener());
         // seteo el DragListener que va a llamar a la clase MyDragListener
         int layoutArray[]={R.id.familyLayout,R.id.familyLayout2,R.id.howFamLayout,R.id.howFamLayout2};
         for(int i=0; i<layoutArray.length; i++)
@@ -63,6 +258,16 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
         tts = new TextToSpeech(this,this);
 
         viewSetter();
+        setDadSounds();
+        setMomSounds();
+        setSisterSounds();
+        setBortherSounds();
+        setAuntSounds();
+        setUncleSounds();
+        setGrandmaSounds();
+        setGrandpaSounds();
+        setCatSounds();
+        setDogSounds();
         layoutLeft =(LinearLayout)findViewById(R.id.familyLayout);
         layoutLeft2= (LinearLayout)findViewById(R.id.familyLayout2);
         layoutRight=(LinearLayout)findViewById(R.id.howFamLayout);
@@ -106,7 +311,9 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
                 int action = event.getAction();
                 switch (event.getAction()) {
                     case DragEvent.ACTION_DRAG_ENTERED:
-                        speakOut("you can drag your family members here");
+                        if (counterFamily == 0)
+                            speakOut("you can drag your family members here");
+                        counterFamily++;
                         break;
                 }
                 return true;
@@ -118,7 +325,9 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
                 int action = event.getAction();
                 switch (event.getAction()) {
                     case DragEvent.ACTION_DRAG_ENTERED:
-                        speakOut("drag the members that you would like to have in your family here");
+                        if (counterHowFamily == 0)
+                            speakOut("drag the members that you would like to have in your family here");
+                        counterHowFamily++;
                         break;
                 }
                 return true;
