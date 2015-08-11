@@ -40,6 +40,7 @@ public class MainActivity extends Activity  {
     private RequestParams parametersForSelect; // no quitar la variable porque se necesita para el el llamado del web service que selecciona.
     String uniqueDevice = "";
     private String id;
+    private String paymentStatus;
 
     public String getId() {
         return id;
@@ -153,12 +154,14 @@ public class MainActivity extends Activity  {
                         // Set Default Values for Edit View controls
                         setUser(obj.getString("user"));
                         setPoints(obj.getInt("points"));
+                        paymentStatus = obj.getString("paymentStatus");
                         // Display successfully registered message using Toast
                         //Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", you can play now!", Toast.LENGTH_LONG).show();
                         Intent intent= new Intent(MainActivity.this,MenuEasyActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("NAME", getUser());
                         bundle.putInt("POINTS", getPoints());
+                        bundle.putString("PAYMENT", paymentStatus);
                         MainActivity.this.finish();
                         player.stop();
                         intent.putExtras(bundle);

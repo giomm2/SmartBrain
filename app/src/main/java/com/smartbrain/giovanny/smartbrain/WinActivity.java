@@ -37,6 +37,7 @@ public class WinActivity extends Activity{
     private int pointsForWS;
     private String deviceID;
     private MediaPlayer player;
+    private String paymentStatus;
 
 
     // getters y setters
@@ -113,6 +114,7 @@ public class WinActivity extends Activity{
                 Intent intent = new Intent(WinActivity.this, MenuEasyActivity.class);
                 bundle.putString("NAME", getUser());
                 bundle.putInt("POINTS", pointsForWS);
+                bundle.putString("PAYMENT", paymentStatus);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 player.stop();
@@ -174,6 +176,7 @@ public class WinActivity extends Activity{
                         setUser(obj.getString("user"));
                         setPointsForWS(obj.getInt("points"));
                         button2.setText("" + obj.getInt("points"));
+                        paymentStatus = obj.getString("paymentStatus");
                         // Display successfully registered message using Toast
                         //Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", your points have been updated!", Toast.LENGTH_LONG).show();
                     }

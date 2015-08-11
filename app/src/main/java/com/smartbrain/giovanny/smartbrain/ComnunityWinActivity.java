@@ -38,6 +38,7 @@ public class ComnunityWinActivity extends Activity{
     private int pointsForWS;
     private String deviceID;
     private MediaPlayer player;
+    private String paymentStatus;
 
 
     // getters y setters
@@ -110,6 +111,7 @@ public class ComnunityWinActivity extends Activity{
                 Intent intent = new Intent(ComnunityWinActivity.this, HardMenuActivity.class);
                 bundle.putString("NAME", getUser());
                 bundle.putInt("POINTS", pointsForWS);
+                bundle.putString("PAYMENT", paymentStatus);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 player.stop();
@@ -170,6 +172,7 @@ public class ComnunityWinActivity extends Activity{
                         // Set Default Values for Edit View controls
                         setUser(obj.getString("user"));
                         setPointsForWS(obj.getInt("points"));
+                        paymentStatus = obj.getString("paymentStatus");
                         button2.setText("" + obj.getInt("points"));
                         // Display successfully registered message using Toast
                        // Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", your points have been updated!", Toast.LENGTH_LONG).show();

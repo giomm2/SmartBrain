@@ -14,9 +14,9 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
+import com.smartbrain.giovanny.smartbrain.WinActivity;
 
 import java.util.Locale;
 
@@ -178,7 +178,7 @@ public class ShapesActivity extends Activity {
                             check=true;
                             gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent(ShapesActivity.this, ComnunityWinActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
                                 bundle.putString("NAME", name);
                                 bundle.putInt("POINTS", gamePoints);
                                 intent.putExtras(bundle);
@@ -237,7 +237,7 @@ public class ShapesActivity extends Activity {
                             }
                             else{
                                 ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, MenuEasyActivity.class);
                                 startActivity(intent);
                                 ShapesActivity.this.finish();
                             }
@@ -278,7 +278,7 @@ public class ShapesActivity extends Activity {
                             check1=true;
                             gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent(ShapesActivity.this, ComnunityWinActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
                                 bundle.putString("NAME", name);
                                 bundle.putInt("POINTS", gamePoints);
                                 intent.putExtras(bundle);
@@ -335,7 +335,7 @@ public class ShapesActivity extends Activity {
 
                             }else{
                                 ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, MenuEasyActivity.class);
                                 startActivity(intent);
                                 ShapesActivity.this.finish();
                             }
@@ -377,7 +377,7 @@ public class ShapesActivity extends Activity {
                             check2=true;
                             gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent(ShapesActivity.this, ComnunityWinActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
                                 bundle.putString("NAME", name);
                                 bundle.putInt("POINTS", gamePoints);
                                 intent.putExtras(bundle);
@@ -433,7 +433,7 @@ public class ShapesActivity extends Activity {
                             }
                             else{
                                 ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, MenuEasyActivity.class);
                                 startActivity(intent);
                                 ShapesActivity.this.finish();
                             }
@@ -473,7 +473,7 @@ public class ShapesActivity extends Activity {
                             check3=true;
                             gamePoints=gamePoints+30;
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent(ShapesActivity.this, ComnunityWinActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
                                 bundle.putString("NAME", name);
                                 bundle.putInt("POINTS", gamePoints);
                                 intent.putExtras(bundle);
@@ -532,7 +532,7 @@ public class ShapesActivity extends Activity {
                                 }
                             }else {
                                 ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent (ShapesActivity.this, HardMenuActivity.class);
+                                Intent intent = new Intent(ShapesActivity.this, MenuEasyActivity.class);
                                 startActivity(intent);
                                 ShapesActivity.this.finish();
                             }

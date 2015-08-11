@@ -33,7 +33,9 @@ public class MenuEasyActivity extends Activity {
     private GestureDetectorCompat gestureDetectorCompat;
     Bundle bundle = new Bundle();
     Bundle extras;
+    private String paymentStatus;
     private int pointsC;
+    private ImageView pay;
     ToastActivity toastActivity=new ToastActivity();
     private Button btnexit;
     ToastExitActivity toastExitActivity= new ToastExitActivity();
@@ -52,6 +54,7 @@ public class MenuEasyActivity extends Activity {
         points = (TextView) findViewById(R.id.points);
         userName.setText(extras.getString("NAME"));
         points.setText("Points: " + extras.getInt("POINTS"));
+        paymentStatus = extras.getString("PAYMENT");
         // views
         fishblue=(ImageView)findViewById(R.id.imgblue);
         fishorange=(ImageView)findViewById(R.id.imgorange);
@@ -60,11 +63,13 @@ public class MenuEasyActivity extends Activity {
         bvowel=(ImageView)findViewById(R.id.btnvowel);
         bbody=(ImageView)findViewById(R.id.btnbody);
         btnexit=(Button)findViewById(R.id.btn_exit);
+        pay = (ImageView) findViewById(R.id.pay);
         //set background sound
         music= MediaPlayer.create(this,R.raw.fireflies);
         music.setLooping(true);
         music.start();
         pointsC=extras.getInt("POINTS");
+        pay.setEnabled(false);
 
 
         // set bubblepop sound
@@ -89,6 +94,7 @@ public class MenuEasyActivity extends Activity {
                 // este bundle me lleva el nombre del usuario a la actividad de la familia aunque no sea visible en ningun lugar
                 bundle.putString("NAME", extras.getString("NAME"));
                 Intent intent = new Intent(MenuEasyActivity.this, FamilyLoadingActivity.class);
+                bundle.putString("PAYMENT", paymentStatus);
                 intent.putExtras(bundle);
                 startActivity(intent);
             }
@@ -101,6 +107,7 @@ public class MenuEasyActivity extends Activity {
 
                 if(pointsC>=40){
                     Intent intent = new Intent(MenuEasyActivity.this, LoadingActivity.class);
+                    bundle.putString("PAYMENT", paymentStatus);
                     intent.putExtras(bundle);
                     music.stop();
                     bubblePop.start();
@@ -121,6 +128,7 @@ public class MenuEasyActivity extends Activity {
 
                     Intent intent = new Intent(MenuEasyActivity.this, ShapesLoadingActivity.class);
                     bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putString("PAYMENT", paymentStatus);
                     intent.putExtras(bundle);
                     music.stop();
                     bubblePop.start();
@@ -135,6 +143,12 @@ public class MenuEasyActivity extends Activity {
             }
         });
 
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
 
 
     }
@@ -206,27 +220,36 @@ public class MenuEasyActivity extends Activity {
         public boolean onFling(MotionEvent event1, MotionEvent event2,
                                float velocityX, float velocityY) {
 
-            if(event2.getX() < event1.getX()){
-                //switch another activity
-                Intent intent = new Intent(
-                        MenuEasyActivity.this, MenuMediumActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
-                bundle.putInt("POINTS", extras.getInt("POINTS"));
-                intent.putExtras(bundle);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
-                music.stop();
-                MenuEasyActivity.this.finish();
-            }else if(event2.getX() > event1.getX()){
-                Intent intent = new Intent(
-                        MenuEasyActivity.this, HardMenuActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
-                bundle.putInt("POINTS", extras.getInt("POINTS"));
-                music.stop();
-                intent.putExtras(bundle);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
-                MenuEasyActivity.this.finish();
+            if (paymentStatus.equals("no")) {
+                toastActivity.showDialog(MenuEasyActivity.this, "Sorry you need to pay 5$ if you want to access other menus.");
+                pay.setVisibility(View.VISIBLE);
+                pay.setEnabled(true);
+                music.start();
+            } else if (paymentStatus.equals("si")) {
+                if (event2.getX() < event1.getX()) {
+                    //switch another activity
+                    Intent intent = new Intent(
+                            MenuEasyActivity.this, MenuMediumActivity.class);
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", paymentStatus);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
+                    music.stop();
+                    MenuEasyActivity.this.finish();
+                } else if (event2.getX() > event1.getX()) {
+                    Intent intent = new Intent(
+                            MenuEasyActivity.this, HardMenuActivity.class);
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", paymentStatus);
+                    music.stop();
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
+                    MenuEasyActivity.this.finish();
+                }
             }
 
             return true;

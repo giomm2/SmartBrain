@@ -30,6 +30,7 @@ public class MenuMediumActivity extends Activity  {
     Bundle bundle = new Bundle();
     Bundle extras;
     private MediaPlayer selectSound;
+    private String paymentStatus;
 
     private GestureDetectorCompat gestureDetectorCompat;
     private MediaPlayer music;
@@ -61,6 +62,7 @@ public class MenuMediumActivity extends Activity  {
         music.start();
         selectSound = MediaPlayer.create(MenuMediumActivity.this, R.raw.pop);
         pointsC=extras.getInt("POINTS");
+        paymentStatus = extras.getString("PAYMENT");
 
 
         btnexit.setOnClickListener(new View.OnClickListener() {
@@ -193,6 +195,7 @@ public class MenuMediumActivity extends Activity  {
                         MenuMediumActivity.this, HardMenuActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", paymentStatus);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
@@ -203,6 +206,7 @@ public class MenuMediumActivity extends Activity  {
                         MenuMediumActivity.this, MenuEasyActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", paymentStatus);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);

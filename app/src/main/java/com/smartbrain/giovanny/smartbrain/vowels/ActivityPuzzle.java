@@ -22,10 +22,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 import com.smartbrain.giovanny.smartbrain.MainActivity;
-import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
-import com.smartbrain.giovanny.smartbrain.WinActivity;
+
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -499,7 +499,7 @@ public class ActivityPuzzle extends Activity {
         public void onFinish() {
 
             gamePoints=300;
-            Intent intent=new Intent(ActivityPuzzle.this,WinActivity.class);
+            Intent intent = new Intent(ActivityPuzzle.this, ComnunityWinActivity.class);
             bundle.putString("NAME", name);
             bundle.putInt("POINTS", gamePoints);
             intent.putExtras(bundle);

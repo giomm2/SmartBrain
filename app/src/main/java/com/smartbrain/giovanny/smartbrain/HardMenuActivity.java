@@ -36,6 +36,7 @@ public class HardMenuActivity extends Activity {
     private TextView points;
     Bundle bundle = new Bundle();
     Bundle extras;
+    private String paymentStatus;
     private int pointsC;
     ToastActivity toastActivity=new ToastActivity();
     private Button btnexit;
@@ -70,6 +71,7 @@ public class HardMenuActivity extends Activity {
         music.setLooping(true);
         music.start();
         pointsC=extras.getInt("POINTS");
+        paymentStatus = extras.getString("PAYMENT");
 
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,6 +225,7 @@ public class HardMenuActivity extends Activity {
                         HardMenuActivity.this, MenuEasyActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", paymentStatus);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
@@ -233,6 +236,7 @@ public class HardMenuActivity extends Activity {
                         HardMenuActivity.this, MenuMediumActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", paymentStatus);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);
