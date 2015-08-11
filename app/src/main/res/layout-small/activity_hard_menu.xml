@@ -39,7 +39,7 @@
         android:layout_alignParentEnd="true" />
 
     <ImageView
-        android:layout_width="90dp"
+        android:layout_width="80dp"
         android:layout_height="90dp"
         android:id="@+id/baloom"
         android:background="@drawable/number"
@@ -49,7 +49,7 @@
         android:layout_alignStart="@+id/rocket2" />
 
     <ImageView
-        android:layout_width="90dp"
+        android:layout_width="130dp"
         android:layout_height="90dp"
         android:id="@+id/baloom2"
         android:background="@drawable/feedback"
@@ -62,7 +62,7 @@
         android:layout_marginEnd="45dp" />
 
     <ImageView
-        android:layout_width="90dp"
+        android:layout_width="130dp"
         android:layout_height="90dp"
         android:id="@+id/baloom3"
         android:background="@drawable/shapes"
