@@ -13,11 +13,10 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.smartbrain.giovanny.smartbrain.body.LoadingActivity;
 import com.smartbrain.giovanny.smartbrain.family.FamilyLoadingActivity;
-import com.smartbrain.giovanny.smartbrain.vowels.VowelsLoadingActivity;
+import com.smartbrain.giovanny.smartbrain.shapes.ShapesLoadingActivity;
 
 
 public class MenuEasyActivity extends Activity {
@@ -120,7 +119,7 @@ public class MenuEasyActivity extends Activity {
 
                 if (pointsC>=1000){
 
-                    Intent intent = new Intent(MenuEasyActivity.this, VowelsLoadingActivity.class);
+                    Intent intent = new Intent(MenuEasyActivity.this, ShapesLoadingActivity.class);
                     bundle.putString("NAME", extras.getString("NAME"));
                     intent.putExtras(bundle);
                     music.stop();

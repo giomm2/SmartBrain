@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.Numbers.NumbersLoadingActivity;
 import com.smartbrain.giovanny.smartbrain.practice.PracticeLoadingActivity;
-import com.smartbrain.giovanny.smartbrain.shapes.ShapesLoadingActivity;
+import com.smartbrain.giovanny.smartbrain.vowels.VowelsLoadingActivity;
 
 
 public class HardMenuActivity extends Activity {
@@ -121,7 +121,7 @@ public class HardMenuActivity extends Activity {
 
                 if(pointsC>=7000){
                 selectSound.start();
-                Intent intent = new Intent(HardMenuActivity.this, ShapesLoadingActivity.class);
+                Intent intent = new Intent(HardMenuActivity.this, VowelsLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 intent.putExtras(bundle);
                 startActivity(intent);
