@@ -37,12 +37,12 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
     "Rabbit","Sheep","Arm","Ear","Eyes","Face","Finger","Foot","Hand","Leg","Mouth","Nose",
     "Brother","Brown","Circle","Blue","Green","Orange","Purple","Red","Yellow","Square","Dad","Doctor","Doctor",
     "E","Fireman","Grandmother","Grandfather","grey","I","Mom","8","5","4","9","1","7","6","3","2","0","O",
-    "Olive","Policeman","Rectangle","Sister","Teacher","Triangle","U","Uncle","Wine"};
+    "Olive","Policeman","Rectangle","Sister","Teacher","Triangle","U","Wine"};
     private String[] image={"a","animalsbear","animalscat","animalschicken","animalscow","animalsdog",
             "animalshorse","animalslion","animalspig","animalsrabbit","animalssheep","body_arm","body_ear","body_eyes",
             "body_face","body_finger","body_foot","body_hand","body_leg","body_mouth","body_nose","brother",
             "brown","cir","colorblue","colorgreen","colororange","colorpurple","colorred","coloryellow",
-            "cu","dad","doctorf","doctorm","e","fireman","grandma","granpa","grey","i","mom","numbers_eight",
+            "cu","dad","doctorf","doctorm","e","fireman","grandma","grandpa","grey","i","mom","numbers_eight",
             "numbers_five","numbers_four","numbers_nine","numbers_one","numbers_seven","numbers_six","numbers_three",
             "numbers_two","numbers_zero","o","olive","policeman","rec","sister","teacherm","tr","u","wine"
     };
@@ -131,7 +131,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Welcome to practice, please, touch start");
+                        ConvertTextToSpeech("Welcome to practice, for play please press the blue button.");
 
                     }
                 } else
@@ -222,7 +222,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
         if(txtVoice.getText().toString().equalsIgnoreCase(voice[numbers[cont-1]]) ){
 
-            ConvertTextToSpeech("Well done, please touch start");
+            ConvertTextToSpeech("Well done, for next please press the blue button.");
             btnStart.setEnabled(true);
             btn_speak.setEnabled(false);
             btnStart.setVisibility(View.VISIBLE);
@@ -348,11 +348,8 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                 }
             }
             else {
-                Intent intent = new Intent(PracticeActivity.this, ComnunityWinActivity.class);
-                bundle.putString("NAME", name);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                PracticeActivity.this.finish();
+
+                PracticeActivity.this.recreate();
             }
         }
 
