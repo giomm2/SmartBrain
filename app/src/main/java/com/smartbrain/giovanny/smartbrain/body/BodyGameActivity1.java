@@ -77,7 +77,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, Let's play. Please touch next.");
+                        ConvertTextToSpeech("Hello, Let's play, for play please press the blue button.");
 
                     }
                 } else
@@ -244,7 +244,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
         if (numguia==guia[posId]) {
             int time;
-            ConvertTextToSpeech("Good work!!!!, please touch next");
+            ConvertTextToSpeech("Good work!!!!, for next please press the blue button.");
             btnnext.setVisibility(View.VISIBLE);
             btnrepeat.setVisibility(View.INVISIBLE);
             img1.setEnabled(false);

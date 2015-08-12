@@ -98,7 +98,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, Let's play. Please touch start.");
+                        ConvertTextToSpeech("Hello, Let's play. for play please press the blue button.");
 
                     }
                 } else
@@ -332,7 +332,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
 
 
         if (numguia == guia[pos-1]) {
-            ConvertTextToSpeech("Good work!!!!, please touch start");
+            ConvertTextToSpeech("Good work!!!!, for next please press the blue button");
 
             downImg1.setEnabled(false);
             downImg2.setEnabled(false);
