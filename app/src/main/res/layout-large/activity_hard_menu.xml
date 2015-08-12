@@ -30,7 +30,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="11dp" />
     <ImageView
-        android:layout_width="180dp"
+        android:layout_width="160dp"
         android:layout_height="180dp"
         android:id="@+id/baloom"
         android:background="@drawable/number"
@@ -40,7 +40,7 @@
         android:layout_toEndOf="@+id/firework" />
 
     <ImageView
-        android:layout_width="180dp"
+        android:layout_width="220dp"
         android:layout_height="180dp"
         android:id="@+id/baloom2"
         android:background="@drawable/feedback"
@@ -51,7 +51,7 @@
         android:layout_toStartOf="@+id/zeppelin" />
 
     <ImageView
-        android:layout_width="180dp"
+        android:layout_width="220dp"
         android:layout_height="180dp"
         android:id="@+id/baloom3"
         android:background="@drawable/shapes"
