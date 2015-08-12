@@ -111,6 +111,7 @@ public class WinActivity extends Activity{
                 //ViewDialog alert = new ViewDialog();
                 //alert.showDialog(WinActivity.this, "Are you sure to exit?");
 
+                System.exit(0);
                 Intent intent = new Intent(WinActivity.this, MenuEasyActivity.class);
                 bundle.putString("NAME", getUser());
                 bundle.putInt("POINTS", pointsForWS);

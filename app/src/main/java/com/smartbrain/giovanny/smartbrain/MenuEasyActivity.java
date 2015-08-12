@@ -71,7 +71,6 @@ public class MenuEasyActivity extends Activity {
         pointsC=extras.getInt("POINTS");
         pay.setEnabled(false);
 
-
         // set bubblepop sound
         bubblePop = MediaPlayer.create(MenuEasyActivity.this, R.raw.bubblepop);
         bubblePop.setVolume(100, 100);
@@ -147,6 +146,8 @@ public class MenuEasyActivity extends Activity {
             @Override
             public void onClick(View v) {
 
+                Intent intent= new Intent(MenuEasyActivity.this,PayActivity.class);
+                startActivity(intent);
             }
         });
 

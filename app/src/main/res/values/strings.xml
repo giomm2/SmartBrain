@@ -60,6 +60,7 @@
     <string name="title_activity_comnunity_win">ComnunityWinActivity</string>
     <string name="title_activity_colors_win">ColorsWinActivity</string>
     <string name="title_activity_toast">ToastActivity</string>
+    <string name="title_activity_pay">PayActivity</string>
 
 
 </resources>

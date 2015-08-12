@@ -106,6 +106,7 @@ public class ColorsWinActivity extends Activity {
             public void onClick(View v) {
 
 
+                System.exit(0);
                 Intent intent = new Intent(ColorsWinActivity.this, MenuMediumActivity.class);
                 bundle.putString("NAME", getUser());
                 bundle.putInt("POINTS", pointsForWS);
