@@ -44,12 +44,11 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
             "brown","cir","colorblue","colorgreen","colororange","colorpurple","colorred","coloryellow",
             "cu","dad","doctorf","doctorm","e","fireman","grandma","granpa","grey","i","mom","numbers_eight",
             "numbers_five","numbers_four","numbers_nine","numbers_one","numbers_seven","numbers_six","numbers_three",
-            "numbers_two","numbers_zero","o","olive","policeman","rec","sister","teacherm","tr","u",
-            "uncle","wine"
+            "numbers_two","numbers_zero","o","olive","policeman","rec","sister","teacherm","tr","u","wine"
     };
 
     private int cont=0;
-    private int [] numbers = new int[61];
+    private int [] numbers = new int[60];
 
     private Button btnStart;
     private Button btnRepeat;
@@ -269,7 +268,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
         boolean flag=true;
         boolean flag0=true;
         for(int i=-1; i<=8; i++){
-            random=rand.nextInt(61);
+            random=rand.nextInt(60);
             con=0;
             j=0;
             flag=true;
