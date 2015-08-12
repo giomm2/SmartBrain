@@ -214,7 +214,8 @@
         </activity>
         <activity
             android:name=".PayActivity"
-            android:label="@string/title_activity_pay" >
+            android:label="@string/title_activity_pay"
+            android:screenOrientation="landscape">
         </activity>
     </application>
 

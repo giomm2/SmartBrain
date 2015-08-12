@@ -147,6 +147,8 @@ public class MenuEasyActivity extends Activity {
             public void onClick(View v) {
 
                 Intent intent= new Intent(MenuEasyActivity.this,PayActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });
