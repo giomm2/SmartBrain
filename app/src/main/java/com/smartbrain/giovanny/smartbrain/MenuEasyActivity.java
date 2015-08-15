@@ -75,6 +75,12 @@ public class MenuEasyActivity extends Activity {
         bubblePop = MediaPlayer.create(MenuEasyActivity.this, R.raw.bubblepop);
         bubblePop.setVolume(100, 100);
 
+        if(paymentStatus.equals("si")){
+            pay.setVisibility(View.INVISIBLE);
+            pay.setEnabled(false);
+        }
+
+
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -7,102 +7,30 @@
     tools:context="com.smartbrain.giovanny.smartbrain.PayActivity"
     android:background="@drawable/fp">
 
-    <TextView android:text="Number of card" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:id="@+id/txt1"
-        android:textColor="#ffff420e"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:layout_marginTop="69dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:hint="1111/2222/3333/4444"
-        android:layout_below="@+id/txt1"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:hint="Month"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:hint="Year"
-        android:layout_alignTop="@+id/editText2"
-        android:layout_alignLeft="@+id/editText"
-        android:layout_alignStart="@+id/editText" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pay"
-        android:id="@+id/btn_pay"
-        android:layout_alignTop="@+id/btn_exit"
-        android:layout_alignRight="@+id/editText"
-        android:layout_alignEnd="@+id/editText"
-        android:textSize="25dp"/>
-
-    <TextView
-        android:text="Date of Expiry"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView6"
-        android:textSize="30dp"
-
-        android:textColor="#ffff420e"
-        android:layout_below="@+id/editText"
-        android:layout_alignLeft="@+id/txt1"
-        android:layout_alignStart="@+id/txt1" />
-
-    <TextView
-        android:text="Security code"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView7"
-        android:textSize="30dp"
-        android:textColor="#ffff420e"
-        android:layout_below="@+id/editText2"
-        android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText4"
-        android:hint="0000"
-        android:layout_below="@+id/textView7"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
-
     <Button
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:id="@+id/btn_exit"
         android:background="@drawable/door"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/editText3"
-        android:layout_alignStart="@+id/editText3" />
-
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/buyItBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="onBuyPressed"
+        android:text="Buy Menus"
+        android:layout_above="@+id/btn_exit"
+        android:layout_centerHorizontal="true" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Amount charge: $5"
-        android:id="@+id/textView8"
-        android:textSize="20dp"
-        android:textColor="@android:color/black"
-        android:layout_above="@+id/btn_pay"
-        android:layout_alignLeft="@+id/btn_exit"
-        android:layout_alignStart="@+id/btn_exit"
-        android:layout_marginBottom="39dp" />
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/textView9"
+        android:text="@string/policy_text"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp" />
 
 </RelativeLayout>

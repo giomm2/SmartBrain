@@ -61,6 +61,10 @@
     <string name="title_activity_colors_win">ColorsWinActivity</string>
     <string name="title_activity_toast">ToastActivity</string>
     <string name="title_activity_pay">PayActivity</string>
+    <string name="policy_text">If you tab the "Buy Menus" button you will accept our terms and
+    conditions to buy the two other difficulty menus.
+    You need to know that you will be using PayPal for the transference, because it is a safe and reliable service.
+    Best wishes from ABCSoft.</string>
 
 
 </resources>

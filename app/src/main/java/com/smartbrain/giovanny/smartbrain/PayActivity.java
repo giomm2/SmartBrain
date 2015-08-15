@@ -3,33 +3,59 @@ package com.smartbrain.giovanny.smartbrain;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.paypal.android.sdk.payments.PayPalAuthorization;
+import com.paypal.android.sdk.payments.PayPalConfiguration;
+import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
+import com.paypal.android.sdk.payments.PayPalPayment;
+import com.paypal.android.sdk.payments.PayPalProfileSharingActivity;
+import com.paypal.android.sdk.payments.PayPalService;
+import com.paypal.android.sdk.payments.PaymentActivity;
+import com.paypal.android.sdk.payments.PaymentConfirmation;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.math.BigDecimal;
 
 
 public class PayActivity extends Activity {
 
     private String name;
     private String idDevice;
-    private EditText cardNumber;
-    private EditText month;
-    private EditText year;
-    private EditText ccv;
     Bundle bundle = new Bundle();
     Bundle extras;
+    private Button btnexit;
+    RequestParams params = new RequestParams();
+    private static final String TAG = "MENU PAYMENT";
 
-    private Button btnpay,btnexit;
+    private static final String CONFIG_ENVIRONMENT = PayPalConfiguration.ENVIRONMENT_SANDBOX;
+
+    // note that these credentials will differ between live & sandbox environments.
+    private static final String CONFIG_CLIENT_ID = "Ab69As3KjgraYYbOCVX7tAcUkgSdEmvY74rM_wkk63EMNczkPBFyzuyZxwW7ly6RlFZzMGjub2nnIwka";
+
+    private static final int REQUEST_CODE_PAYMENT = 1;
+    private static final int REQUEST_CODE_FUTURE_PAYMENT = 2;
+    private static final int REQUEST_CODE_PROFILE_SHARING = 3;
+
+    private static PayPalConfiguration config = new PayPalConfiguration()
+            .environment(CONFIG_ENVIRONMENT)
+            .clientId(CONFIG_CLIENT_ID)
+                    // The following are only used in PayPalFuturePaymentActivity.
+            .merchantName("ABCSoft")
+            .merchantPrivacyPolicyUri(Uri.parse("https://www.example.com/privacy"))
+            .merchantUserAgreementUri(Uri.parse("https://www.example.com/legal"));
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,13 +63,13 @@ public class PayActivity extends Activity {
 
         extras = getIntent().getExtras();
         btnexit=(Button)findViewById(R.id.btn_exit);
-        btnpay=(Button)findViewById(R.id.btn_pay);
-        cardNumber = (EditText) findViewById(R.id.editText);
-        month = (EditText) findViewById(R.id.editText2);
-        year = (EditText) findViewById(R.id.editText3);
-        ccv = (EditText) findViewById(R.id.editText4);
         idDevice = getUniqueDevice();
         name = extras.getString("NAME");
+
+
+        Intent intent = new Intent(this, PayPalService.class);
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+        startService(intent);
 
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,19 +78,17 @@ public class PayActivity extends Activity {
             }
         });
 
-        btnpay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (cardNumber.getText().toString().equals("") || year.getText().toString().equals("") || month.getText().toString().equals("") || ccv.getText().toString().equals("")) {
-                    Toast.makeText(PayActivity.this, "Cant leave blank spaces", Toast.LENGTH_SHORT).show();
-                } else {
-                    RequestParams params = new RequestParams();
-                    params.put("name", name);
-                    params.put("device", idDevice);
-                    invokeWS(params);
-                }
-            }
-        });
+        //btnpay.setOnClickListener(new View.OnClickListener() {
+          //  @Override
+            //public void onClick(View v) {
+              //  if (cardNumber.getText().toString().equals("") || year.getText().toString().equals("") || month.getText().toString().equals("") || ccv.getText().toString().equals("")) {
+                //    Toast.makeText(PayActivity.this, "Cant leave blank spaces", Toast.LENGTH_SHORT).show();
+                //} else {
+
+                    //invokeWS(params);
+                //}
+            //}
+        //});
 
 
     }
@@ -129,6 +153,124 @@ public class PayActivity extends Activity {
                 }
             }
         });
+    }
+
+    public void onBuyPressed(View pressed) {
+
+        params.put("name", name);
+        params.put("device", idDevice);
+
+        PayPalPayment thingToBuy = getThingToBuy(PayPalPayment.PAYMENT_INTENT_SALE);
+
+        Intent intent = new Intent(PayActivity.this, PaymentActivity.class);
+
+        // send the same configuration for restart resiliency
+        intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, thingToBuy);
+
+        startActivityForResult(intent, REQUEST_CODE_PAYMENT);
+    }
+
+    private PayPalPayment getThingToBuy(String paymentIntent) {
+        return new PayPalPayment(new BigDecimal("5"), "USD", "Menus to Buy: Medium, and Hard",
+                paymentIntent);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_PAYMENT) {
+            if (resultCode == Activity.RESULT_OK) {
+                PaymentConfirmation confirm =
+                        data.getParcelableExtra(PaymentActivity.EXTRA_RESULT_CONFIRMATION);
+                if (confirm != null) {
+                    try {
+                        Log.i(TAG, confirm.toJSONObject().toString(4));
+                        Log.i(TAG, confirm.getPayment().toJSONObject().toString(4));
+                        invokeWS(params);
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "PaymentConfirmation info received from PayPal", Toast.LENGTH_LONG)
+                                .show();
+
+                    } catch (JSONException e) {
+                        Log.e(TAG, "an extremely unlikely failure occurred: ", e);
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.i(TAG, "The user canceled.");
+            } else if (resultCode == PaymentActivity.RESULT_EXTRAS_INVALID) {
+                Log.i(
+                        TAG,
+                        "An invalid Payment or PayPalConfiguration was submitted. Please see the docs.");
+            }
+        } else if (requestCode == REQUEST_CODE_FUTURE_PAYMENT) {
+            if (resultCode == Activity.RESULT_OK) {
+                PayPalAuthorization auth =
+                        data.getParcelableExtra(PayPalFuturePaymentActivity.EXTRA_RESULT_AUTHORIZATION);
+                if (auth != null) {
+                    try {
+                        Log.i("FuturePaymentExample", auth.toJSONObject().toString(4));
+
+                        String authorization_code = auth.getAuthorizationCode();
+                        Log.i("FuturePaymentExample", authorization_code);
+
+                        sendAuthorizationToServer(auth);
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Future Payment code received from PayPal", Toast.LENGTH_LONG)
+                                .show();
+
+                    } catch (JSONException e) {
+                        Log.e("FuturePaymentExample", "an extremely unlikely failure occurred: ", e);
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.i("FuturePaymentExample", "The user canceled.");
+            } else if (resultCode == PayPalFuturePaymentActivity.RESULT_EXTRAS_INVALID) {
+                Log.i(
+                        "FuturePaymentExample",
+                        "Probably the attempt to previously start the PayPalService had an invalid PayPalConfiguration. Please see the docs.");
+            }
+        } else if (requestCode == REQUEST_CODE_PROFILE_SHARING) {
+            if (resultCode == Activity.RESULT_OK) {
+                PayPalAuthorization auth =
+                        data.getParcelableExtra(PayPalProfileSharingActivity.EXTRA_RESULT_AUTHORIZATION);
+                if (auth != null) {
+                    try {
+                        Log.i("ProfileSharingExample", auth.toJSONObject().toString(4));
+
+                        String authorization_code = auth.getAuthorizationCode();
+                        Log.i("ProfileSharingExample", authorization_code);
+
+                        sendAuthorizationToServer(auth);
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "Profile Sharing code received from PayPal", Toast.LENGTH_LONG)
+                                .show();
+
+                    } catch (JSONException e) {
+                        Log.e("ProfileSharingExample", "an extremely unlikely failure occurred: ", e);
+                    }
+                }
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                Log.i("ProfileSharingExample", "The user canceled.");
+            } else if (resultCode == PayPalFuturePaymentActivity.RESULT_EXTRAS_INVALID) {
+                Log.i(
+                        "ProfileSharingExample",
+                        "Probably the attempt to previously start the PayPalService had an invalid PayPalConfiguration. Please see the docs.");
+            }
+        }
+    }
+    private void sendAuthorizationToServer(PayPalAuthorization authorization) {
+
+    }
+
+    @Override
+    public void onDestroy() {
+        // Stop service when done
+        stopService(new Intent(this, PayPalService.class));
+        super.onDestroy();
     }
 
 }
