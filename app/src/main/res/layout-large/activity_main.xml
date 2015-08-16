@@ -15,11 +15,10 @@
         android:text="Play"
         android:id="@+id/btn_play"
         android:background="#ff6f79ff"
-        android:textStyle="italic"
-        android:typeface="monospace"
         android:layout_alignBottom="@+id/imageView"
         android:layout_toLeftOf="@+id/nub2"
-        android:layout_toStartOf="@+id/nub2" />
+        android:layout_toStartOf="@+id/nub2"
+        />
 
     <EditText
         android:layout_width="200dp"

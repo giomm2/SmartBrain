@@ -108,7 +108,7 @@ public class ComnunityWinActivity extends Activity{
 
                 //ViewDialog alert = new ViewDialog();
                 //alert.showDialog(ComnunityWinActivity.this, "Are you sure to exit?");
-                System.exit(0);
+
                 Intent intent = new Intent(ComnunityWinActivity.this, HardMenuActivity.class);
                 bundle.putString("NAME", getUser());
                 bundle.putInt("POINTS", pointsForWS);
@@ -116,6 +116,7 @@ public class ComnunityWinActivity extends Activity{
                 intent.putExtras(bundle);
                 startActivity(intent);
                 player.stop();
+                System.exit(0);
                 ComnunityWinActivity.this.finish();
 
             }
