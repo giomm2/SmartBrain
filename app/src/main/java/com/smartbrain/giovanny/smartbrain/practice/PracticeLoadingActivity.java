@@ -6,6 +6,8 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +29,7 @@ public class PracticeLoadingActivity extends Activity {
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;
+    private CheckBox cbskip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,9 @@ public class PracticeLoadingActivity extends Activity {
         txtcont=(TextView)findViewById(R.id.txt_cont);
         txtadvice=(TextView)findViewById(R.id.txt_advice);
         imgcontent=(ImageView)findViewById(R.id.img_cont);
+        cbskip=(CheckBox)findViewById(R.id.cb_exit);
+
+        cbskip.setVisibility(View.INVISIBLE);
 
         contNumber.start();
 
