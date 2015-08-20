@@ -21,7 +21,7 @@ public class NumbersLoadingActivity extends Activity {
     private ImageView imgcontent;
     private int[] images={R.drawable.znumbersone,R.drawable.znumberstwo,R.drawable.znumbersthree};
     private int pos=0;
-    private String[] advice={"Select the correct image quickly.","Use repeat button.","Don't lose your hearts."};
+    private String[] advice={"Select the correct image quickly.","Use the repeat button.","Don't loose your hearts."};
     // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
     Bundle bundle = new Bundle();
     Bundle extras;

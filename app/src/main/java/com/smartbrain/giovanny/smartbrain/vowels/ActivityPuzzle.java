@@ -71,7 +71,6 @@ public class ActivityPuzzle extends Activity {
     private TextToSpeech tts;
     private String text,text2;
 
-    private MediaPlayer player;
 
     //trae el nombre del usuario
     Bundle bundle = new Bundle();
@@ -86,11 +85,6 @@ public class ActivityPuzzle extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_puzzle);
 
-        //set back sound
-        player = MediaPlayer.create(ActivityPuzzle.this, R.raw.music);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
 
         timer.start();
         txtcont=(TextView)findViewById(R.id.txtTimer);
@@ -471,17 +465,16 @@ public class ActivityPuzzle extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        player.stop();
+
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        player.stop();
+
     }
 
     protected void onFinish() {
-        player.stop();
         tts.stop();
     }
     CountDownTimer timer = new CountDownTimer(300000,1000) {
@@ -516,7 +509,6 @@ public class ActivityPuzzle extends Activity {
         super.onDestroy();
         tts.stop();
         tts.shutdown();
-        player.stop();
     }
 
     @Override

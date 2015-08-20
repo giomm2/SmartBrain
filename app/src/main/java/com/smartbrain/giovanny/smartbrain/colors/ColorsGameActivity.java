@@ -143,7 +143,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -162,7 +162,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected1= true;
                                 if(selected && selected1 && selected2){
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -181,7 +181,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected2 = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -454,7 +454,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                         if(selected && selected1){
                                             colorViewer.setBackgroundResource(R.drawable.colorgreen);
                                             colorViewer.startAnimation(fadeIn);
-                                            speakOut("Well done buddy, Lets continue. Touch start");
+                                            speakOut("Well done buddy, Lets continue. Tab start");
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
@@ -608,7 +608,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                         if (selected && selected1) {
                                             colorViewer.setBackgroundResource(R.drawable.colorpurple);
                                             colorViewer.startAnimation(fadeIn);
-                                            speakOut("Well done buddy, Lets continue. Touch start");
+                                            speakOut("Well done buddy, Lets continue. Tab start");
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
@@ -652,7 +652,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -671,7 +671,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected1 = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -690,7 +690,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected2 = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -991,7 +991,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -1046,7 +1046,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected1 = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -1065,7 +1065,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected2 = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -1199,7 +1199,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -1218,7 +1218,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected1 = true;
                                 if (selected && selected1 && selected2) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -1273,7 +1273,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected2 = true;
                                 if (selected && selected1 && selected2 && selected3) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -1292,7 +1292,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                             public boolean onTouch(View v, MotionEvent event) {
                                 selected3 = true;
                                 if (selected && selected1 && selected2 && selected3) {
-                                    speakOut("Well done buddy, lets continue. Touch start");
+                                    speakOut("Well done buddy, lets continue. Tab start");
                                     setImagesToNormalState();
                                     repeat.setEnabled(false);
                                     start.setEnabled(true);
@@ -1429,7 +1429,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                         if (selected && selected1) {
                                             colorViewer.setBackgroundResource(R.drawable.olive);
                                             colorViewer.startAnimation(fadeIn);
-                                            speakOut("Well done buddy, Lets continue. Touch start");
+                                            speakOut("Well done buddy, Lets continue. Tab start");
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
@@ -1642,7 +1642,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                         if (selected) {
                                             colorViewer.setBackgroundResource(colorNumber);
                                             colorViewer.startAnimation(fadeIn);
-                                            speakOut("Well done buddy, Lets continue. Touch start");
+                                            speakOut("Well done buddy, Lets continue. Tab start");
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);
@@ -1853,7 +1853,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
                                         if (selected) {
                                             colorViewer.setBackgroundResource(colorNumber);
                                             colorViewer.startAnimation(fadeIn);
-                                            speakOut("Well done buddy, Lets continue. Touch start");
+                                            speakOut("Well done buddy, Lets continue. Tab start");
                                             setImagesToNormalState();
                                             repeat.setEnabled(false);
                                             start.setEnabled(true);

@@ -173,7 +173,7 @@ public class PayActivity extends Activity {
     }
 
     private PayPalPayment getThingToBuy(String paymentIntent) {
-        return new PayPalPayment(new BigDecimal("5"), "USD", "Menus to Buy: Medium, and Hard",
+        return new PayPalPayment(new BigDecimal("2,50"), "USD", "Menus to Buy: Medium, and Hard",
                 paymentIntent);
     }
 

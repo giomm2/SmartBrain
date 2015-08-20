@@ -22,7 +22,7 @@ public class NeighborhoodLoadingActivity extends Activity {
     private ImageView imgcontent;
     private int[] images={R.drawable.zcomunidadone,R.drawable.zcomunidadtwo,R.drawable.zcomunidadthree};
     private int pos=0;
-    private String[] advice={"Pay close attention to the instructions.","Touch the character and then drag it.","If you lose all of yours hearts, you lose the game."};
+    private String[] advice={"Pay close attention to the instructions.","Touch the character, and then drag it.","If you loose all of yours hearts, you loose the game."};
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;

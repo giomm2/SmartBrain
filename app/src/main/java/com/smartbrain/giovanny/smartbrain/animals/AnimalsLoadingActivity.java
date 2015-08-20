@@ -21,7 +21,7 @@ public class AnimalsLoadingActivity extends Activity {
     private ImageView imgcontent;
     private int[] images={R.drawable.zanimalsone,R.drawable.zanimalstwo,R.drawable.zanimalsthree};
     private int pos=0;
-    private String[] advice={"You have sixty seconds to record yourself hurry.","Touch the blue button when you are ready to talk.","Check your pronunciation before."};
+    private String[] advice={"You have sixty seconds to record yourself, hurry up!.","Touch the blue button when you are ready to talk.","Check your pronunciation before."};
     // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
     Bundle bundle = new Bundle();
     Bundle extras;

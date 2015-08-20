@@ -22,7 +22,7 @@ public class VowelsLoadingActivity extends Activity {
     private ImageView imgcontent;
     private int[] images={R.drawable.zvowelone,R.drawable.zvoweltwo,R.drawable.zvowelthree};
     private int pos=0;
-    private String[] advice={"Use the images guide.","You have five minutes to complete.","Pay attention to each image."};
+    private String[] advice={"Use the images guide.","You have five minutes to complete the puzzle.","Pay attention to each image."};
 
     //trae el nombre del usuario
     Bundle bundle = new Bundle();

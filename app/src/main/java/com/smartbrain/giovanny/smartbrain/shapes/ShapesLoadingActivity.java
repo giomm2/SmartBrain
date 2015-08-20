@@ -22,7 +22,7 @@ public class ShapesLoadingActivity extends Activity {
     private ImageView imgcontent;
     private int[] images={R.drawable.zshapesone,R.drawable.zshapestwo,R.drawable.zshapesthree};
     private int pos=0;
-    private String[] advice={"If you push the shape in the wrong way you lost one life","Don't lose your hearts.","Listen very well."};
+    private String[] advice={"If you push the shape in the wrong way you loose one life","Don't loose your hearts.","Pay attention to the instructions."};
     //trae el nombre del usuario
     Bundle bundle = new Bundle();
     Bundle extras;

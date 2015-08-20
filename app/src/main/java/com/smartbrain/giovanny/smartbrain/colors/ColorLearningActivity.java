@@ -35,9 +35,9 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
     // variable que me va a recorrer los arreglos
     int i = 0;
     // arreglo con palabras para el TTS
-    private String[] colorWords = {"Now we are going to learn about the colors, first we have the primary, and secondary colors. Please touch next to continue"
+    private String[] colorWords = {"Now we are going to learn about the colors, first we have the primary, and secondary colors. Please tab the arrow to continue"
             ,"first, we have blue and red combining to create purple.","now we combine yellow and blue to make green"
-            ,"and finally we use red and yellow to make orange, touch the purple color to continue"};
+            ,"and finally we use red and yellow to make orange, press the purple color to continue"};
 
 
     Bundle bundle = new Bundle();

@@ -22,7 +22,7 @@ public class ColorsLoadingActivity extends Activity {
     private ImageView imgcontent;
     private int[] images={R.drawable.zcolorsone,R.drawable.zcolorstwo,R.drawable.zcolorsthree};
     private int pos=0;
-    private String[] advice={"You have six opportunities.","You have to answer ten times to win.","You can touch or drag the colors."};
+    private String[] advice={"You have six opportunities.","You have to answer five times to win.","You can touch or drag the colors."};
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;

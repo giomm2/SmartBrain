@@ -22,7 +22,7 @@ public class PracticeLoadingActivity extends Activity {
     private ImageView imgcontent;
     private int[] images={R.drawable.zpracticeone,R.drawable.zpracticetwo,R.drawable.zpracticethree};
     private int pos=0;
-    private String[] advice={"You have sixty seconds to record yourself hurry.","Touch the blue button when you are ready to talk.","Check your pronunciation before."};
+    private String[] advice={"You have sixty seconds to record yourself, hurry up!.","Touch the blue button when you are ready to talk.","Check your pronunciation before."};
     //trae el nombre del usuario
     Bundle bundle = new Bundle();
     Bundle extras;

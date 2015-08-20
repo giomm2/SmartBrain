@@ -99,7 +99,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, lets play, for play please press the blue button, then touch record");
+                        ConvertTextToSpeech("Hello, lets play, to play please press the blue button, then touch record");
 
                     }
                 } else
@@ -174,7 +174,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
 
         if(txtText.getText().toString().equalsIgnoreCase(voice[pos-1]) ){
 
-            ConvertTextToSpeech("Good work, for next please press the blue button.");
+            ConvertTextToSpeech("Good work, please press the blue button.");
             points=points+35;
             contNumber.cancel();
             btnnext.setVisibility(View.VISIBLE);

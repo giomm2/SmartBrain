@@ -129,7 +129,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Welcome to practice, for play please press the blue button.");
+                        ConvertTextToSpeech("Welcome to practice, to play please press the blue button.");
 
                     }
                 } else

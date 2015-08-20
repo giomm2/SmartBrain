@@ -18,7 +18,7 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
 
 
     // array and counter for the array
-    private String[] animalArray={"Hi, lets Learn about the animals. Please tab next","Dog","Cat","Rabbit","Cow"
+    private String[] animalArray={"Hi, lets Learn about the animals. Please tab the arrow","Dog","Cat","Rabbit","Cow"
             , "Horse", "Hen", "sheep", "Lion", "Bear", "Snake. To play with them touch the control button"};
     private int imageArray[]={0,R.drawable.animalsdog,R.drawable.animalscat,R.drawable.animalsrabbit
             ,R.drawable.animalscow,R.drawable.animalshorse,R.drawable.animalschicken

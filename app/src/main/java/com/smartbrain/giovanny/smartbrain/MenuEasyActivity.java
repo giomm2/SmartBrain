@@ -230,7 +230,7 @@ public class MenuEasyActivity extends Activity {
                                float velocityX, float velocityY) {
 
             if (paymentStatus.equals("no")) {
-                toastActivity.showDialog(MenuEasyActivity.this, "Sorry you need to pay 5$ if you want to access other menus.");
+                toastActivity.showDialog(MenuEasyActivity.this, "Sorry you need to pay 2,50$ if you want to access other menus.");
                 pay.setVisibility(View.VISIBLE);
                 pay.setEnabled(true);
                 music.start();

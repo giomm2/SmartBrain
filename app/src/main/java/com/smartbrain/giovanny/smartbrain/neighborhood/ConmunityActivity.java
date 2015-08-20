@@ -46,7 +46,7 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
     // tts
     private TextToSpeech tts;
     // array de palabras para preguntar
-    private String [] questionArray = {"Hi, lets play. pay attention to my instructions, in order to win. please touch next to start playing"
+    private String [] questionArray = {"Hi, lets play. pay attention to my instructions, in order to win. please tab the arrow to start playing"
             ,"Drag the police-woman to the police station","drag the fireman to the fire station","drag the female doctor to the hospital"
             ,"drag the teacher to the school","drag the male doctor to the hospital","drag the professor to the school", "drag the fire-woman to the fire station"
             ,"drag the policeman to the police station"};

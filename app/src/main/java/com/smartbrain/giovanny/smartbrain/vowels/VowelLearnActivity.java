@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
-import android.media.MediaPlayer;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
@@ -33,7 +32,6 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
     private int num;
     private int cont=-1;
     private TextView txtVowel;
-    private MediaPlayer player;
     private TextToSpeech tts;
     private String text;
     private Button btnPlay;
@@ -70,12 +68,6 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         extras = getIntent().getExtras();
         name = extras.getString("NAME");
 
-
-        //set back sound
-        player = MediaPlayer.create(VowelLearnActivity.this, R.raw.music);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
 
         tts = new TextToSpeech(VowelLearnActivity.this, new TextToSpeech.OnInitListener() {
 
@@ -217,13 +209,13 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
     @Override
     protected void onPause() {
         super.onPause();
-        player.stop();
+
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        player.stop();
+
     }
 
     public void Voice(){

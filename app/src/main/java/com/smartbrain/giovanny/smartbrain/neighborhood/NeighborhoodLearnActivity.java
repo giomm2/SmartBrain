@@ -22,7 +22,7 @@ public class NeighborhoodLearnActivity extends Activity implements TextToSpeech.
     private int [] imageArray = {0,R.drawable.teacherf,R.drawable.teacherm,R.drawable.school1,R.drawable.policeman
             ,R.drawable.police_woman,R.drawable.police_station,R.drawable.fire_woman,R.drawable.fireman
             ,R.drawable.firestation,R.drawable.doctorf,R.drawable.doctorm,R.drawable.hospital};
-    private String [] serverWords ={"hello, lets learn about the neighborhood members, please touch next to continue"
+    private String [] serverWords ={"hello, lets learn about the neighborhood members, please tab the blue arrow to continue"
             ,"she is a teacher","and he, is a professor","they both work at the school","he is a policeman"
             ,"and she is a policewoman","they work at the police station","she is a fire-woman","and he is a fire-man"
             ,"they both work at the fire station","she is a doctor","and he is a doctor too","they treat patients, at the hospital" +
