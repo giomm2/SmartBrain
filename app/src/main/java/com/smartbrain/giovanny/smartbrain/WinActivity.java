@@ -133,7 +133,7 @@ public class WinActivity extends Activity{
         ballons();
         firework();
         ViewDialog alert = new ViewDialog();
-        alert.showDialog(WinActivity.this, "Well done you do it!!");
+        alert.showDialog(WinActivity.this, "Well done, you do it!!");
 
     }
     private void ballons(){

@@ -127,7 +127,7 @@ public class ColorsWinActivity extends Activity {
         ballons();
         firework();
         ViewDialog alert = new ViewDialog();
-        alert.showDialog(ColorsWinActivity.this, "Well done you do it!!");
+        alert.showDialog(ColorsWinActivity.this, "Well done, you do it!!");
 
     }
 

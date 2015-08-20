@@ -130,7 +130,7 @@ public class ComnunityWinActivity extends Activity{
         ballons();
         firework();
         ViewDialog alert = new ViewDialog();
-        alert.showDialog(ComnunityWinActivity.this, "Well done you do it!!");
+        alert.showDialog(ComnunityWinActivity.this, "Well done, you do it!!");
 
     }
 

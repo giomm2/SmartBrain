@@ -220,7 +220,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
         if(txtVoice.getText().toString().equalsIgnoreCase(voice[numbers[cont-1]]) ){
 
-            ConvertTextToSpeech("Well done, for next please press the blue button.");
+            ConvertTextToSpeech("Well done, please press the blue button.");
             btnStart.setEnabled(true);
             btn_speak.setEnabled(false);
             btnStart.setVisibility(View.VISIBLE);
