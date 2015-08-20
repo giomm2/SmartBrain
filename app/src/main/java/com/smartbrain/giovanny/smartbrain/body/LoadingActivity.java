@@ -6,6 +6,8 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,6 +31,8 @@ public class LoadingActivity extends Activity {
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;
+
+    private CheckBox cbskip;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,7 @@ public class LoadingActivity extends Activity {
         txtcont=(TextView)findViewById(R.id.txt_cont);
         txtadvice=(TextView)findViewById(R.id.txt_advice);
         imgcontent=(ImageView)findViewById(R.id.img_cont);
+        cbskip=(CheckBox)findViewById(R.id.cb_exit);
 
         contNumber.start();
 
@@ -66,6 +71,8 @@ public class LoadingActivity extends Activity {
             }
         }
         );
+
+
     }
 
     private void ConvertTextToSpeech(String voice1) {
@@ -108,12 +115,21 @@ public class LoadingActivity extends Activity {
         @Override
         public void onFinish() {
 
+            if(cbskip.isChecked()){
+                Intent intent= new Intent(LoadingActivity.this,BodyGameActivity1.class);
+                bundle.putString("NAME", name);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                LoadingActivity.this.finish();
+            }
+
+            else{
             Intent intent= new Intent(LoadingActivity.this, BodyTeachActivity1.class);
             // le asigno al nuevo bundle name que es nombre del usuario
             bundle.putString("NAME", name);
             intent.putExtras(bundle);
             startActivity(intent);
-            LoadingActivity.this.finish();
+            LoadingActivity.this.finish();}
         }
     };
 

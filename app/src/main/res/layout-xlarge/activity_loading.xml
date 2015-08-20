@@ -60,4 +60,16 @@
         android:visibility="invisible"
         android:textColor="#fffefffd" />
 
+    <CheckBox
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:text="     Skip Learning Activity"
+        android:id="@+id/cb_exit"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        android:background="#ffff1a12"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
 </RelativeLayout>
