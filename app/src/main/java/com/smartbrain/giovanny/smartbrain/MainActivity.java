@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -157,7 +158,7 @@ public class MainActivity extends Activity  {
                         paymentStatus = obj.getString("paymentStatus");
                         // Display successfully registered message using Toast
                         //Toast.makeText(getApplicationContext(), "Hi " + getUser() + ", you can play now!", Toast.LENGTH_LONG).show();
-                        Intent intent= new Intent(MainActivity.this,MenuEasyActivity.class);
+                        Intent intent = new Intent(MainActivity.this, MenuEasyActivity.class);
                         Bundle bundle = new Bundle();
                         bundle.putString("NAME", getUser());
                         bundle.putInt("POINTS", getPoints());
@@ -184,7 +185,7 @@ public class MainActivity extends Activity  {
 
             // When the response returned by REST has Http response code other than '200'
             @Override
-            public void onFailure(int statusCode, Throwable error,String content) {
+            public void onFailure(int statusCode, Throwable error, String content) {
                 // Hide Progress Dialog
                 prgDialog.hide();
                 // When Http response code is '404'
@@ -277,9 +278,18 @@ public class MainActivity extends Activity  {
     }
 
     public String getUniqueDevice(){
+        String idDevice="";
         TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-        String idDevice = telephonyManager.getDeviceId().toString();
-        setId(idDevice);
+
+        if (telephonyManager.getDeviceId()!=null){
+        idDevice= telephonyManager.getDeviceId().toString();
+        setId(idDevice);}
+        else{
+
+            idDevice= Build.SERIAL;
+            setId(idDevice);
+        }
+
         return idDevice;
     }
 

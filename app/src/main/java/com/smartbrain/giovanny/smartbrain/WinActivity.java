@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.view.View;
@@ -155,9 +156,18 @@ public class WinActivity extends Activity{
     }
 
     public String getUniqueDevice() {
-        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        String idDevice = telephonyManager.getDeviceId().toString();
-        setId(idDevice);
+        String idDevice="";
+        TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
+
+        if (telephonyManager.getDeviceId()!=null){
+            idDevice= telephonyManager.getDeviceId().toString();
+            setId(idDevice);}
+        else{
+
+            idDevice= Build.SERIAL;
+            setId(idDevice);
+        }
+
         return idDevice;
     }
 
