@@ -115,5 +115,21 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <TextView
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Menu Hard"
+        android:id="@+id/titleMedium"
+        android:textAlignment="center"
+        android:textSize="30dp"
+
+        android:textColor="#FFBF00"
+        android:layout_alignTop="@+id/userName"
+        android:layout_toLeftOf="@+id/zeppelin"
+        android:layout_toRightOf="@+id/baloom3"
+        android:layout_toEndOf="@+id/baloom3" />
+
+
 
 </RelativeLayout>

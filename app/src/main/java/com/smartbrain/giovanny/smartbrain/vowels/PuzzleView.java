@@ -54,6 +54,9 @@ public class PuzzleView extends View{
     private Paint tilePaint;
     private Paint text1;
     private Paint imagePaint;
+    private Paint text2;
+    private Paint text3;
+    private Paint text4;
 
     public static enum ShowNumbers { NONE, SOME, ALL };
 
@@ -98,6 +101,21 @@ public class PuzzleView extends View{
 
 
         imagePaint = new Paint();
+
+        text2 = new Paint();
+        text2.setTextSize(40);
+        text2.setColor(Color.RED);
+
+        imagePaint = new Paint();
+        text3 = new Paint();
+        text3.setTextSize(40);
+        text3.setColor(Color.RED);
+
+        text4 = new Paint();
+        text4.setTextSize(40);
+        text4.setColor(Color.RED);
+
+
 
 
     }
@@ -161,6 +179,13 @@ public class PuzzleView extends View{
 
         boolean solved = slidePuzzle.isSolved();
 
+        if (solved==true){
+            canvas.drawText("Well done,", 30, 90, text2);
+            canvas.drawText("wait until",30,120,text3);
+            canvas.drawText("time out!",30,150,text4);
+
+        }
+
         //establecer el fondo
        Bitmap background = BitmapFactory.decodeResource(getResources(), R.drawable.wnocheestrellada);
         Rect dest =  new  Rect ( 0 ,  0 , getWidth (), getHeight ());
@@ -175,7 +200,6 @@ public class PuzzleView extends View{
         Rect dest2 =  new  Rect (90,0,180,80);
         canvas.drawBitmap(image1, null, dest2, null);*/
 //meter un texto en un canvas
-        canvas.drawText("Vowels", 30, 90, text1);
 
 
         int[] originalTiles = slidePuzzle.getTiles();

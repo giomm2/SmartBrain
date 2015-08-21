@@ -50,7 +50,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    speakOut("dad");
+                    speakOut("Dad");
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -90,7 +90,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    speakOut("sister");
+                    speakOut("Sister");
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -130,7 +130,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    speakOut("Grandpa");
+                    speakOut("GrandFather");
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -150,7 +150,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    speakOut("aunt");
+                    speakOut("Aunt");
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -170,7 +170,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    speakOut("uncle");
+                    speakOut("Uncle");
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -190,7 +190,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    speakOut("Grandma");
+                    speakOut("GrandMother");
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -210,7 +210,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    speakOut("cat");
+                    speakOut("Cat");
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
@@ -230,7 +230,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             findViewById(imageArray[i]).setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    speakOut("dog");
+                    speakOut("Dog");
                     if (event.getAction() == MotionEvent.ACTION_DOWN) {
                         ClipData data = ClipData.newPlainText("", "");
                         View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);

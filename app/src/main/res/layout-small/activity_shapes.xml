@@ -82,7 +82,10 @@
         android:textColor="#FFFFFF"
         android:layout_above="@+id/shapeContainer"
         android:layout_alignLeft="@+id/shapeContainer"
-        android:layout_alignStart="@+id/shapeContainer" />
+        android:layout_alignStart="@+id/shapeContainer"
+        android:layout_below="@+id/heart1"
+        android:layout_alignRight="@+id/shapeContainer"
+        android:layout_alignEnd="@+id/shapeContainer" />
     <TextView
         android:layout_width="50dp"
         android:layout_height="25dp"

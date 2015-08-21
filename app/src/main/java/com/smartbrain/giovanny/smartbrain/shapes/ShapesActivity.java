@@ -235,13 +235,8 @@ public class ShapesActivity extends Activity {
                                 }
                             }
                             else{
-                                ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
-                                bundle.putString("NAME", name);
-                                bundle.putInt("POINTS", gamePoints);
-                                intent.putExtras(bundle);
-                                startActivity(intent);
-                                ShapesActivity.this.finish();
+                                ShapesActivity.this.recreate();
+                                gamePoints=0;
                             }
 
                         }
@@ -332,13 +327,8 @@ public class ShapesActivity extends Activity {
                                 }
 
                             }else{
-                                ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent(ShapesActivity.this,WinActivity.class);
-                                bundle.putString("NAME", name);
-                                bundle.putInt("POINTS", gamePoints);
-                                intent.putExtras(bundle);
-                                startActivity(intent);
-                                ShapesActivity.this.finish();
+                                ShapesActivity.this.recreate();
+                                gamePoints=0;
                             }
 
                         }
@@ -429,13 +419,8 @@ public class ShapesActivity extends Activity {
                                 }
                             }
                             else{
-                                ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
-                                bundle.putString("NAME", name);
-                                bundle.putInt("POINTS", gamePoints);
-                                intent.putExtras(bundle);
-                                startActivity(intent);
-                                ShapesActivity.this.finish();
+                                ShapesActivity.this.recreate();
+                                gamePoints=0;
                             }
                         }
                         break;
@@ -527,13 +512,8 @@ public class ShapesActivity extends Activity {
                                     gamePoints=gamePoints-10;
                                 }
                             }else {
-                                ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
-                                bundle.putString("NAME", name);
-                                bundle.putInt("POINTS", gamePoints);
-                                intent.putExtras(bundle);
-                                startActivity(intent);
-                                ShapesActivity.this.finish();
+                                ShapesActivity.this.recreate();
+                                gamePoints=0;
                             }
                         }
                         break;

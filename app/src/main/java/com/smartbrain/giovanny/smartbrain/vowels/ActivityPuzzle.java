@@ -491,7 +491,7 @@ public class ActivityPuzzle extends Activity {
         @Override
         public void onFinish() {
 
-            gamePoints=300;
+            gamePoints=650;
             Intent intent = new Intent(ActivityPuzzle.this, ComnunityWinActivity.class);
             bundle.putString("NAME", name);
             bundle.putInt("POINTS", gamePoints);
