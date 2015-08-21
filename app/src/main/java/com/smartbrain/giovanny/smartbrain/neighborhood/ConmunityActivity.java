@@ -109,6 +109,7 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                 next.setVisibility(View.INVISIBLE);
                 repeat.setVisibility(View.VISIBLE);
                 setTouchListeners();
+                setTouchEnabledTrue();
                 setFalse();
                 i++;
                 switch (i){
@@ -151,6 +152,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                             view.setVisibility(View.VISIBLE);
                                             tts.speak("Well done, touch next to continue", TextToSpeech.QUEUE_FLUSH, null);
                                             next.setVisibility(View.VISIBLE);
+                                            // aqui va la vara q no me deja moverlos mas
+                                            setTouchEnabledFalse();
                                             setFalse();
                                         }
                                         break;
@@ -277,6 +280,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                             view.setVisibility(View.VISIBLE);
                                             tts.speak("Well done, touch next to continue", TextToSpeech.QUEUE_FLUSH, null);
                                             next.setVisibility(View.VISIBLE);
+                                            // aqui va la vara q no me deja moverlos mas
+                                            setTouchEnabledFalse();
                                             setFalse();
                                         }
                                         break;
@@ -403,6 +408,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                             view.setVisibility(View.VISIBLE);
                                             tts.speak("Well done, touch next to continue", TextToSpeech.QUEUE_FLUSH, null);
                                             next.setVisibility(View.VISIBLE);
+                                            // aqui va la vara q no me deja moverlos mas
+                                            setTouchEnabledFalse();
                                             setFalse();
                                         }
                                         break;
@@ -529,6 +536,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                             view.setVisibility(View.VISIBLE);
                                             tts.speak("Well done, touch next to continue", TextToSpeech.QUEUE_FLUSH, null);
                                             next.setVisibility(View.VISIBLE);
+                                            // aqui va la vara q no me deja moverlos mas
+                                            setTouchEnabledFalse();
                                             setFalse();
                                         }
                                         break;
@@ -655,6 +664,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                             view.setVisibility(View.VISIBLE);
                                             tts.speak("Well done, touch next to continue", TextToSpeech.QUEUE_FLUSH, null);
                                             next.setVisibility(View.VISIBLE);
+                                            // aqui va la vara q no me deja moverlos mas
+                                            setTouchEnabledFalse();
                                             setFalse();
                                         }
                                         break;
@@ -782,6 +793,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                             view.setVisibility(View.VISIBLE);
                                             tts.speak("Well done, touch next to continue", TextToSpeech.QUEUE_FLUSH, null);
                                             next.setVisibility(View.VISIBLE);
+                                            // aqui va la vara q no me deja moverlos mas
+                                            setTouchEnabledFalse();
                                             setFalse();
                                         }
                                         break;
@@ -908,6 +921,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                             view.setVisibility(View.VISIBLE);
                                             tts.speak("Well done, touch next to continue", TextToSpeech.QUEUE_FLUSH, null);
                                             next.setVisibility(View.VISIBLE);
+                                            // aqui va la vara q no me deja moverlos mas
+                                            setTouchEnabledFalse();
                                             setFalse();
                                         }
                                         break;
@@ -1034,6 +1049,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
                                             view.setVisibility(View.VISIBLE);
                                             tts.speak("Well done, you won the game, touch next to gain your points", TextToSpeech.QUEUE_FLUSH, null);
                                             next.setVisibility(View.VISIBLE);
+                                            // aqui va la vara q no me deja moverlos mas
+                                            setTouchEnabledFalse();
                                             setFalse();
                                         }
                                         break;
@@ -1142,6 +1159,29 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
     private ImageView[] setLives(){
         ImageView[] lives = {heart,heart1,heart2};
         return lives;
+    }
+
+    // cuando coloco bien la imagen seteo q no se puedan mover mas
+    public void setTouchEnabledFalse(){
+        policeman.setEnabled(false);
+        policewoman.setEnabled(false);
+        fireman.setEnabled(false);
+        firewoman.setEnabled(false);
+        doctorf.setEnabled(false);
+        doctorm.setEnabled(false);
+        teacher.setEnabled(false);
+        professor.setEnabled(false);
+    }
+    // seteo las varas de nuevo para q sean tocables y arrastrables
+    public void setTouchEnabledTrue(){
+        policeman.setEnabled(true);
+        policewoman.setEnabled(true);
+        fireman.setEnabled(true);
+        firewoman.setEnabled(true);
+        doctorf.setEnabled(true);
+        doctorm.setEnabled(true);
+        teacher.setEnabled(true);
+        professor.setEnabled(true);
     }
 
     // seteo siempre los touch listeners
