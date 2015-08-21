@@ -34,7 +34,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
     private String[] voice={"A","Bear","Cat","Hen","Cow","Dog","Horse","Lion","Snake",
     "Rabbit","Sheep","Arm","Ear","Eyes","Face","Finger","Foot","Hand","Leg","Mouth","Nose",
     "Brother","Brown","Circle","Blue","Green","Orange","Purple","Red","Yellow","Square","Dad","Doctor","Doctor",
-    "E","Fireman","Grandmother","Grandfather","grey","I","Mom","8","5","4","9","1","7","6","3","2","0","O",
+    "E","Fireman","Grandmother","Grandfather","grey","I","Mom","eight","five","four","nine","one","seven","six","three","two","zero","O",
     "Olive","Policeman","Rectangle","Sister","Teacher","Triangle","U","Wine"};
     private String[] image={"a","animalsbear","animalscat","animalschicken","animalscow","animalsdog",
             "animalshorse","animalslion","animalspig","animalsrabbit","animalssheep","body_arm","body_ear","body_eyes",
