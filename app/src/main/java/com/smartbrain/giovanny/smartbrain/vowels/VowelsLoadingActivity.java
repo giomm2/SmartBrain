@@ -21,7 +21,7 @@ public class VowelsLoadingActivity extends Activity {
     private String text;
     private TextView txtcont,  txtadvice;
     private ImageView imgcontent;
-    private int[] images={R.drawable.zvowelone,R.drawable.zvoweltwo,R.drawable.zvowelthree};
+    private int[] images={R.drawable.zvowelone,R.drawable.zvoweltwo,R.drawable.zvowelthree1};
     private int pos=0;
     private String[] advice={"Use the images guide.","You have five minutes to complete the puzzle.","Pay attention to each image."};
 
