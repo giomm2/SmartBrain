@@ -179,8 +179,8 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
                 bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
-                startActivity(intent);
                 VowelLearnActivity.this.finish();
+                startActivity(intent);
                 break;
 
             }
