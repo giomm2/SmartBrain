@@ -6,11 +6,14 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -31,6 +34,7 @@ public class LoadingActivity extends Activity {
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;
+    private String paymentStatus;
 
     private CheckBox cbskip;
     @Override
@@ -117,7 +121,9 @@ public class LoadingActivity extends Activity {
 
             if(cbskip.isChecked()){
                 Intent intent= new Intent(LoadingActivity.this,BodyGameActivity1.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 LoadingActivity.this.finish();
@@ -126,7 +132,9 @@ public class LoadingActivity extends Activity {
             else{
             Intent intent= new Intent(LoadingActivity.this, BodyTeachActivity1.class);
             // le asigno al nuevo bundle name que es nombre del usuario
-            bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
             intent.putExtras(bundle);
             startActivity(intent);
             LoadingActivity.this.finish();}
@@ -153,5 +161,19 @@ public class LoadingActivity extends Activity {
         LoadingActivity.this.finish();
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (LoadingActivity.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            LoadingActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

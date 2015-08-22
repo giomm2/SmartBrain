@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -27,6 +30,7 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
     Bundle extras;
     private String name;
     int points;
+    private String paymentStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +51,7 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
         // agarro el extra y se lo meto a name
         extras = getIntent().getExtras();
         name = extras.getString("NAME");
-        points=extras.getInt("POINTS");
+        points=extras.getInt("POINTS2");
 
 
         tts = new TextToSpeech(BodyTechActivity2.this, new TextToSpeech.OnInitListener() {
@@ -112,8 +116,10 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
             case R.id.btn_play:{
 
                 Intent intent = new Intent(BodyTechActivity2.this,BodyGameActivity2.class);
-                bundle.putString("NAME", name);
-                bundle.putInt("POINTS",points);
+                bundle.putInt("POINTS2",points);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 BodyTechActivity2.this.finish();
                 startActivity(intent);
@@ -196,5 +202,20 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
         super.onDestroy();
         tts.stop();
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (BodyTechActivity2.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            BodyTechActivity2.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

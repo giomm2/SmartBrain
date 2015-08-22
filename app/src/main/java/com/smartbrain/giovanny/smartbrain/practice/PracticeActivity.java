@@ -8,6 +8,7 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 
@@ -47,7 +50,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
     private int cont=0;
     private int [] numbers = new int[60];
-
+    private String paymentStatus;
     private Button btnStart;
     private Button btnRepeat;
     private TextToSpeech tts;
@@ -365,5 +368,20 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
         super.onDestroy();
         tts.stop();
         timer.cancel();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (PracticeActivity.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            PracticeActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

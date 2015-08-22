@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -74,6 +75,12 @@ public class PayActivity extends Activity {
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent= new Intent(PayActivity.this,MenuEasyActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                intent.putExtras(bundle);
+                startActivity(intent);
                 PayActivity.this.finish();
             }
         });
@@ -89,6 +96,7 @@ public class PayActivity extends Activity {
                 //}
             //}
         //});
+
 
 
     }
@@ -273,4 +281,19 @@ public class PayActivity extends Activity {
         super.onDestroy();
     }
 
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent = new Intent(PayActivity.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            PayActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

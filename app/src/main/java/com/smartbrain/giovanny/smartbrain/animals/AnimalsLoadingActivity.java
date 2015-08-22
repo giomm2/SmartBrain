@@ -6,11 +6,15 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
+import com.smartbrain.giovanny.smartbrain.body.LoadingActivity;
+
 import java.util.Locale;
 
 
@@ -26,8 +30,11 @@ public class AnimalsLoadingActivity extends Activity {
     // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
     Bundle bundle = new Bundle();
     Bundle extras;
-    private String name;
     private CheckBox cbskip;
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +48,7 @@ public class AnimalsLoadingActivity extends Activity {
         contNumber.start();
         // agarro el extra y se lo meto a name
         extras = getIntent().getExtras();
-        name = extras.getString("NAME");
+
 
 
         tts = new TextToSpeech(AnimalsLoadingActivity.this, new TextToSpeech.OnInitListener() {
@@ -111,7 +118,9 @@ public class AnimalsLoadingActivity extends Activity {
 
                 Intent intent= new Intent(AnimalsLoadingActivity.this, AnimalsGameActivity.class);
                 // le asigno al nuevo bundle name que es nombre del usuario
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 AnimalsLoadingActivity.this.finish();
@@ -119,7 +128,9 @@ public class AnimalsLoadingActivity extends Activity {
 
             Intent intent= new Intent(AnimalsLoadingActivity.this, AnimalsLearningActivity.class);
             // le asigno al nuevo bundle name que es nombre del usuario
-            bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
             intent.putExtras(bundle);
             startActivity(intent);
             AnimalsLoadingActivity.this.finish();}
@@ -145,5 +156,21 @@ public class AnimalsLoadingActivity extends Activity {
         super.onStop();
         contNumber.cancel();
         AnimalsLoadingActivity.this.finish();
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+           Intent intent =new Intent (AnimalsLoadingActivity.this, MenuMediumActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            AnimalsLoadingActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

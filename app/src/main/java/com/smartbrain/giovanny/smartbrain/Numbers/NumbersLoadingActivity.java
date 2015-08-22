@@ -6,10 +6,13 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
 
@@ -28,6 +31,7 @@ public class NumbersLoadingActivity extends Activity {
     Bundle extras;
     private String name;
     private CheckBox cbskip;
+    private String paymentStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,7 +115,9 @@ public class NumbersLoadingActivity extends Activity {
 
                 Intent intent= new Intent(NumbersLoadingActivity.this, NumbersGameActivity.class);
                 // le asigno al nuevo bundle name que es nombre del usuario
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 NumbersLoadingActivity.this.finish();
@@ -119,7 +125,9 @@ public class NumbersLoadingActivity extends Activity {
             }else{
             Intent intent= new Intent(NumbersLoadingActivity.this, NumbersTeachActivity.class);
             // le asigno al nuevo bundle name que es nombre del usuario
-            bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
             intent.putExtras(bundle);
             startActivity(intent);
             NumbersLoadingActivity.this.finish();}
@@ -144,5 +152,20 @@ public class NumbersLoadingActivity extends Activity {
         super.onStop();
         contNumber.cancel();
         NumbersLoadingActivity.this.finish();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (NumbersLoadingActivity.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            NumbersLoadingActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -115,7 +115,6 @@ public class ColorsWinActivity extends Activity {
                 intent.putExtras(bundle);
                 startActivity(intent);
                 player.stop();
-                System.exit(0);
                 ColorsWinActivity.this.finish();
             }
         });

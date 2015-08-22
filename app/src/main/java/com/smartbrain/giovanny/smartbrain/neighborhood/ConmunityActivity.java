@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.DragEvent;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.smartbrain.giovanny.smartbrain.ColorsWinActivity;
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 
@@ -46,6 +49,8 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
     // tts
     private TextToSpeech tts;
     // array de palabras para preguntar
+
+    private String paymentStatus;
     private String [] questionArray = {"Hi, lets play. pay attention to my instructions, in order to win. please tab the arrow to start playing"
             ,"Drag the police-woman to the police station","drag the fireman to the fire station","drag the female doctor to the hospital"
             ,"drag the teacher to the school","drag the male doctor to the hospital","drag the professor to the school", "drag the fire-woman to the fire station"
@@ -1350,5 +1355,20 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
             tts.shutdown();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (ConmunityActivity.this, MenuMediumActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            ConmunityActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

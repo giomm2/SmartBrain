@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -31,6 +34,7 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;
+    private String paymentStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -149,7 +153,9 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
 
             case R.id.btn_play:{
                 Intent intent=new Intent(NumbersTeachActivity.this,NumbersGameActivity.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 NumbersTeachActivity.this.finish();
@@ -158,6 +164,21 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
             }
 
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (NumbersTeachActivity.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            NumbersTeachActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

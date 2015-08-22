@@ -8,12 +8,15 @@ import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.DragEvent;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import com.smartbrain.giovanny.smartbrain.WinActivity;
 
@@ -29,6 +32,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
     private ImageView endGame;
     private ImageView refresh;
     private String message;
+    private String paymentStatus;
     // tts
     private TextToSpeech tts;
     // points
@@ -451,5 +455,20 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             tts.shutdown();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (FamilyActivityGame.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            FamilyActivityGame.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

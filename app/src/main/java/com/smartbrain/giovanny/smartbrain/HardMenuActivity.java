@@ -88,10 +88,14 @@ public class HardMenuActivity extends Activity {
 
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, NumbersLoadingActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
-                music.stop();}
+                music.stop();
+                HardMenuActivity.this.finish();
+                }
                 else{
 
                     toastActivity.showDialog(HardMenuActivity.this,"Sorry, you need more than 5500 points.");
@@ -106,10 +110,14 @@ public class HardMenuActivity extends Activity {
                 if(pointsC>=8500){
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, PracticeLoadingActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
-                music.stop();}
+                music.stop();
+                    HardMenuActivity.this.finish();
+                }
                 else{
 
                     toastActivity.showDialog(HardMenuActivity.this,"Sorry, you need more than 8500 points.");
@@ -124,10 +132,14 @@ public class HardMenuActivity extends Activity {
                 if(pointsC>=7000){
                 selectSound.start();
                 Intent intent = new Intent(HardMenuActivity.this, VowelsLoadingActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
-                music.stop();}
+                music.stop();
+                HardMenuActivity.this.finish();
+                }
                 else{
 
                     toastActivity.showDialog(HardMenuActivity.this,"Sorry, you need more than 7000 points.");
@@ -225,7 +237,7 @@ public class HardMenuActivity extends Activity {
                         HardMenuActivity.this, MenuEasyActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
-                bundle.putString("PAYMENT", paymentStatus);
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
@@ -236,7 +248,7 @@ public class HardMenuActivity extends Activity {
                         HardMenuActivity.this, MenuMediumActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
-                bundle.putString("PAYMENT", paymentStatus);
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);

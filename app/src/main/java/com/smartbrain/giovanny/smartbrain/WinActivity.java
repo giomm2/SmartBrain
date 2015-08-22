@@ -120,7 +120,6 @@ public class WinActivity extends Activity{
                 intent.putExtras(bundle);
                 startActivity(intent);
                 player.stop();
-                System.exit(0);
                 WinActivity.this.finish();
             }
         });

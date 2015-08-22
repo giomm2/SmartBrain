@@ -30,7 +30,7 @@ public class MenuMediumActivity extends Activity  {
     Bundle bundle = new Bundle();
     Bundle extras;
     private MediaPlayer selectSound;
-    private String paymentStatus;
+
 
     private GestureDetectorCompat gestureDetectorCompat;
     private MediaPlayer music;
@@ -62,7 +62,7 @@ public class MenuMediumActivity extends Activity  {
         music.start();
         selectSound = MediaPlayer.create(MenuMediumActivity.this, R.raw.pop);
         pointsC=extras.getInt("POINTS");
-        paymentStatus = extras.getString("PAYMENT");
+
 
 
         btnexit.setOnClickListener(new View.OnClickListener() {
@@ -82,9 +82,13 @@ public class MenuMediumActivity extends Activity  {
                 selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLoadingActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
-                startActivity(intent);}
+                startActivity(intent);
+                MenuMediumActivity.this.finish();
+                }
                 else{
 
                     toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 2000 points.");
@@ -99,9 +103,13 @@ public class MenuMediumActivity extends Activity  {
                 selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, AnimalsLoadingActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
-                startActivity(intent);}
+                startActivity(intent);
+                MenuMediumActivity.this.finish();
+                }
                 else{
 
                     toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 4000 points.");
@@ -115,10 +123,14 @@ public class MenuMediumActivity extends Activity  {
 
                 selectSound.start();
                 Intent intent = new Intent(MenuMediumActivity.this, ColorsLoadingActivity.class);
-                bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
-                music.stop();}
+                music.stop();
+                MenuMediumActivity.this.finish();
+                }
                     else{
 
                         toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 3000 points.");
@@ -195,7 +207,7 @@ public class MenuMediumActivity extends Activity  {
                         MenuMediumActivity.this, HardMenuActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
-                bundle.putString("PAYMENT", paymentStatus);
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
@@ -206,7 +218,7 @@ public class MenuMediumActivity extends Activity  {
                         MenuMediumActivity.this, MenuEasyActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
-                bundle.putString("PAYMENT", paymentStatus);
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);

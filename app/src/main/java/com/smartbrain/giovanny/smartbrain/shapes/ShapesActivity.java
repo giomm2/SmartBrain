@@ -8,6 +8,7 @@ import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -45,7 +46,7 @@ public class ShapesActivity extends Activity {
     private boolean check3;
     private ImageView win;
 
-
+    private String paymentStatus;
     private TextToSpeech tts;
     private String text;
 //trae el nombre del usuario
@@ -588,5 +589,20 @@ public class ShapesActivity extends Activity {
         super.onDestroy();
         tts.stop();
         tts.shutdown();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (ShapesActivity.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            ShapesActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

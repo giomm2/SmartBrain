@@ -6,12 +6,15 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
 
@@ -36,6 +39,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;
+    private String paymentStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -544,5 +548,20 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
         super.onDestroy();
         tts.stop();
         contNumber.cancel();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (NumbersGameActivity.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            NumbersGameActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

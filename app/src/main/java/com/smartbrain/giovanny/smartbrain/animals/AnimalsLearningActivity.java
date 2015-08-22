@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
 
@@ -40,6 +42,8 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
     Bundle extras;
     private String name;
 
+    private String points;
+    private String paymentStatus;
 
 
     @Override
@@ -62,6 +66,8 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
         // agarro el extra y se lo meto a name
         extras = getIntent().getExtras();
         name = extras.getString("NAME");
+        paymentStatus=extras.getString("PAYMENT");
+        points=extras.getString("POINTS");
 
         // tts
         tts = new TextToSpeech(this, this);
@@ -187,7 +193,9 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
             public void onClick(View v) {
 
                 Intent intent= new Intent(AnimalsLearningActivity.this,AnimalsGameActivity.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", paymentStatus);
                 intent.putExtras(bundle);
                 startActivity(intent);
                 AnimalsLearningActivity.this.finish();
@@ -227,5 +235,20 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
             tts.shutdown();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (AnimalsLearningActivity.this, MenuMediumActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", paymentStatus);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            AnimalsLearningActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }
