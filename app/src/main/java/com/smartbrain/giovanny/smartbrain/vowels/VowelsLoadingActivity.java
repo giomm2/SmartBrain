@@ -2,11 +2,14 @@ package com.smartbrain.giovanny.smartbrain.vowels;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,11 +24,7 @@ public class VowelsLoadingActivity extends Activity {
 
     private TextToSpeech tts;
     private String text;
-    private TextView txtcont,  txtadvice;
-    private ImageView imgcontent;
-    private int[] images={R.drawable.zvowelone,R.drawable.zvoweltwo,R.drawable.zvowelthree1};
-    private int pos=0;
-    private String[] advice={"Use the images guide.","You have five minutes to complete the puzzle.","Pay attention to each image."};
+    private TextView txtcont,txtview2;
 
     //trae el nombre del usuario
     Bundle bundle = new Bundle();
@@ -40,10 +39,8 @@ public class VowelsLoadingActivity extends Activity {
         setContentView(R.layout.activity_loading);
 
         txtcont=(TextView)findViewById(R.id.txt_cont);
-        txtadvice=(TextView)findViewById(R.id.txt_advice);
-        imgcontent=(ImageView)findViewById(R.id.img_cont);
         cbskip=(CheckBox)findViewById(R.id.cb_exit);
-
+        txtview2=(TextView)findViewById(R.id.textView2);
         contNumber.start();
 
         //seteo en name el nombre que viene en extras que es un bundle
@@ -86,29 +83,22 @@ public class VowelsLoadingActivity extends Activity {
     }
 
     //Contador del juego al acabar quita corazones o vuelve a iniciar la aplicacion.
-    CountDownTimer contNumber= new CountDownTimer(15000,1000) {
+    CountDownTimer contNumber= new CountDownTimer(7000,1000) {
         @Override
         public void onTick(long millisUntilFinished) {
-
             txtcont.setText("" + millisUntilFinished / 1000);
+            if(txtcont.getText().toString().equals("5")) {
+                txtview2.setTextColor(Color.parseColor("#FFFF1A28"));
+            }else if (txtcont.getText().toString().equals("4")){
 
-            if (txtcont.getText().equals("14")){
+                txtview2.setTextColor(Color.parseColor("#FF8AFF23"));
+            }else if (txtcont.getText().toString().equals("3")){
 
-                imgcontent.setImageResource(images[pos]);
-                txtadvice.setText(advice[pos]);
-                pos++;
-            }else if (txtcont.getText().equals("10")){
+                txtview2.setTextColor(Color.parseColor("#FF3799FF"));
+            }
+            else if (txtcont.getText().toString().equals("2")){
 
-                imgcontent.setImageResource(images[pos]);
-                txtadvice.setText(advice[pos]);
-                pos++;
-
-            }else if (txtcont.getText().equals("5")){
-
-                imgcontent.setImageResource(images[pos]);
-                txtadvice.setText(advice[pos]);
-                pos++;
-
+                txtview2.setTextColor(Color.parseColor("#FFF94CFF"));
             }
         }
 
@@ -172,4 +162,5 @@ public class VowelsLoadingActivity extends Activity {
         }
         return super.onKeyDown(keyCode, event);
     }
+
 }

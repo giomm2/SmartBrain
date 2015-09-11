@@ -535,7 +535,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
             }else{
 
                 contNumber.cancel();
-                NumbersGameActivity.this.finish();
+                NumbersGameActivity.this.recreate();
 
             }
         }

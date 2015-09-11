@@ -10,13 +10,13 @@
 
 
     <ProgressBar
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:indeterminate="true"
         android:id="@+id/progressBar2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:clickable="false" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,28 +25,8 @@
         android:id="@+id/textView2"
         android:textColor="#fffffdfb"
         android:textSize="45dp"
-        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:layout_width="600dp"
-        android:layout_height="375dp"
-        android:id="@+id/img_cont"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/txt_advice"
-        android:textSize="30dp"
-        android:textColor="#fffefffd"
-        android:layout_below="@+id/img_cont"
-        android:layout_alignLeft="@+id/img_cont"
-        android:layout_alignStart="@+id/img_cont"
-        android:layout_marginTop="48dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,7 +34,6 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/txt_cont"
-        android:layout_alignTop="@+id/img_cont"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:visibility="invisible"
