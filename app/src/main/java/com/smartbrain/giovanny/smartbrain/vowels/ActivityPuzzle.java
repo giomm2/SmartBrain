@@ -534,6 +534,7 @@ public class ActivityPuzzle extends Activity {
             intent.putExtras(bundle);
             startActivity(intent);
             ActivityPuzzle.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

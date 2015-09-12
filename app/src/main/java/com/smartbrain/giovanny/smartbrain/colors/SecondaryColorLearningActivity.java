@@ -252,6 +252,7 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
             intent.putExtras(bundle);
             startActivity(intent);
             SecondaryColorLearningActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

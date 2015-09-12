@@ -468,6 +468,7 @@ public class FamilyActivityGame extends Activity implements TextToSpeech.OnInitL
             intent.putExtras(bundle);
             startActivity(intent);
             FamilyActivityGame.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

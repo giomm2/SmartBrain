@@ -233,6 +233,7 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
             intent.putExtras(bundle);
             startActivity(intent);
             ColorLearningActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

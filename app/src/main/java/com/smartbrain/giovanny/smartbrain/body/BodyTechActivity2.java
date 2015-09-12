@@ -215,6 +215,7 @@ public class BodyTechActivity2 extends Activity implements View.OnClickListener 
             intent.putExtras(bundle);
             startActivity(intent);
             BodyTechActivity2.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

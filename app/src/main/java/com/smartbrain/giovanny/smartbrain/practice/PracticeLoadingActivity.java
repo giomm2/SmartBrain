@@ -13,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
@@ -32,12 +33,13 @@ public class PracticeLoadingActivity extends Activity {
     private String name;
     private CheckBox cbskip;
     private String paymentStatus;
+    private ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
-
+        progress=(ProgressBar)findViewById(R.id.progressBar2);
         txtcont=(TextView)findViewById(R.id.txt_cont);
         cbskip=(CheckBox)findViewById(R.id.cb_exit);
         txtview2=(TextView)findViewById(R.id.textView2);
@@ -90,17 +92,19 @@ public class PracticeLoadingActivity extends Activity {
         public void onTick(long millisUntilFinished) {
             txtcont.setText("" + millisUntilFinished / 1000);
             if(txtcont.getText().toString().equals("5")) {
+                progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FF6E70FF"), android.graphics.PorterDuff.Mode.MULTIPLY);
                 txtview2.setTextColor(Color.parseColor("#FFFF1A28"));
             }else if (txtcont.getText().toString().equals("4")){
-
+                progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFF3D11"), android.graphics.PorterDuff.Mode.MULTIPLY);
                 txtview2.setTextColor(Color.parseColor("#FF8AFF23"));
-            }else if (txtcont.getText().toString().equals("3")){
+            }else if (txtcont.getText().toString().equals("2")){
 
+                progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFFEC33"), android.graphics.PorterDuff.Mode.MULTIPLY);
                 txtview2.setTextColor(Color.parseColor("#FF3799FF"));
             }
-            else if (txtcont.getText().toString().equals("2")){
-
-                txtview2.setTextColor(Color.parseColor("#FFF94CFF"));
+            else if (txtcont.getText().toString().equals("1")){
+                progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFDF56FF"), android.graphics.PorterDuff.Mode.MULTIPLY);
+                txtview2.setTextColor(Color.parseColor("#FFFF5B8F"));
             }
         }
 

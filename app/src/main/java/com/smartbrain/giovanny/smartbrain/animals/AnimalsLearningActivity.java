@@ -248,6 +248,7 @@ public class AnimalsLearningActivity extends Activity implements TextToSpeech.On
             intent.putExtras(bundle);
             startActivity(intent);
             AnimalsLearningActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

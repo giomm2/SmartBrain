@@ -1368,6 +1368,7 @@ public class ConmunityActivity extends Activity implements TextToSpeech.OnInitLi
             intent.putExtras(bundle);
             startActivity(intent);
             ConmunityActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

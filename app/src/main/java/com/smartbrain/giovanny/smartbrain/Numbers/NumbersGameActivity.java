@@ -149,16 +149,13 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
         int num9 = (int) (Math.random() * images.length);
 
         while (num == num1 || num == num2 || num == num3 || num == num4 || num == num5 || num == num6 ||
-                num == num7 || num == num8 || num == num9 || num1 == num || num1 == num2 || num1 == num3 || num1 == num4 || num1 == num5 || num1 == num6 ||
-                num1 == num7 || num1 == num8 || num1 == num9 || num2 == num || num2 == num1 || num2 == num3 || num2 == num4 || num2 == num5 || num2 == num6 ||
-                num2 == num7 || num2 == num8 || num2 == num9 || num3 == num || num3 == num1 || num3 == num2 || num3 == num4 || num3 == num5 || num3 == num6 ||
-                num3 == num7 || num3 == num8 || num3 == num9 || num4 == num || num4 == num1 || num4 == num2 || num4 == num3 || num4 == num5 || num4 == num6 ||
-                num4 == num7 || num4 == num8 || num4 == num9 || num5 == num || num5 == num1 || num5 == num2 || num5 == num3 || num5 == num4 || num5 == num6 ||
-                num5 == num7 || num5 == num8 || num5 == num9 || num6 == num || num6 == num1 || num6 == num2 || num6 == num3 || num6 == num4 || num6 == num5 ||
-                num6 == num7 || num6 == num8 || num6 == num9 || num7 == num || num7 == num1 || num7 == num2 || num7 == num3 || num7 == num4 || num7 == num5 ||
-                num7 == num6 || num7 == num8 || num7 == num9 || num8 == num || num8 == num1 || num8 == num2 || num8 == num3 || num8 == num4 || num8 == num5 ||
-                num8 == num6 || num8 == num7 || num8 == num9 || num9 == num || num9 == num1 || num9 == num2 || num9 == num3 || num9 == num4 || num9 == num5 ||
-                num9 == num6 || num9 == num7 || num9 == num8) {
+                num == num7 || num == num8 || num == num9 || num1 == num2 || num1 == num3 || num1 == num4 || num1 == num5 || num1 == num6 ||
+                num1 == num7 || num1 == num8 || num1 == num9 ||  num2 == num3 || num2 == num4 || num2 == num5 || num2 == num6 ||
+                num2 == num7 || num2 == num8 || num2 == num9 ||  num3 == num4 || num3 == num5 || num3 == num6 ||
+                num3 == num7 || num3 == num8 || num3 == num9 ||  num4 == num5 || num4 == num6 ||
+                num4 == num7 || num4 == num8 || num4 == num9 ||  num5 == num6 ||
+                num5 == num7 || num5 == num8 || num5 == num9 || num6 == num7 || num6 == num8 || num6 == num9  ||
+                num7 == num8 || num7 == num9 || num8 == num9 ) {
 
             num = (int) (Math.random() * images.length);
             num1 = (int) (Math.random() * images.length);
@@ -561,6 +558,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
             intent.putExtras(bundle);
             startActivity(intent);
             NumbersGameActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

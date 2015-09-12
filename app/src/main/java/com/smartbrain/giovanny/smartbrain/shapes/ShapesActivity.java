@@ -602,6 +602,7 @@ public class ShapesActivity extends Activity {
             intent.putExtras(bundle);
             startActivity(intent);
             ShapesActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

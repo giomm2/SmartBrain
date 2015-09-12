@@ -298,6 +298,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
             intent.putExtras(bundle);
             startActivity(intent);
             AnimalsGameActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

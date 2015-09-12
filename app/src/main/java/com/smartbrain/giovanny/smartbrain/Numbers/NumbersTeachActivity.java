@@ -177,6 +177,7 @@ public class NumbersTeachActivity extends Activity implements View.OnClickListen
             intent.putExtras(bundle);
             startActivity(intent);
             NumbersTeachActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

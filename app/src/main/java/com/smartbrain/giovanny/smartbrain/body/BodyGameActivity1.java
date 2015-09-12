@@ -101,9 +101,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
         int num2=(int)(Math.random()*images.length);
         int num3=(int)(Math.random()*images.length);
 
-        while(num==num1||num==num2||num==num3||num1==num||num1==num2||num1==num3||
-                num2==num||num2==num1||num2==num3||num3==num||num3==num1
-                ||num3==num2){
+        while(num==num1||num==num2||num==num3||num1==num2||num1==num3|| num2==num3){
 
             num=(int)(Math.random()*images.length);
             num1=(int)(Math.random()*images.length);
@@ -368,6 +366,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
             intent.putExtras(bundle);
             startActivity(intent);
             BodyGameActivity1.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

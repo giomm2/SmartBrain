@@ -2064,6 +2064,7 @@ public class ColorsGameActivity extends Activity implements TextToSpeech.OnInitL
             intent.putExtras(bundle);
             startActivity(intent);
             ColorsGameActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

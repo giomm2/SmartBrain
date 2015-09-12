@@ -250,6 +250,7 @@ public class NeighborhoodLearnActivity extends Activity implements TextToSpeech.
             intent.putExtras(bundle);
             startActivity(intent);
             NeighborhoodLearnActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

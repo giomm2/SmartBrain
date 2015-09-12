@@ -220,6 +220,7 @@ public class ShapesActivityMain extends Activity implements  View.OnClickListene
             intent.putExtras(bundle);
             startActivity(intent);
             ShapesActivityMain.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

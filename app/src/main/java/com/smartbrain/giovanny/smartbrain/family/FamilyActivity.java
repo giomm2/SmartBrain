@@ -161,6 +161,7 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
             intent.putExtras(bundle);
             startActivity(intent);
             FamilyActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

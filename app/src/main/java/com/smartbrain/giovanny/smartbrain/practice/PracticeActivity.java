@@ -381,6 +381,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
             intent.putExtras(bundle);
             startActivity(intent);
             PracticeActivity.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }

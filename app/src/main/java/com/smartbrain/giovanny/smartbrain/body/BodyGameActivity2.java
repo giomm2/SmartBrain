@@ -109,11 +109,8 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
         int num4=(int)(Math.random()*images.length);
         int num5=(int)(Math.random()*images.length);
 
-        while(num==num1||num==num2||num==num3||num==num4||num==num5||num1==num||num1==num2||num1==num3||num1==num4||
-                num1==num5||num2==num||num2==num1||num2==num3||num2==num4||num2==num5||num3==num||num3==num1
-                ||num3==num2||num3==num4||num3==num5 ||num4==num||num4==num1
-                ||num4==num2||num4==num3||num4==num5 ||num5==num||num5==num1
-                ||num5==num2||num5==num3||num5==num4){
+        while(num==num1||num==num2||num==num3||num==num4||num==num5||num1==num2||num1==num3||num1==num4||
+                num1==num5||num2==num3||num2==num4||num2==num5||num3==num4||num3==num5||num4==num5){
 
             num=(int)(Math.random()*images.length);
             num1=(int)(Math.random()*images.length);
@@ -408,6 +405,7 @@ public class BodyGameActivity2 extends Activity implements View.OnClickListener{
             intent.putExtras(bundle);
             startActivity(intent);
             BodyGameActivity2.this.finish();
+            tts.stop();
         }
         return super.onKeyDown(keyCode, event);
     }
