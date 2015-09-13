@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.telephony.TelephonyManager;
 import android.util.Log;
@@ -102,8 +103,12 @@ public class PayActivity extends Activity {
     }
 
     public String getUniqueDevice() {
+        String idDevice = "";
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        String idDevice = telephonyManager.getDeviceId().toString();
+        if (telephonyManager.getDeviceId() != null)
+            idDevice = telephonyManager.getDeviceId().toString();
+        else
+            idDevice = Build.SERIAL;
         return idDevice;
     }
 

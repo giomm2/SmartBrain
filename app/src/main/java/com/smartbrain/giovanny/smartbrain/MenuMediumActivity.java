@@ -63,7 +63,18 @@ public class MenuMediumActivity extends Activity  {
         selectSound = MediaPlayer.create(MenuMediumActivity.this, R.raw.pop);
         pointsC=extras.getInt("POINTS");
 
-
+        if (pointsC < 2000)
+            flower.setEnabled(false);
+        else
+            flower.setEnabled(true);
+        if (pointsC < 3000)
+            flower2.setEnabled(false);
+        else
+            flower2.setEnabled(true);
+        if (pointsC < 4000)
+            flower1.setEnabled(false);
+        else
+            flower1.setEnabled(true);
 
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,64 +89,46 @@ public class MenuMediumActivity extends Activity  {
             @Override
             public void onClick(View v) {
 
-                if(pointsC>=2000){
+
                 selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLoadingActivity.class);
-                    bundle.putString("NAME", extras.getString("NAME"));
-                    bundle.putInt("POINTS", extras.getInt("POINTS"));
-                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 MenuMediumActivity.this.finish();
-                }
-                else{
-
-                    toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 2000 points.");
-                }
             }
         });
         flower1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(pointsC>=4000){
+
                 selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, AnimalsLoadingActivity.class);
-                    bundle.putString("NAME", extras.getString("NAME"));
-                    bundle.putInt("POINTS", extras.getInt("POINTS"));
-                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 MenuMediumActivity.this.finish();
-                }
-                else{
-
-                    toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 4000 points.");
-                }
             }
         });
         flower2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pointsC>=3000){
-
                 selectSound.start();
                 Intent intent = new Intent(MenuMediumActivity.this, ColorsLoadingActivity.class);
-                    bundle.putString("NAME", extras.getString("NAME"));
-                    bundle.putInt("POINTS", extras.getInt("POINTS"));
-                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 music.stop();
                 MenuMediumActivity.this.finish();
-                }
-                    else{
-
-                        toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 3000 points.");
-                    }
-
             }
         });
     }

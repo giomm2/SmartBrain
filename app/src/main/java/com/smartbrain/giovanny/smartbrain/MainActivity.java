@@ -280,7 +280,6 @@ public class MainActivity extends Activity  {
     public String getUniqueDevice(){
         String idDevice="";
         TelephonyManager telephonyManager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-
         if (telephonyManager.getDeviceId()!=null){
         idDevice= telephonyManager.getDeviceId().toString();
         setId(idDevice);}

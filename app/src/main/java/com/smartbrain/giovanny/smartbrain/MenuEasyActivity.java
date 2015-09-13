@@ -81,6 +81,15 @@ public class MenuEasyActivity extends Activity {
             pay.setVisibility(View.INVISIBLE);
             pay.setEnabled(false);
         }
+        if (pointsC < 40)
+            bbody.setEnabled(false);
+        else
+            bbody.setEnabled(true);
+        if (pointsC < 1000)
+            bvowel.setEnabled(false);
+        else
+            bvowel.setEnabled(true);
+
 
 
         btnexit.setOnClickListener(new View.OnClickListener() {
@@ -113,48 +122,29 @@ public class MenuEasyActivity extends Activity {
             @Override
             public void onClick(View v) {
                 // este bundle me lleva el nombre del usuario a la actividad de la familia aunque no sea visible en ningun lugar
+                Intent intent = new Intent(MenuEasyActivity.this, LoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
-
-                if(pointsC>=40){
-                    Intent intent = new Intent(MenuEasyActivity.this, LoadingActivity.class);
-                    bundle.putString("NAME", extras.getString("NAME"));
-                    bundle.putInt("POINTS", extras.getInt("POINTS"));
-                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
-                    intent.putExtras(bundle);
-                    music.stop();
-                    bubblePop.start();
-                    startActivity(intent);
-                    MenuEasyActivity.this.finish();
-
-                }
-                else{
-                    toastActivity.showDialog(MenuEasyActivity.this,"Sorry, you need more than 40 points.");
-
-                }
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                intent.putExtras(bundle);
+                music.stop();
+                bubblePop.start();
+                startActivity(intent);
+                MenuEasyActivity.this.finish();
             }
         });
         bvowel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (pointsC>=1000){
-
-                    Intent intent = new Intent(MenuEasyActivity.this, ShapesLoadingActivity.class);
-                    bundle.putString("NAME", extras.getString("NAME"));
-                    bundle.putInt("POINTS", extras.getInt("POINTS"));
-                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
-                    intent.putExtras(bundle);
-                    music.stop();
-                    bubblePop.start();
-                    startActivity(intent);
-                    MenuEasyActivity.this.finish();
-
-                }else{
-
-                    toastActivity.showDialog(MenuEasyActivity.this,"Sorry, you need more than 1000 points.");
-                }
-
-
+                Intent intent = new Intent(MenuEasyActivity.this, ShapesLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                intent.putExtras(bundle);
+                music.stop();
+                bubblePop.start();
+                startActivity(intent);
+                MenuEasyActivity.this.finish();
             }
         });
 
