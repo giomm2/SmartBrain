@@ -5,12 +5,14 @@ import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -28,6 +30,7 @@ public class ShapesActivityMain extends Activity implements  View.OnClickListene
     private Button btnnext;
     private Button btnPrevious;
     private Button btnPlay;
+    private String paymentStatus;
 
     //trae el nombre del usuario
     Bundle bundle = new Bundle();
@@ -158,7 +161,9 @@ public class ShapesActivityMain extends Activity implements  View.OnClickListene
             }
             case R.id.btn_play:{
                 Intent intent = new Intent(ShapesActivityMain.this,ShapesActivity.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 ShapesActivityMain.this.finish();
                 startActivity(intent);
@@ -203,6 +208,21 @@ public class ShapesActivityMain extends Activity implements  View.OnClickListene
         super.onDestroy();
         tts.stop();
 
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (ShapesActivityMain.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            ShapesActivityMain.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

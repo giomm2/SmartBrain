@@ -6,6 +6,8 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v4.view.GestureDetectorCompat;
 import android.view.GestureDetector;
+import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -79,6 +81,15 @@ public class MenuEasyActivity extends Activity {
             pay.setVisibility(View.INVISIBLE);
             pay.setEnabled(false);
         }
+        if (pointsC < 40)
+            bbody.setEnabled(false);
+        else
+            bbody.setEnabled(true);
+        if (pointsC < 1000)
+            bvowel.setEnabled(false);
+        else
+            bvowel.setEnabled(true);
+
 
 
         btnexit.setOnClickListener(new View.OnClickListener() {
@@ -97,54 +108,43 @@ public class MenuEasyActivity extends Activity {
                 music.stop();
                 bubblePop.start();
                 // este bundle me lleva el nombre del usuario a la actividad de la familia aunque no sea visible en ningun lugar
-                bundle.putString("NAME", extras.getString("NAME"));
+
                 Intent intent = new Intent(MenuEasyActivity.this, FamilyLoadingActivity.class);
-                bundle.putString("PAYMENT", paymentStatus);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
+                MenuEasyActivity.this.finish();
             }
         });
         bbody.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // este bundle me lleva el nombre del usuario a la actividad de la familia aunque no sea visible en ningun lugar
+                Intent intent = new Intent(MenuEasyActivity.this, LoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
-
-                if(pointsC>=40){
-                    Intent intent = new Intent(MenuEasyActivity.this, LoadingActivity.class);
-                    bundle.putString("PAYMENT", paymentStatus);
-                    intent.putExtras(bundle);
-                    music.stop();
-                    bubblePop.start();
-                    startActivity(intent);
-
-                }
-                else{
-                    toastActivity.showDialog(MenuEasyActivity.this,"Sorry, you need more than 40 points.");
-
-                }
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                intent.putExtras(bundle);
+                music.stop();
+                bubblePop.start();
+                startActivity(intent);
+                MenuEasyActivity.this.finish();
             }
         });
         bvowel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (pointsC>=1000){
-
-                    Intent intent = new Intent(MenuEasyActivity.this, ShapesLoadingActivity.class);
-                    bundle.putString("NAME", extras.getString("NAME"));
-                    bundle.putString("PAYMENT", paymentStatus);
-                    intent.putExtras(bundle);
-                    music.stop();
-                    bubblePop.start();
-                    startActivity(intent);
-
-                }else{
-
-                    toastActivity.showDialog(MenuEasyActivity.this,"Sorry, you need more than 1000 points.");
-                }
-
-
+                Intent intent = new Intent(MenuEasyActivity.this, ShapesLoadingActivity.class);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                intent.putExtras(bundle);
+                music.stop();
+                bubblePop.start();
+                startActivity(intent);
+                MenuEasyActivity.this.finish();
             }
         });
 
@@ -154,8 +154,11 @@ public class MenuEasyActivity extends Activity {
 
                 Intent intent= new Intent(MenuEasyActivity.this,PayActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
+                MenuEasyActivity.this.finish();
             }
         });
 
@@ -230,7 +233,7 @@ public class MenuEasyActivity extends Activity {
                                float velocityX, float velocityY) {
 
             if (paymentStatus.equals("no")) {
-                toastActivity.showDialog(MenuEasyActivity.this, "Sorry you need to pay 5$ if you want to access other menus.");
+                toastActivity.showDialog(MenuEasyActivity.this, "Sorry you need to pay 2,50$ if you want to access other menus.");
                 pay.setVisibility(View.VISIBLE);
                 pay.setEnabled(true);
                 music.start();
@@ -241,7 +244,7 @@ public class MenuEasyActivity extends Activity {
                             MenuEasyActivity.this, MenuMediumActivity.class);
                     bundle.putString("NAME", extras.getString("NAME"));
                     bundle.putInt("POINTS", extras.getInt("POINTS"));
-                    bundle.putString("PAYMENT", paymentStatus);
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                     intent.putExtras(bundle);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
@@ -252,7 +255,7 @@ public class MenuEasyActivity extends Activity {
                             MenuEasyActivity.this, HardMenuActivity.class);
                     bundle.putString("NAME", extras.getString("NAME"));
                     bundle.putInt("POINTS", extras.getInt("POINTS"));
-                    bundle.putString("PAYMENT", paymentStatus);
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                     music.stop();
                     intent.putExtras(bundle);
                     startActivity(intent);
@@ -283,6 +286,12 @@ public class MenuEasyActivity extends Activity {
         music.stop();
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        return super.onKeyDown(keyCode, event);
+
+
+    }
 }
 
 

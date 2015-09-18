@@ -5,18 +5,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.smartbrain.giovanny.smartbrain.body.LoadingActivity"
-    android:background="#000000">
+    android:background="#000000"
+    android:id="@+id/relativelo">
 
 
 
     <ProgressBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:indeterminate="true"
         android:id="@+id/progressBar2"
-        android:layout_alignBottom="@+id/textView2"
-        android:layout_toRightOf="@+id/textView2"
-        android:layout_toEndOf="@+id/textView2" />
+        android:layout_above="@+id/textView2"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -25,28 +25,8 @@
         android:id="@+id/textView2"
         android:textColor="#fffffdfb"
         android:textSize="30dp"
-        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
-    <ImageView
-        android:layout_width="400dp"
-        android:layout_height="250dp"
-        android:id="@+id/img_cont"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/txt_advice"
-        android:textSize="20dp"
-        android:textColor="#fffefffd"
-        android:layout_below="@+id/img_cont"
-        android:layout_alignLeft="@+id/img_cont"
-        android:layout_alignStart="@+id/img_cont"
-        android:layout_marginTop="48dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -54,10 +34,21 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
         android:id="@+id/txt_cont"
-        android:layout_alignTop="@+id/img_cont"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:visibility="invisible"
         android:textColor="#fffefffd" />
+
+    <CheckBox
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:text="         Skip Learning Activity"
+        android:id="@+id/cb_exit"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        android:background="#ffff1a12"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>

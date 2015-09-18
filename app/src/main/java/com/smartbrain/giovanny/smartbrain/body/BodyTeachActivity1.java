@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -27,6 +30,7 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;
+    private String paymentStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -108,7 +112,9 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
             case R.id.btn_play:{
 
                 Intent intent = new Intent(BodyTeachActivity1.this,BodyGameActivity1.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 BodyTeachActivity1.this.finish();
                 startActivity(intent);
@@ -180,5 +186,20 @@ public class BodyTeachActivity1 extends Activity implements View.OnClickListener
 
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (BodyTeachActivity1.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            BodyTeachActivity1.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 
 }

@@ -6,12 +6,15 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
 
@@ -36,6 +39,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;
+    private String paymentStatus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,7 +102,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, Let's play. for play please press the blue button.");
+                        ConvertTextToSpeech("Hello, Let's play. to play please press the blue button.");
 
                     }
                 } else
@@ -145,16 +149,13 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
         int num9 = (int) (Math.random() * images.length);
 
         while (num == num1 || num == num2 || num == num3 || num == num4 || num == num5 || num == num6 ||
-                num == num7 || num == num8 || num == num9 || num1 == num || num1 == num2 || num1 == num3 || num1 == num4 || num1 == num5 || num1 == num6 ||
-                num1 == num7 || num1 == num8 || num1 == num9 || num2 == num || num2 == num1 || num2 == num3 || num2 == num4 || num2 == num5 || num2 == num6 ||
-                num2 == num7 || num2 == num8 || num2 == num9 || num3 == num || num3 == num1 || num3 == num2 || num3 == num4 || num3 == num5 || num3 == num6 ||
-                num3 == num7 || num3 == num8 || num3 == num9 || num4 == num || num4 == num1 || num4 == num2 || num4 == num3 || num4 == num5 || num4 == num6 ||
-                num4 == num7 || num4 == num8 || num4 == num9 || num5 == num || num5 == num1 || num5 == num2 || num5 == num3 || num5 == num4 || num5 == num6 ||
-                num5 == num7 || num5 == num8 || num5 == num9 || num6 == num || num6 == num1 || num6 == num2 || num6 == num3 || num6 == num4 || num6 == num5 ||
-                num6 == num7 || num6 == num8 || num6 == num9 || num7 == num || num7 == num1 || num7 == num2 || num7 == num3 || num7 == num4 || num7 == num5 ||
-                num7 == num6 || num7 == num8 || num7 == num9 || num8 == num || num8 == num1 || num8 == num2 || num8 == num3 || num8 == num4 || num8 == num5 ||
-                num8 == num6 || num8 == num7 || num8 == num9 || num9 == num || num9 == num1 || num9 == num2 || num9 == num3 || num9 == num4 || num9 == num5 ||
-                num9 == num6 || num9 == num7 || num9 == num8) {
+                num == num7 || num == num8 || num == num9 || num1 == num2 || num1 == num3 || num1 == num4 || num1 == num5 || num1 == num6 ||
+                num1 == num7 || num1 == num8 || num1 == num9 ||  num2 == num3 || num2 == num4 || num2 == num5 || num2 == num6 ||
+                num2 == num7 || num2 == num8 || num2 == num9 ||  num3 == num4 || num3 == num5 || num3 == num6 ||
+                num3 == num7 || num3 == num8 || num3 == num9 ||  num4 == num5 || num4 == num6 ||
+                num4 == num7 || num4 == num8 || num4 == num9 ||  num5 == num6 ||
+                num5 == num7 || num5 == num8 || num5 == num9 || num6 == num7 || num6 == num8 || num6 == num9  ||
+                num7 == num8 || num7 == num9 || num8 == num9 ) {
 
             num = (int) (Math.random() * images.length);
             num1 = (int) (Math.random() * images.length);
@@ -332,7 +333,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
 
 
         if (numguia == guia[pos-1]) {
-            ConvertTextToSpeech("Good work!!!!, for next please press the blue button");
+            ConvertTextToSpeech("Good work!!!!, please press the blue button");
 
             downImg1.setEnabled(false);
             downImg2.setEnabled(false);
@@ -531,7 +532,7 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
             }else{
 
                 contNumber.cancel();
-                NumbersGameActivity.this.finish();
+                NumbersGameActivity.this.recreate();
 
             }
         }
@@ -544,5 +545,21 @@ public class NumbersGameActivity extends Activity implements View.OnClickListene
         super.onDestroy();
         tts.stop();
         contNumber.cancel();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (NumbersGameActivity.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            NumbersGameActivity.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

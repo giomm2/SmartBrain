@@ -30,7 +30,7 @@ public class MenuMediumActivity extends Activity  {
     Bundle bundle = new Bundle();
     Bundle extras;
     private MediaPlayer selectSound;
-    private String paymentStatus;
+
 
     private GestureDetectorCompat gestureDetectorCompat;
     private MediaPlayer music;
@@ -62,8 +62,19 @@ public class MenuMediumActivity extends Activity  {
         music.start();
         selectSound = MediaPlayer.create(MenuMediumActivity.this, R.raw.pop);
         pointsC=extras.getInt("POINTS");
-        paymentStatus = extras.getString("PAYMENT");
 
+        if (pointsC < 2000)
+            flower.setEnabled(false);
+        else
+            flower.setEnabled(true);
+        if (pointsC < 3000)
+            flower2.setEnabled(false);
+        else
+            flower2.setEnabled(true);
+        if (pointsC < 4000)
+            flower1.setEnabled(false);
+        else
+            flower1.setEnabled(true);
 
         btnexit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,52 +89,46 @@ public class MenuMediumActivity extends Activity  {
             @Override
             public void onClick(View v) {
 
-                if(pointsC>=2000){
+
                 selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, NeighborhoodLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
-                startActivity(intent);}
-                else{
-
-                    toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 2000 points.");
-                }
+                startActivity(intent);
+                MenuMediumActivity.this.finish();
             }
         });
         flower1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(pointsC>=4000){
+
                 selectSound.start();
                 music.stop();
                 Intent intent = new Intent(MenuMediumActivity.this, AnimalsLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
-                startActivity(intent);}
-                else{
-
-                    toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 4000 points.");
-                }
+                startActivity(intent);
+                MenuMediumActivity.this.finish();
             }
         });
         flower2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(pointsC>=3000){
-
                 selectSound.start();
                 Intent intent = new Intent(MenuMediumActivity.this, ColorsLoadingActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
-                music.stop();}
-                    else{
-
-                        toastActivity.showDialog(MenuMediumActivity.this,"Sorry, you need more than 3000 points.");
-                    }
-
+                music.stop();
+                MenuMediumActivity.this.finish();
             }
         });
     }
@@ -195,7 +200,7 @@ public class MenuMediumActivity extends Activity  {
                         MenuMediumActivity.this, HardMenuActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
-                bundle.putString("PAYMENT", paymentStatus);
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
@@ -206,7 +211,7 @@ public class MenuMediumActivity extends Activity  {
                         MenuMediumActivity.this, MenuEasyActivity.class);
                 bundle.putString("NAME", extras.getString("NAME"));
                 bundle.putInt("POINTS", extras.getInt("POINTS"));
-                bundle.putString("PAYMENT", paymentStatus);
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 overridePendingTransition(R.anim.slide_right_out, R.anim.slide_right_in);

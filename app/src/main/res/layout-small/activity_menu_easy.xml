@@ -65,9 +65,9 @@
         android:layout_height="90dp"
         android:id="@+id/btnfamily"
         android:background="@drawable/family"
-        android:layout_above="@+id/btnvowel"
-        android:layout_alignLeft="@+id/imageView7"
-        android:layout_alignStart="@+id/imageView7" />
+        android:layout_above="@+id/btnbody"
+        android:layout_alignRight="@+id/titleEasy"
+        android:layout_alignEnd="@+id/titleEasy" />
 
     <ImageView
         android:layout_width="90dp"
@@ -107,5 +107,18 @@
         android:layout_alignParentEnd="true"
         android:id="@+id/pay" />
 
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Menu Easy"
+        android:textColor="#FFBF00"
+        android:id="@+id/titleEasy"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btnbody"
+        android:layout_toEndOf="@+id/imgbubble"
+        android:layout_toRightOf="@+id/imgbubble"/>
 
 </RelativeLayout>

@@ -80,9 +80,11 @@
         android:text="Square"
         android:id="@+id/txt_square"
         android:textColor="#FFFFFF"
-        android:layout_above="@+id/shapeContainer"
+        android:layout_above="@+id/heart2"
         android:layout_alignLeft="@+id/shapeContainer"
-        android:layout_alignStart="@+id/shapeContainer" />
+        android:layout_alignStart="@+id/shapeContainer"
+        android:layout_alignRight="@+id/shapeContainer"
+        android:layout_alignEnd="@+id/shapeContainer" />
     <TextView
         android:layout_width="50dp"
         android:layout_height="25dp"
@@ -145,5 +147,16 @@
         android:layout_below="@+id/heart2"
         android:layout_alignLeft="@+id/heart2"
         android:layout_alignStart="@+id/heart2" />
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/next"
+        android:visibility="invisible"
+        android:layout_below="@+id/heart3"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/win"
+        android:layout_marginTop="27dp" />
+
 
 </RelativeLayout>

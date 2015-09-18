@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
 
@@ -22,6 +25,7 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
     private ImageView privious;
     private ImageView secondaryColorViewer;
     private ImageView playButton;
+    private String paymentStatus;
     // TTS
     private TextToSpeech tts;
     // arreglo con palabras para el tts
@@ -196,7 +200,9 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(SecondaryColorLearningActivity.this, ColorsGameActivity.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 SecondaryColorLearningActivity.this.finish();
@@ -233,5 +239,21 @@ public class SecondaryColorLearningActivity extends Activity implements TextToSp
             tts.shutdown();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (SecondaryColorLearningActivity.this, MenuMediumActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            SecondaryColorLearningActivity.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

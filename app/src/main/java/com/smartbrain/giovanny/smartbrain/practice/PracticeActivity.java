@@ -8,6 +8,7 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
 
@@ -34,7 +37,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
     private String[] voice={"A","Bear","Cat","Hen","Cow","Dog","Horse","Lion","Snake",
     "Rabbit","Sheep","Arm","Ear","Eyes","Face","Finger","Foot","Hand","Leg","Mouth","Nose",
     "Brother","Brown","Circle","Blue","Green","Orange","Purple","Red","Yellow","Square","Dad","Doctor","Doctor",
-    "E","Fireman","Grandmother","Grandfather","grey","I","Mom","8","5","4","9","1","7","6","3","2","0","O",
+    "E","Fireman","Grandmother","Grandfather","grey","I","Mom","eight","five","four","nine","one","seven","six","three","two","zero","O",
     "Olive","Policeman","Rectangle","Sister","Teacher","Triangle","U","Wine"};
     private String[] image={"a","animalsbear","animalscat","animalschicken","animalscow","animalsdog",
             "animalshorse","animalslion","animalspig","animalsrabbit","animalssheep","body_arm","body_ear","body_eyes",
@@ -47,7 +50,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
     private int cont=0;
     private int [] numbers = new int[60];
-
+    private String paymentStatus;
     private Button btnStart;
     private Button btnRepeat;
     private TextToSpeech tts;
@@ -129,7 +132,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Welcome to practice, for play please press the blue button.");
+                        ConvertTextToSpeech("Welcome to practice, to play please press the blue button.");
 
                     }
                 } else
@@ -220,7 +223,7 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
 
         if(txtVoice.getText().toString().equalsIgnoreCase(voice[numbers[cont-1]]) ){
 
-            ConvertTextToSpeech("Well done, for next please press the blue button.");
+            ConvertTextToSpeech("Well done, please press the blue button.");
             btnStart.setEnabled(true);
             btn_speak.setEnabled(false);
             btnStart.setVisibility(View.VISIBLE);
@@ -365,5 +368,21 @@ public class PracticeActivity extends Activity implements View.OnClickListener{
         super.onDestroy();
         tts.stop();
         timer.cancel();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (PracticeActivity.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            PracticeActivity.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

@@ -2,13 +2,21 @@ package com.smartbrain.giovanny.smartbrain.practice;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.CheckBox;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -18,24 +26,24 @@ public class PracticeLoadingActivity extends Activity {
 
     private TextToSpeech tts;
     private String text;
-    private TextView txtcont,  txtadvice;
-    private ImageView imgcontent;
-    private int[] images={R.drawable.zpracticeone,R.drawable.zpracticetwo,R.drawable.zpracticethree};
-    private int pos=0;
-    private String[] advice={"You have sixty seconds to record yourself hurry.","Touch the blue button when you are ready to talk.","Check your pronunciation before."};
-    //trae el nombre del usuario
+    private TextView txtcont,txtview2;
+   //trae el nombre del usuario
     Bundle bundle = new Bundle();
     Bundle extras;
     private String name;
+    private CheckBox cbskip;
+    private String paymentStatus;
+    private ProgressBar progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
-
+        progress=(ProgressBar)findViewById(R.id.progressBar2);
         txtcont=(TextView)findViewById(R.id.txt_cont);
-        txtadvice=(TextView)findViewById(R.id.txt_advice);
-        imgcontent=(ImageView)findViewById(R.id.img_cont);
+        cbskip=(CheckBox)findViewById(R.id.cb_exit);
+        txtview2=(TextView)findViewById(R.id.textView2);
+        cbskip.setVisibility(View.INVISIBLE);
 
         contNumber.start();
 
@@ -79,29 +87,24 @@ public class PracticeLoadingActivity extends Activity {
     }
 
     //Contador del juego al acabar quita corazones o vuelve a iniciar la aplicacion.
-    CountDownTimer contNumber= new CountDownTimer(15000,1000) {
+    CountDownTimer contNumber= new CountDownTimer(7000,1000) {
         @Override
         public void onTick(long millisUntilFinished) {
-
             txtcont.setText("" + millisUntilFinished / 1000);
+            if(txtcont.getText().toString().equals("5")) {
+                progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FF6E70FF"), android.graphics.PorterDuff.Mode.MULTIPLY);
+                txtview2.setTextColor(Color.parseColor("#FFFF1A28"));
+            }else if (txtcont.getText().toString().equals("4")){
+                progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFF3D11"), android.graphics.PorterDuff.Mode.MULTIPLY);
+                txtview2.setTextColor(Color.parseColor("#FF8AFF23"));
+            }else if (txtcont.getText().toString().equals("2")){
 
-            if (txtcont.getText().equals("14")){
-
-                imgcontent.setImageResource(images[pos]);
-                txtadvice.setText(advice[pos]);
-                pos++;
-            }else if (txtcont.getText().equals("10")){
-
-                imgcontent.setImageResource(images[pos]);
-                txtadvice.setText(advice[pos]);
-                pos++;
-
-            }else if (txtcont.getText().equals("5")){
-
-                imgcontent.setImageResource(images[pos]);
-                txtadvice.setText(advice[pos]);
-                pos++;
-
+                progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFFFEC33"), android.graphics.PorterDuff.Mode.MULTIPLY);
+                txtview2.setTextColor(Color.parseColor("#FF3799FF"));
+            }
+            else if (txtcont.getText().toString().equals("1")){
+                progress.getIndeterminateDrawable().setColorFilter(Color.parseColor("#FFDF56FF"), android.graphics.PorterDuff.Mode.MULTIPLY);
+                txtview2.setTextColor(Color.parseColor("#FFFF5B8F"));
             }
         }
 
@@ -109,7 +112,9 @@ public class PracticeLoadingActivity extends Activity {
         public void onFinish() {
 
             Intent intent= new Intent(PracticeLoadingActivity.this, PracticeActivity.class);
-            bundle.putString("NAME", name);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
             intent.putExtras(bundle);
             startActivity(intent);
             PracticeLoadingActivity.this.finish();
@@ -135,4 +140,20 @@ public class PracticeLoadingActivity extends Activity {
         contNumber.cancel();
         PracticeLoadingActivity.this.finish();
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (PracticeLoadingActivity.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            PracticeLoadingActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
 }

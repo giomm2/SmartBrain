@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -23,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smartbrain.giovanny.smartbrain.ComnunityWinActivity;
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.MainActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
@@ -37,6 +39,7 @@ import java.util.concurrent.TimeUnit;
 
 public class ActivityPuzzle extends Activity {
 
+    private String paymentStatus;
     protected static final int MENU_SCRAMBLE = 0;
     protected static final int MENU_SELECT_IMAGE = 1;
     protected static final int MENU_TAKE_PHOTO = 2;
@@ -71,7 +74,6 @@ public class ActivityPuzzle extends Activity {
     private TextToSpeech tts;
     private String text,text2;
 
-    private MediaPlayer player;
 
     //trae el nombre del usuario
     Bundle bundle = new Bundle();
@@ -86,11 +88,6 @@ public class ActivityPuzzle extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_activity_puzzle);
 
-        //set back sound
-        player = MediaPlayer.create(ActivityPuzzle.this, R.raw.music);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
 
         timer.start();
         txtcont=(TextView)findViewById(R.id.txtTimer);
@@ -471,17 +468,16 @@ public class ActivityPuzzle extends Activity {
     @Override
     protected void onPause() {
         super.onPause();
-        player.stop();
+
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        player.stop();
+
     }
 
     protected void onFinish() {
-        player.stop();
         tts.stop();
     }
     CountDownTimer timer = new CountDownTimer(300000,1000) {
@@ -498,7 +494,7 @@ public class ActivityPuzzle extends Activity {
         @Override
         public void onFinish() {
 
-            gamePoints=300;
+            gamePoints=650;
             Intent intent = new Intent(ActivityPuzzle.this, ComnunityWinActivity.class);
             bundle.putString("NAME", name);
             bundle.putInt("POINTS", gamePoints);
@@ -516,7 +512,6 @@ public class ActivityPuzzle extends Activity {
         super.onDestroy();
         tts.stop();
         tts.shutdown();
-        player.stop();
     }
 
     @Override
@@ -528,4 +523,19 @@ public class ActivityPuzzle extends Activity {
         ConvertTextToSpeech("Hi" + name);
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (ActivityPuzzle.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", paymentStatus);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            ActivityPuzzle.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

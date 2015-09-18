@@ -5,10 +5,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -29,7 +32,7 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
     // declaracion de TTS y contador para los arrays
     private TextToSpeech tts;
     private int i =0;
-
+    private String paymentStatus;
     // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
     Bundle bundle = new Bundle();
     Bundle extras;
@@ -94,7 +97,9 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(FamilyActivity.this, FamilyActivityGame.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 FamilyActivity.this.finish();
@@ -143,6 +148,22 @@ public class FamilyActivity extends Activity implements TextToSpeech.OnInitListe
             tts.shutdown();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (FamilyActivity.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            FamilyActivity.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

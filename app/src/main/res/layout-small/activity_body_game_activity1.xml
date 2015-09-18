@@ -82,7 +82,7 @@
         android:id="@+id/btn_repeat"
         android:longClickable="false"
         android:background="@drawable/refresh"
-        android:layout_above="@+id/image6"
+        android:layout_alignBottom="@+id/btn_next"
         android:layout_alignRight="@+id/image6"
         android:layout_alignEnd="@+id/image6" />
 

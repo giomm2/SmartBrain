@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
 
@@ -30,14 +33,15 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
     private Animation yellowMovement;
     private Animation blueAnimation;
     private Animation colorFadeIn;
+    private String paymentStatus;
     // TTS
     private TextToSpeech tts;
     // variable que me va a recorrer los arreglos
     int i = 0;
     // arreglo con palabras para el TTS
-    private String[] colorWords = {"Now we are going to learn about the colors, first we have the primary, and secondary colors. Please touch next to continue"
+    private String[] colorWords = {"Now we are going to learn about the colors, first we have the primary, and secondary colors. Please tab the arrow to continue"
             ,"first, we have blue and red combining to create purple.","now we combine yellow and blue to make green"
-            ,"and finally we use red and yellow to make orange, touch the purple color to continue"};
+            ,"and finally we use red and yellow to make orange, press the purple color to continue"};
 
 
     Bundle bundle = new Bundle();
@@ -176,7 +180,9 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ColorLearningActivity.this, SecondaryColorLearningActivity.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 ColorLearningActivity.this.finish();
@@ -214,6 +220,22 @@ public class ColorLearningActivity extends Activity implements TextToSpeech.OnIn
             tts.shutdown();
         }
         super.onDestroy();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (ColorLearningActivity.this, MenuMediumActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            ColorLearningActivity.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
 }

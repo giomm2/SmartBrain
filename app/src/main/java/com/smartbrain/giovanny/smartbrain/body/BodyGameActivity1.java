@@ -6,11 +6,14 @@ import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 
@@ -27,6 +30,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
     private TextToSpeech tts;
     private String text,text2;
     private  int pos=0, guiaImg1,guiaImg2, guiaImg3,guiaImg4,posId=0;
+    private String paymentStatus;
 
     // bundle y extras para agarrar el nombre y el ponerlo en un bundle nuevo
     Bundle bundle = new Bundle();
@@ -77,7 +81,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, Let's play, for play please press the blue button.");
+                        ConvertTextToSpeech("Hello, Let's play,to play please press the blue button.");
 
                     }
                 } else
@@ -97,9 +101,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
         int num2=(int)(Math.random()*images.length);
         int num3=(int)(Math.random()*images.length);
 
-        while(num==num1||num==num2||num==num3||num1==num||num1==num2||num1==num3||
-                num2==num||num2==num1||num2==num3||num3==num||num3==num1
-                ||num3==num2){
+        while(num==num1||num==num2||num==num3||num1==num2||num1==num3|| num2==num3){
 
             num=(int)(Math.random()*images.length);
             num1=(int)(Math.random()*images.length);
@@ -172,8 +174,10 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
                 }else{
                     Intent intent=new Intent(BodyGameActivity1.this,BodyTechActivity2.class);
-                    bundle.putString("NAME", name);
-                    bundle.putInt("POINTS", points);
+                    bundle.putString("NAME", extras.getString("NAME"));
+                    bundle.putInt("POINTS", extras.getInt("POINTS"));
+                    bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+                    bundle.putInt("POINTS2", points);
                     intent.putExtras(bundle);
                     BodyGameActivity1.this.finish();
                     startActivity(intent);
@@ -244,7 +248,7 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
 
         if (numguia==guia[posId]) {
             int time;
-            ConvertTextToSpeech("Good work!!!!, for next please press the blue button.");
+            ConvertTextToSpeech("Good work!!!!,please press the blue button.");
             btnnext.setVisibility(View.VISIBLE);
             btnrepeat.setVisibility(View.INVISIBLE);
             img1.setEnabled(false);
@@ -349,5 +353,21 @@ public class BodyGameActivity1 extends Activity implements View.OnClickListener 
         tts.stop();
         contNumber.cancel();
 
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent = new Intent(BodyGameActivity1.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            BodyGameActivity1.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

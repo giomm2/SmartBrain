@@ -5,9 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.smartbrain.giovanny.smartbrain.MenuEasyActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.Locale;
 
@@ -18,11 +21,12 @@ public class NeighborhoodLearnActivity extends Activity implements TextToSpeech.
     private ImageView repeat;
     private ImageView playBtn;
     private ImageView imageViewer;
+    private String paymentStatus;
     //arrays que necesitare
     private int [] imageArray = {0,R.drawable.teacherf,R.drawable.teacherm,R.drawable.school1,R.drawable.policeman
             ,R.drawable.police_woman,R.drawable.police_station,R.drawable.fire_woman,R.drawable.fireman
             ,R.drawable.firestation,R.drawable.doctorf,R.drawable.doctorm,R.drawable.hospital};
-    private String [] serverWords ={"hello, lets learn about the neighborhood members, please touch next to continue"
+    private String [] serverWords ={"hello, lets learn about the neighborhood members, please tab the blue arrow to continue"
             ,"she is a teacher","and he, is a professor","they both work at the school","he is a policeman"
             ,"and she is a policewoman","they work at the police station","she is a fire-woman","and he is a fire-man"
             ,"they both work at the fire station","she is a doctor","and he is a doctor too","they treat patients, at the hospital" +
@@ -192,7 +196,9 @@ public class NeighborhoodLearnActivity extends Activity implements TextToSpeech.
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(NeighborhoodLearnActivity.this, ConmunityActivity.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
                 startActivity(intent);
                 NeighborhoodLearnActivity.this.finish();
@@ -233,5 +239,19 @@ public class NeighborhoodLearnActivity extends Activity implements TextToSpeech.
     }
 
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (NeighborhoodLearnActivity.this, MenuMediumActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            NeighborhoodLearnActivity.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

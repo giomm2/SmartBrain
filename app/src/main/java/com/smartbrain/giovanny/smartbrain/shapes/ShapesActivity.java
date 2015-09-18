@@ -8,6 +8,7 @@ import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.DragEvent;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -43,8 +44,9 @@ public class ShapesActivity extends Activity {
     private boolean check1;
     private boolean check2;
     private boolean check3;
+    private ImageView win;
 
-
+    private String paymentStatus;
     private TextToSpeech tts;
     private String text;
 //trae el nombre del usuario
@@ -67,6 +69,7 @@ public class ShapesActivity extends Activity {
         heart = (ImageView)findViewById(R.id.heart1);
         heart1 = (ImageView)findViewById(R.id.heart2);
         heart2 = (ImageView)findViewById(R.id.heart3);
+        win = (ImageView)findViewById(R.id.win);
 
         container1 = (ImageView) findViewById(R.id.shapeContainer1);
         container2= (ImageView) findViewById(R.id.shapeContainer2);
@@ -180,12 +183,9 @@ public class ShapesActivity extends Activity {
                             circle.setVisibility(View.VISIBLE);
 
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
-                                bundle.putString("NAME", name);
-                                bundle.putInt("POINTS", gamePoints);
-                                intent.putExtras(bundle);
-                                ShapesActivity.this.finish();
-                                startActivity(intent);
+                                win.setVisibility(View.VISIBLE);
+                                ConvertTextToSpeech("Goog Job! Please touch the arrow to gain your points");
+
                             }
                         } else {
                             if(heart.getVisibility()==View.VISIBLE){
@@ -238,10 +238,8 @@ public class ShapesActivity extends Activity {
                                 }
                             }
                             else{
-                                ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent(ShapesActivity.this, MenuEasyActivity.class);
-                                startActivity(intent);
-                                ShapesActivity.this.finish();
+                                ShapesActivity.this.recreate();
+                                gamePoints=0;
                             }
 
                         }
@@ -282,12 +280,8 @@ public class ShapesActivity extends Activity {
                             square.setVisibility(View.VISIBLE);
 
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
-                                bundle.putString("NAME", name);
-                                bundle.putInt("POINTS", gamePoints);
-                                intent.putExtras(bundle);
-                                ShapesActivity.this.finish();
-                                startActivity(intent);
+                                win.setVisibility(View.VISIBLE);
+                                ConvertTextToSpeech("Goog Job! Please touch the arrow to gain your points");
                             }
 
                         } else {
@@ -338,10 +332,8 @@ public class ShapesActivity extends Activity {
                                 }
 
                             }else{
-                                ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent(ShapesActivity.this, MenuEasyActivity.class);
-                                startActivity(intent);
-                                ShapesActivity.this.finish();
+                                ShapesActivity.this.recreate();
+                                gamePoints=0;
                             }
 
                         }
@@ -383,12 +375,8 @@ public class ShapesActivity extends Activity {
                             triangle.setVisibility(View.VISIBLE);
 
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
-                                bundle.putString("NAME", name);
-                                bundle.putInt("POINTS", gamePoints);
-                                intent.putExtras(bundle);
-                                ShapesActivity.this.finish();
-                                startActivity(intent);
+                                win.setVisibility(View.VISIBLE);
+                                ConvertTextToSpeech("Goog Job! Please touch the arrow to gain your points");
                             }
                         } else {
                             if(heart.getVisibility()==View.VISIBLE){
@@ -438,10 +426,8 @@ public class ShapesActivity extends Activity {
                                 }
                             }
                             else{
-                                ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent(ShapesActivity.this, MenuEasyActivity.class);
-                                startActivity(intent);
-                                ShapesActivity.this.finish();
+                                ShapesActivity.this.recreate();
+                                gamePoints=0;
                             }
                         }
                         break;
@@ -481,12 +467,8 @@ public class ShapesActivity extends Activity {
                             rectangle.setVisibility(View.VISIBLE);
 
                             if(check==true&&check1==true&&check2==true&&check3==true){
-                                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
-                                bundle.putString("NAME", name);
-                                bundle.putInt("POINTS", gamePoints);
-                                intent.putExtras(bundle);
-                                ShapesActivity.this.finish();
-                                startActivity(intent);
+                                win.setVisibility(View.VISIBLE);
+                                ConvertTextToSpeech("Goog Job! Please touch the arrow to gain your points");
                             }
                         } else {
                             if(heart.getVisibility()==View.VISIBLE){
@@ -539,10 +521,8 @@ public class ShapesActivity extends Activity {
                                     gamePoints=gamePoints-10;
                                 }
                             }else {
-                                ConvertTextToSpeech("Sorry try again later");
-                                Intent intent = new Intent(ShapesActivity.this, MenuEasyActivity.class);
-                                startActivity(intent);
-                                ShapesActivity.this.finish();
+                                ShapesActivity.this.recreate();
+                                gamePoints=0;
                             }
                         }
                         break;
@@ -552,6 +532,18 @@ public class ShapesActivity extends Activity {
                         break;
                 }
                 return true;
+            }
+        });
+
+        win.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
+                bundle.putString("NAME", name);
+                bundle.putInt("POINTS", gamePoints);
+                intent.putExtras(bundle);
+                ShapesActivity.this.finish();
+                startActivity(intent);
             }
         });
 
@@ -605,5 +597,21 @@ public class ShapesActivity extends Activity {
         super.onDestroy();
         tts.stop();
         tts.shutdown();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (ShapesActivity.this, MenuEasyActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            ShapesActivity.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

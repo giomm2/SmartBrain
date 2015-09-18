@@ -2,10 +2,10 @@ package com.smartbrain.giovanny.smartbrain.vowels;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
-import android.media.MediaPlayer;
 import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.View;
@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.smartbrain.giovanny.smartbrain.HardMenuActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 
 import java.util.Locale;
@@ -26,14 +27,13 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
     private String[] images2={"apple","elephant","ice","orange","umbrella"};
     private String[] speak={"A like an apple","E like an elephant","I like an ice cream","O like an orange","U like an umbrella"};
     private int num1;
-
+    private String paymentStatus;
     private Button btnnext;
     private ImageView image;
     private ImageView image2;
     private int num;
     private int cont=-1;
     private TextView txtVowel;
-    private MediaPlayer player;
     private TextToSpeech tts;
     private String text;
     private Button btnPlay;
@@ -70,12 +70,6 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
         extras = getIntent().getExtras();
         name = extras.getString("NAME");
 
-
-        //set back sound
-        player = MediaPlayer.create(VowelLearnActivity.this, R.raw.music);
-        player.setLooping(true); // Set looping
-        player.setVolume(100, 100);
-        player.start();
 
         tts = new TextToSpeech(VowelLearnActivity.this, new TextToSpeech.OnInitListener() {
 
@@ -181,10 +175,12 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
             case R.id.btn_play:{
 
                 Intent intent = new Intent(VowelLearnActivity.this,ActivityPuzzle.class);
-                bundle.putString("NAME", name);
+                bundle.putString("NAME", extras.getString("NAME"));
+                bundle.putInt("POINTS", extras.getInt("POINTS"));
+                bundle.putString("PAYMENT", extras.getString("PAYMENT"));
                 intent.putExtras(bundle);
-                startActivity(intent);
                 VowelLearnActivity.this.finish();
+                startActivity(intent);
                 break;
 
             }
@@ -217,13 +213,13 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
     @Override
     protected void onPause() {
         super.onPause();
-        player.stop();
+
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        player.stop();
+
     }
 
     public void Voice(){
@@ -261,5 +257,18 @@ public class VowelLearnActivity extends Activity implements  View.OnClickListene
             tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
     }
 
-
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (VowelLearnActivity.this, HardMenuActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", extras.getString("PAYMENT"));
+            intent.putExtras(bundle);
+            startActivity(intent);
+            VowelLearnActivity.this.finish();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
 }

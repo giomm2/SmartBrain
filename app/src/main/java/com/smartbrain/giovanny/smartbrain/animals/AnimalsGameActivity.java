@@ -8,6 +8,7 @@ import android.speech.RecognizerIntent;
 import android.speech.tts.TextToSpeech;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.smartbrain.giovanny.smartbrain.ColorsWinActivity;
+import com.smartbrain.giovanny.smartbrain.MenuMediumActivity;
 import com.smartbrain.giovanny.smartbrain.R;
 import java.util.ArrayList;
 import java.util.Locale;
@@ -27,7 +29,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
 
     private ImageButton btnSpeak;
     private TextView txtText,txtcont;
-
+    private String paymentStatus;
     private String[] voice={"Dog","Cat","Rabbit","Cow","Horse","Hen","Sheep","Lion","Bear","Snake"};
     private int pos=0;
     private ImageView imgcontent,imgHeart1,imgHeart2,imgHeart3;
@@ -99,7 +101,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
                             result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("error", "This Language is not supported");
                     } else {
-                        ConvertTextToSpeech("Hello, lets play, for play please press the blue button, then touch record");
+                        ConvertTextToSpeech("Hello, lets play, to play please press the blue button, then touch record");
 
                     }
                 } else
@@ -174,7 +176,7 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
 
         if(txtText.getText().toString().equalsIgnoreCase(voice[pos-1]) ){
 
-            ConvertTextToSpeech("Good work, for next please press the blue button.");
+            ConvertTextToSpeech("Good work, please press the blue button.");
             points=points+35;
             contNumber.cancel();
             btnnext.setVisibility(View.VISIBLE);
@@ -283,5 +285,21 @@ public class AnimalsGameActivity extends Activity implements View.OnClickListene
         super.onDestroy();
         tts.stop();
         contNumber.cancel();
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        // TODO Auto-generated method stub
+        if (keyCode == event.KEYCODE_BACK) {
+            Intent intent =new Intent (AnimalsGameActivity.this, MenuMediumActivity.class);
+            bundle.putString("NAME", extras.getString("NAME"));
+            bundle.putInt("POINTS", extras.getInt("POINTS"));
+            bundle.putString("PAYMENT", paymentStatus);
+            intent.putExtras(bundle);
+            startActivity(intent);
+            AnimalsGameActivity.this.finish();
+            tts.stop();
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

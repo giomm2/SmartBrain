@@ -78,11 +78,9 @@
         android:layout_height="60dp"
         android:id="@+id/smoke"
         android:background="@drawable/smoke"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/flower2"
-        android:layout_alignEnd="@+id/flower2"
-        android:layout_marginRight="15dp"
-        android:layout_marginEnd="15dp" />
+        android:layout_alignTop="@+id/titleMedium"
+        android:layout_toRightOf="@+id/flower2"
+        android:layout_toEndOf="@+id/flower2" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -93,5 +91,21 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="75dp"
+        android:layout_height="50dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Menu Medium"
+        android:id="@+id/titleMedium"
+        android:textAlignment="center"
+        android:textSize="30dp"
+
+        android:textColor="#FFBF00"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/flower1"
+        android:layout_alignRight="@+id/smoke"
+        android:layout_alignEnd="@+id/smoke" />
+
 
 </RelativeLayout>
