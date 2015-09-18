@@ -109,7 +109,7 @@ public class ShapesActivity extends Activity {
                 ClipData data = ClipData.newPlainText("", "");
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
                 v.startDrag(data, shadowBuilder, v, 0);
-                v.setVisibility(View.INVISIBLE);
+                v.setVisibility(View.VISIBLE);
                 ConvertTextToSpeech("Circle");
                 circleCheck = true;
                 return circleCheck;
@@ -121,7 +121,7 @@ public class ShapesActivity extends Activity {
                 ClipData data = ClipData.newPlainText("", "");
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
                 v.startDrag(data, shadowBuilder, v, 0);
-                v.setVisibility(View.INVISIBLE);
+                v.setVisibility(View.VISIBLE);
                 ConvertTextToSpeech("Triangle");
                 triangleCheck = true;
                 return triangleCheck;
@@ -134,7 +134,7 @@ public class ShapesActivity extends Activity {
                 ClipData data = ClipData.newPlainText("", "");
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
                 v.startDrag(data, shadowBuilder, v, 0);
-                v.setVisibility(View.INVISIBLE);
+                v.setVisibility(View.VISIBLE);
                 ConvertTextToSpeech("Square");
                 squareCheck = true;
                 return squareCheck;
@@ -147,7 +147,7 @@ public class ShapesActivity extends Activity {
                 ClipData data = ClipData.newPlainText("", "");
                 View.DragShadowBuilder shadowBuilder = new View.DragShadowBuilder(v);
                 v.startDrag(data, shadowBuilder, v, 0);
-                v.setVisibility(View.INVISIBLE);
+                v.setVisibility(View.VISIBLE);
                 ConvertTextToSpeech("Rectangle");
                 rectangleCheck = true;
                 return rectangleCheck;
@@ -177,6 +177,8 @@ public class ShapesActivity extends Activity {
                             circleCheck = false;
                             check=true;
                             gamePoints=gamePoints+30;
+                            circle.setVisibility(View.VISIBLE);
+
                             if(check==true&&check1==true&&check2==true&&check3==true){
                                 Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
                                 bundle.putString("NAME", name);
@@ -277,6 +279,8 @@ public class ShapesActivity extends Activity {
                             squareCheck=false;
                             check1=true;
                             gamePoints=gamePoints+30;
+                            square.setVisibility(View.VISIBLE);
+
                             if(check==true&&check1==true&&check2==true&&check3==true){
                                 Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
                                 bundle.putString("NAME", name);
@@ -376,6 +380,8 @@ public class ShapesActivity extends Activity {
                             triangleCheck=false;
                             check2=true;
                             gamePoints=gamePoints+30;
+                            triangle.setVisibility(View.VISIBLE);
+
                             if(check==true&&check1==true&&check2==true&&check3==true){
                                 Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
                                 bundle.putString("NAME", name);
@@ -472,6 +478,8 @@ public class ShapesActivity extends Activity {
                             rectangleCheck=false;
                             check3=true;
                             gamePoints=gamePoints+30;
+                            rectangle.setVisibility(View.VISIBLE);
+
                             if(check==true&&check1==true&&check2==true&&check3==true){
                                 Intent intent = new Intent(ShapesActivity.this, WinActivity.class);
                                 bundle.putString("NAME", name);
